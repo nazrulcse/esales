@@ -1,13 +1,690 @@
-<% if user_signed_in? %>
+<div class="j-menu-container"></div>
 
-    <%= image_tag current_user.image_url(:thumb) if current_user.image? %>
-    <%= current_user.name %>
 
-    <li>
-      <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
-    </li>
-<% else %>
-    <li>
-      <%= link_to('Login', new_user_session_path)  %>
-    </li>
-<% end %>
+<div class="l-main-container">
+
+  <div class="b-slidercontainer">
+    <div class="b-slider j-fullscreenslider ">
+      <ul>
+        <li data-transition="" data-slotamount="7">
+          <div class="tp-bannertimer"></div>
+          <%= image_tag('slider_shop_1.jpg') %>
+          <!--<img data-retina src="slider_shop_1.jpg">-->
+          <div class="caption sfb"  data-x="30" data-y="bottom" data-speed="700" data-start="1700" data-easing="Power4.easeOut"><%= image_tag('slider_shop_1-1.png')   %></div>
+          <div class="caption"  data-x="180" data-y="bottom" data-voffset="-1" data-speed="2100" data-start="3300" data-easing="easeOutBack"> <%= image_tag('slider_shop_1-2.png') %></div>
+          <!--<img data-retina src="slider_shop_1-2.png">-->
+          <div class="caption lfr"  data-x="400"  data-y="100" data-speed="300" data-start="2000">
+            <div class="b-header-group f-header-group f-header-group--light">
+              <h2 class="f-legacy-h2 f-primary-l">summer</h2>
+              <h1 class="f-legacy-h1 f-primary-sb">collections</h1>
+            </div>
+          </div>
+          <div class="caption lfb"  data-x="400" data-y="270" data-speed="300" data-start="2300">
+            <p class="f-primary-b f-uppercase f-slider-lg_text-medium c-white" >Lorem ipsum dolor sit amet, consectetur adipis</p>
+          </div>
+          <div class="caption lfb"  data-x="400" data-y="300" data-speed="300" data-start="2600">
+            <p class="f-primary-b f-uppercase f-slider-lg_text-medium c-white" >Vestibulum scelerisque in enim </p>
+          </div>
+          <div class="caption"  data-x="400" data-y="340" data-speed="600" data-start="3000">
+            <p><a class="b-link f-link f-primary-b f-uppercase" href="#">more <span><i class="fa fa-chevron-right"></i></span></a></p>
+          </div>
+        </li>
+        <li data-transition="" data-slotamount="7">
+          <div class="tp-bannertimer"></div>
+          <%= image_tag('slider_shop_1.jpg') %>
+          <!--<img data-retina src="slider_shop_1.jpg">-->
+          <div class="caption sfb"  data-x="30" data-y="bottom" data-speed="700" data-start="1700" data-easing="Power4.easeOut"> <%= image_tag('slider-shop-2-2.png') %> </div>
+          <!--<img data-retina src="slider-shop-2-2.png">-->
+          <div class="caption lfr"  data-x="400"  data-y="100" data-speed="300" data-start="2000">
+            <div class="b-header-group f-header-group f-header-group--light">
+              <h2 class="f-legacy-h2 f-primary-l">summer</h2>
+              <h1 class="f-legacy-h1 f-primary-sb">collections</h1>
+            </div>
+          </div>
+          <div class="caption lfb"  data-x="400" data-y="270" data-speed="300" data-start="2300">
+            <p class="f-primary-b f-uppercase f-slider-lg_text-medium c-white" >Lorem ipsum dolor sit amet, consectetur adipis</p>
+          </div>
+          <div class="caption lfb"  data-x="400" data-y="300" data-speed="300" data-start="2600">
+            <p class="f-primary-b f-uppercase f-slider-lg_text-medium c-white" >Vestibulum scelerisque in enim </p>
+          </div>
+          <div class="caption"  data-x="400" data-y="340" data-speed="600" data-start="3000">
+            <p><a class="b-link f-link f-primary-b f-uppercase" href="#">more <span><i class="fa fa-chevron-right"></i></span></a></p>
+          </div>
+        </li>
+        <li data-transition="" data-slotamount="7">
+          <div class="tp-bannertimer"></div>
+          <%= image_tag('slider_shop_1.jpg') %>
+          <!--<img data-retina src="slider_shop_1.jpg">-->
+          <div class="caption sfb"  data-x="30" data-y="bottom" data-speed="700" data-start="1700" data-easing="Power4.easeOut"><%= image_tag('slider-shop-3-3.png') %></div>
+          <!--<img data-retina src="slider-shop-3-3.png">-->
+          <div class="caption lfr"  data-x="400"  data-y="100" data-speed="300" data-start="2000">
+            <div class="b-header-group f-header-group f-header-group--light">
+              <h2 class="f-legacy-h2 f-primary-l">summer</h2>
+              <h1 class="f-legacy-h1 f-primary-sb">collections</h1>
+            </div>
+          </div>
+          <div class="caption lfb"  data-x="400" data-y="270" data-speed="300" data-start="2300">
+            <p class="f-primary-b f-uppercase f-slider-lg_text-medium c-white" >Lorem ipsum dolor sit amet, consectetur adipis</p>
+          </div>
+          <div class="caption lfb"  data-x="400" data-y="300" data-speed="300" data-start="2600">
+            <p class="f-primary-b f-uppercase f-slider-lg_text-medium c-white" >Vestibulum scelerisque in enim </p>
+          </div>
+          <div class="caption"  data-x="400" data-y="340" data-speed="600" data-start="3000">
+            <p><a class="b-link f-link f-primary-b f-uppercase" href="#">more <span><i class="fa fa-chevron-right"></i></span></a></p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <section class="b-infoblock b-diagonal-line-bg-light">
+    <div class="container">
+      <div class="row b-col-default-indent">
+        <div class="col-md-6">
+          <div class="b-news-item b-news-item--medium-size f-news-item">
+            <div class="b-news-item__img view view-sixth">
+              <%= image_tag('shop_1.jpg') %>
+              <!--<img data-retina src="shop_1.jpg" alt=""/>-->
+              <div class="b-item-hover-action f-center mask">
+                <div class="b-item-hover-action__inner">
+                  <div class="b-item-hover-action__inner-btn_group">
+                    <a href="#" class="b-btn f-btn b-btn-light f-btn-light info"><i class="fa fa-heart"></i></a>
+                    <a href="#" class="b-btn f-btn b-btn-light f-btn-light info"><i class="fa fa-shopping-cart"></i></a>
+                    <a href="shop_detail.html" class="b-btn f-btn b-btn-light f-btn-light info"><i class="fa fa-link"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="b-news-item__info">
+              <div class="f-news-item__info_category f-uppercase">women</div>
+              <a href="shop_detail.html" class="b-news-item__info_title-big f-news-item__info_title-big f-primary-b">Morphy Richards</a>
+              <div class="b-news-item__info_text f-news-item__info_text">
+                Vestibulum accumsan habitasse dictum id ut Curabitur amet libero mauris condimentum. Ut in lobortis nulla sed augueuisque aenean. Nullam adipiscing sapien ut mi....
+              </div>
+              <div class="b-news-item__article b-color-picker b-news___color-picker f-news___color-picker f-uppercase">
+                <span class="f-news___color-picker_title">Select color</span>
+                <div class="b-color-picker__box">
+                  <div class="b-color-picker_color_1 is-active"></div>
+                  <div class="b-color-picker_color_2"></div>
+                </div>
+              </div>
+              <div class="b-news-item__article">
+                <span class="f-news-item__price f-primary-b b-left">$ 120</span>
+                <div class="b-btn f-btn b-right b-btn-sm-md f-btn-sm-md f-primary-b">
+                  <i class="fa fa-shopping-cart"></i> add cart
+                </div>
+              </div>
+            </div>
+            <div class="b-action-info f-primary-b">
+              <div class="b-action-info_text f-action-info_text">sale</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="b-news-item b-news-item--medium-size f-news-item">
+            <div class="b-news-item__img view view-sixth">
+              <%= image_tag('shop_2.jpg') %>
+              <!--<img data-retina src="shop_2.jpg" alt=""/>-->
+              <div class="b-item-hover-action f-center mask">
+                <div class="b-item-hover-action__inner">
+                  <div class="b-item-hover-action__inner-btn_group">
+                    <a href="#" class="b-btn f-btn b-btn-light f-btn-light info"><i class="fa fa-heart"></i></a>
+                    <a href="#" class="b-btn f-btn b-btn-light f-btn-light info"><i class="fa fa-shopping-cart"></i></a>
+                    <a href="shop_detail.html" class="b-btn f-btn b-btn-light f-btn-light info"><i class="fa fa-link"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="b-news-item__info">
+              <div class="f-news-item__info_category f-uppercase">women</div>
+              <a href="shop_detail.html" class="b-news-item__info_title-big f-news-item__info_title-big f-primary-b">Morphy Richards</a>
+              <div class="b-news-item__info_text f-news-item__info_text">
+                Vestibulum accumsan habitasse dictum id ut Curabitur amet libero mauris condimentum. Ut in lobortis nulla sed augueuisque aenean. Nullam adipiscing sapien ut mi....
+              </div>
+              <div class="b-news-item__article b-color-picker b-news___color-picker f-news___color-picker f-uppercase">
+                <span class="f-news___color-picker_title">Select color</span>
+                <div class="b-color-picker__box">
+                  <div class="b-color-picker_color_1 is-active"></div>
+                  <div class="b-color-picker_color_2"></div>
+                </div>
+              </div>
+              <div class="b-news-item__article">
+                <span class="f-news-item__price f-primary-b b-left">$ 120</span>
+                <div class="b-btn f-btn b-right b-btn-sm-md f-btn-sm-md f-primary-b">
+                  <i class="fa fa-shopping-cart"></i> add cart
+                </div>
+              </div>
+            </div>
+            <div class="b-action-info f-primary-b">
+              <div class="b-action-info_text f-action-info_text">sale</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="b-infoblock">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-9 ">
+          <div class="b-sort-panel">
+            <div class="b-sort-panel__inner">
+              <form action="#">
+                <div class="b-select b-left">
+                  <select class="j-select" name="productAtPage" id="productAtPage">
+                    <option>1 products/page</option>
+                    <option>6 products/page</option>
+                    <option selected="selected">9 products/page</option>
+                  </select>
+                </div>
+
+                <div class="b-select b-left">
+                  <select class="j-select" name="productAtPage" id="productAtPage">
+                    <option>Order by price</option>
+                    <option selected="selected">Order by name</option>
+                  </select>
+                </div>
+                <div class="b-sort-panel__inner_icon-sort f-sort-panel__inner_icon-sort fa fa-sort-amount-desc"></div>
+
+                <div class="b-view-switcher f-view-switcher b-right">
+                  <div class="b-view-switcher_column is-view-switcher__item-active fa fa-th-list"></div>
+                  <div class="b-view-switcher_table fa fa-th"></div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="row">
+            <div class="b-col-default-indent">
+              <div class="col-md-4 col-sm-4 col-xs-6 col-mini-12">
+                <div class="b-product-preview">
+                  <div class="b-product-preview__img view view-sixth">
+                    <%= image_tag('shop_1.png') %>
+                    <!--<img data-retina src="shop_1.png" alt=""/>-->
+                    <div class="b-item-hover-action f-center mask">
+                      <div class="b-item-hover-action__inner">
+                        <div class="b-item-hover-action__inner-btn_group">
+                          <a href="#" class="b-btn f-btn b-btn-light f-btn-light info"><i class="fa fa-heart"></i></a>
+                          <a href="#" class="b-btn f-btn b-btn-light f-btn-light info"><i class="fa fa-shopping-cart"></i></a>
+                          <a href="shop_detail.html" class="b-btn f-btn b-btn-light f-btn-light info"><i class="fa fa-link"></i></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="b-product-preview__content">
+                    <div class="b-product-preview__content_col">
+                      <span class="b-product-preview__content_price f-product-preview__content_price f-primary-b">35$</span>
+                    </div>
+                    <div class="b-product-preview__content_col">
+                      <a href="shop_detail.html" class="f-product-preview__content_title">Skater Dress In Leaf</a>
+                      <div class="f-product-preview__content_category f-primary-b"><a href="#">Women</a> / <a href="#">Clothe</a></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 col-sm-4 col-xs-6 col-mini-12">
+                <div class="b-product-preview">
+                  <div class="b-product-preview__img view view-sixth">
+                    <%= image_tag('shop_2.png') %>
+                    <!--<img data-retina src="shop_2.png" alt=""/>-->
+                    <div class="b-item-hover-action f-center mask">
+                      <div class="b-item-hover-action__inner">
+                        <div class="b-item-hover-action__inner-btn_group">
+                          <a href="#" class="b-btn f-btn b-btn-light f-btn-light info"><i class="fa fa-heart"></i></a>
+                          <a href="#" class="b-btn f-btn b-btn-light f-btn-light info"><i class="fa fa-shopping-cart"></i></a>
+                          <a href="shop_detail.html" class="b-btn f-btn b-btn-light f-btn-light info"><i class="fa fa-link"></i></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="b-product-preview__content">
+                    <div class="b-product-preview__content_col">
+                      <span class="b-product-preview__content_price f-product-preview__content_price f-primary-b">35$</span>
+                    </div>
+                    <div class="b-product-preview__content_col">
+                      <a href="shop_detail.html" class="f-product-preview__content_title">Skater Dress In Leaf</a>
+                      <div class="f-product-preview__content_category f-primary-b"><a href="#">Women</a> / <a href="#">Clothe</a></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="clearfix visible-xs-block"></div>
+              <div class="col-md-4 col-sm-4 col-xs-6 col-mini-12">
+                <div class="b-product-preview">
+                  <div class="b-product-preview__img view view-sixth">
+                    <%= image_tag('shop_3.png') %>
+                    <!--<img data-retina src="shop_3.png" alt=""/>-->
+                    <div class="b-item-hover-action f-center mask">
+                      <div class="b-item-hover-action__inner">
+                        <div class="b-item-hover-action__inner-btn_group">
+                          <a href="#" class="b-btn f-btn b-btn-light f-btn-light info"><i class="fa fa-heart"></i></a>
+                          <a href="#" class="b-btn f-btn b-btn-light f-btn-light info"><i class="fa fa-shopping-cart"></i></a>
+                          <a href="shop_detail.html" class="b-btn f-btn b-btn-light f-btn-light info"><i class="fa fa-link"></i></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="b-product-preview__content">
+                    <div class="b-product-preview__content_col">
+                      <span class="b-product-preview__content_price f-product-preview__content_price f-primary-b">35$</span>
+                    </div>
+                    <div class="b-product-preview__content_col">
+                      <a href="shop_detail.html" class="f-product-preview__content_title">Skater Dress In Leaf</a>
+                      <div class="f-product-preview__content_category f-primary-b"><a href="#">Women</a> / <a href="#">Clothe</a></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="clearfix hidden-xs"></div>
+              <div class="col-md-4 col-sm-4 col-xs-6 col-mini-12">
+                <div class="b-product-preview">
+                  <div class="b-product-preview__img view view-sixth">
+                    <%= image_tag('shop_4.png') %>
+                    <!--<img data-retina src="shop_4.png" alt=""/>-->
+                    <div class="b-item-hover-action f-center mask">
+                      <div class="b-item-hover-action__inner">
+                        <div class="b-item-hover-action__inner-btn_group">
+                          <a href="#" class="b-btn f-btn b-btn-light f-btn-light info"><i class="fa fa-heart"></i></a>
+                          <a href="#" class="b-btn f-btn b-btn-light f-btn-light info"><i class="fa fa-shopping-cart"></i></a>
+                          <a href="shop_detail.html" class="b-btn f-btn b-btn-light f-btn-light info"><i class="fa fa-link"></i></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="b-product-preview__content">
+                    <div class="b-product-preview__content_col">
+                      <span class="b-product-preview__content_price f-product-preview__content_price f-primary-b">35$</span>
+                    </div>
+                    <div class="b-product-preview__content_col">
+                      <a href="shop_detail.html" class="f-product-preview__content_title">Skater Dress In Leaf</a>
+                      <div class="f-product-preview__content_category f-primary-b"><a href="#">Women</a> / <a href="#">Clothe</a></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="clearfix visible-xs-block"></div>
+              <div class="col-md-4 col-sm-4 col-xs-6 col-mini-12">
+                <div class="b-product-preview">
+                  <div class="b-product-preview__img view view-sixth">
+                    <%= image_tag('shop_5.png') %>
+                    <!--<img data-retina src="shop_5.png" alt=""/>-->
+                    <div class="b-item-hover-action f-center mask">
+                      <div class="b-item-hover-action__inner">
+                        <div class="b-item-hover-action__inner-btn_group">
+                          <a href="#" class="b-btn f-btn b-btn-light f-btn-light info"><i class="fa fa-heart"></i></a>
+                          <a href="#" class="b-btn f-btn b-btn-light f-btn-light info"><i class="fa fa-shopping-cart"></i></a>
+                          <a href="shop_detail.html" class="b-btn f-btn b-btn-light f-btn-light info"><i class="fa fa-link"></i></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="b-product-preview__content">
+                    <div class="b-product-preview__content_col">
+                      <span class="b-product-preview__content_price f-product-preview__content_price f-primary-b">35$</span>
+                    </div>
+                    <div class="b-product-preview__content_col">
+                      <a href="shop_detail.html" class="f-product-preview__content_title">Skater Dress In Leaf</a>
+                      <div class="f-product-preview__content_category f-primary-b"><a href="#">Women</a> / <a href="#">Clothe</a></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 col-sm-4 col-xs-6 col-mini-12">
+                <div class="b-product-preview">
+                  <div class="b-product-preview__img view view-sixth">
+                    <%= image_tag('shop_6.png') %>
+                    <!--<img data-retina src="shop_6.png" alt=""/>-->
+                    <div class="b-item-hover-action f-center mask">
+                      <div class="b-item-hover-action__inner">
+                        <div class="b-item-hover-action__inner-btn_group">
+                          <a href="#" class="b-btn f-btn b-btn-light f-btn-light info"><i class="fa fa-heart"></i></a>
+                          <a href="#" class="b-btn f-btn b-btn-light f-btn-light info"><i class="fa fa-shopping-cart"></i></a>
+                          <a href="shop_detail.html" class="b-btn f-btn b-btn-light f-btn-light info"><i class="fa fa-link"></i></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="b-product-preview__content">
+                    <div class="b-product-preview__content_col">
+                      <span class="b-product-preview__content_price f-product-preview__content_price f-primary-b">35$</span>
+                    </div>
+                    <div class="b-product-preview__content_col">
+                      <a href="shop_detail.html" class="f-product-preview__content_title">Skater Dress In Leaf</a>
+                      <div class="f-product-preview__content_category f-primary-b"><a href="#">Women</a> / <a href="#">Clothe</a></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="clearfix hidden-xs"></div>
+              <div class="clearfix visible-xs-block"></div>
+              <div class="col-md-4 col-sm-4 col-xs-6 col-mini-12">
+                <div class="b-product-preview">
+                  <div class="b-product-preview__img view view-sixth">
+                    <%= image_tag('shop_3.png') %>
+                    <!--<img data-retina src="shop_3.png" alt=""/>-->
+                    <div class="b-item-hover-action f-center mask">
+                      <div class="b-item-hover-action__inner">
+                        <div class="b-item-hover-action__inner-btn_group">
+                          <a href="#" class="b-btn f-btn b-btn-light f-btn-light info"><i class="fa fa-heart"></i></a>
+                          <a href="#" class="b-btn f-btn b-btn-light f-btn-light info"><i class="fa fa-shopping-cart"></i></a>
+                          <a href="shop_detail.html" class="b-btn f-btn b-btn-light f-btn-light info"><i class="fa fa-link"></i></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="b-product-preview__content">
+                    <div class="b-product-preview__content_col">
+                      <span class="b-product-preview__content_price f-product-preview__content_price f-primary-b">35$</span>
+                    </div>
+                    <div class="b-product-preview__content_col">
+                      <a href="shop_detail.html" class="f-product-preview__content_title">Skater Dress In Leaf</a>
+                      <div class="f-product-preview__content_category f-primary-b"><a href="#">Women</a> / <a href="#">Clothe</a></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 col-sm-4 col-xs-6 col-mini-12">
+                <div class="b-product-preview">
+                  <div class="b-product-preview__img view view-sixth">
+                    <%= image_tag('shop_4.png') %>
+                    <!--<img data-retina src="shop_4.png" alt=""/>-->
+                    <div class="b-item-hover-action f-center mask">
+                      <div class="b-item-hover-action__inner">
+                        <div class="b-item-hover-action__inner-btn_group">
+                          <a href="#" class="b-btn f-btn b-btn-light f-btn-light info"><i class="fa fa-heart"></i></a>
+                          <a href="#" class="b-btn f-btn b-btn-light f-btn-light info"><i class="fa fa-shopping-cart"></i></a>
+                          <a href="shop_detail.html" class="b-btn f-btn b-btn-light f-btn-light info"><i class="fa fa-link"></i></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="b-product-preview__content">
+                    <div class="b-product-preview__content_col">
+                      <span class="b-product-preview__content_price f-product-preview__content_price f-primary-b">35$</span>
+                    </div>
+                    <div class="b-product-preview__content_col">
+                      <a href="shop_detail.html" class="f-product-preview__content_title">Skater Dress In Leaf</a>
+                      <div class="f-product-preview__content_category f-primary-b"><a href="#">Women</a> / <a href="#">Clothe</a></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="clearfix visible-xs-block"></div>
+              <div class="col-md-4 col-sm-4 col-xs-6 col-mini-12">
+                <div class="b-product-preview">
+                  <div class="b-product-preview__img view view-sixth">
+                    <%= image_tag('shop_5.png') %>
+                    <!--<img data-retina src="shop_5.png" alt=""/>-->
+                    <div class="b-item-hover-action f-center mask">
+                      <div class="b-item-hover-action__inner">
+                        <div class="b-item-hover-action__inner-btn_group">
+                          <a href="#" class="b-btn f-btn b-btn-light f-btn-light info"><i class="fa fa-heart"></i></a>
+                          <a href="#" class="b-btn f-btn b-btn-light f-btn-light info"><i class="fa fa-shopping-cart"></i></a>
+                          <a href="shop_detail.html" class="b-btn f-btn b-btn-light f-btn-light info"><i class="fa fa-link"></i></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="b-product-preview__content">
+                    <div class="b-product-preview__content_col">
+                      <span class="b-product-preview__content_price f-product-preview__content_price f-primary-b">35$</span>
+                    </div>
+                    <div class="b-product-preview__content_col">
+                      <a href="shop_detail.html" class="f-product-preview__content_title">Skater Dress In Leaf</a>
+                      <div class="f-product-preview__content_category f-primary-b"><a href="#">Women</a> / <a href="#">Clothe</a></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="clearfix hidden-xs"></div>
+            </div>
+
+            <div class="container">
+              <div class="b-pagination f-pagination">
+                <ul>
+                  <li><a href="#">First</a></li>
+                  <li><a class="prev" href="#"><i class="fa fa-angle-left"></i></a></li>
+                  <li class="is-active-pagination"><a href="#">1</a></li>
+                  <li><a href="#">2</a></li>
+                  <li><a href="#">3</a></li>
+                  <li><a class="next" href="#"><i class="fa fa-angle-right"></i></a></li>
+                  <li><a href="#">Last</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <aside>
+            <div class="row b-col-default-indent">
+              <div class="col-md-12">
+                <h4 class="f-primary-b b-h4-special f-h4-special c-primary">product price filter</h4>
+                <form action="#">
+                  <div class="b-slider-range j-slider-range f-slider-range">
+                    <span class="b-slider-range_min">0</span>
+                    <span class="b-slider-range_max">$999</span>
+                  </div>
+                  <a href="#" class="b-btn f-btn b-btn-sm f-btn-sm b-btn-default f-primary-b">Filter</a>
+                </form>
+              </div>
+              <div class="col-md-12">
+                <div class="b-categories-filter">
+                  <h4 class="f-primary-b b-h4-special f-h4-special c-primary">Categories filter</h4>
+                  <ul>
+                    <li>
+                      <a class="f-categories-filter_name" href="#"><i class="fa fa-plus"></i> Bikini</a>
+                      <span class="b-categories-filter_count f-categories-filter_count">12</span>
+                    </li>
+                    <li>
+                      <a class="f-categories-filter_name" href="#"><i class="fa fa-plus"></i> Smart Phone</a>
+                      <span class="b-categories-filter_count f-categories-filter_count">23</span>
+                    </li>
+                    <li>
+                      <a class="f-categories-filter_name" href="#"><i class="fa fa-plus"></i> Latop</a>
+                      <span class="b-categories-filter_count f-categories-filter_count">12</span>
+                    </li>
+                    <li>
+                      <a class="f-categories-filter_name" href="#"><i class="fa fa-plus"></i> Apple Store</a>
+                      <span class="b-categories-filter_count f-categories-filter_count">23</span>
+                    </li>
+                    <li>
+                      <a class="f-categories-filter_name" href="#"><i class="fa fa-plus"></i> Wordpress Theme</a>
+                      <span class="b-categories-filter_count f-categories-filter_count">12</span>
+                    </li>
+                    <li>
+                      <a class="f-categories-filter_name" href="#"><i class="fa fa-plus"></i> Web Design</a>
+                      <span class="b-categories-filter_count f-categories-filter_count">23</span>
+                    </li>
+                    <li>
+                      <a class="f-categories-filter_name" href="#"><i class="fa fa-plus"></i> Sport</a>
+                      <span class="b-categories-filter_count f-categories-filter_count">12</span>
+                    </li>
+                    <li>
+                      <a class="f-categories-filter_name" href="#"><i class="fa fa-plus"></i> Fashion</a>
+                      <span class="b-categories-filter_count f-categories-filter_count">23</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-12">
+                <h4 class="f-primary-b b-h4-special f-h4-special c-primary">colors filter</h4>
+                <div class="b-color-picker b-color-picker--alt">
+                  <div class="b-color-picker__box">
+                    <div class="b-color-picker_color_3"></div>
+                    <div class="b-color-picker_color_4"></div>
+                    <div class="b-color-picker_color_5 is-active"></div>
+                    <div class="b-color-picker_color_6"></div>
+                    <div class="b-color-picker_color_7"></div>
+                    <div class="b-color-picker_color_8"></div>
+                    <div class="b-color-picker_color_9"></div>
+                    <div class="b-color-picker_color_10"></div>
+                    <div class="b-color-picker_color_11"></div>
+                    <div class="b-color-picker_color_12"></div>
+                    <div class="b-color-picker_color_13"></div>
+                    <div class="b-color-picker_color_14"></div>
+                    <div class="b-color-picker_color_15"></div>
+                    <div class="b-color-picker_color_16"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-12">
+                <h4 class="f-primary-b b-h4-special f-h4-special c-primary">popular product</h4>
+                <div class="b-blog-short-post b-blog-short-post--popular b-blog-short-post--w-img b-blog-short-post--img-hover-bordered f-blog-short-post--w-img row f-blog-short-post--popular">
+                  <div class="b-blog-short-post__item col-md-12 col-sm-6 col-xs-12">
+                    <div class="b-blog-short-post__item_img">
+                      <a href="#"><%= image_tag('popular_1.png') %></a>
+                      <!--<img data-retina src="popular_1.png" alt=""/>-->
+                    </div>
+                    <div class="b-remaining">
+                      <div class="b-blog-short-post__item_text f-blog-short-post__item_text">
+                        <a href="#">Bodycon Dress in Animal </a>
+                      </div>
+                      <div class="f-blog-short-post__item_price  f-primary-b">
+                        $299.00
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="b-blog-short-post b-blog-short-post--popular b-blog-short-post--w-img b-blog-short-post--img-hover-bordered f-blog-short-post--w-img row f-blog-short-post--popular">
+                  <div class="b-blog-short-post__item col-md-12 col-sm-6 col-xs-12">
+                    <div class="b-blog-short-post__item_img">
+                      <a href="#"><%= image_tag('popular_1.png') %></a>
+                      <!--<img data-retina src="popular_1.png" alt=""/>-->
+                    </div>
+                    <div class="b-remaining">
+                      <div class="b-blog-short-post__item_text f-blog-short-post__item_text">
+                        <a href="#">Bodycon Dress in Animal </a>
+                      </div>
+                      <div class="f-blog-short-post__item_price  f-primary-b">
+                        $299.00
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="b-blog-short-post b-blog-short-post--popular b-blog-short-post--w-img b-blog-short-post--img-hover-bordered f-blog-short-post--w-img row f-blog-short-post--popular">
+                  <div class="b-blog-short-post__item col-md-12 col-sm-6 col-xs-12">
+                    <div class="b-blog-short-post__item_img">
+                      <a href="#"><%= image_tag('popular_1.png') %></a>
+                      <!--<a href="#"><img data-retina src="popular_1.png" alt=""/></a>-->
+                    </div>
+                    <div class="b-remaining">
+                      <div class="b-blog-short-post__item_text f-blog-short-post__item_text">
+                        <a href="#">Bodycon Dress in Animal </a>
+                      </div>
+                      <div class="f-blog-short-post__item_price  f-primary-b">
+                        $299.00
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="b-blog-short-post b-blog-short-post--popular b-blog-short-post--w-img b-blog-short-post--img-hover-bordered f-blog-short-post--w-img row f-blog-short-post--popular">
+                  <div class="b-blog-short-post__item col-md-12 col-sm-6 col-xs-12">
+                    <div class="b-blog-short-post__item_img">
+                      <a href="#"><%= image_tag('popular_1.png') %></a>
+                      <!--<a href="#"><img data-retina src="popular_1.png" alt=""/></a>-->
+                    </div>
+                    <div class="b-remaining">
+                      <div class="b-blog-short-post__item_text f-blog-short-post__item_text">
+                        <a href="#">Bodycon Dress in Animal </a>
+                      </div>
+                      <div class="f-blog-short-post__item_price  f-primary-b">
+                        $299.00
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="b-blog-short-post b-blog-short-post--popular b-blog-short-post--w-img b-blog-short-post--img-hover-bordered f-blog-short-post--w-img row f-blog-short-post--popular">
+                  <div class="b-blog-short-post__item col-md-12 col-sm-6 col-xs-12">
+                    <div class="b-blog-short-post__item_img">
+                      <a href="#"><%= image_tag('popular_1.png') %></a>
+                      <!--<a href="#"><img data-retina src="popular_1.png" alt=""/></a>-->
+                    </div>
+                    <div class="b-remaining">
+                      <div class="b-blog-short-post__item_text f-blog-short-post__item_text">
+                        <a href="#">Bodycon Dress in Animal </a>
+                      </div>
+                      <div class="f-blog-short-post__item_price  f-primary-b">
+                        $299.00
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-12">
+                <h4 class="f-primary-b b-h4-special f-h4-special c-primary">colors filter</h4>
+                <div>
+                  <a class="f-tag b-tag" href="#">Dress</a>
+                  <a class="f-tag b-tag" href="#">Mini</a>
+                  <a class="f-tag b-tag" href="#">Skate animal</a>
+                  <a class="f-tag b-tag" href="#">Lorem ipsum</a>
+                  <a class="f-tag b-tag" href="#">literature</a>
+                  <a class="f-tag b-tag" href="#">Baroque</a>
+                  <a class="f-tag b-tag" href="#">Dress</a>
+                  <a class="f-tag b-tag" href="#">Mini</a>
+                  <a class="f-tag b-tag" href="#">Skate animal</a>
+                  <a class="f-tag b-tag" href="#">Lorem ipsum</a>
+                  <a class="f-tag b-tag" href="#">literature</a>
+                  <a class="f-tag b-tag" href="#">Baroque</a>
+                </div>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+
+<div class="settings-wrap">
+  <div class="settings-title">
+    <div class="label settings-label"><i class="fa fa-cogs"></i></div>
+    <h3>Style selector</h3></div>
+  <div class="settings-inner">
+    <div class="settings-box settings-box-hidden">
+      <h3>Layout style</h3>
+      <div class="settings-btn-container">
+        <div data-settings_layout="off" class="settings-btn active">Wide</div>
+        <div data-settings_layout="on" class="settings-btn">Boxed</div>
+      </div>
+    </div>
+    <div class="settings-box-hidden settings-box--pattern">
+      <h3>Boxed Background
+        Patterns</h3>
+      <ul class="settings-bg">
+        <li data-bg="bg/pattern-lg/pattern_1.png" data-type="pattern"><img width="21" height="21" src="bg/pattern_sm/pattern_1.jpg" alt=""/></li>
+        <li data-bg="bg/pattern-lg/pattern_2.png" data-type="pattern"><img width="21" height="21" src="bg/pattern_sm/pattern_2.jpg" alt=""/></li>
+        <li data-bg="bg/pattern-lg/pattern_3.png" data-type="pattern"><img width="21" height="21" src="bg/pattern_sm/pattern_3.jpg" alt=""/></li>
+        <li data-bg="bg/pattern-lg/pattern_4.png" data-type="pattern"><img width="21" height="21" src="bg/pattern_sm/pattern_4.jpg" alt=""/></li>
+        <li data-bg="bg/pattern-lg/pattern_5.png" data-type="pattern"><img width="21" height="21" src="bg/pattern_sm/pattern_5.jpg" alt=""/></li>
+        <li data-bg="bg/pattern-lg/pattern_6.png" data-type="pattern"><img width="21" height="21" src="bg/pattern_sm/pattern_6.jpg" alt=""/></li>
+        <li data-bg="bg/pattern-lg/pattern_7.png" data-type="pattern"><img width="21" height="21" src="bg/pattern_sm/pattern_7.jpg" alt=""/></li>
+        <li data-bg="bg/pattern-lg/pattern_8.png" data-type="pattern"><img width="21" height="21" src="bg/pattern_sm/pattern_8.jpg" alt=""/></li>
+        <li data-bg="bg/pattern-lg/pattern_9.png" data-type="pattern"><img width="21" height="21" src="bg/pattern_sm/pattern_9.jpg" alt=""/></li>
+        <li data-bg="bg/pattern-lg/pattern_10.png" data-type="pattern"><img width="21" height="21" src="bg/pattern_sm/pattern_10.jpg" alt=""/></li>
+      </ul>
+    </div>
+    <div class="settings-box-hidden settings-box--img">
+      <h3>Boxed Background
+        Images</h3>
+      <ul class="settings-bg">
+        <li data-bg="bg/bg_lg/1.jpg" data-type="img"><img width="21" height="21" src="bg/bg_sm/bg_1.jpg" alt=""/></li>
+        <li data-bg="bg/bg_lg/2.jpg" data-type="img"><img width="21" height="21" src="bg/bg_sm/bg_2.jpg" alt=""/></li>
+        <li data-bg="bg/bg_lg/3.jpg" data-type="img"><img width="21" height="21" src="bg/bg_sm/bg_3.jpg" alt=""/></li>
+        <li data-bg="bg/bg_lg/4.jpg" data-type="img"><img width="21" height="21" src="bg/bg_sm/bg_4.jpg" alt=""/></li>
+        <li data-bg="bg/bg_lg/5.jpg" data-type="img"><img width="21" height="21" src="bg/bg_sm/bg_5.jpg" alt=""/></li>
+      </ul>
+    </div>
+    <div class="settings-box--color">
+      <h3>Color Scheme</h3>
+      <ul class="color-themes">
+        <li data-color="default" class="default-color is-active"></li>
+        <li data-color="cyan" class="cyan-color"></li>
+        <li data-color="blue" class="blue-color"></li>
+        <li data-color="green" class="green-color"></li>
+        <li data-color="red" class="red-color"></li>
+        <li data-color="yellow" class="yellow-color"></li>
+      </ul>
+    </div>
+    <span data-reset class="settings-reset">Reset styles</span>
+  </div>
+</div>

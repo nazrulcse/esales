@@ -1,0 +1,68 @@
+
+.romotiq-head{
+    width: 1095px;
+}
+
+.romotiq-body {
+    float: left;
+    width: 700px;
+    margin-top: 70px;
+    padding-left: 35px;
+}
+
+.thumb-print {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    float: left;
+    height: 150px;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-top: 50px;
+    padding: 6px 12px 6px 10px;
+    text-align: center;
+    width: 165px;
+}
+
+.new-registration {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    float: left;
+    margin-right: 15px;
+    padding: 6px 12px;
+    text-align: center;
+    width: 300px;
+}
+
+.re-registration{
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    float: left;
+    height: 40px;
+    padding: 6px 12px;
+    text-align: center;
+    width: 300px;
+}
+
+.id-no {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    float: left;
+    height: 40px;
+    margin-left: 160px;
+    margin-top: 20px;
+    padding: 6px 12px;
+    text-align: center;
+    width: 300px;
+}
+
+.p-photo {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    float: right;
+    height: 200px;
+    margin-bottom: 30px;
+    padding: 60px 12px 6px;
+    text-align: center;
+    width: 200px;
+}
+

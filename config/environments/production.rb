@@ -1,6 +1,5 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
-
   # Code is not reloaded between requests.
   config.cache_classes = true
 
@@ -11,8 +10,15 @@ Rails.application.configure do
   config.eager_load = true
 
   # Full error reports are disabled and caching is turned on.
-  config.consider_all_requests_local       = false
+  config.consider_all_requests_local = false
   config.action_controller.perform_caching = true
+  # config.assets.precompile += %w( active_admin.css active_admin/print.css active_admin.js )
+  #config.assets.precompile += %w( *.js *.scss *.coffee *.css )
+
+  # config.assets.precompile += [/^[a-z0-9]\w+.(css|js)$/]
+  #
+  #config.assets.precompile += %w(*.svg *.eot *.woff *.ttf *.gif *.png *.ico)
+  # config.assets.precompile << /\A(?!active_admin).*\.(js|css)\z/
 
   # Enable Rack::Cache to put a simple HTTP cache in front of your application
   # Add `rack-cache` to your Gemfile before enabling this.
@@ -23,6 +29,7 @@ Rails.application.configure do
   # Disable serving static files from the `/public` folder by default since
   # Apache or NGINX already handles this.
   config.serve_static_files = ENV['RAILS_SERVE_STATIC_FILES'].present?
+  config.serve_static_assets = true
 
   # Compress JavaScripts and CSS.
   config.assets.js_compressor = :uglifier

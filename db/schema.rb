@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160419122008) do
+ActiveRecord::Schema.define(version: 20160424090208) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -45,6 +45,63 @@ ActiveRecord::Schema.define(version: 20160419122008) do
 
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
+
+  create_table "brands", force: :cascade do |t|
+    t.string   "name",        limit: 255
+    t.text     "description", limit: 65535
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "name",        limit: 255
+    t.text     "description", limit: 65535
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
+
+  create_table "order_details", force: :cascade do |t|
+    t.integer  "order_id",       limit: 4
+    t.float    "price",          limit: 24
+    t.integer  "total_quantity", limit: 4
+    t.float    "discount",       limit: 24
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.date     "date"
+    t.integer  "cart_id",       limit: 4
+    t.date     "shipment_date"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
+  create_table "product_images", force: :cascade do |t|
+    t.integer  "product_id", limit: 4
+    t.string   "image",      limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  create_table "products", force: :cascade do |t|
+    t.string   "name",        limit: 255
+    t.text     "description", limit: 65535
+    t.integer  "category_id", limit: 4
+    t.integer  "brand_id",    limit: 4
+    t.string   "color",       limit: 255
+    t.float    "price",       limit: 24
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
+
+  create_table "shopping_carts", force: :cascade do |t|
+    t.integer  "product_id",  limit: 4
+    t.integer  "quantity",    limit: 4
+    t.float    "total_price", limit: 24
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  limit: 255,   default: "", null: false

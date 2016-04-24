@@ -3,7 +3,8 @@ source 'https://rubygems.org'
 gem 'devise'
 gem "rmagick"
 gem "carrierwave"
-gem 'activeadmin', github: 'activeadmin'
+# gem 'activeadmin', github: 'activeadmin'
+gem 'coffee-script-source', '1.8.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5.2'
 # Use mysql as the database for Active Record

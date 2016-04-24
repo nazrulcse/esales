@@ -1,4 +1,4 @@
-class OrderDetailsController < InheritedResources::Base
+class OrderDetailsController < ApplicationController
 
 end
 

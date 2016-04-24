@@ -1,4 +1,4 @@
-class ShoppingCartsController < InheritedResources::Base
+class ShoppingCartsController < ApplicationController
 
 end
 

@@ -30,7 +30,7 @@ Rails.application.configure do
   # Apache or NGINX already handles this.
   config.serve_static_files = false
   # config.serve_static_assets = true
-  config.assets.precompile =  ['*.js', '*.css', '*.css.erb']
+  config.assets.precompile =  ['*.js', '*.css', '*.css']
 
   # Compress JavaScripts and CSS.
   config.assets.js_compressor = :uglifier

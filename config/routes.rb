@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :order_details
+  resources :shopping_carts
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   devise_for :users
@@ -7,6 +9,8 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'welcome#index'
+
+  get 'product_details' => 'welcome#product_details'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

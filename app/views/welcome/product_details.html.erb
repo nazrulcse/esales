@@ -1,0 +1,467 @@
+<div class="j-menu-container"></div>
+
+<div class="b-inner-page-header f-inner-page-header b-bg-header-inner-page">
+  <div class="b-inner-page-header__content">
+    <div class="container">
+      <h1 class="f-primary-l c-default">Online store</h1>
+      <div class="f-primary-l f-inner-page-header_title-add c-senary">This is online store listing products sample page</div>
+    </div>
+  </div>
+</div>
+<div class="l-main-container">
+
+  <div class="b-breadcrumbs f-breadcrumbs">
+    <div class="container">
+      <ul>
+        <li><a href="#"><i class="fa fa-home"></i>Home</a></li>
+        <li><i class="fa fa-angle-right"></i><a href="#">Shopping</a></li>
+        <li><i class="fa fa-angle-right"></i><span> Detail</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <section class="b-infoblock">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-9 ">
+          <div class="b-shortcode-example">
+            <div class=" f-primary-b b-title-b-hr f-title-b-hr b-null-top-indent">Duis id nulla id enim sodales</div>
+            <div class="b-product-card b-default-top-indent">
+              <div class="b-product-card__visual-wrap">
+                <div class="flexslider b-product-card__visual flexslider-zoom">
+                  <ul class="slides">
+                    <li>
+                      <%= link_to image_tag('shop_1.png') , image_path('shop_1.png'), class: 'fancybox', rel: 'product'%>
+                      <!--<a class="fancybox" rel="product" href="<%#= image_tag('shop_1.png') %>" <%#= image_tag('shop_1.png') %> </a>-->
+                    </li>
+                    <li>
+                      <%= link_to image_tag('shop_2.png') , image_path('shop_2.png'), class: 'fancybox', rel: 'product'%>
+                      <!--<a class="fancybox" rel="product" href="<%#= image_tag('shop_2.png') %>" <%#= image_tag('shop_2.png') %></a>-->
+                    </li>
+                    <li>
+                      <%= link_to image_tag('shop_3.png') , image_path('shop_3.png'), class: 'fancybox', rel: 'product'%>
+                      <!--<a class="fancybox" rel="product" href="<%#= image_tag('shop_3.png') %>" <%#= image_tag('shop_3.png') %></a>-->
+                    </li>
+                    <li>
+                      <%= link_to image_tag('shop_4.png') , image_path('shop_4.png'), class: 'fancybox', rel: 'product'%>
+                      <!--<a class="fancybox" rel="product" href="<%#= image_tag('shop_4.png') %>" <%#= image_tag('shop_4.png') %></a>-->
+                    </li>
+                    <li>
+                      <%= link_to image_tag('shop_3.png') , image_path('shop_3.png'), class: 'fancybox', rel: 'product'%>
+                      <!--<a class="fancybox" rel="product" href="<%#= image_tag('shop_3.png') %>" <%#= image_tag('shop_3.png') %></a>-->
+                    </li>
+                    <li>
+                      <%= link_to image_tag('shop_4.png') , image_path('shop_4.png'), class: 'fancybox', rel: 'product'%>
+                      <!--<a class="fancybox" rel="product" href="<%#= image_tag('shop_4.png') %>" <%#= image_tag('shop_4.png') %></a>-->
+                    </li>
+                  </ul>
+                </div>
+                <div class="flexslider flexslider-thumbnail b-product-card__visual-thumb carousel-sm">
+                  <ul class="slides">
+                    <li>
+                      <%= image_tag('shop_1_sm.png') %>
+                      <!--<img src="img/shop/shop_1_sm.png" />-->
+                    </li>
+                    <li>
+                      <%= image_tag('shop_2_sm.png') %>
+                      <!--<img src="img/shop/shop_2_sm.png" />-->
+                    </li>
+                    <li>
+                      <%= image_tag('shop_3_sm.png') %>
+                      <!--<img src="img/shop/shop_3_sm.png" />-->
+                    </li>
+                    <li>
+                      <%= image_tag('shop_4_sm.png') %>
+                      <!--<img src="img/shop/shop_4_sm.png" />-->
+                    </li>
+                    <li>
+                      <%= image_tag('shop_3_sm.png') %>
+                      <!--<img src="img/shop/shop_3_sm.png" />-->
+                    </li>
+                    <li>
+                      <%= image_tag('shop_4_sm.png') %>
+                      <!--<img src="img/shop/shop_4_sm.png" />-->
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="b-product-card__info">
+                <h4 class="f-primary-b b-h4-special f-h4-special">information</h4>
+                <div class="b-product-card__info_row">
+                  <div class="b-product-card__info_title f-primary-b f-title-smallest">Price</div>
+                  <span class="f-product-card__info_price c-default f-primary-b">$ 129  </span>
+                </div>
+                <div class="b-product-card__info_row">
+                  <div class="b-product-card__info_title f-primary-b f-title-smallest">Reviews</div>
+                  <div class="b-stars-group f-stars-group b-margin-right-standard">
+                    <i class="fa fa-star is-active-stars"></i>
+                    <i class="fa fa-star is-active-stars"></i>
+                    <i class="fa fa-star is-active-stars"></i>
+                    <i class="fa fa-star is-active-stars"></i>
+                    <i class="fa fa-star"></i>
+                  </div>
+                  <span class="f-primary-b c-tertiary f-title-smallest"> <a href="#">(12 reviews)</a></span>
+                </div>
+                <div class="b-product-card__info_row">
+                  <div class="b-product-card__info_description f-product-card__info_description">
+                    Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                  </div>
+                </div>
+                <div class="b-product-card__info_row">
+                  <div class="b-product-card__info_count">
+                    <input type="number" min="1" class="form-control form-control--secondary" placeholder="1">
+                  </div>
+                  <div class="b-product-card__info_add b-margin-right-standard">
+                    <div class=" b-btn f-btn b-btn-sm-md f-btn-sm-md">
+                      <i class="fa fa-shopping-cart"></i> Add to cart
+                    </div>
+                  </div>
+                  <div class="b-product-card__info_like  b-btn f-btn b-btn-sm-md f-btn-sm-md b-btn--icon-only">
+                    <i class="fa fa-heart"></i>
+                  </div>
+                </div>
+                <div class="b-product-card__info_row">
+                  <div class="b-product-card__info_code">
+                    <input type="text" class="form-control form-control--secondary" placeholder="Enter your coupon code">
+                  </div>
+                  <div class="b-product-card__info_submit  b-btn f-btn b-btn-sm-md f-btn-sm-md b-btn--icon-only">
+                    <i class="fa fa-arrow-right"></i>
+                  </div>
+                </div>
+                <div class="b-product-card__info_row">
+                  <div class="b-product-card__info_title f-primary-b f-title-smallest">Categories</div>
+                  <a class="f-more f-title-smallest" href="#">Dress</a>, <a class="f-more f-title-smallest" href="#">Lorem</a>
+                </div>
+                <div class="b-product-card__info_row">
+                  <div class="b-product-card__info_title f-primary-b f-title-smallest">Tags</div>
+                  <div class="b-tag-container">
+                    <a class="f-tag b-tag" href="#">Dress</a>
+                  </div>
+                </div>
+                <div class="b-product-card__info_row">
+                  <div class="b-btn-group-hor f-btn-group-hor">
+                    <a href="#" class="b-btn-group-hor__item f-btn-group-hor__item">
+                      <i class="fa fa-twitter"></i>
+                    </a>
+                    <a href="#" class="b-btn-group-hor__item f-btn-group-hor__item">
+                      <i class="fa fa-facebook"></i>
+                    </a>
+                    <a href="#" class="b-btn-group-hor__item f-btn-group-hor__item">
+                      <i class="fa fa-dribbble"></i>
+                    </a>
+                    <a href="#" class="b-btn-group-hor__item f-btn-group-hor__item">
+                      <i class="fa fa-behance"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <div class="clearfix"></div>
+          <div class="b-shortcode-example">
+            <div class="b-tabs f-tabs j-tabs b-tabs-reset">
+              <ul>
+                <li><a href="#tabs-21">Description</a></li>
+                <li><a href="#tabs-22">Previews</a></li>
+              </ul>
+              <div class="b-tabs__content">
+                <div id="tabs-21">
+                  <h4 class="f-tabs-vertical__title f-primary-b">Product description</h4>
+                  <p>Maecenas laoreet commodo arcu, eu semper lacus tincidunt eget. Vestibulum at arcu pulvinar, fermentum sapien nec, tristique dui. Ut feugiat est at sapien ullamcorper viverra. Vestibulum pretium malesuada elit rutrum condimentum. Donec bibendum scelerisque odio vulputate viverra. Pellentesque habitant morbi tristique senectus et netus et malesuada fames acipsum. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat.  Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. .</p>
+                  <a href="#" class="f-more f-primary-b f-title-smallest">Read more...</a>
+                </div>
+                <div id="tabs-22">
+                  <h4 class="f-tabs-vertical__title f-primary-b">Suspendisse vitae metus enim 2</h4>
+                  <p>Maecenas laoreet commodo arcu, eu semper lacus tincidunt eget. Vestibulum at arcu pulvinar, fermentum sapien nec, tristique dui. Ut feugiat est at sapien ullamcorper viverra. Vestibulum pretium malesuada elit rutrum condimentum. Donec bibendum scelerisque odio vulputate viverra. Pellentesque habitant morbi tristique senectus et netus et malesuada fames acipsum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod purus eu sapien faucibus, quis porta ipsum accumsan.</p>
+                  <a href="#" class="f-more f-primary-b f-title-smallest">Read more...</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <h4 class="f-primary-b b-h4-special f-h4-special">product related</h4>
+            <div class="row">
+              <div class="b-col-default-indent">
+                <div class="col-md-4 col-sm-4 col-xs-6 col-mini-12">
+                  <div class="b-product-preview">
+                    <div class="b-product-preview__img view view-sixth">
+                      <img data-retina src="img/shop/shop_1.png" alt=""/>
+                      <div class="b-item-hover-action f-center mask">
+                        <div class="b-item-hover-action__inner">
+                          <div class="b-item-hover-action__inner-btn_group">
+                            <a href="#" class="b-btn f-btn b-btn-light f-btn-light info"><i class="fa fa-heart"></i></a>
+                            <a href="#" class="b-btn f-btn b-btn-light f-btn-light info"><i class="fa fa-shopping-cart"></i></a>
+                            <a href="shop_detail.html" class="b-btn f-btn b-btn-light f-btn-light info"><i class="fa fa-link"></i></a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="b-product-preview__content">
+                      <div class="b-product-preview__content_col">
+                        <span class="b-product-preview__content_price f-product-preview__content_price f-primary-b">35$</span>
+                      </div>
+                      <div class="b-product-preview__content_col">
+                        <a href="shop_detail.html" class="f-product-preview__content_title">Skater Dress In Leaf</a>
+                        <div class="f-product-preview__content_category f-primary-b"><a href="#">Women</a> / <a href="#">Clothe</a></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4 col-sm-4 col-xs-6 col-mini-12">
+                  <div class="b-product-preview">
+                    <div class="b-product-preview__img view view-sixth">
+                      <img data-retina src="img/shop/shop_2.png" alt=""/>
+                      <div class="b-item-hover-action f-center mask">
+                        <div class="b-item-hover-action__inner">
+                          <div class="b-item-hover-action__inner-btn_group">
+                            <a href="#" class="b-btn f-btn b-btn-light f-btn-light info"><i class="fa fa-heart"></i></a>
+                            <a href="#" class="b-btn f-btn b-btn-light f-btn-light info"><i class="fa fa-shopping-cart"></i></a>
+                            <a href="shop_detail.html" class="b-btn f-btn b-btn-light f-btn-light info"><i class="fa fa-link"></i></a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="b-product-preview__content">
+                      <div class="b-product-preview__content_col">
+                        <span class="b-product-preview__content_price f-product-preview__content_price f-primary-b">35$</span>
+                      </div>
+                      <div class="b-product-preview__content_col">
+                        <a href="shop_detail.html" class="f-product-preview__content_title">Skater Dress In Leaf</a>
+                        <div class="f-product-preview__content_category f-primary-b"><a href="#">Women</a> / <a href="#">Clothe</a></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="clearfix visible-xs-block"></div>
+                <div class="col-md-4 col-sm-4 col-xs-6 col-mini-12">
+                  <div class="b-product-preview">
+                    <div class="b-product-preview__img view view-sixth">
+                      <img data-retina src="img/shop/shop_3.png" alt=""/>
+                      <div class="b-item-hover-action f-center mask">
+                        <div class="b-item-hover-action__inner">
+                          <div class="b-item-hover-action__inner-btn_group">
+                            <a href="#" class="b-btn f-btn b-btn-light f-btn-light info"><i class="fa fa-heart"></i></a>
+                            <a href="#" class="b-btn f-btn b-btn-light f-btn-light info"><i class="fa fa-shopping-cart"></i></a>
+                            <a href="shop_detail.html" class="b-btn f-btn b-btn-light f-btn-light info"><i class="fa fa-link"></i></a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="b-product-preview__content">
+                      <div class="b-product-preview__content_col">
+                        <span class="b-product-preview__content_price f-product-preview__content_price f-primary-b">35$</span>
+                      </div>
+                      <div class="b-product-preview__content_col">
+                        <a href="shop_detail.html" class="f-product-preview__content_title">Skater Dress In Leaf</a>
+                        <div class="f-product-preview__content_category f-primary-b"><a href="#">Women</a> / <a href="#">Clothe</a></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="clearfix hidden-xs"></div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="col-md-3">
+          <aside>
+            <div class="row b-col-default-indent">
+              <div class="col-md-12">
+                <h4 class="f-primary-b b-h4-special f-h4-special c-primary">product price filter</h4>
+                <form action="#">
+                  <div class="b-slider-range j-slider-range f-slider-range">
+                    <span class="b-slider-range_min">0</span>
+                    <span class="b-slider-range_max">$999</span>
+                  </div>
+                  <a href="#" class="b-btn f-btn b-btn-sm f-btn-sm b-btn-default f-primary-b">Filter</a>
+                </form>
+              </div>
+              <div class="col-md-12">
+                <div class="b-categories-filter">
+                  <h4 class="f-primary-b b-h4-special f-h4-special c-primary">Categories filter</h4>
+                  <ul>
+                    <li>
+                      <a class="f-categories-filter_name" href="#"><i class="fa fa-plus"></i> Bikini</a>
+                      <span class="b-categories-filter_count f-categories-filter_count">12</span>
+                    </li>
+                    <li>
+                      <a class="f-categories-filter_name" href="#"><i class="fa fa-plus"></i> Smart Phone</a>
+                      <span class="b-categories-filter_count f-categories-filter_count">23</span>
+                    </li>
+                    <li>
+                      <a class="f-categories-filter_name" href="#"><i class="fa fa-plus"></i> Latop</a>
+                      <span class="b-categories-filter_count f-categories-filter_count">12</span>
+                    </li>
+                    <li>
+                      <a class="f-categories-filter_name" href="#"><i class="fa fa-plus"></i> Apple Store</a>
+                      <span class="b-categories-filter_count f-categories-filter_count">23</span>
+                    </li>
+                    <li>
+                      <a class="f-categories-filter_name" href="#"><i class="fa fa-plus"></i> Wordpress Theme</a>
+                      <span class="b-categories-filter_count f-categories-filter_count">12</span>
+                    </li>
+                    <li>
+                      <a class="f-categories-filter_name" href="#"><i class="fa fa-plus"></i> Web Design</a>
+                      <span class="b-categories-filter_count f-categories-filter_count">23</span>
+                    </li>
+                    <li>
+                      <a class="f-categories-filter_name" href="#"><i class="fa fa-plus"></i> Sport</a>
+                      <span class="b-categories-filter_count f-categories-filter_count">12</span>
+                    </li>
+                    <li>
+                      <a class="f-categories-filter_name" href="#"><i class="fa fa-plus"></i> Fashion</a>
+                      <span class="b-categories-filter_count f-categories-filter_count">23</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-12">
+                <h4 class="f-primary-b b-h4-special f-h4-special c-primary">colors filter</h4>
+                <div class="b-color-picker b-color-picker--alt">
+                  <div class="b-color-picker__box">
+                    <div class="b-color-picker_color_3"></div>
+                    <div class="b-color-picker_color_4"></div>
+                    <div class="b-color-picker_color_5 is-active"></div>
+                    <div class="b-color-picker_color_6"></div>
+                    <div class="b-color-picker_color_7"></div>
+                    <div class="b-color-picker_color_8"></div>
+                    <div class="b-color-picker_color_9"></div>
+                    <div class="b-color-picker_color_10"></div>
+                    <div class="b-color-picker_color_11"></div>
+                    <div class="b-color-picker_color_12"></div>
+                    <div class="b-color-picker_color_13"></div>
+                    <div class="b-color-picker_color_14"></div>
+                    <div class="b-color-picker_color_15"></div>
+                    <div class="b-color-picker_color_16"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-12">
+                <h4 class="f-primary-b b-h4-special f-h4-special c-primary">popular product</h4>
+                <div class="b-blog-short-post b-blog-short-post--popular b-blog-short-post--w-img b-blog-short-post--img-hover-bordered f-blog-short-post--w-img row f-blog-short-post--popular">
+                  <div class="b-blog-short-post__item col-md-12 col-sm-6 col-xs-12">
+                    <div class="b-blog-short-post__item_img">
+                      <a href="#"><img data-retina src="img/shop/popular_1.png" alt=""/></a>
+                    </div>
+                    <div class="b-remaining">
+                      <div class="b-blog-short-post__item_text f-blog-short-post__item_text">
+                        <a href="#">Bodycon Dress in Animal </a>
+                      </div>
+                      <div class="f-blog-short-post__item_price  f-primary-b">
+                        $299.00
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="b-blog-short-post b-blog-short-post--popular b-blog-short-post--w-img b-blog-short-post--img-hover-bordered f-blog-short-post--w-img row f-blog-short-post--popular">
+                  <div class="b-blog-short-post__item col-md-12 col-sm-6 col-xs-12">
+                    <div class="b-blog-short-post__item_img">
+                      <a href="#"><img data-retina src="img/shop/popular_1.png" alt=""/></a>
+                    </div>
+                    <div class="b-remaining">
+                      <div class="b-blog-short-post__item_text f-blog-short-post__item_text">
+                        <a href="#">Bodycon Dress in Animal </a>
+                      </div>
+                      <div class="f-blog-short-post__item_price  f-primary-b">
+                        $299.00
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="b-blog-short-post b-blog-short-post--popular b-blog-short-post--w-img b-blog-short-post--img-hover-bordered f-blog-short-post--w-img row f-blog-short-post--popular">
+                  <div class="b-blog-short-post__item col-md-12 col-sm-6 col-xs-12">
+                    <div class="b-blog-short-post__item_img">
+                      <a href="#"><img data-retina src="img/shop/popular_1.png" alt=""/></a>
+                    </div>
+                    <div class="b-remaining">
+                      <div class="b-blog-short-post__item_text f-blog-short-post__item_text">
+                        <a href="#">Bodycon Dress in Animal </a>
+                      </div>
+                      <div class="f-blog-short-post__item_price  f-primary-b">
+                        $299.00
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="b-blog-short-post b-blog-short-post--popular b-blog-short-post--w-img b-blog-short-post--img-hover-bordered f-blog-short-post--w-img row f-blog-short-post--popular">
+                  <div class="b-blog-short-post__item col-md-12 col-sm-6 col-xs-12">
+                    <div class="b-blog-short-post__item_img">
+                      <a href="#"><img data-retina src="img/shop/popular_1.png" alt=""/></a>
+                    </div>
+                    <div class="b-remaining">
+                      <div class="b-blog-short-post__item_text f-blog-short-post__item_text">
+                        <a href="#">Bodycon Dress in Animal </a>
+                      </div>
+                      <div class="f-blog-short-post__item_price  f-primary-b">
+                        $299.00
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="b-blog-short-post b-blog-short-post--popular b-blog-short-post--w-img b-blog-short-post--img-hover-bordered f-blog-short-post--w-img row f-blog-short-post--popular">
+                  <div class="b-blog-short-post__item col-md-12 col-sm-6 col-xs-12">
+                    <div class="b-blog-short-post__item_img">
+                      <a href="#"><img data-retina src="img/shop/popular_1.png" alt=""/></a>
+                    </div>
+                    <div class="b-remaining">
+                      <div class="b-blog-short-post__item_text f-blog-short-post__item_text">
+                        <a href="#">Bodycon Dress in Animal </a>
+                      </div>
+                      <div class="f-blog-short-post__item_price  f-primary-b">
+                        $299.00
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-12">
+                <h4 class="f-primary-b b-h4-special f-h4-special c-primary">colors filter</h4>
+                <div>
+                  <a class="f-tag b-tag" href="#">Dress</a>
+                  <a class="f-tag b-tag" href="#">Mini</a>
+                  <a class="f-tag b-tag" href="#">Skate animal</a>
+                  <a class="f-tag b-tag" href="#">Lorem ipsum</a>
+                  <a class="f-tag b-tag" href="#">literature</a>
+                  <a class="f-tag b-tag" href="#">Baroque</a>
+                  <a class="f-tag b-tag" href="#">Dress</a>
+                  <a class="f-tag b-tag" href="#">Mini</a>
+                  <a class="f-tag b-tag" href="#">Skate animal</a>
+                  <a class="f-tag b-tag" href="#">Lorem ipsum</a>
+                  <a class="f-tag b-tag" href="#">literature</a>
+                  <a class="f-tag b-tag" href="#">Baroque</a>
+                </div>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<script type="text/javascript" charset="utf-8">
+    $(window).load(function() {
+        // The slider being synced must be initialized first
+        $('.carousel-sm').flexslider({
+            animation: "slide",
+            controlNav: false,
+            animationLoop: false,
+            slideshow: true,
+            itemWidth: 78,
+            itemMargin: 5,
+            asNavFor: '.flexslider'
+        });
+
+        $('.flexslider').flexslider({
+            animation: "slide",
+            controlNav: false,
+            animationLoop: false,
+            slideshow: true,
+            sync: ".carousel-sm"
+        });
+    });
+</script>

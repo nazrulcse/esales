@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: 2016-04-24
+  cart_id: 1
+  shipment_date: 2016-04-24
+
+two:
+  date: 2016-04-24
+  cart_id: 1
+  shipment_date: 2016-04-24

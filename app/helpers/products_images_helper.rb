@@ -1,0 +1,2 @@
+module ProductsImagesHelper
+end

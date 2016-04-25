@@ -23,7 +23,7 @@ module Esales
     # config.assets.initialize_on_precompile = false
     #config.assets.precompile += %w( *.js *.scss *.coffee *.css )
 
-    # config.assets.precompile += %w(*.svg *.eot *.woff *.ttf *.gif *.png *.ico)
+    config.assets.precompile += %w(*.svg *.eot *.woff *.ttf *.gif *.png *.ico *.js *.scss *.coffee *.css )
     # config.assets.precompile << /\A(?!active_admin).*\.(js|css)\z/
 
     # Add webfonts folder which can contain icons used like fonts

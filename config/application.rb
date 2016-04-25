@@ -15,7 +15,7 @@ module Esales
     # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.
     # Run "rake -D time" for a list of tasks for finding time zone names. Default is UTC.
     # config.time_zone = 'Central Time (US & Canada)'
-    # config.assets.enabled = false
+    config.assets.enabled = false
 
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
@@ -23,7 +23,7 @@ module Esales
     # config.assets.initialize_on_precompile = false
     #config.assets.precompile += %w( *.js *.scss *.coffee *.css )
 
-    config.assets.precompile += %w(*.svg *.eot *.woff *.ttf *.gif *.png *.ico *.js *.scss *.coffee *.css )
+    # config.assets.precompile += %w(*.svg *.eot *.woff *.ttf *.gif *.png *.ico *.js *.scss *.coffee *.css )
     # config.assets.precompile << /\A(?!active_admin).*\.(js|css)\z/
 
     # Add webfonts folder which can contain icons used like fonts

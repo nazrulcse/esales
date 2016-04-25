@@ -142,7 +142,7 @@ GEM
     mini_portile2 (2.0.0)
     minitest (5.8.4)
     multi_json (1.11.3)
-    mysql2 (0.3.18)
+    mysql2 (0.3.20)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
     net-ssh (3.1.1)
@@ -244,7 +244,7 @@ DEPENDENCIES
   devise
   jbuilder (~> 2.0)
   jquery-rails
-  mysql2 (= 0.3.18)
+  mysql2 (~> 0.3.18)
   rails (= 4.2.0)
   rmagick
   sass-rails (~> 5.0)
@@ -255,4 +255,4 @@ DEPENDENCIES
   web-console (~> 2.0)
 
 BUNDLED WITH
-   1.10.6
+   1.11.0.pre.2

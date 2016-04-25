@@ -21,9 +21,9 @@ require 'capistrano/deploy'
 require 'capistrano/bundler'
 require 'capistrano/rails/assets'
 require 'capistrano/rails/migrations'
-require 'capistrano3/unicorn'
-require 'capistrano/rails/collection'
-require 'capistrano/faster_assets'
+# require 'capistrano3/unicorn'
+# require 'capistrano/rails/collection'
+# require 'capistrano/faster_assets'
 # require 'capistrano/passenger'
 
 # Load custom tasks from `lib/capistrano/tasks` if you have any defined

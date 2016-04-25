@@ -84,7 +84,10 @@
             <div class="col-md-6">
               <div class="b-news-item b-news-item--medium-size f-news-item">
                 <div class="b-news-item__img view view-sixth">
-                  <%= image_tag(product.images[1].url(:big)) %>
+                  <%if product.product_images.present? %>
+                      <%= image_tag(product.product_images.first.image.url(:big))  %>
+                   <% end %>
+
                   <div class="b-item-hover-action f-center mask">
                     <div class="b-item-hover-action__inner">
                       <div class="b-item-hover-action__inner-btn_group">
@@ -154,7 +157,7 @@
                   <div class="col-md-4 col-sm-4 col-xs-6 col-mini-12">
                     <div class="b-product-preview">
                       <div class="b-product-preview__img view view-sixth">
-                        <%= image_tag(product.images[0].url(:big)) %>
+                        <%= image_tag (product.product_images.first.image.url(:big)) %>
                         <!--<img data-retina src="shop_1.png" alt=""/>-->
                         <div class="b-item-hover-action f-center mask">
                           <div class="b-item-hover-action__inner">

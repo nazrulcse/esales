@@ -84,13 +84,16 @@
             <div class="col-md-6">
               <div class="b-news-item b-news-item--medium-size f-news-item">
                 <div class="b-news-item__img view view-sixth">
-                  <%= image_tag(product.images[1].url(:big)) %>
+                  <%if product.product_images.present? %>
+                      <%= image_tag(product.product_images.first.image.url(:big))  %>
+                  <% end %>
+
                   <div class="b-item-hover-action f-center mask">
                     <div class="b-item-hover-action__inner">
                       <div class="b-item-hover-action__inner-btn_group">
                         <a href="#" class="b-btn f-btn b-btn-light f-btn-light info"><i class="fa fa-heart"></i></a>
                         <a href="#" class="b-btn f-btn b-btn-light f-btn-light info"><i class="fa fa-shopping-cart"></i></a>
-                        <a href="<%= product_path(product) %>" class="b-btn f-btn b-btn-light f-btn-light info"><i class="fa fa-link"></i></a>
+                        <a href="<%=  product_path(product) %>" class="b-btn f-btn b-btn-light f-btn-light info"><i class="fa fa-link"></i></a>
                       </div>
                     </div>
                   </div>
@@ -154,14 +157,14 @@
                   <div class="col-md-4 col-sm-4 col-xs-6 col-mini-12">
                     <div class="b-product-preview">
                       <div class="b-product-preview__img view view-sixth">
-                        <%= image_tag(product.images[0].url(:big)) %>
+                        <%= image_tag (product.product_images.first.image.url(:big)) %>
                         <!--<img data-retina src="shop_1.png" alt=""/>-->
                         <div class="b-item-hover-action f-center mask">
                           <div class="b-item-hover-action__inner">
                             <div class="b-item-hover-action__inner-btn_group">
                               <a href="#" class="b-btn f-btn b-btn-light f-btn-light info"><i class="fa fa-heart"></i></a>
                               <a href="#" class="b-btn f-btn b-btn-light f-btn-light info"><i class="fa fa-shopping-cart"></i></a>
-                              <a href="<%= product_details_path %>" class="b-btn f-btn b-btn-light f-btn-light info"><i class="fa fa-link"></i></a>
+                              <a href="<%=  product_path(product) %>" class="b-btn f-btn b-btn-light f-btn-light info"><i class="fa fa-link"></i></a>
                             </div>
                           </div>
                         </div>
@@ -171,7 +174,7 @@
                           <span class="b-product-preview__content_price f-product-preview__content_price f-primary-b"><%= product.price %>$</span>
                         </div>
                         <div class="b-product-preview__content_col">
-                          <a href="<%= product_details_path %>" class="f-product-preview__content_title"><%= product.name %></a>
+                          <a href="<%=  product_path(product) %>" class="f-product-preview__content_title"><%= product.name %></a>
                           <div class="f-product-preview__content_category f-primary-b"><a href="#"><%= product.category.name %></a> / <a href="#"><%= product.brand.name %></a></div>
                         </div>
                       </div>

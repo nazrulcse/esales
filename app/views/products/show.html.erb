@@ -30,9 +30,9 @@
               <div class="b-product-card__visual-wrap">
                 <div class="flexslider b-product-card__visual flexslider-zoom">
                   <ul class="slides">
-                    <% @product.images.each do |image| %>
+                    <% @product.product_images.each do |image| %>
                         <li>
-                          <%= link_to image_tag(image.url(:big)) , image_path(image.url(:big)), class: 'fancybox', rel: 'product'%>
+                          <%= link_to image_tag(image.image.url(:big)) , image_path(image.image.url(:big)), class: 'fancybox', rel: 'product'%>
                           <!--<a class="fancybox" rel="product" href="<%#= image_tag('shop_1.png') %>" <%#= image_tag('shop_1.png') %> </a>-->
                         </li>
                     <% end %>
@@ -41,9 +41,9 @@
                 <div class="flexslider flexslider-thumbnail b-product-card__visual-thumb carousel-sm">
                   <ul class="slides">
 
-                    <% @product.images.each do |image| %>
+                    <% @product.product_images.each do |image| %>
                         <li>
-                          <%= image_tag(image.url(:thumb)) %>
+                          <%= image_tag(image.image.url(:thumb)) %>
                           <!--<a class="fancybox" rel="product" href="<%#= image_tag('shop_1.png') %>" <%#= image_tag('shop_1.png') %> </a>-->
                         </li>
                     <% end %>

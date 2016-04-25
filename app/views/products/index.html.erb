@@ -90,7 +90,7 @@
                       <div class="b-item-hover-action__inner-btn_group">
                         <a href="#" class="b-btn f-btn b-btn-light f-btn-light info"><i class="fa fa-heart"></i></a>
                         <a href="#" class="b-btn f-btn b-btn-light f-btn-light info"><i class="fa fa-shopping-cart"></i></a>
-                        <a href="<%=  product_path(product) %>" class="b-btn f-btn b-btn-light f-btn-light info"><i class="fa fa-link"></i></a>
+                        <a href="<%= product_path(product) %>" class="b-btn f-btn b-btn-light f-btn-light info"><i class="fa fa-link"></i></a>
                       </div>
                     </div>
                   </div>
@@ -100,12 +100,12 @@
                   <a href="<%=  product_path(product) %>" class="b-news-item__info_title-big f-news-item__info_title-big f-primary-b">Morphy Richards</a>
                   <div class="b-news-item__info_text f-news-item__info_text">
                     <%= product.description %>
-                    </div>
+                  </div>
                   <!--<div class="b-news-item__article b-color-picker b-news___color-picker f-news___color-picker f-uppercase">-->
-                    <!--<span class="f-news___color-picker_title">Select color</span>-->
-                    <!--<div class="b-color-picker__box">-->
-                      <!--<%#= product.color %>-->
-                    <!--</div>-->
+                  <!--<span class="f-news___color-picker_title">Select color</span>-->
+                  <!--<div class="b-color-picker__box">-->
+                  <!--<%#= product.color %>-->
+                  <!--</div>-->
                   <!--</div>-->
                   <div class="b-news-item__article">
                     <span class="f-news-item__price f-primary-b b-left">$ <%= product.price %></span>
@@ -150,7 +150,7 @@
           </div>
           <div class="row">
             <div class="b-col-default-indent">
-                <% @products.each do |product| %>
+              <% @products.each do |product| %>
                   <div class="col-md-4 col-sm-4 col-xs-6 col-mini-12">
                     <div class="b-product-preview">
                       <div class="b-product-preview__img view view-sixth">
@@ -161,7 +161,7 @@
                             <div class="b-item-hover-action__inner-btn_group">
                               <a href="#" class="b-btn f-btn b-btn-light f-btn-light info"><i class="fa fa-heart"></i></a>
                               <a href="#" class="b-btn f-btn b-btn-light f-btn-light info"><i class="fa fa-shopping-cart"></i></a>
-                              <a href="<%=  product_path(product) %>" class="b-btn f-btn b-btn-light f-btn-light info"><i class="fa fa-link"></i></a>
+                              <a href="<%= product_details_path %>" class="b-btn f-btn b-btn-light f-btn-light info"><i class="fa fa-link"></i></a>
                             </div>
                           </div>
                         </div>
@@ -171,13 +171,13 @@
                           <span class="b-product-preview__content_price f-product-preview__content_price f-primary-b"><%= product.price %>$</span>
                         </div>
                         <div class="b-product-preview__content_col">
-                          <a href="<%=  product_path(product) %>" class="f-product-preview__content_title"><%= product.name %></a>
+                          <a href="<%= product_details_path %>" class="f-product-preview__content_title"><%= product.name %></a>
                           <div class="f-product-preview__content_category f-primary-b"><a href="#"><%= product.category.name %></a> / <a href="#"><%= product.brand.name %></a></div>
                         </div>
                       </div>
                     </div>
                   </div>
-                <% end %>
+              <% end %>
               <div class="clearfix hidden-xs"></div>
             </div>
 

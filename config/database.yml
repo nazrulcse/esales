@@ -48,6 +48,6 @@ test:
 #
 production:
   <<: *default
-  database: esales_production
-  username: esales
-  password: <%= ENV['ESALES_DATABASE_PASSWORD'] %>
+  database: esales_development
+  username: root
+  password: root

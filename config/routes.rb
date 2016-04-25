@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  resources :order_details
-  resources :shopping_carts
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -9,6 +9,10 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   get 'product_details' => 'welcome#product_details'
+
+  resources :order_details
+  resources :shopping_carts
+  resources :products
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

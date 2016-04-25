@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>Esales</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'application', media: 'all' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
@@ -10,6 +10,7 @@
 <header>
   <div class="container b-header__box b-relative">
     <a href="http://www.sungeetheme.com/" class="b-left b-logo "><%= image_tag('logo-header-default.png', class: 'color-theme') %></a>
+
     <div class="b-header-r b-right b-header-r--icon">
       <div class="b-header-ico-group f-header-ico-group b-right">
           <span class="b-search-box">
@@ -19,7 +20,9 @@
           <span class="b-header-ico b-header-ico-cart-parent">
               <a href="#" class="b-fa-shopping-cart"><i class="fa fa-shopping-cart"></i></a>
               <div class="b-option-cart__items">
-                <div class="b-option-cart__items__title f-option-cart__items__title f-default-l">Recently added item(s)</div>
+                <div class="b-option-cart__items__title f-option-cart__items__title f-default-l">Recently added
+                  item(s)
+                </div>
                 <ul>
                   <li>
                     <div class="b-option-cart__items__img">
@@ -36,7 +39,8 @@
                       </div>
                     </div>
                     <div class="b-option-cart__items__descr">
-                      <strong class="b-option-cart__descr__title f-option-cart__descr__title"><a href="#">Product Example</a></strong>
+                      <strong class="b-option-cart__descr__title f-option-cart__descr__title"><a href="#">Product
+                        Example</a></strong>
                       <span class="b-option-cart__descr__cost f-option-cart__descr__cost">1 x $239</span>
                     </div>
                     <i class="fa fa-times b-icon--fa"></i>
@@ -56,7 +60,8 @@
                       </div>
                     </div>
                     <div class="b-option-cart__items__descr">
-                      <strong class="b-option-cart__descr__title f-option-cart__descr__title"><a href="#">Product Example</a></strong>
+                      <strong class="b-option-cart__descr__title f-option-cart__descr__title"><a href="#">Product
+                        Example</a></strong>
                       <span class="b-option-cart__descr__cost f-option-cart__descr__cost">1 x $239</span>
                     </div>
                     <i class="fa fa-times b-icon--fa"></i>
@@ -64,33 +69,39 @@
                 </ul>
                 <div class="b-option-cart__btn">
                   <button class="button-xs button-gray-light">Cancel</button>
-                  <button class="button-xs">Check out  </button>
+                  <button class="button-xs">Check out</button>
                 </div>
               </div>
           </span>
       </div>
-      <div class="b-top-nav-show-slide f-top-nav-show-slide b-right j-top-nav-show-slide"><i class="fa fa-align-justify"></i></div>
+      <div class="b-top-nav-show-slide f-top-nav-show-slide b-right j-top-nav-show-slide">
+        <i class="fa fa-align-justify"></i></div>
       <nav class="b-top-nav f-top-nav b-right j-top-nav">
         <ul class="b-top-nav__1level_wrap">
-          <li class="b-top-nav__1level f-top-nav__1level is-active-top-nav__1level f-primary-b"><a href="homepage-1-index.html"><i class="fa fa-home b-menu-1level-ico"></i>Home <span class="b-ico-dropdown"><i class="fa fa-arrow-circle-down"></i></span></a>
+          <li class="b-top-nav__1level f-top-nav__1level is-active-top-nav__1level f-primary-b">
+            <a href="homepage-1-index.html"><i class="fa fa-home b-menu-1level-ico"></i>Home
+              <span class="b-ico-dropdown"><i class="fa fa-arrow-circle-down"></i></span></a>
           </li>
           <li class="b-top-nav__1level f-top-nav__1level f-primary-b">
-            <a href="#"><i class="fa fa-folder-open b-menu-1level-ico"></i>Contact us<span class="b-ico-dropdown"><i class="fa fa-arrow-circle-down"></i></span></a>
+            <a href="#"><i class="fa fa-folder-open b-menu-1level-ico"></i>Contact
+              us<span class="b-ico-dropdown"><i class="fa fa-arrow-circle-down"></i></span></a>
           </li>
-          <% if current_user.present?%>
+          <% if current_user.present? %>
               <li class="b-top-nav__1level f-top-nav__1level f-primary-b">
                 <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
               </li>
           <% else %>
               <li class="b-top-nav__1level f-top-nav__1level f-primary-b">
-                <a href="<%= new_user_session_path %>"><i class="fa fa-list b-menu-1level-ico"></i>Signin <span class="b-ico-dropdown"><i class="fa fa-arrow-circle-down"></i></span></a>
+                <a href="<%= new_user_session_path %>"><i class="fa fa-list b-menu-1level-ico"></i>Signin
+                  <span class="b-ico-dropdown"><i class="fa fa-arrow-circle-down"></i></span></a>
               </li>
               <li class="b-top-nav__1level f-top-nav__1level f-primary-b b-top-nav-big">
                 <a href="<%= new_user_registration_path(user_type: 'regular') %>"><i class="fa fa-folder-open b-menu-1level-ico"></i>Signup<span class="b-ico-dropdown"><i class="fa fa-arrow-circle-down"></i></span></a>
               </li>
 
               <li class="b-top-nav__1level f-top-nav__1level f-primary-b b-top-nav-big">
-                <a href="<%= new_user_registration_path(user_type: 'subscriber') %>"><i class="fa fa-folder-open b-menu-1level-ico"></i>Request For Subscription<span class="b-ico-dropdown"><i class="fa fa-arrow-circle-down"></i></span></a>
+                <a href="<%= new_user_registration_path(user_type: 'subscriber') %>"><i class="fa fa-folder-open b-menu-1level-ico"></i>Request
+                  For Subscription<span class="b-ico-dropdown"><i class="fa fa-arrow-circle-down"></i></span></a>
               </li>
           <% end %>
         </ul>
@@ -131,6 +142,7 @@
         <!--<a href="#"><img data-retina class="b-footer-logo color-theme" src="logo-vertical-default.jpg" alt="Logo"/></a>-->
         <div class="b-footer-logo-text f-footer-logo-text">
           <p>Mauris rhoncus pretium porttitor. Cras scelerisque commodo odio.</p>
+
           <div class="b-btn-group-hor f-btn-group-hor">
             <a href="#" class="b-btn-group-hor__item f-btn-group-hor__item">
               <i class="fa fa-twitter"></i>
@@ -149,6 +161,7 @@
       </div>
       <div class="col-md-3 col-sm-12 col-xs-12">
         <h4 class="f-primary-b f-legacy-h4">Latest blog posts</h4>
+
         <div class="b-blog-short-post row">
           <div class="b-blog-short-post__item col-md-12 col-sm-4 col-xs-12 f-primary-b">
             <div class="b-blog-short-post__item_text f-blog-short-post__item_text">
@@ -178,6 +191,7 @@
       </div>
       <div class="col-md-3 col-sm-12 col-xs-12">
         <h4 class="f-primary-b f-legacy-h4">contact info</h4>
+
         <div class="b-contacts-short-item-group">
           <div class="b-contacts-short-item col-md-12 col-sm-4 col-xs-12">
             <div class="b-contacts-short-item__icon f-contacts-short-item__icon f-contacts-short-item__icon_lg b-left">
@@ -209,42 +223,43 @@
       </div>
       <div class="col-md-3 col-sm-12 col-xs-12 ">
         <h4 class="f-primary-b f-legacy-h4">photo stream</h4>
+
         <div class="b-short-photo-items-group">
           <div class="b-column">
-            <a class="b-short-photo-item fancybox" href="gallery/big/gallery_1.jpg" title="photo stream" rel="footer-group"><%= image_tag('gallery_1.jpg',width: 62, height: 62) %></a>
+            <a class="b-short-photo-item fancybox" href="gallery/big/gallery_1.jpg" title="photo stream" rel="footer-group"><%= image_tag('gallery_1.jpg', width: 62, height: 62) %></a>
           </div>
           <div class="b-column">
-            <a class="b-short-photo-item fancybox" href="gallery/big/gallery_2.jpg" title="photo stream" rel="footer-group"><%= image_tag('gallery_2.jpg',width: 62, height: 62) %></a>
+            <a class="b-short-photo-item fancybox" href="gallery/big/gallery_2.jpg" title="photo stream" rel="footer-group"><%= image_tag('gallery_2.jpg', width: 62, height: 62) %></a>
           </div>
           <div class="b-column">
-            <a class="b-short-photo-item fancybox" href="gallery/big/gallery_3.jpg" title="photo stream" rel="footer-group"><%= image_tag('gallery_3.jpg',width: 62, height: 62) %></a>
+            <a class="b-short-photo-item fancybox" href="gallery/big/gallery_3.jpg" title="photo stream" rel="footer-group"><%= image_tag('gallery_3.jpg', width: 62, height: 62) %></a>
           </div>
           <div class="b-column">
-            <a class="b-short-photo-item fancybox" href="gallery/big/gallery_4.jpg" title="photo stream" rel="footer-group"><%= image_tag('gallery_4.jpg',width: 62, height: 62) %></a>
+            <a class="b-short-photo-item fancybox" href="gallery/big/gallery_4.jpg" title="photo stream" rel="footer-group"><%= image_tag('gallery_4.jpg', width: 62, height: 62) %></a>
           </div>
           <div class="b-column">
-            <a class="b-short-photo-item fancybox" href="gallery/big/gallery_5.jpg" title="photo stream" rel="footer-group"><%= image_tag('gallery_5.jpg',width: 62, height: 62) %></a>
+            <a class="b-short-photo-item fancybox" href="gallery/big/gallery_5.jpg" title="photo stream" rel="footer-group"><%= image_tag('gallery_5.jpg', width: 62, height: 62) %></a>
           </div>
           <div class="b-column">
-            <a class="b-short-photo-item fancybox" href="gallery/big/gallery_6.jpg" title="photo stream" rel="footer-group"><%= image_tag('gallery_6.jpg',width: 62, height: 62) %></a>
+            <a class="b-short-photo-item fancybox" href="gallery/big/gallery_6.jpg" title="photo stream" rel="footer-group"><%= image_tag('gallery_6.jpg', width: 62, height: 62) %></a>
           </div>
           <div class="b-column">
-            <a class="b-short-photo-item fancybox" href="gallery/big/gallery_7.jpg" title="photo stream" rel="footer-group"><%= image_tag('gallery_7.jpg',width: 62, height: 62) %></a>
+            <a class="b-short-photo-item fancybox" href="gallery/big/gallery_7.jpg" title="photo stream" rel="footer-group"><%= image_tag('gallery_7.jpg', width: 62, height: 62) %></a>
           </div>
           <div class="b-column">
-            <a class="b-short-photo-item fancybox" href="gallery/big/gallery_8.jpg" title="photo stream" rel="footer-group"><%= image_tag('gallery_8.jpg',width: 62, height: 62) %></a>
+            <a class="b-short-photo-item fancybox" href="gallery/big/gallery_8.jpg" title="photo stream" rel="footer-group"><%= image_tag('gallery_8.jpg', width: 62, height: 62) %></a>
           </div>
           <div class="b-column hidden-xs">
-            <a class="b-short-photo-item fancybox" href="gallery/big/gallery_9.jpg" title="photo stream" rel="footer-group"><%= image_tag('gallery_9.jpg',width: 62, height: 62) %></a>
+            <a class="b-short-photo-item fancybox" href="gallery/big/gallery_9.jpg" title="photo stream" rel="footer-group"><%= image_tag('gallery_9.jpg', width: 62, height: 62) %></a>
           </div>
           <div class="b-column hidden-sm hidden-xs">
-            <a class="b-short-photo-item fancybox" href="gallery/big/gallery_10.jpg" title="photo stream" rel="footer-group"><%= image_tag('gallery_10.jpg',width: 62, height: 62) %></a>
+            <a class="b-short-photo-item fancybox" href="gallery/big/gallery_10.jpg" title="photo stream" rel="footer-group"><%= image_tag('gallery_10.jpg', width: 62, height: 62) %></a>
           </div>
           <div class="b-column hidden-sm hidden-xs">
-            <a class="b-short-photo-item fancybox" href="gallery/big/gallery_11.jpg" title="photo stream" rel="footer-group"><%= image_tag('gallery_11.jpg',width: 62, height: 62) %></a>
+            <a class="b-short-photo-item fancybox" href="gallery/big/gallery_11.jpg" title="photo stream" rel="footer-group"><%= image_tag('gallery_11.jpg', width: 62, height: 62) %></a>
           </div>
           <div class="b-column hidden-sm hidden-xs">
-            <a class="b-short-photo-item fancybox" href="gallery/big/gallery_12.jpg" title="photo stream" rel="footer-group"><%= image_tag('gallery_12.jpg',width: 62, height: 62) %></a>
+            <a class="b-short-photo-item fancybox" href="gallery/big/gallery_12.jpg" title="photo stream" rel="footer-group"><%= image_tag('gallery_12.jpg', width: 62, height: 62) %></a>
           </div>
         </div>
       </div>

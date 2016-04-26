@@ -9,7 +9,7 @@
 <body>
 <header>
   <div class="container b-header__box b-relative">
-    <a href="http://www.sungeetheme.com/" class="b-left b-logo "><%= image_tag('logo-header-default.png', class: 'color-theme') %></a>
+    <a href="http://www.sungeetheme.com/" class="b-left b-logo "><%= image_tag('logo.png', class: 'color-theme') %></a>
 
     <div class="b-header-r b-right b-header-r--icon">
       <div class="b-header-ico-group f-header-ico-group b-right">
@@ -79,7 +79,7 @@
       <nav class="b-top-nav f-top-nav b-right j-top-nav">
         <ul class="b-top-nav__1level_wrap">
           <li class="b-top-nav__1level f-top-nav__1level is-active-top-nav__1level f-primary-b">
-            <a href="homepage-1-index.html"><i class="fa fa-home b-menu-1level-ico"></i>Home
+            <a href="<%= root_path %>"><i class="fa fa-home b-menu-1level-ico"></i>Home
               <span class="b-ico-dropdown"><i class="fa fa-arrow-circle-down"></i></span></a>
           </li>
           <li class="b-top-nav__1level f-top-nav__1level f-primary-b">
@@ -122,13 +122,13 @@
           </div>
           <nav class="b-bottom-nav f-bottom-nav b-right hidden-xs">
             <ul>
-              <li><a href="homepage-1-index.html">Homepage</a></li>
-              <li class="is-active-bottom-nav"><a href="page_header_1.html">Headers</a></li>
-              <li><a href="portfolio_our_portfolio_1_colums.html">Portfolio</a></li>
-              <li><a href="our_blog_1_columns.html">Blog</a></li>
-              <li><a href="page_search_result.html">Pages</a></li>
-              <li><a href="shortcode_typography.html">Shortcode</a></li>
-              <li><a href="shop_listing_col.html">Shop</a></li>
+              <li><a href="#">Homepage</a></li>
+              <li class="is-active-bottom-nav"><a href="#">Headers</a></li>
+              <li><a href="#">Portfolio</a></li>
+              <li><a href="#">Blog</a></li>
+              <li><a href="#">Pages</a></li>
+              <li><a href="#">Shortcode</a></li>
+              <li><a href="#">Shop</a></li>
             </ul>
           </nav>
         </div>
@@ -138,7 +138,7 @@
   <div class="container">
     <div class="b-footer-secondary row">
       <div class="col-md-3 col-sm-12 col-xs-12 f-center b-footer-logo-containter">
-        <a href="#"><%= image_tag('logo-vertical-default.jpg', class: 'b-footer-logo color-theme') %></a>
+        <a href="#"><%= image_tag('logo.png', class: 'b-footer-logo color-theme') %></a>
         <!--<a href="#"><img data-retina class="b-footer-logo color-theme" src="logo-vertical-default.jpg" alt="Logo"/></a>-->
         <div class="b-footer-logo-text f-footer-logo-text">
           <p>Mauris rhoncus pretium porttitor. Cras scelerisque commodo odio.</p>
@@ -226,40 +226,40 @@
 
         <div class="b-short-photo-items-group">
           <div class="b-column">
-            <a class="b-short-photo-item fancybox" href="gallery/big/gallery_1.jpg" title="photo stream" rel="footer-group"><%= image_tag('gallery_1.jpg', width: 62, height: 62) %></a>
+            <a class="b-short-photo-item fancybox" href="<%= image_path ('gallery_1.jpg') %>" title="photo stream" rel="footer-group"><%= image_tag('gallery_1.jpg', width: 62, height: 62) %></a>
           </div>
           <div class="b-column">
-            <a class="b-short-photo-item fancybox" href="gallery/big/gallery_2.jpg" title="photo stream" rel="footer-group"><%= image_tag('gallery_2.jpg', width: 62, height: 62) %></a>
+            <a class="b-short-photo-item fancybox" href="<%= image_path ('gallery_2.jpg') %>" title="photo stream" rel="footer-group"><%= image_tag('gallery_2.jpg', width: 62, height: 62) %></a>
           </div>
           <div class="b-column">
-            <a class="b-short-photo-item fancybox" href="gallery/big/gallery_3.jpg" title="photo stream" rel="footer-group"><%= image_tag('gallery_3.jpg', width: 62, height: 62) %></a>
+            <a class="b-short-photo-item fancybox" href="<%= image_path ('gallery_3.jpg') %>" title="photo stream" rel="footer-group"><%= image_tag('gallery_3.jpg', width: 62, height: 62) %></a>
           </div>
           <div class="b-column">
-            <a class="b-short-photo-item fancybox" href="gallery/big/gallery_4.jpg" title="photo stream" rel="footer-group"><%= image_tag('gallery_4.jpg', width: 62, height: 62) %></a>
+            <a class="b-short-photo-item fancybox" href="<%= image_path ('gallery_4.jpg') %>" title="photo stream" rel="footer-group"><%= image_tag('gallery_4.jpg', width: 62, height: 62) %></a>
           </div>
           <div class="b-column">
-            <a class="b-short-photo-item fancybox" href="gallery/big/gallery_5.jpg" title="photo stream" rel="footer-group"><%= image_tag('gallery_5.jpg', width: 62, height: 62) %></a>
+            <a class="b-short-photo-item fancybox" href="<%= image_path ('gallery_5.jpg') %>" title="photo stream" rel="footer-group"><%= image_tag('gallery_5.jpg', width: 62, height: 62) %></a>
           </div>
           <div class="b-column">
-            <a class="b-short-photo-item fancybox" href="gallery/big/gallery_6.jpg" title="photo stream" rel="footer-group"><%= image_tag('gallery_6.jpg', width: 62, height: 62) %></a>
+            <a class="b-short-photo-item fancybox" href="<%= image_path ('gallery_6.jpg') %>" title="photo stream" rel="footer-group"><%= image_tag('gallery_6.jpg', width: 62, height: 62) %></a>
           </div>
           <div class="b-column">
-            <a class="b-short-photo-item fancybox" href="gallery/big/gallery_7.jpg" title="photo stream" rel="footer-group"><%= image_tag('gallery_7.jpg', width: 62, height: 62) %></a>
+            <a class="b-short-photo-item fancybox" href="<%= image_path ('gallery_7.jpg') %>" title="photo stream" rel="footer-group"><%= image_tag('gallery_7.jpg', width: 62, height: 62) %></a>
           </div>
           <div class="b-column">
-            <a class="b-short-photo-item fancybox" href="gallery/big/gallery_8.jpg" title="photo stream" rel="footer-group"><%= image_tag('gallery_8.jpg', width: 62, height: 62) %></a>
+            <a class="b-short-photo-item fancybox" href="<%= image_path ('gallery_8.jpg') %>" title="photo stream" rel="footer-group"><%= image_tag('gallery_8.jpg', width: 62, height: 62) %></a>
           </div>
           <div class="b-column hidden-xs">
-            <a class="b-short-photo-item fancybox" href="gallery/big/gallery_9.jpg" title="photo stream" rel="footer-group"><%= image_tag('gallery_9.jpg', width: 62, height: 62) %></a>
+            <a class="b-short-photo-item fancybox" href="<%= image_path ('gallery_9.jpg') %>" title="photo stream" rel="footer-group"><%= image_tag('gallery_9.jpg', width: 62, height: 62) %></a>
           </div>
           <div class="b-column hidden-sm hidden-xs">
-            <a class="b-short-photo-item fancybox" href="gallery/big/gallery_10.jpg" title="photo stream" rel="footer-group"><%= image_tag('gallery_10.jpg', width: 62, height: 62) %></a>
+            <a class="b-short-photo-item fancybox" href="<%= image_path ('gallery_10.jpg') %>" title="photo stream" rel="footer-group"><%= image_tag('gallery_10.jpg', width: 62, height: 62) %></a>
           </div>
           <div class="b-column hidden-sm hidden-xs">
-            <a class="b-short-photo-item fancybox" href="gallery/big/gallery_11.jpg" title="photo stream" rel="footer-group"><%= image_tag('gallery_11.jpg', width: 62, height: 62) %></a>
+            <a class="b-short-photo-item fancybox" href="<%= image_path ('gallery_11.jpg') %>" title="photo stream" rel="footer-group"><%= image_tag('gallery_11.jpg', width: 62, height: 62) %></a>
           </div>
           <div class="b-column hidden-sm hidden-xs">
-            <a class="b-short-photo-item fancybox" href="gallery/big/gallery_12.jpg" title="photo stream" rel="footer-group"><%= image_tag('gallery_12.jpg', width: 62, height: 62) %></a>
+            <a class="b-short-photo-item fancybox" href="<%= image_path ('gallery_12.jpg') %>" title="photo stream" rel="footer-group"><%= image_tag('gallery_12.jpg', width: 62, height: 62) %></a>
           </div>
         </div>
       </div>
@@ -268,3 +268,15 @@
 </footer>
 </body>
 </html>
+
+<!--<script type="text/javascript">-->
+ //   $(document).ready(function() {
+//
+//        $(".b-top-nav__1level_wrap li").click(function ( e ) {
+//            alert($(this).text());
+////            e.preventDefault();
+//           $(".b-top-nav__1level_wrap li").removeClass("is-active-top-nav__1level"); //Remove any "active" class
+//           $(this).addClass("is-active-top-nav__1level");
+//       });
+//    });
+<!--</script>-->

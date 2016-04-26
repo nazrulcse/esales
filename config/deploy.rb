@@ -41,8 +41,8 @@ server '107.170.37.167',
 set :linked_files, %w{config/database.yml config/secrets.yml}
 
 # Default value for linked_dirs is []
-set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/uploads}
-# set :linked_dirs, %w{bin log tmp/pids  vendor/bundle public/system public/uploads}
+#set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/uploads}
+set :linked_dirs, %w{bin log tmp/pids  vendor/bundle public/system public/uploads}
 
 set :keep_releases, 5
 

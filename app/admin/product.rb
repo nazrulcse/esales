@@ -68,7 +68,7 @@ ActiveAdmin.register Product do
       f.inputs do
         f.input :category
         f.input :brand
-        f.input :color,input_html: { type: "text" }
+        f.input :color
         f.input :price
         f.has_many :product_images do |ff|
           ff.input :image

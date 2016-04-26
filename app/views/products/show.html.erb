@@ -30,9 +30,9 @@
               <div class="b-product-card__visual-wrap">
                 <div class="flexslider b-product-card__visual flexslider-zoom">
                   <ul class="slides">
-                    <% @product.images.each do |image| %>
+                    <% @product.product_images.each do |image| %>
                         <li>
-                          <%= link_to image_tag(image.url(:big)) , image_path(image.url(:big)), class: 'fancybox', rel: 'product'%>
+                          <%= link_to image_tag(image.image.url(:big)) , image_path(image.image.url(:big)), class: 'fancybox', rel: 'product'%>
                           <!--<a class="fancybox" rel="product" href="<%#= image_tag('shop_1.png') %>" <%#= image_tag('shop_1.png') %> </a>-->
                         </li>
                     <% end %>
@@ -41,9 +41,9 @@
                 <div class="flexslider flexslider-thumbnail b-product-card__visual-thumb carousel-sm">
                   <ul class="slides">
 
-                    <% @product.images.each do |image| %>
+                    <% @product.product_images.each do |image| %>
                         <li>
-                          <%= image_tag(image.url(:thumb)) %>
+                          <%= image_tag(image.image.url(:thumb)) %>
                           <!--<a class="fancybox" rel="product" href="<%#= image_tag('shop_1.png') %>" <%#= image_tag('shop_1.png') %> </a>-->
                         </li>
                     <% end %>
@@ -124,24 +124,44 @@
 
           </div>
           <div class="clearfix"></div>
+
+
+
           <div class="b-shortcode-example">
             <div class="b-tabs f-tabs j-tabs b-tabs-reset">
-              <ul>
-                <li><a href="#tabs-21">Description</a></li>
-                <li><a href="#tabs-22">Previews</a></li>
+              <ul class="nav nav-tabs">
+                <li class="active"><a data-toggle="tab" href="#home">Description</a></li>
+                <li><a data-toggle="tab" href="#menu1">Previews</a></li>
               </ul>
-              <div class="b-tabs__content">
-                <div id="tabs-21">
+
+              <div class="tab-content b-tabs__content">
+                <div id="home" class="tab-pane fade in active">
                   <h4 class="f-tabs-vertical__title f-primary-b">Product description</h4>
                   <p>Maecenas laoreet commodo arcu, eu semper lacus tincidunt eget. Vestibulum at arcu pulvinar, fermentum sapien nec, tristique dui. Ut feugiat est at sapien ullamcorper viverra. Vestibulum pretium malesuada elit rutrum condimentum. Donec bibendum scelerisque odio vulputate viverra. Pellentesque habitant morbi tristique senectus et netus et malesuada fames acipsum. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat.  Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. .</p>
                   <a href="#" class="f-more f-primary-b f-title-smallest">Read more...</a>
                 </div>
-                <div id="tabs-22">
+                <div id="menu1" class="tab-pane fade">
                   <h4 class="f-tabs-vertical__title f-primary-b">Suspendisse vitae metus enim 2</h4>
                   <p>Maecenas laoreet commodo arcu, eu semper lacus tincidunt eget. Vestibulum at arcu pulvinar, fermentum sapien nec, tristique dui. Ut feugiat est at sapien ullamcorper viverra. Vestibulum pretium malesuada elit rutrum condimentum. Donec bibendum scelerisque odio vulputate viverra. Pellentesque habitant morbi tristique senectus et netus et malesuada fames acipsum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod purus eu sapien faucibus, quis porta ipsum accumsan.</p>
                   <a href="#" class="f-more f-primary-b f-title-smallest">Read more...</a>
                 </div>
               </div>
+              <!--<ul>-->
+                <!--<li><a data-toggle="tab" href="#tabs-21">Description</a></li>-->
+                <!--<li><a data-toggle="tab" href="#tabs-22">Previews</a></li>-->
+              <!--</ul>-->
+              <!--<div class="b-tabs__content">-->
+                <!--<div id="tabs-21">-->
+                  <!--<h4 class="f-tabs-vertical__title f-primary-b">Product description</h4>-->
+                  <!--<p>Maecenas laoreet commodo arcu, eu semper lacus tincidunt eget. Vestibulum at arcu pulvinar, fermentum sapien nec, tristique dui. Ut feugiat est at sapien ullamcorper viverra. Vestibulum pretium malesuada elit rutrum condimentum. Donec bibendum scelerisque odio vulputate viverra. Pellentesque habitant morbi tristique senectus et netus et malesuada fames acipsum. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat.  Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. .</p>-->
+                  <!--<a href="#" class="f-more f-primary-b f-title-smallest">Read more...</a>-->
+                <!--</div>-->
+                <!--<div id="tabs-22">-->
+                  <!--<h4 class="f-tabs-vertical__title f-primary-b">Suspendisse vitae metus enim 2</h4>-->
+                  <!--<p>Maecenas laoreet commodo arcu, eu semper lacus tincidunt eget. Vestibulum at arcu pulvinar, fermentum sapien nec, tristique dui. Ut feugiat est at sapien ullamcorper viverra. Vestibulum pretium malesuada elit rutrum condimentum. Donec bibendum scelerisque odio vulputate viverra. Pellentesque habitant morbi tristique senectus et netus et malesuada fames acipsum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod purus eu sapien faucibus, quis porta ipsum accumsan.</p>-->
+                  <!--<a href="#" class="f-more f-primary-b f-title-smallest">Read more...</a>-->
+                <!--</div>-->
+              <!--</div>-->
             </div>
           </div>
 
@@ -248,38 +268,12 @@
                 <div class="b-categories-filter">
                   <h4 class="f-primary-b b-h4-special f-h4-special c-primary">Categories filter</h4>
                   <ul>
-                    <li>
-                      <a class="f-categories-filter_name" href="#"><i class="fa fa-plus"></i> Bikini</a>
-                      <span class="b-categories-filter_count f-categories-filter_count">12</span>
-                    </li>
-                    <li>
-                      <a class="f-categories-filter_name" href="#"><i class="fa fa-plus"></i> Smart Phone</a>
-                      <span class="b-categories-filter_count f-categories-filter_count">23</span>
-                    </li>
-                    <li>
-                      <a class="f-categories-filter_name" href="#"><i class="fa fa-plus"></i> Latop</a>
-                      <span class="b-categories-filter_count f-categories-filter_count">12</span>
-                    </li>
-                    <li>
-                      <a class="f-categories-filter_name" href="#"><i class="fa fa-plus"></i> Apple Store</a>
-                      <span class="b-categories-filter_count f-categories-filter_count">23</span>
-                    </li>
-                    <li>
-                      <a class="f-categories-filter_name" href="#"><i class="fa fa-plus"></i> Wordpress Theme</a>
-                      <span class="b-categories-filter_count f-categories-filter_count">12</span>
-                    </li>
-                    <li>
-                      <a class="f-categories-filter_name" href="#"><i class="fa fa-plus"></i> Web Design</a>
-                      <span class="b-categories-filter_count f-categories-filter_count">23</span>
-                    </li>
-                    <li>
-                      <a class="f-categories-filter_name" href="#"><i class="fa fa-plus"></i> Sport</a>
-                      <span class="b-categories-filter_count f-categories-filter_count">12</span>
-                    </li>
-                    <li>
-                      <a class="f-categories-filter_name" href="#"><i class="fa fa-plus"></i> Fashion</a>
-                      <span class="b-categories-filter_count f-categories-filter_count">23</span>
-                    </li>
+                    <% @categories.each do |category| %>
+                        <li>
+                          <a class="f-categories-filter_name" href="#"><i class="fa fa-plus"></i> <%= category.name %></a>
+                          <span class="b-categories-filter_count f-categories-filter_count"><%= category.products.count %></span>
+                        </li>
+                    <% end %>
                   </ul>
                 </div>
               </div>

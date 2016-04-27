@@ -12829,4 +12829,24 @@ textarea.b-product-card-textarea {
   display: block;
   visibility: visible; }
 
+.cart-item-count {
+    background: red none repeat scroll 0 0;
+    border-radius: 8px;
+    color: #ffffff;
+    display: block;
+    font-family: "Comic Sans MS";
+    font-size: 12px;
+    font-weight: bold;
+    padding: 0 4px;
+    position: absolute;
+    right: -22%;
+    top: 26%;
+}
+
+.new_line_item {
+    width: 40%;
+    display: inline-block;
+
+}
+
 /*# sourceMappingURL=main-default.css.map */

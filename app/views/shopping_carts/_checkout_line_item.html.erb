@@ -1,0 +1,27 @@
+<tr id="product-<%= line_item.id %>">
+  <td class="cart-item-image">
+    <%= image_tag line_item.product.product_images.first.image_url(:thumb).to_s %>
+  </td>
+  <td>
+    <h3 class='reset-top-margin'> <%= line_item.product.category.name %> </h3>
+    <%= link_to line_item.product.name, product_path(line_item.product) %>
+  </td>
+  <td class='cart-item-price'>
+    <%= number_to_currency(line_item.product.price) %>
+  </td>
+  <td class='cart-item-quantity'>
+    <div class="input-group">
+      <a href="javascript:void(0);" data-id="<%= line_item.id %>" class="add-cart-item input-group-addon"> + </a>
+      <%= text_field_tag(:quantity, line_item.quantity, :class => 'form-control') %>
+      <a href="javascript:void(0);" data-id="<%= line_item.id %>" class="sub-cart-item input-group-addon"> - </a>
+    </div>
+  </td>
+  <td class='cart-item-price text-center cart-item-total-price'>
+    <%= number_to_currency(line_item.total_price) %>
+  </td>
+  <td>
+    <%= link_to line_item_path(line_item), method: :delete, :class => 'remove-cart-item' do %>
+        <i class="fa fa-times"></i>
+    <%end%>
+  </td>
+</tr>

@@ -9,8 +9,16 @@ Rails.application.routes.draw do
   get 'product_details' => 'welcome#product_details'
 
   resources :order_details
+  resources :orders
   resources :shopping_carts
+  resources :line_items
   resources :products
+
+  resources :shopping_carts do
+    member do
+      get 'empty_cart'
+    end
+  end
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

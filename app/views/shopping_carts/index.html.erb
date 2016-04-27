@@ -1,31 +1,76 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Listing Shopping Carts</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Product</th>
-      <th>Quantity</th>
-      <th>Total price</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @shopping_carts.each do |shopping_cart| %>
-      <tr>
-        <td><%= shopping_cart.product_id %></td>
-        <td><%= shopping_cart.quantity %></td>
-        <td><%= shopping_cart.total_price %></td>
-        <td><%= link_to 'Show', shopping_cart %></td>
-        <td><%= link_to 'Edit', edit_shopping_cart_path(shopping_cart) %></td>
-        <td><%= link_to 'Destroy', shopping_cart, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+<ol class="breadcrumb">
+  <li>
+    <%= link_to 'Products', products_path %>
+  </li>
+  <li class="active">Shopping Cart</li>
+</ol>
+<% if @cart.present? %>
+    <table class="table cart-table">
+      <thead>
+      <tr class="cart-menu">
+        <th>Item</th>
+        <th></th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th class='text-center'>Total</th>
+        <th></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+      </thead>
+      <tbody>
+      <% @cart.line_items.each do |line_item| %>
+          <%= render 'shopping_carts/checkout_line_item', :line_item => line_item %>
+      <% end %>
+      </tbody>
+    </table>
 
-<br>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        What would you like to do next?
+      </div>
+      <div class="panel-body">
+        <h3 class="text-center">
+          Total cart amount <span class="cart-total-price"> <%= number_to_currency(@cart.total_price) %> </span>
+        </h3>
 
-<%= link_to 'New Shopping cart', new_shopping_cart_path %>
+        <div class="pull-right">
+          <%= link_to 'Continue Shopping', products_path, :class => 'btn btn-primary' %>
+          <%= link_to 'Checkout', new_order_path(), :class => 'btn btn-warning' %>
+          <%= link_to 'Empty Cart', empty_cart_shopping_cart_path(@cart), :class => 'btn btn-danger', :data => {:confirm => 'Are you sure?'} %>
+        </div>
+      </div>
+    </div>
+
+<% else %>
+    <div class='alert alert-warning'>
+      Empty Shopping Cart
+    </div>
+<% end %>
+
+<script type="text/javascript">
+    $(function () {
+        $('.add-cart-item').click(function (e) {
+            var line_item_id = $(this).attr('data-id');
+            update_cart_item(line_item_id, 1);
+        });
+
+        $('.sub-cart-item').click(function (e) {
+            var element = $(this);
+            if (element.parent().find("#quantity").val() > 1) {
+                update_cart_item(element.attr('data-id'), -1);
+            }
+        });
+    });
+
+    function update_cart_item(id, quantity) {
+        $.ajax({
+            url: '/line_items/' + id,
+            type: 'put',
+            dataType: 'script',
+            data: {quantity: quantity,  authenticity_token: "<%= form_authenticity_token %>"},
+            error: function () {
+                alert('Something went wrong');
+            }
+        });
+    }
+
+</script>

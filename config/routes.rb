@@ -20,6 +20,8 @@ Rails.application.routes.draw do
     end
   end
 
+  post 'user_authentication', to: 'welcome#user_authentication', as: :user_authentication
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

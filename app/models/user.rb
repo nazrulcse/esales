@@ -4,4 +4,5 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, 
          :recoverable, :rememberable, :trackable, :validatable,:registerable
   mount_uploader :image, ImageUploader
+  has_many :orders
 end

@@ -1,0 +1,89 @@
+<div class="panel panel-default">
+  <div class="checkout-title"> Account</div>
+  <div class="panel-body">
+    <% if current_user.present? %>
+        Hi <%= current_user.email %>
+    <% else %>
+        <div class="guest-user">
+          <%= f.check_box :is_guest, :id => 'guest_user' %>
+          <label for="guest_user" class="checkout-label"> I am a Guest User </label>
+
+          <div class="guest-user-email">
+            <div class="guest-user-email form-group">
+              <%= f.text_field(:mobile, :class => 'form-control', :placeholder => 'Guest User Mobile Number') %>
+            </div>
+            <div class="form-group pull-right">
+              <%= link_to 'Continue', 'javascript:void(0);', :id => 'guest-user-continue', :class => 'btn btn-default' %>
+            </div>
+          </div>
+        </div>
+
+        <div class="user-login">
+          <h4 class="checkout-label">
+            <i class="fa fa-user"> </i> Regular user Log in
+          </h4>
+
+          <div class="form-group">
+            <%= email_field_tag :email, '', autofocus: true, :class => 'form-control', :placeholder => 'Email', :id => 'user_email' %>
+          </div>
+
+          <div class="form-group">
+            <%= password_field_tag :password, '', autocomplete: "off", :class => 'form-control', :placeholder => 'Password', :id => 'user_password' %>
+          </div>
+
+          <div class="actions pull-right">
+            <%= link_to 'Log in', 'javascript:void(0);', :id => 'user-login-submit', :class => 'btn btn-default' %>
+          </div>
+        </div>
+    <% end %>
+  </div>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        var guest = $('#guest_user');
+        guest.click(function () {
+            guest_user(this.checked);
+        });
+
+        guest_user(guest.is(':checked'));
+
+        $('#guest-user-continue').click(function () {
+            if ($('#order_mobile').val() != '') {
+                    $('.panel').removeClass('is-disabled');
+                        }
+            else {
+                alert("Please input guest mobile number");
+            }
+        });
+
+        $('#user-login-submit').click(function (e) {
+            e.preventDefault();
+            $.ajax({
+                url: "<%= user_authentication_path %>",
+                type: 'post',
+                dataType: 'script',
+                data: {user: {email: $('#user_email').val(), password: $('#user_password').val()},authenticity_token: "<%= form_authenticity_token %>"},
+                error: function () {
+
+                }
+            });
+        });
+    });
+
+    function validateEmail(email) {
+        var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+        return re.test(email);
+    }
+
+    function guest_user(check) {
+        if (check) {
+            $('.guest-user-email').show();
+            $('.user-login').hide();
+        }
+        else {
+            $('.guest-user-email').hide();
+            $('.user-login').show();
+        }
+    }
+</script>

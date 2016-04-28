@@ -1,0 +1,32 @@
+<ol class="breadcrumb">
+  <li>
+    <%= link_to 'Product', products_path %>
+  </li>
+  <li class="active"> Order List </li>
+</ol>
+
+<div id="order-details" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-lg">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Order Information</h4>
+      </div>
+      <div class="modal-body clearfix">
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+<% if @orders.present? %>
+    <% @orders.each do |order| %>
+        <% if order.line_items.present? %>
+            <%= render 'order_item', :order => order %>
+        <% end %>
+    <% end %>
+<% end %>

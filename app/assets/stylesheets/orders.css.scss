@@ -1,0 +1,103 @@
+// Place all the styles related to the orders controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.order-item-image {
+  img {
+    max-height: 120px;
+    max-width: 120px;
+  }
+}
+//
+//.order-list{
+//  background-color: #f5f5f5;
+//  border-radius: 4px;
+//  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.15) inset, 0 1px 5px rgba(0, 0, 0, 0.075);
+//  font-size: 20px;
+//  line-height: 50px;
+//  padding-left: 20px;
+//  margin-bottom: 30px;
+//}
+
+.order-title{
+  background-color: #e6e6e6 !important;
+  border-bottom: 2px solid #24c4bc;
+  color: #4c4c4c;
+  font-size: 18px;
+  padding: 15px 0 10px 20px;
+}
+
+.order-table{
+  text-align: center;
+  border: 1px solid #cccccc;
+  tr td {
+    vertical-align: inherit !important;
+  }
+
+  tr th {
+    border: none !important;
+    text-align: center;
+  }
+
+  .item {
+    font-size: 18px;
+    font-weight: bold;
+    color: #555;
+    &.price {
+      color: #fe980f;
+    }
+  }
+}
+
+.order-table p{
+  min-width: 310px;
+}
+
+.order-details{
+  border: 1px solid #CCCCCC;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+.checkout-title {
+  background: #E26228 none repeat scroll 0 0;
+  color: #fff;
+  font-size: 20px;
+  margin: 0;
+  padding: 8px 25px;
+  text-align: center;
+}
+
+.order-item-total-price {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.order-total-item {
+  font-weight: bold;
+  font-size: 18px;
+  border-top: 2px solid #3a5c83;
+  .order-total-text {
+    text-align: right;
+  }
+  .checkout-total-price {
+    color: darkcyan;
+    text-align: left;
+  }
+}
+
+.checkout-label {
+  color: #555;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: normal;
+}
+
+.guest-user-email {
+  display: none;
+}
+
+.is-disabled {
+  background: #fdfdfd none repeat scroll 0 0;
+  opacity: 0.5;
+  pointer-events: none;
+}

@@ -65,7 +65,7 @@
                     <i class="fa fa-star is-active-stars"></i>
                     <i class="fa fa-star"></i>
                   </div>
-                  <span class="f-primary-b c-tertiary f-title-smallest"> <a href="#">(12 reviews)</a></span>
+                  <span class="f-primary-b c-tertiary f-title-smallest"> <a href="#">(<%= @product.reviews.count %> reviews)</a></span>
                 </div>
                 <div class="b-product-card__info_row">
                   <div class="b-product-card__info_description f-product-card__info_description">
@@ -84,6 +84,10 @@
                   <% end %>
                   <div class="b-product-card__info_like  b-btn f-btn b-btn-sm-md f-btn-sm-md b-btn--icon-only">
                     <i class="fa fa-heart"></i>
+                  </div>
+
+                  <div class="b-product-card__info_like popup_link  b-btn f-btn b-btn-sm-md f-btn-sm-md b-btn--icon-only">
+                    <i class="fa fa-star-o"></i>
                   </div>
                 </div>
                 <div class="b-product-card__info_row">
@@ -147,22 +151,6 @@
                   <a href="#" class="f-more f-primary-b f-title-smallest">Read more...</a>
                 </div>
               </div>
-              <!--<ul>-->
-                <!--<li><a data-toggle="tab" href="#tabs-21">Description</a></li>-->
-                <!--<li><a data-toggle="tab" href="#tabs-22">Previews</a></li>-->
-              <!--</ul>-->
-              <!--<div class="b-tabs__content">-->
-                <!--<div id="tabs-21">-->
-                  <!--<h4 class="f-tabs-vertical__title f-primary-b">Product description</h4>-->
-                  <!--<p>Maecenas laoreet commodo arcu, eu semper lacus tincidunt eget. Vestibulum at arcu pulvinar, fermentum sapien nec, tristique dui. Ut feugiat est at sapien ullamcorper viverra. Vestibulum pretium malesuada elit rutrum condimentum. Donec bibendum scelerisque odio vulputate viverra. Pellentesque habitant morbi tristique senectus et netus et malesuada fames acipsum. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat.  Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. .</p>-->
-                  <!--<a href="#" class="f-more f-primary-b f-title-smallest">Read more...</a>-->
-                <!--</div>-->
-                <!--<div id="tabs-22">-->
-                  <!--<h4 class="f-tabs-vertical__title f-primary-b">Suspendisse vitae metus enim 2</h4>-->
-                  <!--<p>Maecenas laoreet commodo arcu, eu semper lacus tincidunt eget. Vestibulum at arcu pulvinar, fermentum sapien nec, tristique dui. Ut feugiat est at sapien ullamcorper viverra. Vestibulum pretium malesuada elit rutrum condimentum. Donec bibendum scelerisque odio vulputate viverra. Pellentesque habitant morbi tristique senectus et netus et malesuada fames acipsum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod purus eu sapien faucibus, quis porta ipsum accumsan.</p>-->
-                  <!--<a href="#" class="f-more f-primary-b f-title-smallest">Read more...</a>-->
-                <!--</div>-->
-              <!--</div>-->
             </div>
           </div>
 
@@ -403,6 +391,36 @@
 
 </div>
 
+<div class="modal fade" id="myModal" role="dialog">
+  <div class="modal-dialog modal-md">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Review The product</h4>
+      </div>
+      <div class="modal-body" style="text-align: center">
+        <%= form_tag review_product_products_path, method: 'get', remote: true do %>
+            <div class="modal-body">
+              <div class="form-group">
+                <label class="skill-label pull-left">Speaking Level </label>
+                <div class="raty-level-input5" data-name="rating"></div>
+                <%= hidden_field_tag :product_id, '', class: 'form-control', value: @product.id %>
+              </div>
+              <div class="form-group">
+                <%= label_tag :comment %>
+                <%= text_area_tag :comment, '', class: 'form-control' %>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <%= submit_tag 'Change Status', class: 'btn btn-success' %>
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script type="text/javascript" charset="utf-8">
     $(window).load(function() {
         // The slider being synced must be initialized first
@@ -423,5 +441,20 @@
             slideshow: true,
             sync: ".carousel-sm"
         });
+    });
+    $(document).ready(function () {
+        $(".popup_link").click(function (e) {
+//            var src = $(this).attr('id');
+//            $('.modal-body').html('<img id="iamge" src=' + src + ' />')
+            $('#myModal').modal('show');
+        });
+    });
+
+    $('.raty-level-input5').raty({
+        scoreName: function() { return $(this).attr('data-name'); },
+        starHalf: '<%= asset_path('star-half.png') %>',
+        starOff: '<%= asset_path('star-off.png') %>',
+        starOn: '<%= asset_path('star-on.png') %>',
+        number: 5
     });
 </script>

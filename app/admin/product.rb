@@ -30,6 +30,10 @@ ActiveAdmin.register Product do
       column :price do |product|
         number_to_currency product.price
       end
+      column do |t|
+        span link_to 'Make Featured',   featured_admin_product_path(t) unless t.is_featured
+        span link_to 'Make Unfeatured', remove_featured_admin_product_path(t) if t.is_featured
+      end
       actions
     end
 
@@ -79,5 +83,19 @@ ActiveAdmin.register Product do
     end
   end
 
+
+  member_action :featured, method: :get do
+    product = Product.find_by_id(params[:id])
+    product.is_featured = true
+    product.save
+    redirect_to admin_products_path, notice: "The product is now Featured product"
+  end
+
+  member_action :remove_featured, method: :get do
+    product = Product.find_by_id(params[:id])
+    product.is_featured = false
+    product.save
+    redirect_to admin_products_path, notice: "Successfully Removed"
+  end
 
 end

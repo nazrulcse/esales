@@ -91,7 +91,7 @@
                   <div class="b-item-hover-action f-center mask">
                     <div class="b-item-hover-action__inner">
                       <div class="b-item-hover-action__inner-btn_group">
-                        <a href="#" class="b-btn f-btn b-btn-light f-btn-light info"><i class="fa fa-heart"></i></a>
+                        <%= generate_favorate_link(product.id) %>
                         <a href="<%= line_items_path(:product_id => product.id)%>" class="b-btn f-btn b-btn-light f-btn-light info"data-method="post" data-remote="true"><i class="fa fa-shopping-cart"></i></a>
                         <a href="<%=  product_path(product) %>" class="b-btn f-btn b-btn-light f-btn-light info"><i class="fa fa-link"></i></a>
                       </div>
@@ -156,7 +156,7 @@
                         <div class="b-item-hover-action f-center mask">
                           <div class="b-item-hover-action__inner">
                             <div class="b-item-hover-action__inner-btn_group">
-                              <a href="#" class="b-btn f-btn b-btn-light f-btn-light info"><i class="fa fa-heart"></i></a>
+                              <%= generate_favorate_link(product.id) %>
                               <a href="<%= line_items_path(:product_id => product.id)%>" class="b-btn f-btn b-btn-light f-btn-light info"data-method="post" data-remote="true"><i class="fa fa-shopping-cart"></i></a>
                               <a href="<%=  product_path(product) %>" class="b-btn f-btn b-btn-light f-btn-light info"><i class="fa fa-link"></i></a>
                             </div>

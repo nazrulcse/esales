@@ -12,7 +12,12 @@ Rails.application.routes.draw do
   resources :orders
   resources :shopping_carts
   resources :line_items
-  resources :products
+  resources :products do
+    get 'review_product',on: :collection
+  end
+  resources :favorites do
+    get 'delete_favorite',on: :collection
+  end
 
   resources :shopping_carts do
     member do

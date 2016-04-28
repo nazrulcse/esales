@@ -4,5 +4,6 @@ element.find("input[type='text']").val(<%= @line_item.quantity %>);
 element.find('.cart-item-total-price').html("<%= number_to_currency(@line_item.total_price) %>");
 $('.cart-total-price').html("<%= number_to_currency(@line_item.shopping_cart.total_price) %>");
 $('.cart-item-count').html(<%= current_cart.total_cart_item %>);
+$('.b-option-cart__items ul').html("<%= escape_javascript (render 'shared/line_items' )%>")
 <%else%>
 <%end%>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160428054926) do
+ActiveRecord::Schema.define(version: 20160428095103) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -59,6 +59,13 @@ ActiveRecord::Schema.define(version: 20160428054926) do
     t.text     "description", limit: 65535
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
+  end
+
+  create_table "favorites", force: :cascade do |t|
+    t.integer  "user_id",    limit: 4
+    t.integer  "product_id", limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
   end
 
   create_table "line_items", force: :cascade do |t|
@@ -110,10 +117,20 @@ ActiveRecord::Schema.define(version: 20160428054926) do
     t.integer  "brand_id",    limit: 4
     t.string   "color",       limit: 255
     t.float    "price",       limit: 24
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.datetime "created_at",                                null: false
+    t.datetime "updated_at",                                null: false
     t.text     "images",      limit: 65535
     t.string   "slug",        limit: 255
+    t.boolean  "is_featured", limit: 1,     default: false
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer  "user_id",    limit: 4
+    t.integer  "product_id", limit: 4
+    t.text     "comment",    limit: 65535
+    t.integer  "rating",     limit: 4
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
   create_table "shopping_carts", force: :cascade do |t|

@@ -18,4 +18,17 @@ module ApplicationHelper
     end
     raw(html)
   end
+
+  def generate_favorate_link(product_id)
+    if current_user.present?
+      favorite = current_user.favorites.find_by_product_id(product_id)
+      if favorite.present?
+        return raw "<a href='/favorites/delete_favorite?product_id=#{product_id}' id='fav_#{product_id}' class='b-btn f-btn b-btn-light f-btn-light info favorite' data-remote='true' > <i class='fa fa-heart'></i></a>"
+      else
+        return raw "<a href='/favorites?product_id=#{product_id}' id='fav_#{product_id}' class='b-btn f-btn b-btn-light f-btn-light info' data-method='post' data-remote='true' > <i class='fa fa-heart'></i></a>"
+      end
+    else
+      return raw ('<a href="/users/sign_in" class="b-btn f-btn b-btn-light f-btn-light info"><i class="fa fa-heart"></i></a>')
+    end
+  end
 end

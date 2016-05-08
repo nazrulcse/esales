@@ -69,7 +69,7 @@
                 <a href="<%= new_user_registration_path(user_type: 'subscriber') %>"><i class="fa fa-folder-open b-menu-1level-ico"></i><%= t(:req_subscription)%><span class="b-ico-dropdown"><i class="fa fa-arrow-circle-down"></i></span></a>
               </li>
               <li class="b-top-nav__1level f-top-nav__1level f-primary-b">
-                <%= form_tag(set_locale_products_path, {:method => :get}) do %>
+                <%= form_tag(set_language_products_path, {:method => :get}) do %>
                     <%= select_tag :locale, options_for_select([[t(:english), 'en'], [t(:bangla), 'bn']], I18n.locale), :onchange => "this.form.submit();" %>
                 <% end %>
               </li>

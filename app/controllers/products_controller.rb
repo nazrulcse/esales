@@ -29,7 +29,7 @@ class ProductsController < ApplicationController
     @categories = Category.all
   end
 
-  def set_locale
+  def set_language
     session[:locale] = params[:locale]
     respond_to do |format|
       format.html { redirect_to :back }

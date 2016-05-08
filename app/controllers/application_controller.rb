@@ -16,6 +16,10 @@ class ApplicationController < ActionController::Base
     I18n.available_locales.map(&:to_s).include?(parsed_locale) ? parsed_locale : nil
   end
 
+  def set_admin_locale
+    I18n.locale = :en
+  end
+
 
   def current_cart
     ShoppingCart.find(session[:cart_id])

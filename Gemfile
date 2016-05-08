@@ -27,6 +27,7 @@ gem 'friendly_id'
 gem 'jbuilder', '~> 2.0'
 
 gem 'sunspot_rails'
+gem 'sunspot_solr'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'progress_bar'

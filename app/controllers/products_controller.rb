@@ -1,10 +1,14 @@
 class ProductsController < ApplicationController
 
   def index
-    @search = Sunspot.search(Product) do
-      keywords params[:search]
+    if params[:search].present?
+      @search = Sunspot.search(Product) do
+        keywords params[:search]
+      end
+      @products = @search.results
+    else
+      @products = Product.all
     end
-    @products = @search.results
     @top_products = Product.limit(2)
     @categories = Category.all
     if params[:category_id].present?

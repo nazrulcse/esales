@@ -15,7 +15,7 @@ Rails.application.routes.draw do
     resources :line_items
     resources :products do
       get 'review_product',on: :collection
-      get 'set_locale',on: :collection
+      get 'set_language',on: :collection
     end
     resources :favorites do
       get 'delete_favorite',on: :collection

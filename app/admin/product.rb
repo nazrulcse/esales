@@ -1,5 +1,21 @@
 ActiveAdmin.register Product do
 
+  # before_filter do
+  #   Product.class_eval do
+  #     def to_param
+  #       if caller.to_s.include?"active_admin"
+  #         id && id.to_s
+  #       else
+  #         slug
+  #       end
+  #     end
+  #   end
+  # end
+
+  controller do
+    defaults :finder => :find_by_slug
+  end
+
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
@@ -74,9 +90,11 @@ ActiveAdmin.register Product do
         f.input :brand
         f.input :color
         f.input :price
+        f.input :tag_list, :hint => 'Comma separated'
         f.has_many :product_images do |ff|
           ff.input :image
         end
+        f.input :related_product
       end
 
       actions

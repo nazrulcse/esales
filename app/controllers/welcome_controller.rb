@@ -3,12 +3,15 @@ class WelcomeController < ApplicationController
   def index
     @top_products = Product.all.limit(2)
     @products = Product.all
+    @categories = Category.all
 
   end
 
   def product_details
 
   end
+
+
 
   def user_authentication
     @status = 'Success'

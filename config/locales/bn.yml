@@ -19,11 +19,10 @@
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 
-en:
-  contact: "Contact"
-  signup: "Signup"
-  signin: "SignIn"
-  logout: " Logout"
-  req_subscription: "Request For Subscription"
-  english: "English"
+bn:
+  contact: "আমাদের সাথে যোগাযোগ করুন"
+  signup: "নিবন্ধন করুন"
+  signin: "প্রবেশ কর"
+  logout: " প্রস্থান"
+  req_subscription: "সাবস্ক্রিপশনের জন্য অনুরোধ"
   bangla: "বাংলা"

@@ -4,28 +4,31 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'welcome#index'
+    root 'welcome#index'
 
-  get 'product_details' => 'welcome#product_details'
+    get 'product_details' => 'welcome#product_details'
+    # get 'set_locale' => 'welcome#set_locale'
 
-  resources :order_details
-  resources :orders
-  resources :shopping_carts
-  resources :line_items
-  resources :products do
-    get 'review_product',on: :collection
-  end
-  resources :favorites do
-    get 'delete_favorite',on: :collection
-  end
-
-  resources :shopping_carts do
-    member do
-      get 'empty_cart'
+    resources :order_details
+    resources :orders
+    resources :shopping_carts
+    resources :line_items
+    resources :products do
+      get 'review_product',on: :collection
+      get 'set_locale',on: :collection
     end
-  end
+    resources :favorites do
+      get 'delete_favorite',on: :collection
+    end
 
-  post 'user_authentication', to: 'welcome#user_authentication', as: :user_authentication
+    resources :shopping_carts do
+      member do
+        get 'empty_cart'
+      end
+    end
+
+    post 'user_authentication', to: 'welcome#user_authentication', as: :user_authentication
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

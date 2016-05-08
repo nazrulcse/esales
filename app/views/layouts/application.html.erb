@@ -15,23 +15,29 @@
       <div class="b-header-ico-group f-header-ico-group b-right">
           <span class="b-search-box">
               <i class="fa fa-search"></i>
-              <input type="text" placeholder="Enter your keywords"/>
+            <input type="text" placeholder="Enter your keywords", name="search", value="<%= params[:search] %>"/>
           </span>
+        <!--<%= form_tag products_path, :method => :get do %>-->
+            <!--<p>-->
+              <!--<%= text_field_tag :search, params[:search] %>-->
+              <!--<%= submit_tag "Search", :name => nil %>-->
+            <!--</p>-->
+        <!--<% end %>-->
           <span class="b-header-ico b-header-ico-cart-parent">
               <a href="#" class="b-fa-shopping-cart"><i class="fa fa-shopping-cart"></i></a>
             <% if line_items_count.present? && line_items_count > 0 %>
                   <span class='cart-item-count'> <%= current_cart.total_cart_item %> </span>
               <% end %>
-              <div class="b-option-cart__items">
-                <div class="b-option-cart__items__title f-option-cart__items__title f-default-l">Recently added
-                  item(s)
-                </div>
-                     <%= render 'shared/line_items'%>
-                <div class="b-option-cart__btn">
-                  <%= link_to 'Cancel', empty_cart_shopping_cart_path(current_cart), :class => 'button-xs button-gray-light', :data => {:confirm => 'Are you sure?'} %>
-                  <%= link_to 'Check out', shopping_carts_path, :class => 'button-xs'%>
-                </div>
+            <div class="b-option-cart__items">
+              <div class="b-option-cart__items__title f-option-cart__items__title f-default-l">Recently added
+                item(s)
               </div>
+              <%= render 'shared/line_items' %>
+              <div class="b-option-cart__btn">
+                <%= link_to 'Cancel', empty_cart_shopping_cart_path(current_cart), :class => 'button-xs button-gray-light', :data => {:confirm => 'Are you sure?'} %>
+                <%= link_to 'Check out', shopping_carts_path, :class => 'button-xs' %>
+              </div>
+            </div>
           </span>
       </div>
       <div class="b-top-nav-show-slide f-top-nav-show-slide b-right j-top-nav-show-slide">
@@ -43,30 +49,35 @@
               <span class="b-ico-dropdown"><i class="fa fa-arrow-circle-down"></i></span></a>
           </li>
           <li class="b-top-nav__1level f-top-nav__1level f-primary-b">
-            <a href="#"><i class="fa fa-folder-open b-menu-1level-ico"></i>Contact
-              us<span class="b-ico-dropdown"><i class="fa fa-arrow-circle-down"></i></span></a>
+            <a href="#"><i class="fa fa-folder-open b-menu-1level-ico"></i><%= t(:contact) %>
+              <span class="b-ico-dropdown"><i class="fa fa-arrow-circle-down"></i></span></a>
           </li>
           <% if current_user.present? %>
               <li class="b-top-nav__1level f-top-nav__1level f-primary-b">
-                <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+                <%= link_to(t(:logout), destroy_user_session_path, :method => :delete) %>
               </li>
           <% else %>
               <li class="b-top-nav__1level f-top-nav__1level f-primary-b">
-                <a href="<%= new_user_session_path %>"><i class="fa fa-list b-menu-1level-ico"></i>Signin
+                <a href="<%= new_user_session_path %>"><i class="fa fa-list b-menu-1level-ico"></i><%= t(:signin) %>
                   <span class="b-ico-dropdown"><i class="fa fa-arrow-circle-down"></i></span></a>
               </li>
               <li class="b-top-nav__1level f-top-nav__1level f-primary-b b-top-nav-big">
-                <a href="<%= new_user_registration_path(user_type: 'regular') %>"><i class="fa fa-folder-open b-menu-1level-ico"></i>Signup<span class="b-ico-dropdown"><i class="fa fa-arrow-circle-down"></i></span></a>
+                <a href="<%= new_user_registration_path(user_type: 'regular') %>"><i class="fa fa-folder-open b-menu-1level-ico"></i><%= t(:signup) %><span class="b-ico-dropdown"><i class="fa fa-arrow-circle-down"></i></span></a>
               </li>
 
               <li class="b-top-nav__1level f-top-nav__1level f-primary-b b-top-nav-big">
-                <a href="<%= new_user_registration_path(user_type: 'subscriber') %>"><i class="fa fa-folder-open b-menu-1level-ico"></i>Request
-                  For Subscription<span class="b-ico-dropdown"><i class="fa fa-arrow-circle-down"></i></span></a>
+                <a href="<%= new_user_registration_path(user_type: 'subscriber') %>"><i class="fa fa-folder-open b-menu-1level-ico"></i><%= t(:req_subscription)%><span class="b-ico-dropdown"><i class="fa fa-arrow-circle-down"></i></span></a>
               </li>
+              <li class="b-top-nav__1level f-top-nav__1level f-primary-b">
+                <%= form_tag(set_locale_products_path, {:method => :get}) do %>
+                    <%= select_tag :locale, options_for_select([[t(:english), 'en'], [t(:bangla), 'bn']], I18n.locale), :onchange => "this.form.submit();" %>
+                <% end %>
+              </li>
+
           <% end %>
         </ul>
-
       </nav>
+
     </div>
   </div>
 </header>

@@ -14,7 +14,7 @@ class OrdersController < ApplicationController
       @order.user_id = current_user.id
       @order.email = current_user.email
     end
-    @order.status_id = Order::ORDER_STATE[:delivery]
+    @order.status_id = Order::ORDER_STATE[:placed]
     if @order.save
       @order.add_to_line_item(current_cart)
       current_cart.delete

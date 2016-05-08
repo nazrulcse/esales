@@ -32,7 +32,7 @@
                   <ul class="slides">
                     <% @product.product_images.each do |image| %>
                         <li>
-                          <%= link_to image_tag(image.image.url(:big)) , image_path(image.image.url(:big)), class: 'fancybox', rel: 'product'%>
+                          <%= link_to image_tag(image.image.url(:big)) , asset_path(image.image.url(:big)), class: 'fancybox', rel: 'product'%>
                           <!--<a class="fancybox" rel="product" href="<%#= image_tag('shop_1.png') %>" <%#= image_tag('shop_1.png') %> </a>-->
                         </li>
                     <% end %>
@@ -59,11 +59,11 @@
                 <div class="b-product-card__info_row">
                   <div class="b-product-card__info_title f-primary-b f-title-smallest">Reviews</div>
                   <div class="b-stars-group f-stars-group b-margin-right-standard">
-                    <i class="fa fa-star is-active-stars"></i>
-                    <i class="fa fa-star is-active-stars"></i>
-                    <i class="fa fa-star is-active-stars"></i>
-                    <i class="fa fa-star is-active-stars"></i>
-                    <i class="fa fa-star"></i>
+                    <!--<i class="fa fa-star is-active-stars"></i>-->
+                    <!--<i class="fa fa-star is-active-stars"></i>-->
+                    <!--<i class="fa fa-star is-active-stars"></i>-->
+                    <!--<i class="fa fa-star is-active-stars"></i>-->
+                    <!--<i class="fa fa-star"></i>-->
                   </div>
                   <span class="f-primary-b c-tertiary f-title-smallest"> <a href="#">(<%= @product.reviews.count %> reviews)</a></span>
                 </div>
@@ -100,12 +100,14 @@
                 </div>
                 <div class="b-product-card__info_row">
                   <div class="b-product-card__info_title f-primary-b f-title-smallest">Categories</div>
-                  <a class="f-more f-title-smallest" href="#">Dress</a>, <a class="f-more f-title-smallest" href="#">Lorem</a>
+                  <a class="f-more f-title-smallest" href="<%= products_path(category_id: @product.category_id) %>"><%= @product.category.name %></a>
                 </div>
                 <div class="b-product-card__info_row">
                   <div class="b-product-card__info_title f-primary-b f-title-smallest">Tags</div>
                   <div class="b-tag-container">
-                    <a class="f-tag b-tag" href="#">Dress</a>
+                    <% @product.tags.each do |tag| %>
+                        <a class="f-tag b-tag" href="#"><%= tag.name %></a>
+                    <%end%>
                   </div>
                 </div>
                 <div class="b-product-card__info_row">
@@ -240,151 +242,7 @@
           </div>
 
         </div>
-        <div class="col-md-3">
-          <aside>
-            <div class="row b-col-default-indent">
-              <div class="col-md-12">
-                <h4 class="f-primary-b b-h4-special f-h4-special c-primary">product price filter</h4>
-                <form action="#">
-                  <div class="b-slider-range j-slider-range f-slider-range">
-                    <span class="b-slider-range_min">0</span>
-                    <span class="b-slider-range_max">$999</span>
-                  </div>
-                  <a href="#" class="b-btn f-btn b-btn-sm f-btn-sm b-btn-default f-primary-b">Filter</a>
-                </form>
-              </div>
-              <div class="col-md-12">
-                <div class="b-categories-filter">
-                  <h4 class="f-primary-b b-h4-special f-h4-special c-primary">Categories filter</h4>
-                  <ul>
-                    <% @categories.each do |category| %>
-                        <li>
-                          <a class="f-categories-filter_name" href="#"><i class="fa fa-plus"></i> <%= category.name %></a>
-                          <span class="b-categories-filter_count f-categories-filter_count"><%= category.products.count %></span>
-                        </li>
-                    <% end %>
-                  </ul>
-                </div>
-              </div>
-              <div class="col-md-12">
-                <h4 class="f-primary-b b-h4-special f-h4-special c-primary">colors filter</h4>
-                <div class="b-color-picker b-color-picker--alt">
-                  <div class="b-color-picker__box">
-                    <div class="b-color-picker_color_3"></div>
-                    <div class="b-color-picker_color_4"></div>
-                    <div class="b-color-picker_color_5 is-active"></div>
-                    <div class="b-color-picker_color_6"></div>
-                    <div class="b-color-picker_color_7"></div>
-                    <div class="b-color-picker_color_8"></div>
-                    <div class="b-color-picker_color_9"></div>
-                    <div class="b-color-picker_color_10"></div>
-                    <div class="b-color-picker_color_11"></div>
-                    <div class="b-color-picker_color_12"></div>
-                    <div class="b-color-picker_color_13"></div>
-                    <div class="b-color-picker_color_14"></div>
-                    <div class="b-color-picker_color_15"></div>
-                    <div class="b-color-picker_color_16"></div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-12">
-                <h4 class="f-primary-b b-h4-special f-h4-special c-primary">popular product</h4>
-                <div class="b-blog-short-post b-blog-short-post--popular b-blog-short-post--w-img b-blog-short-post--img-hover-bordered f-blog-short-post--w-img row f-blog-short-post--popular">
-                  <div class="b-blog-short-post__item col-md-12 col-sm-6 col-xs-12">
-                    <div class="b-blog-short-post__item_img">
-                      <a href="#"><img data-retina src="img/shop/popular_1.png" alt=""/></a>
-                    </div>
-                    <div class="b-remaining">
-                      <div class="b-blog-short-post__item_text f-blog-short-post__item_text">
-                        <a href="#">Bodycon Dress in Animal </a>
-                      </div>
-                      <div class="f-blog-short-post__item_price  f-primary-b">
-                        $299.00
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="b-blog-short-post b-blog-short-post--popular b-blog-short-post--w-img b-blog-short-post--img-hover-bordered f-blog-short-post--w-img row f-blog-short-post--popular">
-                  <div class="b-blog-short-post__item col-md-12 col-sm-6 col-xs-12">
-                    <div class="b-blog-short-post__item_img">
-                      <a href="#"><img data-retina src="img/shop/popular_1.png" alt=""/></a>
-                    </div>
-                    <div class="b-remaining">
-                      <div class="b-blog-short-post__item_text f-blog-short-post__item_text">
-                        <a href="#">Bodycon Dress in Animal </a>
-                      </div>
-                      <div class="f-blog-short-post__item_price  f-primary-b">
-                        $299.00
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="b-blog-short-post b-blog-short-post--popular b-blog-short-post--w-img b-blog-short-post--img-hover-bordered f-blog-short-post--w-img row f-blog-short-post--popular">
-                  <div class="b-blog-short-post__item col-md-12 col-sm-6 col-xs-12">
-                    <div class="b-blog-short-post__item_img">
-                      <a href="#"><img data-retina src="img/shop/popular_1.png" alt=""/></a>
-                    </div>
-                    <div class="b-remaining">
-                      <div class="b-blog-short-post__item_text f-blog-short-post__item_text">
-                        <a href="#">Bodycon Dress in Animal </a>
-                      </div>
-                      <div class="f-blog-short-post__item_price  f-primary-b">
-                        $299.00
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="b-blog-short-post b-blog-short-post--popular b-blog-short-post--w-img b-blog-short-post--img-hover-bordered f-blog-short-post--w-img row f-blog-short-post--popular">
-                  <div class="b-blog-short-post__item col-md-12 col-sm-6 col-xs-12">
-                    <div class="b-blog-short-post__item_img">
-                      <a href="#"><img data-retina src="img/shop/popular_1.png" alt=""/></a>
-                    </div>
-                    <div class="b-remaining">
-                      <div class="b-blog-short-post__item_text f-blog-short-post__item_text">
-                        <a href="#">Bodycon Dress in Animal </a>
-                      </div>
-                      <div class="f-blog-short-post__item_price  f-primary-b">
-                        $299.00
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="b-blog-short-post b-blog-short-post--popular b-blog-short-post--w-img b-blog-short-post--img-hover-bordered f-blog-short-post--w-img row f-blog-short-post--popular">
-                  <div class="b-blog-short-post__item col-md-12 col-sm-6 col-xs-12">
-                    <div class="b-blog-short-post__item_img">
-                      <a href="#"><img data-retina src="img/shop/popular_1.png" alt=""/></a>
-                    </div>
-                    <div class="b-remaining">
-                      <div class="b-blog-short-post__item_text f-blog-short-post__item_text">
-                        <a href="#">Bodycon Dress in Animal </a>
-                      </div>
-                      <div class="f-blog-short-post__item_price  f-primary-b">
-                        $299.00
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-12">
-                <h4 class="f-primary-b b-h4-special f-h4-special c-primary">colors filter</h4>
-                <div>
-                  <a class="f-tag b-tag" href="#">Dress</a>
-                  <a class="f-tag b-tag" href="#">Mini</a>
-                  <a class="f-tag b-tag" href="#">Skate animal</a>
-                  <a class="f-tag b-tag" href="#">Lorem ipsum</a>
-                  <a class="f-tag b-tag" href="#">literature</a>
-                  <a class="f-tag b-tag" href="#">Baroque</a>
-                  <a class="f-tag b-tag" href="#">Dress</a>
-                  <a class="f-tag b-tag" href="#">Mini</a>
-                  <a class="f-tag b-tag" href="#">Skate animal</a>
-                  <a class="f-tag b-tag" href="#">Lorem ipsum</a>
-                  <a class="f-tag b-tag" href="#">literature</a>
-                  <a class="f-tag b-tag" href="#">Baroque</a>
-                </div>
-              </div>
-            </div>
-          </aside>
-        </div>
+        <%= render 'shared/filter' %>
       </div>
     </div>
   </section>
@@ -443,18 +301,35 @@
         });
     });
     $(document).ready(function () {
+        $('.b-slider-range').slider({
+            change: function(event, ui) {
+                alert(ui.values[0]);
+                alert(ui.values[1]);
+//                $('input#project_min_v').val(ui.values[0]);
+//                $('input#project_max_v').val(ui.value[1]);
+            }
+
+        });
+
+        $('.raty-level-input5').raty({
+            scoreName: function() { return $(this).attr('data-name'); },
+            starHalf: '<%= asset_path('star-half.png') %>',
+            starOff: '<%= asset_path('star-off.png') %>',
+            starOn: '<%= asset_path('star-on.png') %>',
+            number: 5
+        });
+
+        $('.b-stars-group').raty({
+            scoreName: function() { return $(this).attr('data-name'); },
+            starHalf: '<%= asset_path('star-half.png') %>',
+            starOff: '<%= asset_path('star-off.png') %>',
+            starOn: '<%= asset_path('star-on.png') %>',
+            number: 5
+        });
         $(".popup_link").click(function (e) {
 //            var src = $(this).attr('id');
 //            $('.modal-body').html('<img id="iamge" src=' + src + ' />')
             $('#myModal').modal('show');
         });
-    });
-
-    $('.raty-level-input5').raty({
-        scoreName: function() { return $(this).attr('data-name'); },
-        starHalf: '<%= asset_path('star-half.png') %>',
-        starOff: '<%= asset_path('star-off.png') %>',
-        starOn: '<%= asset_path('star-on.png') %>',
-        number: 5
     });
 </script>

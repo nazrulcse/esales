@@ -40,6 +40,10 @@ class ProductsController < ApplicationController
     end
   end
 
+  def services
+
+  end
+
   def review_product
     product_review = current_user.reviews.find_or_initialize_by(product_id: params["product_id"])
     product_review.rating = params["rating"]

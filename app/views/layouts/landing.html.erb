@@ -7,88 +7,168 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<header>
-  <div class="container b-header__box b-relative">
-    <a href="<%= root_path %>" class="b-left b-logo "><%= image_tag('logo.png', class: 'color-theme') %></a>
-
-    <div class="b-header-r b-right b-header-r--icon">
-      <div class="b-header-ico-group f-header-ico-group b-right">
-          <span class="b-search-box">
-              <i class="fa fa-search"></i>
-            <input type="text" placeholder="Enter your keywords", name="search", value="<%= params[:search] %>"/>
-          </span>
-        <!--<%= form_tag products_path, :method => :get do %>-->
-            <!--<p>-->
-              <!--<%= text_field_tag :search, params[:search] %>-->
-              <!--<%= submit_tag "Search", :name => nil %>-->
-            <!--</p>-->
-        <!--<% end %>-->
-          <span class="b-header-ico b-header-ico-cart-parent">
-              <a href="#" class="b-fa-shopping-cart"><i class="fa fa-shopping-cart"></i></a>
-            <% if line_items_count.present? && line_items_count > 0 %>
-                  <span class='cart-item-count'> <%= current_cart.total_cart_item %> </span>
-              <% end %>
-            <div class="b-option-cart__items">
-              <div class="b-option-cart__items__title f-option-cart__items__title f-default-l">Recently added
-                item(s)
-              </div>
-              <%= render 'shared/line_items' %>
-              <div class="b-option-cart__btn">
-                <%= link_to 'Cancel', empty_cart_shopping_cart_path(current_cart), :class => 'button-xs button-gray-light', :data => {:confirm => 'Are you sure?'} %>
-                <%= link_to 'Check out', shopping_carts_path, :class => 'button-xs' %>
-              </div>
-            </div>
-          </span>
+    <div id="gh-gb" class="menu-1 clearfix">
+      <div class="bg-box">
+        <div class="row">
+          <ul class="">
+            <li class=""><a>Sign In</a></li>
+            <li><a>register</a></li>
+            <li><a>| Daily Deals</a></li>
+            <li><a>| Sell</a></li>
+            <li><a>| Help & Contact</a></li>
+          </ul>
+          <ul style="float: right">
+            <li class=""><a>My eBay</a></li>
+            <li><a><i class="fa fa-bell"></i></a></li>
+            <li>
+              <a><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+            </li>
+          </ul>
+        </div>
       </div>
-      <div class="b-top-nav-show-slide f-top-nav-show-slide b-right j-top-nav-show-slide">
-        <i class="fa fa-align-justify"></i></div>
-      <nav class="b-top-nav f-top-nav b-right j-top-nav">
-        <ul class="b-top-nav__1level_wrap">
-          <li class="b-top-nav__1level f-top-nav__1level is-active-top-nav__1level f-primary-b">
-            <a href="<%= root_path %>"><i class="fa fa-home b-menu-1level-ico"></i>Home
-              <span class="b-ico-dropdown"><i class="fa fa-arrow-circle-down"></i></span></a>
+    </div>
+    <div class="bg-box clearfix">
+      <div class="row menu-2">
+        <ul class="clearfix row">
+          <li>
+            <a><%= image_tag('logo.png')%></a>
           </li>
-
-          <li class="b-top-nav__1level f-top-nav__1level f-primary-b">
-            <a href="<%= products_path %>"><i class="fa fa-home b-menu-1level-ico"></i>Products
-              <span class="b-ico-dropdown"><i class="fa fa-arrow-circle-down"></i></span></a>
+          <li>
+            <a style="font-size: 16px" class="text-title">Shoping by <br>category</a>
           </li>
-
-          <li class="b-top-nav__1level f-top-nav__1level f-primary-b">
-            <a href="<%= services_path %>"><i class="fa fa-home b-menu-1level-ico"></i>Services
-              <span class="b-ico-dropdown"><i class="fa fa-arrow-circle-down"></i></span></a>
+          <li>
+            <div id="gh-ac-box2">
+              <input id="gh-ac" type="text" placeholder="Search" maxlength="300" size="40">
+            </div>
           </li>
-
-          <li class="b-top-nav__1level f-top-nav__1level f-primary-b">
-            <a href="#"><i class="fa fa-folder-open b-menu-1level-ico"></i><%= t(:contact) %>
-              <span class="b-ico-dropdown"><i class="fa fa-arrow-circle-down"></i></span></a>
+          <li>
+            <div id="gh-cat-box">
+              <select id="gh-cat">
+                <option><a>Category ONE</a></option>
+                <option><a>Category Two</a></option>
+                <option><a>Category Three</a></option>
+                <option><a>Category Three</a></option>
+                <option><a>Category Three</a></option>
+              </select>
+            </div>
           </li>
-          <% if current_user.present? %>
-              <li class="b-top-nav__1level f-top-nav__1level f-primary-b">
-                <%= link_to(t(:logout), destroy_user_session_path, :method => :delete) %>
-              </li>
-          <% else %>
-              <li class="b-top-nav__1level f-top-nav__1level f-primary-b">
-                <a href="<%= new_user_session_path %>"><i class="fa fa-list b-menu-1level-ico"></i><%= t(:signin) %>
-                  <span class="b-ico-dropdown"><i class="fa fa-arrow-circle-down"></i></span></a>
-              </li>
-
-              <li class="b-top-nav__1level f-top-nav__1level f-primary-b b-top-nav-big">
-                <a href="<%= new_user_registration_path(user_type: 'subscriber') %>"><i class="fa fa-folder-open b-menu-1level-ico"></i><%= t(:req_subscription)%><span class="b-ico-dropdown"><i class="fa fa-arrow-circle-down"></i></span></a>
-              </li>
-              <li class="b-top-nav__1level f-top-nav__1level f-primary-b">
-                <%= form_tag(set_language_products_path, {:method => :get}) do %>
-                    <%= select_tag :locale, options_for_select([[t(:english), 'en'], [t(:bangla), 'bn']], I18n.locale), :onchange => "this.form.submit();" %>
-                <% end %>
-              </li>
-
-          <% end %>
+          <li>
+            <div>
+              <input id="gh-btn" class="btn-prim" type="submit" value="Search">
+            </div>
+          </li>
         </ul>
-      </nav>
+      </div>
+    </div>
 
+    <!--<div>-->
+    <!--<hr class="hr-line">-->
+    <!--</div>-->
+
+
+    <div class="bg-box">
+      <div class="row menu-3">
+        <hr class="hr-line">
+        <div class="row">
+          <ul class="">
+            <li><a>Following</a></li>
+            <li><a>Today</a></li>
+            <li class=""><a>Fashion</a></li>
+            <li><a>Electronics</a></li>
+            <li><a>Collectibles & Art</a></li>
+            <li><a>Home & Garden</a></li>
+            <li><a>Sporting Goods</a></li>
+          </ul>
+        </div>
+        <hr class="hr-line">
+      </div>
+    </div>
+
+<div class="bg-box">
+  <div class="row">
+    <div class="col-sm-8">
+      <div class="b-slidercontainer">
+        <div class="b-slider j-fullscreenslider ">
+          <ul>
+            <li data-transition="" data-slotamount="7">
+              <div class="tp-bannertimer"></div>
+              <%= image_tag('slider_shop_1.jpg') %>
+              <!--<img data-retina src="slider_shop_1.jpg">-->
+              <div class="caption sfb"  data-x="30" data-y="bottom" data-speed="700" data-start="1700" data-easing="Power4.easeOut"><%= image_tag('slider_shop_1-1.png')   %></div>
+              <div class="caption"  data-x="180" data-y="bottom" data-voffset="-1" data-speed="2100" data-start="3300" data-easing="easeOutBack"> <%= image_tag('slider_shop_1-2.png') %></div>
+              <!--<img data-retina src="slider_shop_1-2.png">-->
+              <div class="caption lfr"  data-x="400"  data-y="100" data-speed="300" data-start="2000">
+                <div class="b-header-group f-header-group f-header-group--light">
+                  <h2 class="f-legacy-h2 f-primary-l">summer</h2>
+                  <h1 class="f-legacy-h1 f-primary-sb">collections</h1>
+                </div>
+              </div>
+              <div class="caption lfb"  data-x="400" data-y="270" data-speed="300" data-start="2300">
+                <p class="f-primary-b f-uppercase f-slider-lg_text-medium c-white" >Lorem ipsum dolor sit amet, consectetur adipis</p>
+              </div>
+              <div class="caption lfb"  data-x="400" data-y="300" data-speed="300" data-start="2600">
+                <p class="f-primary-b f-uppercase f-slider-lg_text-medium c-white" >Vestibulum scelerisque in enim </p>
+              </div>
+              <div class="caption"  data-x="400" data-y="340" data-speed="600" data-start="3000">
+                <p><a class="b-link f-link f-primary-b f-uppercase" href="#">more <span><i class="fa fa-chevron-right"></i></span></a></p>
+              </div>
+            </li>
+            <li data-transition="" data-slotamount="7">
+              <div class="tp-bannertimer"></div>
+              <%= image_tag('slider_shop_1.jpg') %>
+              <!--<img data-retina src="slider_shop_1.jpg">-->
+              <div class="caption sfb"  data-x="30" data-y="bottom" data-speed="700" data-start="1700" data-easing="Power4.easeOut"> <%= image_tag('slider-shop-2-2.png') %> </div>
+              <!--<img data-retina src="slider-shop-2-2.png">-->
+              <div class="caption lfr"  data-x="400"  data-y="100" data-speed="300" data-start="2000">
+                <div class="b-header-group f-header-group f-header-group--light">
+                  <h2 class="f-legacy-h2 f-primary-l">summer</h2>
+                  <h1 class="f-legacy-h1 f-primary-sb">collections</h1>
+                </div>
+              </div>
+              <div class="caption lfb"  data-x="400" data-y="270" data-speed="300" data-start="2300">
+                <p class="f-primary-b f-uppercase f-slider-lg_text-medium c-white" >Lorem ipsum dolor sit amet, consectetur adipis</p>
+              </div>
+              <div class="caption lfb"  data-x="400" data-y="300" data-speed="300" data-start="2600">
+                <p class="f-primary-b f-uppercase f-slider-lg_text-medium c-white" >Vestibulum scelerisque in enim </p>
+              </div>
+              <div class="caption"  data-x="400" data-y="340" data-speed="600" data-start="3000">
+                <p><a class="b-link f-link f-primary-b f-uppercase" href="#">more <span><i class="fa fa-chevron-right"></i></span></a></p>
+              </div>
+            </li>
+            <li data-transition="" data-slotamount="7">
+              <div class="tp-bannertimer"></div>
+              <%= image_tag('slider_shop_1.jpg') %>
+              <!--<img data-retina src="slider_shop_1.jpg">-->
+              <div class="caption sfb"  data-x="30" data-y="bottom" data-speed="700" data-start="1700" data-easing="Power4.easeOut"><%= image_tag('slider-shop-3-3.png') %></div>
+              <!--<img data-retina src="slider-shop-3-3.png">-->
+              <div class="caption lfr"  data-x="400"  data-y="100" data-speed="300" data-start="2000">
+                <div class="b-header-group f-header-group f-header-group--light">
+                  <h2 class="f-legacy-h2 f-primary-l">summer</h2>
+                  <h1 class="f-legacy-h1 f-primary-sb">collections</h1>
+                </div>
+              </div>
+              <div class="caption lfb"  data-x="400" data-y="270" data-speed="300" data-start="2300">
+                <p class="f-primary-b f-uppercase f-slider-lg_text-medium c-white" >Lorem ipsum dolor sit amet, consectetur adipis</p>
+              </div>
+              <div class="caption lfb"  data-x="400" data-y="300" data-speed="300" data-start="2600">
+                <p class="f-primary-b f-uppercase f-slider-lg_text-medium c-white" >Vestibulum scelerisque in enim </p>
+              </div>
+              <div class="caption"  data-x="400" data-y="340" data-speed="600" data-start="3000">
+                <p><a class="b-link f-link f-primary-b f-uppercase" href="#">more <span><i class="fa fa-chevron-right"></i></span></a></p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="col-sm-12 right-content-first"></div>
+      <div class="col-sm-12 right-content-second"></div>
     </div>
   </div>
-</header>
+
+</div>
+
 <%= yield %>
 <footer>
   <div class="b-footer-primary">
@@ -247,15 +327,3 @@
 </footer>
 </body>
 </html>
-
-<script type="text/javascript">
-    //   $(document).ready(function() {
-    //
-    //        $(".b-top-nav__1level_wrap li").click(function ( e ) {
-    //            alert($(this).text());
-    ////            e.preventDefault();
-    //           $(".b-top-nav__1level_wrap li").removeClass("is-active-top-nav__1level"); //Remove any "active" class
-    //           $(this).addClass("is-active-top-nav__1level");
-    //       });
-    //    });
-</script>

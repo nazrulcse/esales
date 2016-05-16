@@ -1,9 +1,10 @@
 class WelcomeController < ApplicationController
 
   def index
-    @top_products = Product.all.limit(2)
+    @top_products = Product.all.where(is_featured: true)
     @products = Product.all
     @categories = Category.all
+    render layout: 'landing'
 
   end
 

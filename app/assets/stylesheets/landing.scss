@@ -166,7 +166,7 @@
 }
 
 .menu-3 {
-  margin-bottom: 30px;
+  margin-bottom: 10px;
 }
 
 .menu-3 ul {
@@ -212,4 +212,21 @@
   height: 90px;
   background-color: #E9E9E9;
   border: 1px solid #F7F7F7;
+}
+
+// Design My Cart
+
+.b-option-cart__items {
+  display: none;
+  position: absolute;
+  right: 100px;
+}
+
+.my-cart {
+  position: relative;
+  &:hover {
+    .b-option-cart__items {
+      display: block;
+    }
+  }
 }

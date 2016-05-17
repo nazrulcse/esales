@@ -1,125 +1,13 @@
 <div class="j-menu-container"></div>
-
-
 <div class="l-main-container">
+  <div class="container">
+    <div class="b-inner-page-header f-inner-page-header b-bg-header-inner-page">
+      <h1 class="f-primary-l c-default">Online store</h1>
 
-  <div class="b-slidercontainer">
-    <div class="b-slider j-fullscreenslider ">
-      <ul>
-        <li data-transition="" data-slotamount="7">
-          <div class="tp-bannertimer"></div>
-          <%= image_tag('slider_shop_1.jpg') %>
-          <!--<img data-retina src="slider_shop_1.jpg">-->
-          <div class="caption sfb"  data-x="30" data-y="bottom" data-speed="700" data-start="1700" data-easing="Power4.easeOut"><%= image_tag('slider_shop_1-1.png')   %></div>
-          <div class="caption"  data-x="180" data-y="bottom" data-voffset="-1" data-speed="2100" data-start="3300" data-easing="easeOutBack"> <%= image_tag('slider_shop_1-2.png') %></div>
-          <!--<img data-retina src="slider_shop_1-2.png">-->
-          <div class="caption lfr"  data-x="400"  data-y="100" data-speed="300" data-start="2000">
-            <div class="b-header-group f-header-group f-header-group--light">
-              <h2 class="f-legacy-h2 f-primary-l">summer</h2>
-              <h1 class="f-legacy-h1 f-primary-sb">collections</h1>
-            </div>
-          </div>
-          <div class="caption lfb"  data-x="400" data-y="270" data-speed="300" data-start="2300">
-            <p class="f-primary-b f-uppercase f-slider-lg_text-medium c-white" >Lorem ipsum dolor sit amet, consectetur adipis</p>
-          </div>
-          <div class="caption lfb"  data-x="400" data-y="300" data-speed="300" data-start="2600">
-            <p class="f-primary-b f-uppercase f-slider-lg_text-medium c-white" >Vestibulum scelerisque in enim </p>
-          </div>
-          <div class="caption"  data-x="400" data-y="340" data-speed="600" data-start="3000">
-            <p><a class="b-link f-link f-primary-b f-uppercase" href="#">more <span><i class="fa fa-chevron-right"></i></span></a></p>
-          </div>
-        </li>
-        <li data-transition="" data-slotamount="7">
-          <div class="tp-bannertimer"></div>
-          <%= image_tag('slider_shop_1.jpg') %>
-          <!--<img data-retina src="slider_shop_1.jpg">-->
-          <div class="caption sfb"  data-x="30" data-y="bottom" data-speed="700" data-start="1700" data-easing="Power4.easeOut"> <%= image_tag('slider-shop-2-2.png') %> </div>
-          <!--<img data-retina src="slider-shop-2-2.png">-->
-          <div class="caption lfr"  data-x="400"  data-y="100" data-speed="300" data-start="2000">
-            <div class="b-header-group f-header-group f-header-group--light">
-              <h2 class="f-legacy-h2 f-primary-l">summer</h2>
-              <h1 class="f-legacy-h1 f-primary-sb">collections</h1>
-            </div>
-          </div>
-          <div class="caption lfb"  data-x="400" data-y="270" data-speed="300" data-start="2300">
-            <p class="f-primary-b f-uppercase f-slider-lg_text-medium c-white" >Lorem ipsum dolor sit amet, consectetur adipis</p>
-          </div>
-          <div class="caption lfb"  data-x="400" data-y="300" data-speed="300" data-start="2600">
-            <p class="f-primary-b f-uppercase f-slider-lg_text-medium c-white" >Vestibulum scelerisque in enim </p>
-          </div>
-          <div class="caption"  data-x="400" data-y="340" data-speed="600" data-start="3000">
-            <p><a class="b-link f-link f-primary-b f-uppercase" href="#">more <span><i class="fa fa-chevron-right"></i></span></a></p>
-          </div>
-        </li>
-        <li data-transition="" data-slotamount="7">
-          <div class="tp-bannertimer"></div>
-          <%= image_tag('slider_shop_1.jpg') %>
-          <!--<img data-retina src="slider_shop_1.jpg">-->
-          <div class="caption sfb"  data-x="30" data-y="bottom" data-speed="700" data-start="1700" data-easing="Power4.easeOut"><%= image_tag('slider-shop-3-3.png') %></div>
-          <!--<img data-retina src="slider-shop-3-3.png">-->
-          <div class="caption lfr"  data-x="400"  data-y="100" data-speed="300" data-start="2000">
-            <div class="b-header-group f-header-group f-header-group--light">
-              <h2 class="f-legacy-h2 f-primary-l">summer</h2>
-              <h1 class="f-legacy-h1 f-primary-sb">collections</h1>
-            </div>
-          </div>
-          <div class="caption lfb"  data-x="400" data-y="270" data-speed="300" data-start="2300">
-            <p class="f-primary-b f-uppercase f-slider-lg_text-medium c-white" >Lorem ipsum dolor sit amet, consectetur adipis</p>
-          </div>
-          <div class="caption lfb"  data-x="400" data-y="300" data-speed="300" data-start="2600">
-            <p class="f-primary-b f-uppercase f-slider-lg_text-medium c-white" >Vestibulum scelerisque in enim </p>
-          </div>
-          <div class="caption"  data-x="400" data-y="340" data-speed="600" data-start="3000">
-            <p><a class="b-link f-link f-primary-b f-uppercase" href="#">more <span><i class="fa fa-chevron-right"></i></span></a></p>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </div>
-
-  <section class="b-infoblock b-diagonal-line-bg-light">
-    <div class="container">
-      <div class="row b-col-default-indent">
-        <% @top_products.each do |product| %>
-            <div class="col-md-6">
-              <div class="b-news-item b-news-item--medium-size f-news-item">
-                <div class="b-news-item__img view view-sixth">
-                  <%if product.product_images.present? %>
-                      <%= image_tag(product.product_images.first.image.url(:big))  %>
-                  <% end %>
-
-                  <div class="b-item-hover-action f-center mask">
-                    <div class="b-item-hover-action__inner">
-                      <div class="b-item-hover-action__inner-btn_group">
-                        <%= generate_favorate_link(product.id) %>
-                        <a href="<%= line_items_path(:product_id => product.id)%>" class="b-btn f-btn b-btn-light f-btn-light info"data-method="post" data-remote="true"><i class="fa fa-shopping-cart"></i></a>
-                        <a href="<%=  product_path(product) %>" class="b-btn f-btn b-btn-light f-btn-light info"><i class="fa fa-link"></i></a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="b-news-item__info">
-                  <div class="f-news-item__info_category f-uppercase"><%= product.category.name %></div>
-                  <a href="<%=  product_path(product) %>" class="b-news-item__info_title-big f-news-item__info_title-big f-primary-b">Morphy Richards</a>
-                  <div class="b-news-item__info_text f-news-item__info_text">
-                    <%= product.description %>
-                  </div>
-                  <div class="b-news-item__article">
-                    <span class="f-news-item__price f-primary-b b-left">$ <%= product.price %></span>
-                    <%= link_to line_items_path(:product_id => product.id), :method => :post, :remote => true,:class => "b-btn f-btn b-right b-btn-sm-md f-btn-sm-md f-primary-b" do %>
-                        <i class="fa fa-shopping-cart"></i> Add to Cart
-                    <% end %>
-                  </div>
-                </div>
-                <div class="b-action-info f-primary-b">
-                  <div class="b-action-info_text f-action-info_text">sale</div>
-                </div>
-              </div>
-            </div>
-        <%end%>
+      <div class="f-primary-l f-inner-page-header_title-add c-senary">This is online store listing products sample page
       </div>
     </div>
-  </section>
+  </div>
   <section class="b-infoblock">
     <div class="container">
       <div class="row">
@@ -157,19 +45,23 @@
                           <div class="b-item-hover-action__inner">
                             <div class="b-item-hover-action__inner-btn_group">
                               <%= generate_favorate_link(product.id) %>
-                              <a href="<%= line_items_path(:product_id => product.id)%>" class="b-btn f-btn b-btn-light f-btn-light info"data-method="post" data-remote="true"><i class="fa fa-shopping-cart"></i></a>
-                              <a href="<%=  product_path(product) %>" class="b-btn f-btn b-btn-light f-btn-light info"><i class="fa fa-link"></i></a>
+                              <a href="<%= line_items_path(:product_id => product.id) %>" class="b-btn f-btn b-btn-light f-btn-light info" data-method="post" data-remote="true"><i class="fa fa-shopping-cart"></i></a>
+                              <a href="<%= product_path(product) %>" class="b-btn f-btn b-btn-light f-btn-light info"><i class="fa fa-link"></i></a>
                             </div>
                           </div>
                         </div>
                       </div>
                       <div class="b-product-preview__content">
                         <div class="b-product-preview__content_col">
-                          <span class="b-product-preview__content_price f-product-preview__content_price f-primary-b"><%= product.price %>$</span>
+                          <span class="b-product-preview__content_price f-product-preview__content_price f-primary-b"><%= product.price %>
+                            $</span>
                         </div>
                         <div class="b-product-preview__content_col">
-                          <a href="<%=  product_path(product) %>" class="f-product-preview__content_title"><%= product.name %></a>
-                          <div class="f-product-preview__content_category f-primary-b"><a href="#"><%= product.category.name %></a> / <a href="#"><%= product.brand.name %></a></div>
+                          <a href="<%= product_path(product) %>" class="f-product-preview__content_title"><%= product.name %></a>
+
+                          <div class="f-product-preview__content_category f-primary-b">
+                            <a href="#"><%= product.category.name %></a> / <a href="#"><%= product.brand.name %></a>
+                          </div>
                         </div>
                       </div>
                     </div>

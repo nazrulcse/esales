@@ -1,0 +1,93 @@
+<div id="gh-gb" class="menu-1 clearfix">
+  <div class="bg-box">
+    <div class="row">
+      <ul class="">
+        <% if current_user.present? %>
+            <li>
+              <%= link_to(t(:logout), destroy_user_session_path, :method => :delete) %>
+            </li>
+        <% else %>
+            <li>
+              <%= link_to t(:signin), new_user_session_path %>
+            </li>
+
+            <li>
+              <%= link_to t(:req_subscription), new_user_registration_path(user_type: 'subscriber') %>
+            </li>
+        <% end %>
+        <li class="left-border"><a href="#"> <%= t(:text_sale) %> </a></li>
+        <li class="left-border"><a href="#"> <%= t(:help_and_contact) %></a></li>
+        <li class="change-language left-border">
+          <%= form_tag(set_language_products_path, {:method => :get}) do %>
+              <%= select_tag :locale, options_for_select([[t(:english), 'en'], [t(:bangla), 'bn']], I18n.locale), :onchange => "this.form.submit();" %>
+          <% end %>
+        </li>
+      </ul>
+      <ul class="pull-right">
+        <li class=""><a href="#"><%= t(:my_sales) %></a></li>
+        <li><a><i class="fa fa-bell"></i></a></li>
+        <li class="my-cart">
+          <a href="javascript:void(0);">
+            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+            <% if line_items_count.present? && line_items_count > 0 %>
+                <span class='cart-item-count'> <%= current_cart.total_cart_item %> </span>
+            <% end %>
+          </a>
+          <% if line_items_count.present? && line_items_count > 0 %>
+              <div class="b-option-cart__items">
+                <div class="b-option-cart__items__title f-option-cart__items__title f-default-l">Recently added
+                  item(s)
+                </div>
+                <%= render 'shared/line_items' %>
+                <div class="b-option-cart__btn">
+                  <%= link_to 'Cancel', empty_cart_shopping_cart_path(current_cart), :class => 'button-xs button-gray-light', :data => {:confirm => 'Are you sure?'} %>
+                  <%= link_to 'Check out', shopping_carts_path, :class => 'button-xs' %>
+                </div>
+              </div>
+          <% end %>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="bg-box clearfix">
+  <div class="menu-2">
+    <%= form_tag products_path, :method => :get do %>
+        <ul class="clearfix row">
+          <li>
+            <a><%= image_tag('logo.png', class: 'search-logo') %></a>
+          </li>
+          <li class="search-wrapper">
+            <%= text_field_tag :search, '', id: 'gh-ac', placeholder: t(:search_text) %>
+          </li>
+          <li>
+            <div id="gh-cat-box">
+              <%= select_tag :category, options_for_select(['product', 'Service']), {id: 'gh-cat', prompt: 'Select Category'} %>
+            </div>
+          </li>
+          <li>
+            <div>
+              <input id="gh-btn" class="btn-prim" type="submit" value="Search">
+            </div>
+          </li>
+        </ul>
+    <% end %>
+  </div>
+</div>
+
+<div class="bg-box">
+  <div class="row menu-3">
+    <hr class="hr-line">
+    <div class="row">
+      <ul class="">
+        <li><a href="/"> Home </a></li>
+        <li><a href="/">Products</a></li>
+        <li><a href="/">Services</a></li>
+        <li><a href="/">Electronics</a></li>
+        <li><a href="#">Collectibles & Art</a></li>
+        <li><a>Sporting Goods</a></li>
+      </ul>
+    </div>
+    <hr class="hr-line">
+  </div>
+</div>

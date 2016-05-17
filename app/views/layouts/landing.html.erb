@@ -7,82 +7,89 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-    <div id="gh-gb" class="menu-1 clearfix">
-      <div class="bg-box">
-        <div class="row">
-          <ul class="">
-            <li class=""><a>Sign In</a></li>
-            <li><a>register</a></li>
-            <li><a>| Daily Deals</a></li>
-            <li><a>| Sell</a></li>
-            <li><a>| Help & Contact</a></li>
-          </ul>
-          <ul style="float: right">
-            <li class=""><a>My eBay</a></li>
-            <li><a><i class="fa fa-bell"></i></a></li>
+<div id="gh-gb" class="menu-1 clearfix">
+  <div class="bg-box">
+    <div class="row">
+      <ul class="">
+        <% if current_user.present? %>
             <li>
-              <a><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+              <%= link_to(t(:logout), destroy_user_session_path, :method => :delete) %>
             </li>
-          </ul>
+        <% else %>
+            <li>
+              <%= link_to t(:signin), new_user_session_path %>
+            </li>
+
+            <li>
+              <%= link_to t(:req_subscription), new_user_registration_path(user_type: 'subscriber') %>
+            </li>
+        <% end %>
+        <li class="left-border"><a href="#"> <%= t(:text_sale) %> </a></li>
+        <li class="left-border"><a href="#"> <%= t(:help_and_contact) %></a></li>
+        <li class="change-language left-border">
+          <%= form_tag(set_language_products_path, {:method => :get}) do %>
+              <%= select_tag :locale, options_for_select([[t(:english), 'en'], [t(:bangla), 'bn']], I18n.locale), :onchange => "this.form.submit();" %>
+          <% end %>
+        </li>
+      </ul>
+      <ul style="float: right">
+        <li class=""><a>My Sales</a></li>
+        <li><a><i class="fa fa-bell"></i></a></li>
+        <li>
+          <a><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="bg-box clearfix">
+  <div class="menu-2">
+    <ul class="clearfix row">
+      <li>
+        <a><%= image_tag('logo.png', class: 'search-logo') %></a>
+      </li>
+      <li class="search-wrapper">
+        <input id="gh-ac" type="text" placeholder="Search">
+      </li>
+      <li>
+        <div id="gh-cat-box">
+          <select id="gh-cat">
+            <option value=""> Select Category</option>
+            <option value="product"> Product</option>
+            <option value="service"> Service</option>
+          </select>
         </div>
-      </div>
-    </div>
-    <div class="bg-box clearfix">
-      <div class="row menu-2">
-        <ul class="clearfix row">
-          <li>
-            <a><%= image_tag('logo.png')%></a>
-          </li>
-          <li>
-            <a style="font-size: 16px" class="text-title">Shoping by <br>category</a>
-          </li>
-          <li>
-            <div id="gh-ac-box2">
-              <input id="gh-ac" type="text" placeholder="Search" maxlength="300" size="40">
-            </div>
-          </li>
-          <li>
-            <div id="gh-cat-box">
-              <select id="gh-cat">
-                <option><a>Category ONE</a></option>
-                <option><a>Category Two</a></option>
-                <option><a>Category Three</a></option>
-                <option><a>Category Three</a></option>
-                <option><a>Category Three</a></option>
-              </select>
-            </div>
-          </li>
-          <li>
-            <div>
-              <input id="gh-btn" class="btn-prim" type="submit" value="Search">
-            </div>
-          </li>
-        </ul>
-      </div>
-    </div>
-
-    <!--<div>-->
-    <!--<hr class="hr-line">-->
-    <!--</div>-->
-
-
-    <div class="bg-box">
-      <div class="row menu-3">
-        <hr class="hr-line">
-        <div class="row">
-          <ul class="">
-            <li><a>Following</a></li>
-            <li><a>Today</a></li>
-            <li class=""><a>Fashion</a></li>
-            <li><a>Electronics</a></li>
-            <li><a>Collectibles & Art</a></li>
-            <li><a>Home & Garden</a></li>
-            <li><a>Sporting Goods</a></li>
-          </ul>
+      </li>
+      <li>
+        <div>
+          <input id="gh-btn" class="btn-prim" type="submit" value="Search">
         </div>
-        <hr class="hr-line">
-      </div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!--<div>-->
+<!--<hr class="hr-line">-->
+<!--</div>-->
+
+
+<div class="bg-box">
+  <div class="row menu-3">
+    <hr class="hr-line">
+    <div class="row">
+      <ul class="">
+        <li><a href="/"> Home </a></li>
+        <li><a href="/">Products</a></li>
+        <li><a href="/">Services</a></li>
+        <li><a href="/">Electronics</a></li>
+        <li><a href="#">Collectibles & Art</a></li>
+        <li><a>Sporting Goods</a></li>
+      </ul>
     </div>
+    <hr class="hr-line">
+  </div>
+</div>
 
 <div class="bg-box">
   <div class="row">
@@ -94,67 +101,76 @@
               <div class="tp-bannertimer"></div>
               <%= image_tag('slider_shop_1.jpg') %>
               <!--<img data-retina src="slider_shop_1.jpg">-->
-              <div class="caption sfb"  data-x="30" data-y="bottom" data-speed="700" data-start="1700" data-easing="Power4.easeOut"><%= image_tag('slider_shop_1-1.png')   %></div>
-              <div class="caption"  data-x="180" data-y="bottom" data-voffset="-1" data-speed="2100" data-start="3300" data-easing="easeOutBack"> <%= image_tag('slider_shop_1-2.png') %></div>
+              <div class="caption sfb" data-x="30" data-y="bottom" data-speed="700" data-start="1700" data-easing="Power4.easeOut"><%= image_tag('slider_shop_1-1.png') %></div>
+              <div class="caption" data-x="180" data-y="bottom" data-voffset="-1" data-speed="2100" data-start="3300" data-easing="easeOutBack"> <%= image_tag('slider_shop_1-2.png') %></div>
               <!--<img data-retina src="slider_shop_1-2.png">-->
-              <div class="caption lfr"  data-x="400"  data-y="100" data-speed="300" data-start="2000">
+              <div class="caption lfr" data-x="400" data-y="100" data-speed="300" data-start="2000">
                 <div class="b-header-group f-header-group f-header-group--light">
                   <h2 class="f-legacy-h2 f-primary-l">summer</h2>
+
                   <h1 class="f-legacy-h1 f-primary-sb">collections</h1>
                 </div>
               </div>
-              <div class="caption lfb"  data-x="400" data-y="270" data-speed="300" data-start="2300">
-                <p class="f-primary-b f-uppercase f-slider-lg_text-medium c-white" >Lorem ipsum dolor sit amet, consectetur adipis</p>
+              <div class="caption lfb" data-x="400" data-y="270" data-speed="300" data-start="2300">
+                <p class="f-primary-b f-uppercase f-slider-lg_text-medium c-white">Lorem ipsum dolor sit amet,
+                  consectetur adipis</p>
               </div>
-              <div class="caption lfb"  data-x="400" data-y="300" data-speed="300" data-start="2600">
-                <p class="f-primary-b f-uppercase f-slider-lg_text-medium c-white" >Vestibulum scelerisque in enim </p>
+              <div class="caption lfb" data-x="400" data-y="300" data-speed="300" data-start="2600">
+                <p class="f-primary-b f-uppercase f-slider-lg_text-medium c-white">Vestibulum scelerisque in enim </p>
               </div>
-              <div class="caption"  data-x="400" data-y="340" data-speed="600" data-start="3000">
-                <p><a class="b-link f-link f-primary-b f-uppercase" href="#">more <span><i class="fa fa-chevron-right"></i></span></a></p>
+              <div class="caption" data-x="400" data-y="340" data-speed="600" data-start="3000">
+                <p><a class="b-link f-link f-primary-b f-uppercase" href="#">more
+                  <span><i class="fa fa-chevron-right"></i></span></a></p>
               </div>
             </li>
             <li data-transition="" data-slotamount="7">
               <div class="tp-bannertimer"></div>
               <%= image_tag('slider_shop_1.jpg') %>
               <!--<img data-retina src="slider_shop_1.jpg">-->
-              <div class="caption sfb"  data-x="30" data-y="bottom" data-speed="700" data-start="1700" data-easing="Power4.easeOut"> <%= image_tag('slider-shop-2-2.png') %> </div>
+              <div class="caption sfb" data-x="30" data-y="bottom" data-speed="700" data-start="1700" data-easing="Power4.easeOut"> <%= image_tag('slider-shop-2-2.png') %> </div>
               <!--<img data-retina src="slider-shop-2-2.png">-->
-              <div class="caption lfr"  data-x="400"  data-y="100" data-speed="300" data-start="2000">
+              <div class="caption lfr" data-x="400" data-y="100" data-speed="300" data-start="2000">
                 <div class="b-header-group f-header-group f-header-group--light">
                   <h2 class="f-legacy-h2 f-primary-l">summer</h2>
+
                   <h1 class="f-legacy-h1 f-primary-sb">collections</h1>
                 </div>
               </div>
-              <div class="caption lfb"  data-x="400" data-y="270" data-speed="300" data-start="2300">
-                <p class="f-primary-b f-uppercase f-slider-lg_text-medium c-white" >Lorem ipsum dolor sit amet, consectetur adipis</p>
+              <div class="caption lfb" data-x="400" data-y="270" data-speed="300" data-start="2300">
+                <p class="f-primary-b f-uppercase f-slider-lg_text-medium c-white">Lorem ipsum dolor sit amet,
+                  consectetur adipis</p>
               </div>
-              <div class="caption lfb"  data-x="400" data-y="300" data-speed="300" data-start="2600">
-                <p class="f-primary-b f-uppercase f-slider-lg_text-medium c-white" >Vestibulum scelerisque in enim </p>
+              <div class="caption lfb" data-x="400" data-y="300" data-speed="300" data-start="2600">
+                <p class="f-primary-b f-uppercase f-slider-lg_text-medium c-white">Vestibulum scelerisque in enim </p>
               </div>
-              <div class="caption"  data-x="400" data-y="340" data-speed="600" data-start="3000">
-                <p><a class="b-link f-link f-primary-b f-uppercase" href="#">more <span><i class="fa fa-chevron-right"></i></span></a></p>
+              <div class="caption" data-x="400" data-y="340" data-speed="600" data-start="3000">
+                <p><a class="b-link f-link f-primary-b f-uppercase" href="#">more
+                  <span><i class="fa fa-chevron-right"></i></span></a></p>
               </div>
             </li>
             <li data-transition="" data-slotamount="7">
               <div class="tp-bannertimer"></div>
               <%= image_tag('slider_shop_1.jpg') %>
               <!--<img data-retina src="slider_shop_1.jpg">-->
-              <div class="caption sfb"  data-x="30" data-y="bottom" data-speed="700" data-start="1700" data-easing="Power4.easeOut"><%= image_tag('slider-shop-3-3.png') %></div>
+              <div class="caption sfb" data-x="30" data-y="bottom" data-speed="700" data-start="1700" data-easing="Power4.easeOut"><%= image_tag('slider-shop-3-3.png') %></div>
               <!--<img data-retina src="slider-shop-3-3.png">-->
-              <div class="caption lfr"  data-x="400"  data-y="100" data-speed="300" data-start="2000">
+              <div class="caption lfr" data-x="400" data-y="100" data-speed="300" data-start="2000">
                 <div class="b-header-group f-header-group f-header-group--light">
                   <h2 class="f-legacy-h2 f-primary-l">summer</h2>
+
                   <h1 class="f-legacy-h1 f-primary-sb">collections</h1>
                 </div>
               </div>
-              <div class="caption lfb"  data-x="400" data-y="270" data-speed="300" data-start="2300">
-                <p class="f-primary-b f-uppercase f-slider-lg_text-medium c-white" >Lorem ipsum dolor sit amet, consectetur adipis</p>
+              <div class="caption lfb" data-x="400" data-y="270" data-speed="300" data-start="2300">
+                <p class="f-primary-b f-uppercase f-slider-lg_text-medium c-white">Lorem ipsum dolor sit amet,
+                  consectetur adipis</p>
               </div>
-              <div class="caption lfb"  data-x="400" data-y="300" data-speed="300" data-start="2600">
-                <p class="f-primary-b f-uppercase f-slider-lg_text-medium c-white" >Vestibulum scelerisque in enim </p>
+              <div class="caption lfb" data-x="400" data-y="300" data-speed="300" data-start="2600">
+                <p class="f-primary-b f-uppercase f-slider-lg_text-medium c-white">Vestibulum scelerisque in enim </p>
               </div>
-              <div class="caption"  data-x="400" data-y="340" data-speed="600" data-start="3000">
-                <p><a class="b-link f-link f-primary-b f-uppercase" href="#">more <span><i class="fa fa-chevron-right"></i></span></a></p>
+              <div class="caption" data-x="400" data-y="340" data-speed="600" data-start="3000">
+                <p><a class="b-link f-link f-primary-b f-uppercase" href="#">more
+                  <span><i class="fa fa-chevron-right"></i></span></a></p>
               </div>
             </li>
           </ul>

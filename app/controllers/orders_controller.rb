@@ -23,10 +23,10 @@ class OrdersController < ApplicationController
     if current_user.present?
       redirect_to orders_path
     else
-     redirect_to root_path
+      redirect_to root_path
     end
 
-    end
+  end
 
   private
   def order_params

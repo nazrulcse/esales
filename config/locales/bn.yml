@@ -26,3 +26,5 @@ bn:
   logout: " প্রস্থান"
   req_subscription: "সাবস্ক্রিপশনের জন্য অনুরোধ"
   bangla: "বাংলা"
+  text_sale: 'বিক্রয়'
+  help_and_contact: 'সাহায্য ও যোগাযোগ'

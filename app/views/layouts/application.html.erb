@@ -6,7 +6,7 @@
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body style="background: url(<%= asset_path 'body.png' %>);">
 <%= render 'shared/nav' %>
 <%= yield %>
 <%= render 'shared/footer' %>

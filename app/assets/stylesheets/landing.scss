@@ -30,8 +30,17 @@
       margin-top: 5px;
     }
   }
-  .left-border {
-    //border-left: solid 1px #CCCCCC;
+  ul {
+    &.dropdown-menu {
+      li {
+        display: block;
+        a {
+          display: block;
+          width: 100%;
+          text-align: left;
+        }
+      }
+    }
   }
 }
 

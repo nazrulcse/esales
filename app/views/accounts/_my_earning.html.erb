@@ -1,0 +1,35 @@
+<table class="table order-table">
+  <thead class="order-title">
+  <tr>
+    <th> Item </th>
+    <th></th>
+    <th> Price</th>
+    <th> Discount</th>
+    <th>My Earning</th>
+    <th> Order Id</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @earnings.each do |earn| %>
+      <tr>
+        <td class="order-item-image">
+          <%= image_tag(earn.product.product_images.first.image.url(:thumb)) %>
+        </td>
+        <td>
+          <h2> <%= earn.product.category.name %> </h2>
+          <%= link_to earn.product.name, product_path(earn.product) %>
+        </td>
+        <td class="item"> <%= number_to_currency(earn.price) %> </td>
+        <td class="item"> <%= earn.discount %>% </td>
+        <td class="item"> <%= earn.earning %></td>
+        <td class="item"> <%= earn.order_id %> </td>
+      </tr>
+  <% end %>
+  </tbody>
+  <tbody>
+  <tr>
+    <td colspan="4"></td>
+    <td class="item"> <%= @earnings.sum(:earning) %> </td>
+  </tr>
+  </tbody>
+</table>

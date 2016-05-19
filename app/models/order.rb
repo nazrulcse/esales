@@ -21,4 +21,16 @@ class Order < ActiveRecord::Base
     end
     return total
   end
+
+  def self.earning(line_item)
+    product = Product.find_by_id(line_item.product_id)
+    earning = (product.price * product.subscriber_discount * line_item.quantity) / 100
+    return earning
+  end
+
+  def self.get_price(line_item)
+    product = Product.find_by_id(line_item.product_id)
+    price = (product.price * line_item.quantity)
+    return price
+  end
 end

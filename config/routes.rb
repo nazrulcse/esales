@@ -23,6 +23,8 @@ Rails.application.routes.draw do
       get 'delete_favorite',on: :collection
     end
 
+  get 'account', to: 'accounts#account', as: :account
+
     resources :shopping_carts do
       member do
         get 'empty_cart'

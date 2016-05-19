@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160503060840) do
+ActiveRecord::Schema.define(version: 20160518183653) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -118,18 +118,19 @@ ActiveRecord::Schema.define(version: 20160503060840) do
   end
 
   create_table "products", force: :cascade do |t|
-    t.string   "name",        limit: 255
-    t.text     "description", limit: 65535
-    t.integer  "category_id", limit: 4
-    t.integer  "brand_id",    limit: 4
-    t.string   "color",       limit: 255
-    t.float    "price",       limit: 24
-    t.datetime "created_at",                                null: false
-    t.datetime "updated_at",                                null: false
-    t.text     "images",      limit: 65535
-    t.string   "slug",        limit: 255
-    t.boolean  "is_featured", limit: 1,     default: false
-    t.string   "tags",        limit: 255
+    t.string   "name",                limit: 255
+    t.text     "description",         limit: 65535
+    t.integer  "category_id",         limit: 4
+    t.integer  "brand_id",            limit: 4
+    t.string   "color",               limit: 255
+    t.float    "price",               limit: 24
+    t.datetime "created_at",                                        null: false
+    t.datetime "updated_at",                                        null: false
+    t.text     "images",              limit: 65535
+    t.string   "slug",                limit: 255
+    t.boolean  "is_featured",         limit: 1,     default: false
+    t.string   "tags",                limit: 255
+    t.float    "subscriber_discount", limit: 24
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -139,6 +140,17 @@ ActiveRecord::Schema.define(version: 20160503060840) do
     t.integer  "rating",     limit: 4
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
+  end
+
+  create_table "sales", force: :cascade do |t|
+    t.integer  "product_id", limit: 4
+    t.integer  "user_id",    limit: 4
+    t.integer  "order_id",   limit: 4
+    t.float    "discount",   limit: 24
+    t.float    "price",      limit: 24
+    t.float    "earning",    limit: 24
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
   end
 
   create_table "services", force: :cascade do |t|

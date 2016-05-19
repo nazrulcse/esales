@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,:registerable
   mount_uploader :image, ImageUploader
   has_many :orders
+  has_many :sales
   has_many :favorites
   has_many :reviews
 end

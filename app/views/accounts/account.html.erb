@@ -1,0 +1,81 @@
+<div class="j-menu-container"></div>
+
+<div class="b-inner-page-header f-inner-page-header b-bg-header-inner-page">
+  <div class="b-inner-page-header__content">
+    <div class="container">
+      <h1 class="f-primary-l c-default">Online store</h1>
+      <div class="f-primary-l f-inner-page-header_title-add c-senary">This is online store listing products sample page</div>
+    </div>
+  </div>
+</div>
+<div class="l-main-container">
+
+  <div class="b-breadcrumbs f-breadcrumbs">
+    <div class="container">
+      <ul>
+        <li><a href="#"><i class="fa fa-home"></i>Home</a></li>
+        <li><i class="fa fa-angle-right"></i><span><%= t(:my_account) %></span></li>
+      </ul>
+    </div>
+  </div>
+  <section class="b-infoblock">
+    <div class="container">
+      <div class="row">
+        <ul class="nav nav-tabs">
+          <li class="active"><a data-toggle="tab" href="#all">My Sales</a></li>
+          <li><a data-toggle="tab" href="#earning">My Earning</a></li>
+          <li><a data-toggle="tab" href="#pending">Pending Earning</a></li>
+          <li><a data-toggle="tab" href="#transaction">Transation</a></li>
+        </ul>
+
+        <div class="tab-content">
+          <div id="all" class="tab-pane fade in active">
+            <div class="row">
+              <div class="table-responsive">
+                <table class="table table-striped table-condensed">
+                  <% if @orders.present? %>
+                      <% @orders.each do |order| %>
+                          <% if order.line_items.present? %>
+                              <%= render 'orders/order_item', :order => order %>
+                          <% end %>
+                      <% end %>
+                  <% end %>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div id="earning" class="tab-pane fade">
+            <div class="row">
+              <div class="table-responsive">
+                <% if @earnings.present? %>
+                        <%= render 'my_earning', :earnings => @earnings %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+          <div id="pending" class="tab-pane fade">
+            <div class="row">
+              <div class="table-responsive">
+                <table class="table table-striped table-condensed">
+                  <% if @pending.present? %>
+                      <% @pending.each do |order| %>
+                          <% if order.line_items.present? %>
+                              <%= render 'pending_earning', :order => order %>
+                          <% end %>
+                      <% end %>
+                  <% end %>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div id="transaction" class="tab-pane fade">
+            <div class="row">
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</div>

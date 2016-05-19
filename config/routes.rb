@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     root 'welcome#index'
 
     get 'product_details' => 'welcome#product_details'
+    get 'how-it-works' => 'welcome#how_it_works'
     # get 'set_locale' => 'welcome#set_locale'
 
     resources :order_details

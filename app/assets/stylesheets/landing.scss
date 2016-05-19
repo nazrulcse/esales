@@ -154,7 +154,7 @@
 .hr-line {
   margin-bottom: 10px;
   margin-top: 10px;
-  width: 980px;
+  width: 100%;
 }
 
 .divider-line {
@@ -230,3 +230,58 @@
     }
   }
 }
+
+.how-it-work-wrapper {
+  padding: 3px 10px;
+  margin-top: 10px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  .how-it-work-link {
+    font-size: 20px;
+    text-shadow: 1px 1px 1px #999;
+  }
+}
+
+.how-it-works {
+  background: #79cccd;
+  display: block;
+  .col-center {
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .space-top-8 {
+    margin-top: 50px;
+  }
+  h1.text-contrast {
+    font-size: 44px;
+  }
+  .text-contrast {
+    color: #fff;
+    margin-top: 0;
+  }
+}
+
+.how-it-works__image {
+  background: rgba(0, 0, 0, 0) url("https://a0.muscache.com/airbnb/static/landing_pages/pretzel/how_it_works-6f1c02e84d49e801d12a5ff57565098a.png") no-repeat scroll center 0 / cover;
+  height: 310px;
+  margin: 0 auto;
+  max-width: 283px;
+}
+
+.space-top-4 {
+  padding-top: 25px;
+}
+
+.space-4 {
+  padding-bottom: 25px;
+}
+
+.how-it-works__step-three {
+  padding-right: 0;
+  .panel-body {
+    padding-right: 0;
+  }
+}
+

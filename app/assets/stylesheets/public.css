@@ -2,8 +2,15 @@
     clear: both;
 }
 
+.bold-text {
+    font-weight: bold;
+}
 
 .favorite {
     background-color: #e9682e;
     color: floralwhite;
+}
+
+.reset-padding {
+    padding: 0 !important;
 }

@@ -4,7 +4,10 @@
   <div class="b-inner-page-header__content">
     <div class="container">
       <h1 class="f-primary-l c-default">Online store</h1>
-      <div class="f-primary-l f-inner-page-header_title-add c-senary">This is online store listing products sample page</div>
+
+      <div class="f-primary-l f-inner-page-header_title-add c-senary">This is online store listing products sample
+        page
+      </div>
     </div>
   </div>
 </div>
@@ -14,7 +17,7 @@
     <div class="container">
       <ul>
         <li><a href="#"><i class="fa fa-home"></i>Home</a></li>
-        <li><i class="fa fa-angle-right"></i><a href="#">Shopping</a></li>
+        <li><i class="fa fa-angle-right"></i><a href="#">Product</a></li>
         <li><i class="fa fa-angle-right"></i><span> Detail</span></li>
       </ul>
     </div>
@@ -32,7 +35,7 @@
                   <ul class="slides">
                     <% @product.product_images.each do |image| %>
                         <li>
-                          <%= link_to image_tag(image.image.url(:big)) , asset_path(image.image.url(:big)), class: 'fancybox', rel: 'product'%>
+                          <%= link_to image_tag(image.image.url(:big)), asset_path(image.image.url(:big)), class: 'fancybox', rel: 'product' %>
                           <!--<a class="fancybox" rel="product" href="<%#= image_tag('shop_1.png') %>" <%#= image_tag('shop_1.png') %> </a>-->
                         </li>
                     <% end %>
@@ -51,13 +54,14 @@
                 </div>
               </div>
               <div class="b-product-card__info">
-                <h4 class="f-primary-b b-h4-special f-h4-special">information</h4>
+                <h4 class="f-primary-b b-h4-special f-h4-special"><%= t(:information) %></h4>
+
                 <div class="b-product-card__info_row">
-                  <div class="b-product-card__info_title f-primary-b f-title-smallest">Price</div>
-                  <span class="f-product-card__info_price c-default f-primary-b">$ <%= @product.price %> </span>
+                  <div class="b-product-card__info_title f-primary-b f-title-smallest"><%= t(:price) %></div>
+                  <span class="f-product-card__info_price c-default f-primary-b">$<%= @product.price %> </span>
                 </div>
                 <div class="b-product-card__info_row">
-                  <div class="b-product-card__info_title f-primary-b f-title-smallest">Reviews</div>
+                  <div class="b-product-card__info_title f-primary-b f-title-smallest"><%= t(:review) %></div>
                   <div class="b-stars-group f-stars-group b-margin-right-standard">
                     <!--<i class="fa fa-star is-active-stars"></i>-->
                     <!--<i class="fa fa-star is-active-stars"></i>-->
@@ -65,49 +69,42 @@
                     <!--<i class="fa fa-star is-active-stars"></i>-->
                     <!--<i class="fa fa-star"></i>-->
                   </div>
-                  <span class="f-primary-b c-tertiary f-title-smallest"> <a href="#">(<%= @product.reviews.count %> reviews)</a></span>
+                  <span class="f-primary-b c-tertiary f-title-smallest">
+                    <a href="#">(<%= @product.reviews.count %>
+                      <%= t(:review) %>)
+                    </a>
+                  </span>
                 </div>
                 <div class="b-product-card__info_row">
                   <div class="b-product-card__info_description f-product-card__info_description">
-                   <%= @product.description %>
+                    <%= @product.description %>
                   </div>
                 </div>
                 <div class="b-product-card__info_row">
-                  <%= form_for LineItem.new do |f| %>
+                  <%= form_for LineItem.new, html: {style: 'width: 100%'} do |f| %>
                       <%= hidden_field_tag(:product_id, @product.id) %>
                       <div class="b-product-card__info_count">
-                      <%= f.number_field :quantity, :class => 'form-control form-control--secondary',value: 1, :min => 1 %>
+                        <%= f.number_field :quantity, :class => 'form-control form-control--secondary', value: 1, :min => 1 %>
                       </div>
                       <div class="b-product-card__info_add b-margin-right-standard">
-                        <%= f.submit :class => 'b-btn f-btn b-btn-sm-md f-btn-sm-md', :value => ' Add to cart' %>
+                        <button type="submit" class="b-btn f-btn b-btn-sm-md f-btn-sm-md" value="Add to cart" name="commit">
+                          <%= t(:add_to_cart) %>
+                        </button>
+                        <%#= f.submit :class => 'b-btn f-btn b-btn-sm-md f-btn-sm-md', :value => ' Add to cart' %>
                       </div>
                   <% end %>
-                  <div class="b-product-card__info_like  b-btn f-btn b-btn-sm-md f-btn-sm-md b-btn--icon-only">
-                    <i class="fa fa-heart"></i>
-                  </div>
+                </div>
 
-                  <div class="b-product-card__info_like popup_link  b-btn f-btn b-btn-sm-md f-btn-sm-md b-btn--icon-only">
-                    <i class="fa fa-star-o"></i>
-                  </div>
-                </div>
                 <div class="b-product-card__info_row">
-                  <div class="b-product-card__info_code">
-                    <input type="text" class="form-control form-control--secondary" placeholder="Enter your coupon code">
-                  </div>
-                  <div class="b-product-card__info_submit  b-btn f-btn b-btn-sm-md f-btn-sm-md b-btn--icon-only">
-                    <i class="fa fa-arrow-right"></i>
-                  </div>
-                </div>
-                <div class="b-product-card__info_row">
-                  <div class="b-product-card__info_title f-primary-b f-title-smallest">Categories</div>
+                  <div class="b-product-card__info_title f-primary-b f-title-smallest"><%= t(:category) %></div>
                   <a class="f-more f-title-smallest" href="<%= products_path(category_id: @product.category_id) %>"><%= @product.category.name %></a>
                 </div>
                 <div class="b-product-card__info_row">
-                  <div class="b-product-card__info_title f-primary-b f-title-smallest">Tags</div>
+                  <div class="b-product-card__info_title f-primary-b f-title-smallest"><%= t(:tags) %></div>
                   <div class="b-tag-container">
                     <% @product.tags.each do |tag| %>
                         <a class="f-tag b-tag" href="#"><%= tag.name %></a>
-                    <%end%>
+                    <% end %>
                   </div>
                 </div>
                 <div class="b-product-card__info_row">
@@ -133,7 +130,6 @@
           <div class="clearfix"></div>
 
 
-
           <div class="b-shortcode-example">
             <div class="b-tabs f-tabs j-tabs b-tabs-reset">
               <ul class="nav nav-tabs">
@@ -144,12 +140,27 @@
               <div class="tab-content b-tabs__content">
                 <div id="home" class="tab-pane fade in active">
                   <h4 class="f-tabs-vertical__title f-primary-b">Product description</h4>
-                  <p>Maecenas laoreet commodo arcu, eu semper lacus tincidunt eget. Vestibulum at arcu pulvinar, fermentum sapien nec, tristique dui. Ut feugiat est at sapien ullamcorper viverra. Vestibulum pretium malesuada elit rutrum condimentum. Donec bibendum scelerisque odio vulputate viverra. Pellentesque habitant morbi tristique senectus et netus et malesuada fames acipsum. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat.  Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. .</p>
+
+                  <p>Maecenas laoreet commodo arcu, eu semper lacus tincidunt eget. Vestibulum at arcu pulvinar,
+                    fermentum sapien nec, tristique dui. Ut feugiat est at sapien ullamcorper viverra. Vestibulum
+                    pretium malesuada elit rutrum condimentum. Donec bibendum scelerisque odio vulputate viverra.
+                    Pellentesque habitant morbi tristique senectus et netus et malesuada fames acipsum. Aenean
+                    fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac
+                    dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus
+                    faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Lorem Ipsum has been the
+                    industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type
+                    and scrambled it to make a type specimen book. .</p>
                   <a href="#" class="f-more f-primary-b f-title-smallest">Read more...</a>
                 </div>
                 <div id="menu1" class="tab-pane fade">
                   <h4 class="f-tabs-vertical__title f-primary-b">Suspendisse vitae metus enim 2</h4>
-                  <p>Maecenas laoreet commodo arcu, eu semper lacus tincidunt eget. Vestibulum at arcu pulvinar, fermentum sapien nec, tristique dui. Ut feugiat est at sapien ullamcorper viverra. Vestibulum pretium malesuada elit rutrum condimentum. Donec bibendum scelerisque odio vulputate viverra. Pellentesque habitant morbi tristique senectus et netus et malesuada fames acipsum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod purus eu sapien faucibus, quis porta ipsum accumsan.</p>
+
+                  <p>Maecenas laoreet commodo arcu, eu semper lacus tincidunt eget. Vestibulum at arcu pulvinar,
+                    fermentum sapien nec, tristique dui. Ut feugiat est at sapien ullamcorper viverra. Vestibulum
+                    pretium malesuada elit rutrum condimentum. Donec bibendum scelerisque odio vulputate viverra.
+                    Pellentesque habitant morbi tristique senectus et netus et malesuada fames acipsum. Lorem ipsum
+                    dolor sit amet, consectetur adipiscing elit. Sed euismod purus eu sapien faucibus, quis porta ipsum
+                    accumsan.</p>
                   <a href="#" class="f-more f-primary-b f-title-smallest">Read more...</a>
                 </div>
               </div>
@@ -158,12 +169,14 @@
 
           <div>
             <h4 class="f-primary-b b-h4-special f-h4-special">product related</h4>
+
             <div class="row">
               <div class="b-col-default-indent">
                 <div class="col-md-4 col-sm-4 col-xs-6 col-mini-12">
                   <div class="b-product-preview">
                     <div class="b-product-preview__img view view-sixth">
-                      <img data-retina src="img/shop/shop_1.png" alt=""/>
+                      <%= image_tag('shop_1.png') %>
+
                       <div class="b-item-hover-action f-center mask">
                         <div class="b-item-hover-action__inner">
                           <div class="b-item-hover-action__inner-btn_group">
@@ -176,11 +189,13 @@
                     </div>
                     <div class="b-product-preview__content">
                       <div class="b-product-preview__content_col">
-                        <span class="b-product-preview__content_price f-product-preview__content_price f-primary-b">35$</span>
+                        <span class="f-news-item__price f-primary-b b-left">35$</span>
                       </div>
                       <div class="b-product-preview__content_col">
                         <a href="shop_detail.html" class="f-product-preview__content_title">Skater Dress In Leaf</a>
-                        <div class="f-product-preview__content_category f-primary-b"><a href="#">Women</a> / <a href="#">Clothe</a></div>
+
+                        <div class="f-product-preview__content_category f-primary-b"><a href="#">Women</a> /
+                          <a href="#">Clothe</a></div>
                       </div>
                     </div>
                   </div>
@@ -188,7 +203,8 @@
                 <div class="col-md-4 col-sm-4 col-xs-6 col-mini-12">
                   <div class="b-product-preview">
                     <div class="b-product-preview__img view view-sixth">
-                      <img data-retina src="img/shop/shop_2.png" alt=""/>
+                      <%= image_tag('shop_2.png') %>
+
                       <div class="b-item-hover-action f-center mask">
                         <div class="b-item-hover-action__inner">
                           <div class="b-item-hover-action__inner-btn_group">
@@ -201,11 +217,13 @@
                     </div>
                     <div class="b-product-preview__content">
                       <div class="b-product-preview__content_col">
-                        <span class="b-product-preview__content_price f-product-preview__content_price f-primary-b">35$</span>
+                        <span class="f-news-item__price f-primary-b b-left">35$</span>
                       </div>
                       <div class="b-product-preview__content_col">
                         <a href="shop_detail.html" class="f-product-preview__content_title">Skater Dress In Leaf</a>
-                        <div class="f-product-preview__content_category f-primary-b"><a href="#">Women</a> / <a href="#">Clothe</a></div>
+
+                        <div class="f-product-preview__content_category f-primary-b"><a href="#">Women</a> /
+                          <a href="#">Clothe</a></div>
                       </div>
                     </div>
                   </div>
@@ -214,7 +232,8 @@
                 <div class="col-md-4 col-sm-4 col-xs-6 col-mini-12">
                   <div class="b-product-preview">
                     <div class="b-product-preview__img view view-sixth">
-                      <img data-retina src="img/shop/shop_3.png" alt=""/>
+                      <%= image_tag('shop_3.png') %>
+
                       <div class="b-item-hover-action f-center mask">
                         <div class="b-item-hover-action__inner">
                           <div class="b-item-hover-action__inner-btn_group">
@@ -227,11 +246,13 @@
                     </div>
                     <div class="b-product-preview__content">
                       <div class="b-product-preview__content_col">
-                        <span class="b-product-preview__content_price f-product-preview__content_price f-primary-b">35$</span>
+                        <span class="f-news-item__price f-primary-b b-left">35$</span>
                       </div>
                       <div class="b-product-preview__content_col">
                         <a href="shop_detail.html" class="f-product-preview__content_title">Skater Dress In Leaf</a>
-                        <div class="f-product-preview__content_category f-primary-b"><a href="#">Women</a> / <a href="#">Clothe</a></div>
+
+                        <div class="f-product-preview__content_category f-primary-b"><a href="#">Women</a> /
+                          <a href="#">Clothe</a></div>
                       </div>
                     </div>
                   </div>
@@ -261,6 +282,7 @@
             <div class="modal-body">
               <div class="form-group">
                 <label class="skill-label pull-left">Speaking Level </label>
+
                 <div class="raty-level-input5" data-name="rating"></div>
                 <%= hidden_field_tag :product_id, '', class: 'form-control', value: @product.id %>
               </div>
@@ -280,7 +302,7 @@
 </div>
 
 <script type="text/javascript" charset="utf-8">
-    $(window).load(function() {
+    $(window).load(function () {
         // The slider being synced must be initialized first
         $('.carousel-sm').flexslider({
             animation: "slide",
@@ -302,7 +324,7 @@
     });
     $(document).ready(function () {
         $('.b-slider-range').slider({
-            change: function(event, ui) {
+            change: function (event, ui) {
 //                alert(ui.values[0]);
 //                alert(ui.values[1]);
 //                $('input#project_min_v').val(ui.values[0]);
@@ -312,7 +334,9 @@
         });
 
         $('.raty-level-input5').raty({
-            scoreName: function() { return $(this).attr('data-name'); },
+            scoreName: function () {
+                return $(this).attr('data-name');
+            },
             starHalf: '<%= asset_path('star-half.png') %>',
             starOff: '<%= asset_path('star-off.png') %>',
             starOn: '<%= asset_path('star-on.png') %>',
@@ -320,7 +344,9 @@
         });
 
         $('.b-stars-group').raty({
-            scoreName: function() { return $(this).attr('data-name'); },
+            scoreName: function () {
+                return $(this).attr('data-name');
+            },
             starHalf: '<%= asset_path('star-half.png') %>',
             starOff: '<%= asset_path('star-off.png') %>',
             starOn: '<%= asset_path('star-on.png') %>',

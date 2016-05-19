@@ -1,38 +1,9 @@
 <div class="j-menu-container"></div>
 <div class="l-main-container">
-  <div class="container">
-    <div class="b-inner-page-header f-inner-page-header b-bg-header-inner-page">
-      <h1 class="f-primary-l c-default">Online store</h1>
-
-      <div class="f-primary-l f-inner-page-header_title-add c-senary">This is online store listing products sample page
-      </div>
-    </div>
-  </div>
   <section class="b-infoblock">
     <div class="container">
       <div class="row">
         <div class="col-md-9 ">
-          <div class="b-sort-panel">
-            <div class="b-sort-panel__inner">
-              <form action="#">
-                <div class="b-select b-left">
-                  <select class="j-select" name="productAtPage" id="productAtPage">
-                    <option>1 products/page</option>
-                    <option>6 products/page</option>
-                    <option selected="selected">9 products/page</option>
-                  </select>
-                </div>
-
-                <div class="b-select b-left">
-                  <select class="j-select" name="productAtPage" id="productAtPage">
-                    <option>Order by price</option>
-                    <option selected="selected">Order by name</option>
-                  </select>
-                </div>
-                <div class="b-sort-panel__inner_icon-sort f-sort-panel__inner_icon-sort fa fa-sort-amount-desc"></div>
-              </form>
-            </div>
-          </div>
           <div class="row">
             <div class="b-col-default-indent">
               <% @products.each do |product| %>
@@ -40,7 +11,6 @@
                     <div class="b-product-preview">
                       <div class="b-product-preview__img view view-sixth">
                         <%= image_tag (product.product_images.first.image.url(:big)) %>
-                        <!--<img data-retina src="shop_1.png" alt=""/>-->
                         <div class="b-item-hover-action f-center mask">
                           <div class="b-item-hover-action__inner">
                             <div class="b-item-hover-action__inner-btn_group">
@@ -53,14 +23,15 @@
                       </div>
                       <div class="b-product-preview__content">
                         <div class="b-product-preview__content_col">
-                          <span class="b-product-preview__content_price f-product-preview__content_price f-primary-b"><%= product.price %>
-                            $</span>
+                          <span class="f-news-item__price f-primary-b b-left">
+                            $<%= product.price %>
+                          </span>
                         </div>
                         <div class="b-product-preview__content_col">
                           <a href="<%= product_path(product) %>" class="f-product-preview__content_title"><%= product.name %></a>
 
                           <div class="f-product-preview__content_category f-primary-b">
-                            <a href="#"><%= product.category.name %></a> / <a href="#"><%= product.brand.name %></a>
+                            <a href="#"><%= product.category.name %></a> - <a href="#"><%= product.brand.name %></a>
                           </div>
                         </div>
                       </div>

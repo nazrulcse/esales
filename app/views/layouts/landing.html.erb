@@ -9,7 +9,7 @@
 <body style="background: url(<%= asset_path 'body.png' %>);">
 <%= render 'shared/nav' %>
 
-<div class="bg-box">
+<div class="container">
   <div class="row">
     <div class="col-sm-8">
       <div class="b-slidercontainer">
@@ -104,7 +104,9 @@
 </div>
 <div class="container">
   <div class="b-breadcrumbs f-breadcrumbs how-it-work-wrapper">
-    <a href="/how-it-works" class="how-it-work-link"> How It Works </a>
+    <a href="/how-it-works" class="how-it-work-link">
+      <%= image_tag('how_it_work.png') %>
+    </a>
   </div>
 </div>
 <%= yield %>

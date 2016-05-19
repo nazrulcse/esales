@@ -1,5 +1,5 @@
 <div id="gh-gb" class="menu-1 clearfix">
-  <div class="bg-box">
+  <div class="container">
     <div class="row">
       <ul class="">
         <% if current_user.present? %>
@@ -50,10 +50,10 @@
     </div>
   </div>
 </div>
-<div class="bg-box clearfix">
+<div class="container clearfix">
   <div class="menu-2">
     <%= form_tag products_path, :method => :get do %>
-        <ul class="clearfix row">
+        <ul class="clearfix">
           <li>
             <a><%= image_tag('logo.png', class: 'search-logo') %></a>
           </li>
@@ -62,32 +62,35 @@
           </li>
           <li>
             <div id="gh-cat-box">
-              <%= select_tag :category, options_for_select(['product', 'Service']), {id: 'gh-cat', prompt: 'Select Category'} %>
+              <%= select_tag :category, options_for_select([[t(:products), 'product'], [t(:services), 'Service']]), {id: 'gh-cat', prompt: t(:select_category)} %>
             </div>
           </li>
-          <li>
-            <div>
-              <input id="gh-btn" class="btn-prim" type="submit" value="Search">
-            </div>
+          <li class="clearfix pull-right">
+            <input id="gh-btn" class="btn-prim pull-right" type="submit" value="<%= t(:search_text) %>">
           </li>
         </ul>
     <% end %>
   </div>
 </div>
 
-<div class="bg-box">
-  <div class="row menu-3">
+<div class="container">
+  <div class="menu-3">
     <hr class="hr-line">
-    <div class="row">
-      <ul class="">
-        <li><a href="/"> Home </a></li>
-        <li><a href="/">Products</a></li>
-        <li><a href="/">Services</a></li>
-        <li><a href="/">Electronics</a></li>
-        <li><a href="#">Collectibles & Art</a></li>
-        <li><a>Sporting Goods</a></li>
-      </ul>
-    </div>
+    <ul class="clearfix site-menu-last">
+      <li>
+        <%= link_to t(:home), root_path %>
+      </li>
+      <li>
+        <%= link_to t(:products), products_path %>
+      </li>
+      <li>
+        <%= link_to t(:services), services_path %>
+      <li>
+        <%= link_to t(:about_us), '#' %>
+      </li>
+      <li><a href="#">Collectibles & Art</a></li>
+      <li><a>Sporting Goods</a></li>
+    </ul>
     <hr class="hr-line">
   </div>
 </div>

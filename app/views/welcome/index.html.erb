@@ -9,31 +9,32 @@
             <div class="col-md-6">
               <div class="b-news-item b-news-item--medium-size f-news-item">
                 <div class="b-news-item__img view view-sixth">
-                  <%if product.product_images.present? %>
-                      <%= image_tag(product.product_images.first.image.url(:big))  %>
-                   <% end %>
+                  <% if product.product_images.present? %>
+                      <%= image_tag(product.product_images.first.image.url(:big)) %>
+                  <% end %>
 
                   <div class="b-item-hover-action f-center mask">
                     <div class="b-item-hover-action__inner">
                       <div class="b-item-hover-action__inner-btn_group">
-                        <%= generate_favorate_link(product.id) %>
-                        <a href="<%= line_items_path(:product_id => product.id)%>" class="b-btn f-btn b-btn-light f-btn-light info"data-method="post" data-remote="true"><i class="fa fa-shopping-cart"></i></a>
-                        <a href="<%=  product_path(product) %>" class="b-btn f-btn b-btn-light f-btn-light info"><i class="fa fa-link"></i></a>
+                        <%#= generate_favorate_link(product.id) %>
+                        <a href="<%= line_items_path(:product_id => product.id) %>" class="b-btn f-btn b-btn-light f-btn-light info" data-method="post" data-remote="true"><i class="fa fa-shopping-cart"></i></a>
+                        <a href="<%= product_path(product) %>" class="b-btn f-btn b-btn-light f-btn-light info"><i class="fa fa-link"></i></a>
                       </div>
                     </div>
                   </div>
                 </div>
                 <div class="b-news-item__info">
                   <div class="f-news-item__info_category f-uppercase"><%= product.category.name %></div>
-                  <a href="<%=  product_path(product) %>" class="b-news-item__info_title-big f-news-item__info_title-big f-primary-b">Morphy Richards</a>
+                  <%= link_to product.name, product, class: 'f-news-item__info_title-big bold-text' %>
+
                   <div class="b-news-item__info_text f-news-item__info_text">
-                    <%= truncate(product.description , length: 100, omission: '... ')%>
-                    </div>
+                    <%= truncate(product.description, length: 100, omission: '... ') %>
+                  </div>
                   <div class="b-news-item__article">
-                    <span class="f-news-item__price f-primary-b b-left">$ <%= product.price %></span>
-                      <%= link_to line_items_path(:product_id => product.id), :method => :post, :remote => true,:class => "b-btn f-btn b-right b-btn-sm-md f-btn-sm-md f-primary-b" do %>
-                          <i class="fa fa-shopping-cart"></i> Add to Cart
-                      <% end %>
+                    <span class="f-news-item__price f-primary-b b-left">$<%= product.price %></span>
+                    <%= link_to line_items_path(:product_id => product.id), :method => :post, :remote => true, :class => "b-btn f-btn b-right b-btn-sm-md f-btn-sm-md f-primary-b" do %>
+                        <i class="fa fa-shopping-cart"></i> Add to Cart
+                    <% end %>
                   </div>
                 </div>
                 <div class="b-action-info f-primary-b">
@@ -41,7 +42,7 @@
                 </div>
               </div>
             </div>
-        <%end%>
+        <% end %>
       </div>
     </div>
   </section>

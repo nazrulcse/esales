@@ -90,7 +90,16 @@
 }
 
 .search-wrapper {
-  width: calc(100% - 428px);
+  width: calc(100% - 432px);
+}
+
+.menu-2 {
+  ul {
+    li:last-child {
+      text-align: right;
+      padding-right: 0;
+    }
+  }
 }
 
 #gh-ac {
@@ -133,10 +142,6 @@
   width: 160px;
 }
 
-#gh-cat option {
-  height: 20px;
-}
-
 #gh-btn {
   background: rgba(0, 0, 0, 0) -moz-linear-gradient(center top, #0079bc, #00509d) repeat scroll 0 0;
   border: 0 none;
@@ -171,6 +176,8 @@
 
 .menu-3 ul {
   list-style: none;
+  padding-left: 5px;
+  margin: 0;
 }
 
 .menu-3 ul > li {
@@ -184,6 +191,7 @@
 }
 
 .menu-3 ul > li > a :hover {
+  color: #CCCCCC;
 }
 
 .left-content {
@@ -240,6 +248,9 @@
   .how-it-work-link {
     font-size: 20px;
     text-shadow: 1px 1px 1px #999;
+    img {
+      height: 42px;
+    }
   }
 }
 
@@ -284,4 +295,3 @@
     padding-right: 0;
   }
 }
-

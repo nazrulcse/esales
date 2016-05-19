@@ -24,6 +24,7 @@ en:
   signup: "Signup"
   signin: "SignIn"
   logout: " Logout"
+  my_account: "My Account"
   req_subscription: "Request For Subscription"
   english: "English"
   bangla: "বাংলা"

@@ -9,6 +9,7 @@ class Product < ActiveRecord::Base
   # attr_accessible :product_images_attributes
   has_many :product_images
   has_many :favorites
+  has_many :sales
   has_many :reviews
   has_many :product_relations
   has_many :related_product, through: :product_relations, foreign_key: 'related_product_id'

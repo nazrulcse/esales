@@ -24,6 +24,7 @@ bn:
   signup: "নিবন্ধন করুন"
   signin: "প্রবেশ কর"
   logout: " প্রস্থান"
+  my_account: " আমার অ্যাকাউন্ট"
   req_subscription: "সাবস্ক্রিপশনের জন্য অনুরোধ"
   bangla: "বাংলা"
   text_sale: 'বিক্রয়'

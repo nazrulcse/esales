@@ -24,15 +24,15 @@ class Product < ActiveRecord::Base
   #   end
   # end
 
-  searchable do
-    text :name
-    text :description
-    text :category do
-      category.name
-    end
-
-    text :brand do
-      brand.name
-    end
-  end
+  # searchable do
+  #   text :name
+  #   text :description
+  #   text :category do
+  #     category.name
+  #   end
+  #
+  #   text :brand do
+  #     brand.name
+  #   end
+  # end
 end

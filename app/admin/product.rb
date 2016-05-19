@@ -43,6 +43,7 @@ ActiveAdmin.register Product do
       selectable_column
       column :name
       column :category
+      column :subscriber_discount
       column :price do |product|
         number_to_currency product.price
       end
@@ -59,6 +60,7 @@ ActiveAdmin.register Product do
         row :description
         row :category
         row :brand
+        row :subscriber_discount
         row :color
         row :price do |product|
           number_to_currency product.price
@@ -89,6 +91,7 @@ ActiveAdmin.register Product do
         f.input :category
         f.input :brand
         f.input :color
+        f.input :subscriber_discount, :hint => '%'
         f.input :price
         f.input :tag_list, :hint => 'Comma separated'
         f.has_many :product_images do |ff|
@@ -103,14 +106,14 @@ ActiveAdmin.register Product do
 
 
   member_action :featured, method: :get do
-    product = Product.find_by_id(params[:id])
+    product = Product.find_by_slug(params[:id])
     product.is_featured = true
     product.save
     redirect_to admin_products_path, notice: "The product is now Featured product"
   end
 
   member_action :remove_featured, method: :get do
-    product = Product.find_by_id(params[:id])
+    product = Product.find_by_slug(params[:id])
     product.is_featured = false
     product.save
     redirect_to admin_products_path, notice: "Successfully Removed"

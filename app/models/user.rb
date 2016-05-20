@@ -8,4 +8,5 @@ class User < ActiveRecord::Base
   has_many :sales
   has_many :favorites
   has_many :reviews
+  has_many :subscriber_transactions
 end

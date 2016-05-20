@@ -14,3 +14,8 @@
 .reset-padding {
     padding: 0 !important;
 }
+
+.available_price {
+    color: #fe980f;
+    font-size: 18px;
+}

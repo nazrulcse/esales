@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     resources :shopping_carts
     resources :line_items
     resources :services
+    resources :subscriber_transactions
     resources :products do
       get 'review_product',on: :collection
       get 'set_language',on: :collection

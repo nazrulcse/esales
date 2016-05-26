@@ -60,7 +60,7 @@ ActiveAdmin.register Order do
     order.status_id = Order::ORDER_STATE[:delivered]
     order.save
     order.line_items.each do |line_item|
-      Sale.create(product_id: line_item.product_id, order_id: order.id, user_id: order.user_id, price: Order.get_price(line_item), discount: Product.find_by_id(line_item.product_id).subscriber_discount, earning: Order.earning(line_item))
+      Sale.create(product_id: line_item.product_id, order_id: order.id,quantity: line_item.quantity, user_id: order.user_id, price: Order.get_price(line_item), discount: Product.find_by_id(line_item.product_id).subscriber_discount, earning: Order.earning(line_item))
     end
     redirect_to admin_orders_path, notice: "Order successfully Delivered"
   end

@@ -5,45 +5,34 @@
       <div class="row">
         <div class="col-md-9 ">
           <div class="row">
-            <div class="b-col-default-indent">
+            <div class="b-col-default-indent product_items">
               <% @products.each do |product| %>
-                  <div class="col-md-4 col-sm-4 col-xs-6 col-mini-12">
-                    <div class="b-product-preview">
-                      <div class="b-product-preview__img view view-sixth">
-                        <%= image_tag (product.product_images.first.image.url(:big)) %>
-                        <div class="b-item-hover-action f-center mask">
-                          <div class="b-item-hover-action__inner">
-                            <div class="b-item-hover-action__inner-btn_group">
-                              <%= generate_favorate_link(product.id) %>
-                              <a href="<%= line_items_path(:product_id => product.id) %>" class="b-btn f-btn b-btn-light f-btn-light info" data-method="post" data-remote="true"><i class="fa fa-shopping-cart"></i></a>
-                              <a href="<%= product_path(product) %>" class="b-btn f-btn b-btn-light f-btn-light info"><i class="fa fa-link"></i></a>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="b-product-preview__content">
-                        <div class="b-product-preview__content_col">
-                          <span class="f-news-item__price f-primary-b b-left">
-                            $<%= product.price %>
-                          </span>
-                        </div>
-                        <div class="b-product-preview__content_col">
-                          <a href="<%= product_path(product) %>" class="f-product-preview__content_title"><%= product.name %></a>
-
-                          <div class="f-product-preview__content_category f-primary-b">
-                            <a href="#"><%= product.category.name %></a> - <a href="#"><%= product.brand.name %></a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                <%= render 'item', product: product %>
               <% end %>
-              <div class="clearfix hidden-xs"></div>
             </div>
           </div>
         </div>
-        <%= render 'shared/filter' %>
+        <%= render 'shared/filter',product_type: 'product' %>
       </div>
     </div>
   </section>
 </div>
+
+
+<script type="text/javascript">
+    $(function() {
+        $(window).scroll(function() {
+            if($(window).scrollTop() == $(document).height() - $(window).height()) {
+                $.ajax({
+                    url: "<%= more_products_path %>",
+                    type: 'get',
+                    dataType: 'script',
+                    data: {offset: $('.product_items .single_item').length},
+                    error: function() {
+                        alert("Something wrong");
+                    }
+                });
+            }
+        });
+    })
+</script>

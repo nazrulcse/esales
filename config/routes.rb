@@ -19,6 +19,7 @@ Rails.application.routes.draw do
     resources :products do
       get 'review_product',on: :collection
       get 'set_language',on: :collection
+      get 'more',on: :collection
     end
     resources :favorites do
       get 'delete_favorite',on: :collection

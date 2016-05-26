@@ -19,134 +19,63 @@
         <div class="b-categories-filter">
           <h4 class="f-primary-b b-h4-special f-h4-special c-primary"><%= t(:category_filter) %></h4>
           <ul>
-            <% @categories.each do |category| %>
+            <% @categories.each do |category, count| %>
+
                 <li>
-                  <a class="f-categories-filter_name" href="<%= products_path(category_id: category.id) %>"><i class="fa fa-plus"></i> <%= category.name %>
+                  <a class="f-categories-filter_name" href="<%= product_type == 'service' ? services_path(category_id: category) : products_path(category_id: category) %>"><i class="fa fa-plus"></i> <%= get_category_name(category) %>
                   </a>
-                  <span class="b-categories-filter_count f-categories-filter_count"><%= category.products.count %></span>
+                  <span class="b-categories-filter_count f-categories-filter_count"><%= count %></span>
                 </li>
             <% end %>
           </ul>
         </div>
       </div>
-      <div class="col-md-12">
-        <h4 class="f-primary-b b-h4-special f-h4-special c-primary"><%= t(:color_filter) %></h4>
 
-        <div class="b-color-picker b-color-picker--alt">
-          <div class="b-color-picker__box">
-            <% color_list.each do |color| %>
-                <a href="<%= products_path(color: color.delete('#')) %>" class="b-color-picker_color_4" style="background-color: <%= color %>;">
-                </a>
-            <% end %>
-          </div>
-        </div>
-      </div>
+        <% if product_type == 'product' %>
+          <div class="col-md-12">
+            <h4 class="f-primary-b b-h4-special f-h4-special c-primary"><%= t(:color_filter) %></h4>
+            <div class="b-color-picker b-color-picker--alt">
+              <div class="b-color-picker__box">
+                <% color_list.each do |color| %>
+                    <a href="<%= products_path(color: color.delete('#')) %>" class="b-color-picker_color_4" style="background-color: <%= color %>;">
+                    </a>
+                <% end %>
+              </div>
+            </div>
+            </div>
+        <% end %>
       <div class="col-md-12">
         <h4 class="f-primary-b b-h4-special f-h4-special c-primary"><%= t(:tag_filter) %></h4>
-
+            <% all_tags.each do |tagging|  %>
+            <%= get_tag_path(tagging) %>
+            <%#= link_to tagging.tag.name, , class: 'f-tag b-tag' %>
+            <% end %>
         <div>
-          <a class="f-tag b-tag" href="#">Dress</a>
-          <a class="f-tag b-tag" href="#">Mini</a>
-          <a class="f-tag b-tag" href="#">Skate animal</a>
-          <a class="f-tag b-tag" href="#">Lorem ipsum</a>
-          <a class="f-tag b-tag" href="#">literature</a>
-          <a class="f-tag b-tag" href="#">Baroque</a>
-          <a class="f-tag b-tag" href="#">Dress</a>
-          <a class="f-tag b-tag" href="#">Mini</a>
-          <a class="f-tag b-tag" href="#">Skate animal</a>
-          <a class="f-tag b-tag" href="#">Lorem ipsum</a>
-          <a class="f-tag b-tag" href="#">literature</a>
-          <a class="f-tag b-tag" href="#">Baroque</a>
+
         </div>
       </div>
       <div class="col-md-12">
         <h4 class="f-primary-b b-h4-special f-h4-special c-primary"><%= t(:popular_product) %></h4>
 
-        <div class="b-blog-short-post b-blog-short-post--popular b-blog-short-post--w-img b-blog-short-post--img-hover-bordered f-blog-short-post--w-img row f-blog-short-post--popular">
-          <div class="b-blog-short-post__item col-md-12 col-sm-6 col-xs-12">
-            <div class="b-blog-short-post__item_img">
-              <a href="#">
-                <%= image_tag('popular_1.png') %>
-              </a>
-            </div>
-            <div class="b-remaining">
-              <div class="b-blog-short-post__item_text f-blog-short-post__item_text">
-                <a href="#">Bodycon Dress in Animal </a>
-              </div>
-              <div class="f-news-item__price f-primary-b b-left">
-                $299.00
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="b-blog-short-post b-blog-short-post--popular b-blog-short-post--w-img b-blog-short-post--img-hover-bordered f-blog-short-post--w-img row f-blog-short-post--popular">
-          <div class="b-blog-short-post__item col-md-12 col-sm-6 col-xs-12">
-            <div class="b-blog-short-post__item_img">
-              <a href="#">
-                <%= image_tag('popular_1.png') %>
-              </a>
-            </div>
-            <div class="b-remaining">
-              <div class="b-blog-short-post__item_text f-blog-short-post__item_text">
-                <a href="#">Bodycon Dress in Animal </a>
-              </div>
-              <div class="f-news-item__price f-primary-b b-left">
-                $299.00
+        <% popular_product(product_type).each do  |product| %>
+            <div class="b-blog-short-post b-blog-short-post--popular b-blog-short-post--w-img b-blog-short-post--img-hover-bordered f-blog-short-post--w-img row f-blog-short-post--popular">
+              <div class="b-blog-short-post__item col-md-12 col-sm-6 col-xs-12">
+                <div class="b-blog-short-post__item_img">
+                  <a href="#">
+                    <%= image_tag(product.product_images.first.image.url(:thumb)) %>
+                  </a>
+                </div>
+                <div class="b-remaining">
+                  <div class="b-blog-short-post__item_text f-blog-short-post__item_text">
+                    <a href="<%=  product_path(product.slug) %>"><%= product.name %></a>
+                  </div>
+                  <div class="f-news-item__price f-primary-b b-left">
+                    $<%= product.price %>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-        </div>
-        <div class="b-blog-short-post b-blog-short-post--popular b-blog-short-post--w-img b-blog-short-post--img-hover-bordered f-blog-short-post--w-img row f-blog-short-post--popular">
-          <div class="b-blog-short-post__item col-md-12 col-sm-6 col-xs-12">
-            <div class="b-blog-short-post__item_img">
-              <a href="#">
-                <%= image_tag('popular_1.png') %>
-              </a>
-            </div>
-            <div class="b-remaining">
-              <div class="b-blog-short-post__item_text f-blog-short-post__item_text">
-                <a href="#">Bodycon Dress in Animal </a>
-              </div>
-              <div class="f-news-item__price f-primary-b b-left">
-                $299.00
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="b-blog-short-post b-blog-short-post--popular b-blog-short-post--w-img b-blog-short-post--img-hover-bordered f-blog-short-post--w-img row f-blog-short-post--popular">
-          <div class="b-blog-short-post__item col-md-12 col-sm-6 col-xs-12">
-            <div class="b-blog-short-post__item_img">
-              <a href="#">
-                <%= image_tag('popular_1.png') %>
-              </a>
-            </div>
-            <div class="b-remaining">
-              <div class="b-blog-short-post__item_text f-blog-short-post__item_text">
-                <a href="#">Bodycon Dress in Animal </a>
-              </div>
-              <div class="f-news-item__price f-primary-b b-left">
-                $299.00
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="b-blog-short-post b-blog-short-post--popular b-blog-short-post--w-img b-blog-short-post--img-hover-bordered f-blog-short-post--w-img row f-blog-short-post--popular">
-          <div class="b-blog-short-post__item col-md-12 col-sm-6 col-xs-12">
-            <div class="b-blog-short-post__item_img">
-              <a href="#">
-                <%= image_tag('popular_1.png') %>
-              </a>
-            </div>
-            <div class="b-remaining">
-              <div class="b-blog-short-post__item_text f-blog-short-post__item_text">
-                <a href="#">Bodycon Dress in Animal </a>
-              </div>
-              <div class="f-news-item__price f-primary-b b-left">
-                $299.00
-              </div>
-            </div>
-          </div>
-        </div>
+        <% end %>
       </div>
     </div>
   </aside>

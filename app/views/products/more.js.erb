@@ -1,0 +1,3 @@
+<% @products.each do |product| %>
+$('.product_items').append("<%= escape_javascript(render 'item', :product => product ).html_safe %>");
+<%end%>

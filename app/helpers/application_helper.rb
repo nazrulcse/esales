@@ -31,4 +31,24 @@ module ApplicationHelper
       return raw ('<a href="/users/sign_in" class="b-btn f-btn b-btn-light f-btn-light info"><i class="fa fa-heart"></i></a>')
     end
   end
+
+ def get_category_name(category)
+   Category.find_by_id(category).name
+ end
+
+  def get_tag_path(tagging)
+    if tagging.taggable_type == 'Product'
+      return raw "<a href='products?tag=#{tagging.tag.name}' class='f-tag b-tag'</i>#{tagging.tag.name} </a>"
+    else
+      return raw "<a href='services?tag=#{tagging.tag.name}' class='f-tag b-tag'</i>#{tagging.tag.name} </a>"
+    end
+  end
+
+  def product_images
+   ProductImage.order('RAND()').limit(12)
+  end
+
+  def popular_product(product_type)
+    @popular_products = Product.where(product_type: product_type).select("products.*, SUM(sales.quantity) sales_quantity").joins(:sales).group("products.id").order("sales_quantity DESC")
+  end
 end

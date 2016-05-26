@@ -1,24 +1,21 @@
 class ProductsController < ApplicationController
 
   def index
+    @products
     if params[:search].present?
       @search = Sunspot.search(Product) do
         keywords params[:search]
       end
       @products = @search.results
     else
-      @products = Product.all
+      @products = Product.where(product_type: 'product').limit(5)
     end
-    @top_products = Product.limit(2)
-    @categories = Category.all
     if params[:category_id].present?
-      @top_products = Product.all.where(category_id: params[:category_id]).limit(2)
       @products = @products.where(category_id: params[:category_id])
     end
 
     if params[:max_price].present?
         @products = @products.where("price BETWEEN ? AND ? ",params[:min_price], params[:max_price])
-        @top_products = Product.where("price BETWEEN ? AND ? ",params[:min_price], params[:max_price]).limit(2)
     end
 
     if params[:color].present?
@@ -26,11 +23,17 @@ class ProductsController < ApplicationController
       @top_products = Product.where(color: color).limit(2)
       @products = @products.where(color: color)
     end
+
+    if params[:tag].present?
+      @products = Product.tagged_with(params[:tag])
+    end
+      @categories = Product.where("product_type = ?", "product").group("category_id").count
   end
 
   def show
     @product = Product.find_by_slug(params[:id])
-    @categories = Category.all
+    @categories = Product.where("product_type = ?", "product").group("category_id").count
+    @reviews = @product.reviews
   end
 
   def set_language
@@ -40,14 +43,17 @@ class ProductsController < ApplicationController
     end
   end
 
-  def services
-
-  end
-
   def review_product
     product_review = current_user.reviews.find_or_initialize_by(product_id: params["product_id"])
     product_review.rating = params["rating"]
     product_review.comment = params["comment"]
     product_review.save
+  end
+
+  def more
+    @products = Product.limit(5).offset(params[:offset])
+    respond_to do |format|
+      format.js {render :layout => false}
+    end
   end
 end

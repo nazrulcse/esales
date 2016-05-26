@@ -1,9 +1,10 @@
 class Product < ActiveRecord::Base
   extend FriendlyId
-  mount_uploader :image, ProductImagesUploader
+  # mount_uploader :image, ProductImagesUploader
   belongs_to :category
   belongs_to :brand
-  serialize :images
+  # has_many :line_items, :as => :line_itemable
+  # serialize :images
   friendly_id :name, use: :slugged
   acts_as_taggable_on :tags
   # attr_accessible :product_images_attributes

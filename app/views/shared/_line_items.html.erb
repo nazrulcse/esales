@@ -1,26 +1,27 @@
 <ul>
   <% current_cart.line_items.each do |line_item| %>
-<li>
-  <div class="b-option-cart__items__img">
-    <div class="view view-sixth">
-      <%= image_tag(line_item.product.product_images.first.image.url(:small)) %>
-      <!--<img data-retina="" src="cart_mini_pic.jpg" alt="">-->
-      <div class="b-item-hover-action f-center mask">
-        <div class="b-item-hover-action__inner">
-          <div class="b-item-hover-action__inner-btn_group">
-            <a href="#" class="b-btn f-btn b-btn-light f-btn-light info"><i class="fa fa-link"></i></a>
+      <li>
+        <div class="b-option-cart__items__img" style="padding-right: 20px;">
+          <div class="view view-sixth">
+            <%= image_tag(line_item.product.product_images.first.image.url(:small)) %>
+            <!--<img data-retina="" src="cart_mini_pic.jpg" alt="">-->
+            <div class="b-item-hover-action f-center mask">
+              <div class="b-item-hover-action__inner">
+                <div class="b-item-hover-action__inner-btn_group">
+                  <a href="#" class="b-btn f-btn b-btn-light f-btn-light info"><i class="fa fa-link"></i></a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-  <div class="b-option-cart__items__descr">
-    <strong class="b-option-cart__descr__title f-option-cart__descr__title"><a href="#"><%= line_item.product.name %></a></strong>
-    <span class="b-option-cart__descr__cost f-option-cart__descr__cost"><%= line_item.quantity %> x <%= line_item.product.price %></span>
-  </div>
-  <%= link_to line_item_path(line_item), method: :delete, :class => 'remove-cart-item' do %>
-      <i class="fa fa-times b-icon--fa"></i>
-  <%end%>
-</li>
+        <div class="b-option-cart__items__descr">
+          <strong class="b-option-cart__descr__title f-option-cart__descr__title"><a href="#"><%= line_item.product.name %></a></strong>
+          <span class="b-option-cart__descr__cost f-option-cart__descr__cost"><%= line_item.quantity %>
+            x <%= line_item.product.price %></span>
+        </div>
+        <%= link_to line_item_path(line_item), method: :delete, :class => 'remove-cart-item' do %>
+            <i class="fa fa-times b-icon--fa"></i>
+        <% end %>
+      </li>
   <% end %>
 </ul>

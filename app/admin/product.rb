@@ -82,22 +82,27 @@ ActiveAdmin.register Product do
     form html: { multipart: true } do |f|
       f.semantic_errors
 
-      f.inputs do
+      f.inputs  do
           f.input :name
           f.input :description
-        end
+          f.input :product_type,:as => :select, :collection => [ ["Product", 'product'], ["Service", 'service']]
+          f.input :category
+          f.input :subscriber_discount, :hint => '%'
+          f.input :price
+          f.input :tag_list, :hint => 'Comma separated'
+          f.has_many :product_images do |ff|
+            ff.input :image
+          end
+          f.input :related_product
+      end
 
-      f.inputs do
-        f.input :category
+      f.inputs :class => 'service-input' do
+        render 'unit_field', f: f
+      end
+
+      f.inputs :class => 'products-input' do
         f.input :brand
         f.input :color
-        f.input :subscriber_discount, :hint => '%'
-        f.input :price
-        f.input :tag_list, :hint => 'Comma separated'
-        f.has_many :product_images do |ff|
-          ff.input :image
-        end
-        f.input :related_product
       end
 
       actions
@@ -120,3 +125,4 @@ ActiveAdmin.register Product do
   end
 
 end
+

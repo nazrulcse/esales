@@ -729,7 +729,7 @@ jQuery(function ($) {
         menuTopLevel: $('.b-top-nav__1level'),
         init: function () {
             var self = this;
-            self.headerBreakHeight = this.$header.offset().top;
+            //self.headerBreakHeight = this.$header.offset().top;
             self.checkHeaderWindowWidth();
             self.btnToTopInit();
             self.dropDownMenuAnimation();

@@ -11,13 +11,13 @@
     </div>
   </div>
 </div>
- <div class="l-main-container">
+<div class="l-main-container">
 
   <div class="b-breadcrumbs f-breadcrumbs">
     <div class="container">
       <ul>
         <li><a href="#"><i class="fa fa-home"></i>Home</a></li>
-        <li><i class="fa fa-angle-right"></i><a href="#">Product</a></li>
+        <li><i class="fa fa-angle-right"></i><a href="#">Service</a></li>
         <li><i class="fa fa-angle-right"></i><span> Detail</span></li>
       </ul>
     </div>
@@ -63,11 +63,11 @@
                 <div class="b-product-card__info_row">
                   <div class="b-product-card__info_title f-primary-b f-title-smallest"><%= t(:review) %></div>
                   <!--<div class="b-stars-group f-stars-group b-margin-right-standard">-->
-                    <!--&lt;!&ndash;<i class="fa fa-star is-active-stars"></i>&ndash;&gt;-->
-                    <!--&lt;!&ndash;<i class="fa fa-star is-active-stars"></i>&ndash;&gt;-->
-                    <!--&lt;!&ndash;<i class="fa fa-star is-active-stars"></i>&ndash;&gt;-->
-                    <!--&lt;!&ndash;<i class="fa fa-star is-active-stars"></i>&ndash;&gt;-->
-                    <!--&lt;!&ndash;<i class="fa fa-star"></i>&ndash;&gt;-->
+                  <!--&lt;!&ndash;<i class="fa fa-star is-active-stars"></i>&ndash;&gt;-->
+                  <!--&lt;!&ndash;<i class="fa fa-star is-active-stars"></i>&ndash;&gt;-->
+                  <!--&lt;!&ndash;<i class="fa fa-star is-active-stars"></i>&ndash;&gt;-->
+                  <!--&lt;!&ndash;<i class="fa fa-star is-active-stars"></i>&ndash;&gt;-->
+                  <!--&lt;!&ndash;<i class="fa fa-star"></i>&ndash;&gt;-->
                   <!--</div>-->
                   <span class="f-primary-b c-tertiary f-title-smallest">
                     <a href="#">(<%= @product.reviews.count %>
@@ -144,14 +144,14 @@
 
               <div class="tab-content b-tabs__content">
                 <div id="home" class="tab-pane fade in active">
-                  <h4 class="f-tabs-vertical__title f-primary-b">Product description</h4>
+                  <h4 class="f-tabs-vertical__title f-primary-b">Service description</h4>
                   <%= @product.description %>
                 </div>
                 <div id="menu1" class="tab-pane fade">
-                 <% @reviews.each do |review| %>
-                  <p>
-                    <%= review.comment %>
-                  </p>
+                  <% @reviews.each do |review| %>
+                      <p>
+                        <%= review.comment %>
+                      </p>
                       - <%= review.user.name %>
                   <% end %>
                 </div>
@@ -160,7 +160,7 @@
           </div>
 
           <div>
-            <h4 class="f-primary-b b-h4-special f-h4-special">product related</h4>
+            <h4 class="f-primary-b b-h4-special f-h4-special">Related Service</h4>
 
             <div class="row">
               <div class="b-col-default-indent">
@@ -174,6 +174,7 @@
                               <div class="b-item-hover-action f-center mask">
                                 <div class="b-item-hover-action__inner">
                                   <div class="b-item-hover-action__inner-btn_group">
+                                    <a href="#" class="b-btn f-btn b-btn-light f-btn-light info"><i class="fa fa-heart"></i></a>
                                     <a href="#" class="b-btn f-btn b-btn-light f-btn-light info"><i class="fa fa-shopping-cart"></i></a>
                                     <a href="shop_detail.html" class="b-btn f-btn b-btn-light f-btn-light info"><i class="fa fa-link"></i></a>
                                   </div>
@@ -188,7 +189,7 @@
                                 <a href="shop_detail.html" class="f-product-preview__content_title"><%= product.name %></a>
 
                                 <div class="f-product-preview__content_category f-primary-b"><a href="#"><%= product.category.name %></a> /
-                                </div>
+                                  <a href="#">Clothe</a></div>
                               </div>
                             </div>
                           </div>
@@ -202,7 +203,7 @@
           </div>
 
         </div>
-        <%= render 'shared/filter', product_type: 'product' %>
+        <%= render 'shared/filter', product_type: 'service' %>
       </div>
     </div>
   </section>
@@ -214,7 +215,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Review The product</h4>
+        <h4 class="modal-title">Review The Service</h4>
       </div>
       <div class="modal-body" style="text-align: center">
         <%= form_tag review_product_products_path, method: 'get', remote: true do %>
@@ -286,6 +287,9 @@
             number: 5
         });
         $(".popup_link").click(function (e) {
+            alert("HEre");
+//            var src = $(this).attr('id');
+//            $('.modal-body').html('<img id="iamge" src=' + src + ' />')
             $('#myModal').modal('show');
         });
     });

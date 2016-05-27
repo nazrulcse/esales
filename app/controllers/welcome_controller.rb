@@ -12,6 +12,9 @@ class WelcomeController < ApplicationController
 
   end
 
+  def contact
+    render 'contact_us'
+  end
 
 
   def user_authentication

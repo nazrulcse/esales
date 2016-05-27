@@ -1,0 +1,107 @@
+<div class="comtact-content">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="title">
+          <h1>Contact Us</h1>
+          <span class="title-border"></span>
+        </div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="contact-about">
+          <div class="map-area">
+            <h4>Location</h4>
+
+            <div id="map_canvas" style="width: 100%;height: 345px"></div>
+          </div>
+          <div class="contact-address">
+            <br>
+            <h5>Office Address</h5>
+            <ul>
+              <li>
+                <i class="fa fa-map-marker" style="font-size:23px"></i>Road # 31, House # 468
+                New DOHS, Mohakhali, Dhaka 1209.
+              </li>
+              <li>
+                <i class="fa fa-phone"></i> 880 1711 538 899, 880 0197 - ROMOTIQ
+              </li>
+              <li><i class="fa fa-envelope"></i>info@romotiq.com</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="drop-line">
+          <h4>Drop Us A Line</h4>
+
+          <div class="row">
+            <form method="post" action="">
+              <div style="padding-right:15px;" class="col-md-6 no-padding">
+                <input type="text" required="" value="" name="name" placeholder="Name" class="form-control">
+              </div>
+              <div style="padding-left:15px;" class="col-md-6 no-padding form-group">
+                <input type="email" required="" value="" name="email" placeholder="Email" class="form-control">
+              </div>
+              <div class="col-md-12 no-padding form-group">
+                <input type="text" required="" value="" name="subject" placeholder="Subject" class="form-control">
+              </div>
+              <div class="col-md-12 no-padding form-group">
+                <textarea required name="message" placeholder="Message Here" rows="6" class="form-control"></textarea>
+              </div>
+              <div class="col-md-12 no-padding clearfix">
+                <input type="submit" value="SEND MESSAGE" name="submit" class="btn btn-success pull-right">
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript" language="javascript">
+    function initialize() {
+        var latlng = new google.maps.LatLng(23.778853, 90.393967);
+        var myOptions = {
+            zoom: 18,
+            center: latlng,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+
+        var contentString = '<div id="mapContent" style=" padding:0px; line-height:18px; width:215px;">' +
+                '<div id="siteNotice">' +
+                '</div>' +
+                '<div id="bodyContent" style=" font-size:12px; padding:0px;">' +
+                '<p><strong>Romotiq Limited</strong><br/>Road # 31, House # 468 New DOHS,<br/> Mohakhali, Dhaka 1209.</p>' +
+                '</div>' +
+                '</div>';
+
+        var infowindow = new google.maps.InfoWindow({
+            content: contentString
+        });
+
+        var marker = new google.maps.Marker({
+            position: latlng,
+            map: map
+        });
+
+        google.maps.event.addListener(marker, 'click', function () {
+            infowindow.open(map, marker);
+        });
+
+    }
+
+    function loadScript() {
+        var script = document.createElement("script");
+        script.type = "text/javascript";
+        script.src = "http://maps.google.com/maps/api/js?sensor=false&callback=initialize";
+        document.body.appendChild(script);
+    }
+    window.onload = loadScript;
+
+</script>

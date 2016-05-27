@@ -1,6 +1,6 @@
 <div id="gh-gb" class="menu-1 clearfix">
   <div class="container">
-    <div class="row top-nav">
+    <div class="top-nav">
       <ul>
         <% if current_user.present? %>
             <li>
@@ -18,7 +18,8 @@
         <li class="left-border">
           <a href="<%= current_user.present? ? account_path : new_user_session_path %>"> <%= t(:text_sale) %> </a>
         </li>
-        <li class="left-border"><a href="#"> <%= t(:help_and_contact) %></a></li>
+        <li class="left-border"><a href="<%= contact_path %>"> <%= t(:help_and_contact) %></a></li>
+        <li class="left-border"><a href="<%= about_path %>"> <%= t(:about_us) %></a></li>
         <li class="change-language left-border">
           <%= form_tag(set_language_products_path, {:method => :get}) do %>
               <%= select_tag :locale, options_for_select([[t(:english), 'en'], [t(:bangla), 'bn']], I18n.locale), :onchange => "this.form.submit();" %>

@@ -1,0 +1,25 @@
+.title h1 {
+  font-size: 20px;
+  margin: 0 0 7px;
+  color: #bf5526;
+  font-weight: bold;
+}
+
+.contact-address {
+  margin-bottom: 50px;
+  ul {
+    list-style: outside none none;
+    margin: 0;
+    padding: 0;
+    li {
+      color: #444;
+      padding-bottom: 10px;
+      i {
+        clear: both;
+        font-size: 20px;
+        margin-right: 10px;
+      }
+    }
+  }
+}
+

@@ -1,6 +1,6 @@
 <div class="col-lg-12 order-details">
-  <div class="col-lg-4">Order at: <%= order.created_at.strftime("%d %B, %Y %H:%M") %></div>
-  <div class="col-lg-4">Order By: <%= order.user.present? ? order.user.name : order.email %></div>
+  <div class="col-lg-4"><%= t(:order_at) %>: <%= order.created_at.strftime("%d %B, %Y %H:%M") %></div>
+  <div class="col-lg-4"><%= t(:order_by) %>: <%= order.user.present? ? order.user.name : order.email %></div>
   <div class="col-lg-4">
     <%#= link_to 'Details', details_order_path(order.id), :remote => true, :class => 'btn btn-default' %>
   </div>
@@ -8,14 +8,15 @@
 <table class="table order-table">
   <thead class="order-title">
   <tr>
-    <th> Item </th>
+    <th> <%= t(:item) %></th>
     <th></th>
-    <th> Quantity</th>
-    <th> Price</th>
-    <th> Order Id</th>
-    <th>My Earning</th>
-    <th> Status</th>
+    <th> <%= t(:quantity) %></th>
+    <th> <%= t(:price) %></th>
+    <th> <%= t(:order_id) %></th>
+    <th> <%= t(:my_earning) %> </th>
+    <th> <%= t(:status) %></th>
   </tr>
+
   </thead>
   <tbody>
   <% order.line_items.each do |line_item| %>

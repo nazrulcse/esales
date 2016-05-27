@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160520051452) do
+ActiveRecord::Schema.define(version: 20160523090139) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -131,6 +131,8 @@ ActiveRecord::Schema.define(version: 20160520051452) do
     t.boolean  "is_featured",         limit: 1,     default: false
     t.string   "tags",                limit: 255
     t.float    "subscriber_discount", limit: 24
+    t.string   "unit",                limit: 255
+    t.string   "product_type",        limit: 255
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -151,6 +153,7 @@ ActiveRecord::Schema.define(version: 20160520051452) do
     t.float    "earning",    limit: 24
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
+    t.integer  "quantity",   limit: 4
   end
 
   create_table "services", force: :cascade do |t|

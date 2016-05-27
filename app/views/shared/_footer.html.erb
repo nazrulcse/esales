@@ -118,8 +118,10 @@
         <div class="b-short-photo-items-group">
           <div class="b-short-photo-items-group">
             <% product_images.each do |image| %>
-                <div class="b-column">
-                  <%= image_tag(image.image.url(:thumb), width: 62, height: 62) %>
+                <div class="gallery-item">
+                  <%= link_to image.image.url(:big), rel: 'prettyPhoto[pp_gal]' do %>
+                      <%= image_tag(image.image.url(:thumb)) %>
+                  <% end %>
                 </div>
             <% end %>
           </div>
@@ -128,3 +130,9 @@
     </div>
   </div>
 </footer>
+
+<script type="text/javascript">
+    $(function () {
+        $("a[rel^='prettyPhoto']").prettyPhoto({autoplay_slideshow: false, social_tools: '', show_title: ''});
+    });
+</script>

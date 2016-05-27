@@ -2,6 +2,7 @@ class OrdersController < ApplicationController
 
   def index
     @orders = Order.all.where(:user_id => current_user.id)
+    @categories = Product.all.group('category_id').count
   end
 
   def new

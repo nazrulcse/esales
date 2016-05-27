@@ -1,32 +1,62 @@
-<ol class="breadcrumb">
-  <li>
-    <%= link_to 'Product', products_path %>
-  </li>
-  <li class="active"> Order List </li>
-</ol>
+<div class="j-menu-container"></div>
 
-<div id="order-details" class="modal fade" role="dialog">
-  <div class="modal-dialog modal-lg">
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Order Information</h4>
-      </div>
-      <div class="modal-body clearfix">
+<div class="b-inner-page-header f-inner-page-header b-bg-header-inner-page">
+  <div class="b-inner-page-header__content">
+    <div class="container">
+      <h1 class="f-primary-l c-default">Online store</h1>
 
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      <div class="f-primary-l f-inner-page-header_title-add c-senary">This is online store listing products sample
+        page
       </div>
     </div>
-
   </div>
 </div>
-<% if @orders.present? %>
-    <% @orders.each do |order| %>
-        <% if order.line_items.present? %>
-            <%= render 'order_item', :order => order %>
-        <% end %>
-    <% end %>
-<% end %>
+<div class="l-main-container">
+
+  <div class="b-breadcrumbs f-breadcrumbs">
+    <div class="container">
+      <ul>
+        <li><a href="#"><i class="fa fa-home"></i>Home</a></li>
+        <li><i class="fa fa-angle-right"></i><a href="#">Order</a></li>
+        <li><i class="fa fa-angle-right"></i><span> Detail</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <section class="b-infoblock">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-9 ">
+          <div id="order-details" class="modal fade" role="dialog">
+            <div class="modal-dialog modal-lg">
+              <!-- Modal content-->
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">Order Information</h4>
+                </div>
+                <div class="modal-body clearfix">
+
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <% if @orders.present? %>
+              <% @orders.each do |order| %>
+                  <% if order.line_items.present? %>
+                      <%= render 'order_item', :order => order %>
+                  <% end %>
+              <% end %>
+          <% end %>
+        </div>
+        <%= render 'shared/filter', product_type: 'product' %>
+      </div>
+    </div>
+  </section>
+
+</div>
+

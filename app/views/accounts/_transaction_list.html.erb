@@ -1,37 +1,41 @@
 <div class="col-lg-12 order-details">
-  <div class="col-lg-4">Last Transaction:<span class="available_price"><%= @transactions.where(status: SubscriberTransaction::TRANSACTION_STATE[:complete]).last.amount if @transactions.where(status: SubscriberTransaction::TRANSACTION_STATE[:complete]).last.present? %></span> </div>
-  <div class="col-lg-4 ">Available Money: <span class="available_price"><%= SubscriberTransaction.available_money(current_user.id) %></span></div>
+  <div class="col-lg-4"><%= t(:last_transaction) %>
+    : <span class="available_price"> <%= format_number(@last_transaction_amount) %></span>
+  </div>
+  <div class="col-lg-4 "><%= t(:available_money) %>:
+    <span class="available_price"><%= format_number(SubscriberTransaction.available_money(current_user.id)) %></span>
+  </div>
   <div class="col-lg-4">
     <% if SubscriberTransaction.available_money(current_user.id) > 0 %>
-        <button type="button" class="btn btn-default"  data-backdrop="false" data-toggle="modal" data-target="#myModal">Withdraw Money</button>
+        <button type="button" class="btn btn-default" data-backdrop="false" data-toggle="modal" data-target="#myModal"><%= t(:withdraw_money) %></button>
     <% end %>
   </div>
 </div>
 <% if @transactions.present? %>
-<table class="table order-table">
-  <thead class="order-title">
-  <tr>
-    <th> Chanel </th>
-    <th>Amount</th>
-    <th> Mobile</th>
-    <th> Bank</th>
-    <th>Address</th>
-    <th> Status</th>
-  </tr>
-  </thead>
-  <tbody>
-  <% @transactions.each do |tr| %>
+    <table class="table order-table">
+      <thead class="order-title">
       <tr>
-        <td><%= tr.chanel %></td>
-        <td><%= tr.amount %></td>
-        <td><%= tr.mobile %></td>
-        <td><%= tr.bank %></td>
-        <td><%= tr.address %></td>
-        <td class="item"><%= SubscriberTransaction::TRANSACTION_STATE.index(tr.status) %> </td>
+        <th> <%= t(:chanel) %></th>
+        <th><%= t(:amount) %></th>
+        <th> <%= t(:mobile) %></th>
+        <th> <%= t(:bank_account) %></th>
+        <th><%= t(:bank_address) %></th>
+        <th> <%= t(:status) %></th>
       </tr>
-  <% end %>
-  </tbody>
-</table>
+      </thead>
+      <tbody>
+      <% @transactions.each do |tr| %>
+          <tr>
+            <td><%= tr.chanel %></td>
+            <td><%= tr.amount %></td>
+            <td><%= tr.mobile %></td>
+            <td><%= tr.bank %></td>
+            <td><%= tr.address %></td>
+            <td class="item"><%= SubscriberTransaction::TRANSACTION_STATE.index(tr.status) %> </td>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
 <% end %>
 
 
@@ -42,7 +46,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">New Transaction</h4>
+        <h4 class="modal-title"> <%= t(:new_transaction) %></h4>
       </div>
       <div class="modal-body clearfix">
         <div class="col-lg-12">
@@ -50,51 +54,73 @@
               <div class="form-inputs form-group">
                 <div class="form-group float">
                   <div class="form-group">
-                    <%= f.label :chanel, 'Chanel' %> <br/>
-                    <%= f.select :chanel, options_for_select(SubscriberTransaction::CHANEL.collect { |key, value| [value, value] }), {prompt: 'Select Chanel'}, {class: 'form-control'} %>
+                    <%= f.label :chanel, t(:chanel) %> <br/>
+                    <%= f.select :chanel, options_for_select(SubscriberTransaction::CHANEL.collect { |key, value| [value, value] }), {}, {class: 'form-control'} %>
                   </div>
                 </div>
 
-                <div class="form-group float optional salaries_advance_amount">
+                <div class="form-group float">
                   <div class="form-group">
-                    <%= f.label :amount, 'Amount' %> <br/>
+                    <%= f.label :amount, t(:amount) %> <br/>
                     <%= f.text_field :amount, class: 'form-control' %>
                   </div>
                 </div>
 
-                <div class="form-group float optional salaries_advance_amount">
+                <div class="form-group float bkash-transaction-field">
                   <div class="form-group">
-                    <%= f.label :mobile, 'Mobile' %> <br/>
+                    <%= f.label :mobile, t(:mobile) %> <br/>
                     <%= f.text_field :mobile, class: 'form-control' %>
                   </div>
                 </div>
 
-                <div class="form-group float optional salaries_advance_amount">
-                  <div class="form-group">
-                    <%= f.label :bank, 'Bank Account' %> <br/>
-                    <%= f.text_field :bank, class: 'form-control' %>
+                <div class="bank-transaction-field">
+                  <div class="form-group float">
+                    <div class="form-group">
+                      <%= f.label :bank, t(:bank_account) %> <br/>
+                      <%= f.text_field :bank, class: 'form-control' %>
+                    </div>
                   </div>
-                </div>
 
-                <div class="form-group float optional salaries_advance_amount">
-                  <div class="form-group">
-                    <%= f.label :address, 'Address' %> <br/>
-                    <%= f.text_area :address, class: 'form-control' %>
+                  <div class="form-group float">
+                    <div class="form-group">
+                      <%= f.label :address, t(:bank_address) %> <br/>
+                      <%= f.text_area :address, class: 'form-control' %>
+                    </div>
                   </div>
                 </div>
               </div>
 
               <div class="form-group clearfix">
                 <div class="col-sm-12">
-                  <%= f.submit 'Withdraw', class: 'btn btn-info pull-right' %>
+                  <%= f.submit t(:withdraw_money), class: 'btn btn-info pull-right' %>
                 </div>
               </div>
-          <%end%>
+          <% end %>
         </div>
-      </div>
-      <div class="modal-footer">
       </div>
     </div>
 
   </div>
 </div>
+
+<script type="text/javascript">
+    $(function () {
+        var element = $('#subscriber_transaction_chanel');
+        transactionFields(element.val());
+        element.change(function () {
+            transactionFields($(this).val());
+        });
+    });
+
+    var transactionFields = function (chanel) {
+        if (chanel == 'Bank') {
+            $('.bank-transaction-field').show();
+            $('.bkash-transaction-field').hide();
+        }
+        else {
+            $('.bank-transaction-field').hide();
+            $('.bkash-transaction-field').show();
+        }
+    }
+
+</script>

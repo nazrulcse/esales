@@ -1,4 +1,8 @@
 class Product < ActiveRecord::Base
+  PRODUCT_TYPES = {
+      product: 'products',
+      service: 'services'
+  }
   extend FriendlyId
   # mount_uploader :image, ProductImagesUploader
   belongs_to :category
@@ -15,7 +19,7 @@ class Product < ActiveRecord::Base
   has_many :product_relations
   has_many :related_product, through: :product_relations, foreign_key: 'related_product_id'
 
-# your_model.rb (add after relations)
+  # your_model.rb (add after relations)
   accepts_nested_attributes_for :product_images, :allow_destroy => true
 
   # def to_param

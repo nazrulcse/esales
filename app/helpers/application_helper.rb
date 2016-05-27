@@ -5,6 +5,7 @@ module ApplicationHelper
     cart = ShoppingCart.find_by_id(cart_id)
     cart.line_items.count if cart.present?
   end
+
   def form_validation_message(obj)
     if obj.errors.any?
       html = "<div id='error_explanation'>"
@@ -32,9 +33,42 @@ module ApplicationHelper
     end
   end
 
- def get_category_name(category)
-   Category.find_by_id(category).name
- end
+  def get_category_name(category)
+    Category.find_by_id(category).name
+  end
+
+  def format_number(number)
+    response = ''
+    return number if session[:locale] == 'bn'
+    number.to_s.split(//).each do |ch|
+      ch = ch.to_s
+      case ch
+        when '0'
+          response << '০'
+        when '1'
+          response << '১'
+        when '2'
+          response << '২'
+        when '3'
+          response << '৩'
+        when '4'
+          response << '৪'
+        when '5'
+          response << '৫'
+        when '6'
+          response << '৬'
+        when '7'
+          response << '৭'
+        when '8'
+          response << '৮'
+        when '9'
+          response << '৯'
+        else
+          response << ch
+      end
+    end
+    response
+  end
 
   def get_tag_path(tagging)
     if tagging.taggable_type == 'Product'
@@ -45,7 +79,7 @@ module ApplicationHelper
   end
 
   def product_images
-   ProductImage.order('RAND()').limit(12)
+    ProductImage.order('RAND()').limit(12)
   end
 
   def popular_product(product_type)

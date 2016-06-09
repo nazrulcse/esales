@@ -1,11 +1,11 @@
 
 <%= form_for(resource, as: resource_name, url: user_registration_path) do |f| %>
-  <%= devise_error_messages! %>
+    <%= devise_error_messages! %>
     <div class="signup-form">
       <% if params[:user_type] == 'regular' %>
           <div class = "form-group row col-md-12">
             <div class="col-md-3">
-              <%= f.label :name %>
+              <%= f.label :name, t(:name) %>
             </div>
             <div class="col-md-9">
               <%= f.text_field :name, autofocus: true,class: "form-control" %>
@@ -14,7 +14,7 @@
 
           <div class = "form-group row col-md-12">
             <div class="col-md-3">
-              <%= f.label :email %>
+              <%= f.label :email, t(:email)%>
             </div>
             <div class="col-md-9">
               <%= f.email_field :email, autofocus: true ,class: "form-control"%>
@@ -23,7 +23,7 @@
 
           <div class = "form-group row col-md-12">
             <div class="col-md-3">
-              <%= f.label :image %>
+              <%= f.label :image, t(:image) %>
 
             </div>
             <div class="col-md-9">
@@ -54,7 +54,7 @@
       <%else%>
           <div class = "form-group row col-md-12">
             <div class="col-md-3">
-              <%= f.label :name %>
+              <%= f.label :name, t(:name) %>
             </div>
             <div class="col-md-9">
               <%= f.text_field :name, autofocus: true,class: "form-control" %>
@@ -63,7 +63,7 @@
 
           <div class = "form-group row col-md-12">
             <div class="col-md-3">
-              <%= f.label :email %>
+              <%= f.label :email, t(:email)%>
             </div>
             <div class="col-md-9">
               <%= f.email_field :email, autofocus: true ,class: "form-control"%>
@@ -72,7 +72,7 @@
 
           <div class = "form-group row col-md-12">
             <div class="col-md-3">
-              <%= f.label :image %>
+              <%= f.label :image, t(:image) %>
 
             </div>
             <div class="col-md-9">
@@ -82,9 +82,9 @@
 
           <div class = "form-group row col-md-12">
             <div class="col-md-3">
-              <%= f.label :password %>
+              <%= f.label :password, t(:password) %>
               <% if @minimum_password_length %>
-                  <em>(<%= @minimum_password_length %> characters minimum)</em>
+                  <em>(<%= format_number(@minimum_password_length) %> <%= t(:password_hint) %>)</em>
               <% end %>
             </div>
             <div class="col-md-9">
@@ -94,7 +94,7 @@
 
           <div class = "form-group row col-md-12">
             <div class="col-md-3">
-              <%= f.label :password_confirmation %>
+              <%= f.label :password_confirmation, t(:password_confirmation) %>
             </div>
             <div class="col-md-9">
               <%= f.password_field :password_confirmation, autocomplete: "off",class: "form-control" %>
@@ -103,7 +103,7 @@
 
           <div class = "form-group row col-md-12">
             <div class="col-md-3">
-              <%= f.label :father_name, "Father's Name" %>
+              <%= f.label :father_name, t(:father_name)%>
             </div>
             <div class="col-md-9">
               <%= f.text_field :father_name,class: "form-control" %>
@@ -112,7 +112,7 @@
 
           <div class = "form-group row col-md-12">
             <div class="col-md-3">
-              <%= f.label :mother_name, "Mother's Name" %>
+              <%= f.label :mother_name, t(:mother_name) %>
             </div>
             <div class="col-md-9">
               <%= f.text_field :mother_name,class: "form-control" %>
@@ -121,7 +121,7 @@
 
           <div class = "form-group row col-md-12">
             <div class="col-md-3">
-              <%= f.label :date_of_birth  %>
+              <%= f.label :date_of_birth, t(:date_of_birth)   %>
             </div>
             <div class="col-md-9">
               <%= f.text_field :date_of_birth,class: "form-control datepicker" %>
@@ -130,7 +130,7 @@
 
           <div class = "form-group row col-md-12">
             <div class="col-md-3">
-              <%= f.label :permanent_address  %>
+              <%= f.label :permanent_address, t(:permanent_address) %>
             </div>
             <div class="col-md-9">
               <%= f.text_field :permanent_address,class: "form-control" %>
@@ -139,7 +139,7 @@
 
           <div class = "form-group row col-md-12">
             <div class="col-md-3">
-              <%= f.label :present_address  %>
+              <%= f.label :present_address, t(:present_address) %>
             </div>
             <div class="col-md-9">
               <%= f.text_field :present_address,class: "form-control" %>
@@ -148,7 +148,7 @@
 
           <div class = "form-group row col-md-12">
             <div class="col-md-3">
-              <%= f.label :voter_id  %>
+              <%= f.label :voter_id, t(:voter_id)  %>
             </div>
             <div class="col-md-9">
               <%= f.text_field :voter_id,class: "form-control" %>
@@ -157,7 +157,7 @@
 
           <div class = "form-group row col-md-12">
             <div class="col-md-3">
-              <%= f.label :mobile  %>
+              <%= f.label :mobile, t(:phone)  %>
             </div>
             <div class="col-md-9">
               <%= f.text_field :mobile,class: "form-control" %>
@@ -172,8 +172,7 @@
                 <%= check_box_tag :agree %>
               </div>
               <div class="col-md-11">
-                <%= t " I'm certify that all the information and news are given above is  accurate,
-              and I became aware about of the company's  all rules to be applied for sale."  %>
+                <%= t(:terms)  %>
               </div>
             </div>
           </div>
@@ -186,7 +185,7 @@
           </div>
         </div>
         <div class="col-md-9">
-          <%= f.submit "Sign up", class: 'btn btn-default  pull-right' %>
+          <%= f.submit t(:signup), class: 'btn btn-default  pull-right' %>
         </div>
       </div>
       <div style="clear: both"></div>

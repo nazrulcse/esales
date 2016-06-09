@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160527183749) do
+ActiveRecord::Schema.define(version: 20160531105804) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -178,6 +178,17 @@ ActiveRecord::Schema.define(version: 20160527183749) do
   create_table "shopping_carts", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "sliders", force: :cascade do |t|
+    t.string   "image",        limit: 255
+    t.string   "header",       limit: 255
+    t.string   "header_bold",  limit: 255
+    t.string   "header_small", limit: 255
+    t.float    "off",          limit: 24
+    t.string   "link",         limit: 255
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
   create_table "subscriber_transactions", force: :cascade do |t|

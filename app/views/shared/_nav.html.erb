@@ -38,9 +38,9 @@
                   <% end %>
                 </li>
                 <li>
-                  <a href="#">
-                    <i class="fa fa-cog"></i> <%= t(:settings) %>
-                  </a>
+                  <%= link_to settings_path do %>
+                      <i class="fa fa-cog"></i> <%= t(:settings) %>
+                  <% end %>
                 </li>
                 <li>
                   <%= link_to destroy_user_session_path, :method => :delete do %>
@@ -91,11 +91,11 @@
             <a><%= image_tag('logo.png', class: 'search-logo') %></a>
           </li>
           <li class="search-wrapper">
-            <%= text_field_tag :search, '', id: 'gh-ac', placeholder: t(:search_text) %>
+            <%= text_field_tag :search, params[:search], id: 'gh-ac', placeholder: t(:search_text) %>
           </li>
           <li>
             <div id="gh-cat-box">
-              <%= select_tag :category, options_for_select(Product::PRODUCT_TYPES.collect { |key, val| [t(val.to_s), key] }), {id: 'gh-cat'} %>
+              <%= select_tag :category, options_for_select(Product::PRODUCT_TYPES.collect { |key, val| [t(val.to_s), key] }, params[:category]), {id: 'gh-cat'} %>
             </div>
           </li>
           <li class="clearfix pull-right">

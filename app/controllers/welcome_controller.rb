@@ -8,12 +8,25 @@ class WelcomeController < ApplicationController
 
   end
 
+  # def send
+  #
+  # end
+
   def product_details
 
   end
 
   def contact
     render 'contact_us'
+  end
+
+  def settings
+    if current_user.present?
+      @resource = current_user
+    else
+      redirect_to root_path
+    end
+
   end
 
 

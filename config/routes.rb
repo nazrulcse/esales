@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, :controllers => {:registrations => :registrations}
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -7,6 +7,10 @@ Rails.application.routes.draw do
   root 'welcome#index'
   get '/contact-us' => 'welcome#contact', as: :contact
   get '/about-us' => 'welcome#about', as: :about
+  get '/settings' => 'welcome#settings', as: :settings
+
+  get '/send' => 'welcome#send'
+  post '/send' => 'welcome#send'
 
   get 'product_details' => 'welcome#product_details'
   get 'how-it-works' => 'welcome#how_it_works'

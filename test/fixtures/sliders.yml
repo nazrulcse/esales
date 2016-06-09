@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  image: MyString
+  header: MyString
+  header_bold: MyString
+  header_small: MyString
+  'off': MyString
+  float: MyString
+
+two:
+  image: MyString
+  header: MyString
+  header_bold: MyString
+  header_small: MyString
+  'off': MyString
+  float: MyString

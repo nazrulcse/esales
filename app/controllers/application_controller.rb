@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_cart,:color_list, :all_tags
   protect_from_forgery with: :exception
   before_filter :configure_permitted_parameters, if: :devise_controller?
+  helper_method :resource, :resource_name, :devise_mapping
 
   before_action :set_locale
 
@@ -42,8 +43,24 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:sign_up) do |u|
       u.permit(:name, :image, :email, :password, :password_confirmation,:father_name, :mother_name, :date_of_birth, :permanent_address, :present_address, :voter_id, :mobile, :identifier_name, :identifier_mobile, :identifier_address, :user_type)
     end
+    devise_parameter_sanitizer.permit(:account_update) do |u|
+      u.permit! #(:first_name,:current_password,  :email, :password, :password_confirmation,:last_name,:country,:address, :bio, :city, :estate, :image, :category_id,:profile_pictures_attributes, :sub_category_id)
+    end
+
     devise_parameter_sanitizer.for(:sign_in) do |u|
       u.permit(:email, :password)
     end
+  end
+
+  def resource_name
+    :user
+  end
+
+  def resource
+    @resource ||= User.new
+  end
+
+  def devise_mapping
+    @devise_mapping ||= Devise.mappings[:user]
   end
 end

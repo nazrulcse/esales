@@ -1,0 +1,164 @@
+<div class="j-menu-container"></div>
+
+<div class="b-inner-page-header f-inner-page-header b-bg-header-inner-page">
+  <div class="b-inner-page-header__content">
+    <div class="container">
+      <h1 class="f-primary-l c-default"> <%= t(:setting) %> </h1>
+
+      <div class="f-primary-l f-inner-page-header_title-add c-senary"> <%= t(:setting_subtitle) %> </div>
+    </div>
+  </div>
+</div>
+<div class="l-main-container">
+
+  <div class="b-breadcrumbs f-breadcrumbs">
+    <div class="container">
+      <ul>
+        <li><a href="#"><i class="fa fa-home"></i><%= t(:home) %></a></li>
+        <li><i class="fa fa-angle-right"></i><span><%= t(:setting) %></span></li>
+      </ul>
+    </div>
+  </div>
+  <section class="b-infoblock">
+    <div class="container reset-padding">
+      <div class="clearfix user-signup-wrapper">
+        <div class="site-content-wrapper clearfix" style="margin-top: 10px">
+          <div class="col-lg-12 clearfix">
+            <div class="panel panel-default">
+              <div class="panel-heading profile-custom-header">
+                Edit Profile
+                <div class="actions-profile btn">
+             <span class="edit-profile">
+                <i class="fa fa-pencil-square-o"> </i>
+             </span>
+                </div>
+              </div>
+              <div class="panel-body profile-details">
+                <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {method: :put, multipart: true}) do |f| %>
+                    <%= devise_error_messages! %>
+
+                    <div class="clearfix row">
+                      <div class="field form-group col-sm-6">
+                        <%= f.label :email %><br/>
+                        <span class="input_text"><%= f.object.email %></span>
+                        <%= f.email_field :email, autofocus: true, :class => 'form-control input_field' %>
+                      </div>
+                      <div class="field form-group col-sm-6">
+                        <%= f.label :name %><br/>
+                        <span class="input_text"><%= f.object.name %></span>
+                        <%= f.text_field :name, autofocus: true, :class => 'form-control input_field' %>
+                      </div>
+
+                    </div>
+
+                    <div class="clearfix row">
+                      <div class="field form-group col-sm-6">
+                        <%= f.label :image %><br/>
+                        <span class="input_text"><%=  image_tag f.object.image.url(:thumb) %></span>
+                        <%= f.file_field :image, autofocus: true, :class => 'form-control input_field' %>
+                      </div>
+
+                      <div class="field form-group col-sm-6">
+                        <%= f.label :date_of_birth %><br/>
+                        <span class="input_text"><%= f.object.date_of_birth %></span>
+                        <%= f.text_field :date_of_birth, autofocus: true, :class => 'form-control input_field' %>
+                      </div>
+                    </div>
+
+
+                    <div class="clearfix row">
+                      <div class="field form-group col-sm-6">
+                        <%= f.label :father_name %><br/>
+                        <span class="input_text"><%= f.object.father_name %></span>
+                        <%= f.text_field :father_name, autofocus: true, :class => 'form-control input_field' %>
+                      </div>
+
+                      <div class="field form-group col-sm-6">
+                        <%= f.label :mother_name %><br/>
+                        <span class="input_text"><%= f.object.mother_name %></span>
+                        <%= f.text_field :mother_name, autofocus: true, :class => 'form-control input_field' %>
+                      </div>
+                    </div>
+
+                    <div class="clearfix row">
+                      <div class="field form-group col-sm-6">
+                        <%= f.label :permanent_address %><br/>
+                        <span class="input_text"><%= f.object.permanent_address %></span>
+                        <%= f.text_field :permanent_address, autofocus: true, :class => 'form-control input_field' %>
+                      </div>
+
+                      <div class="field form-group col-sm-6">
+                        <%= f.label :present_address %><br/>
+                        <span class="input_text"><%= f.object.present_address %></span>
+                        <%= f.text_field :present_address, autofocus: true, :class => 'form-control input_field' %>
+                      </div>
+                    </div>
+
+                    <div class="clearfix row">
+                      <div class="field form-group col-sm-6">
+                        <%= f.label :voter_id %><br/>
+                        <span class="input_text"><%= f.object.voter_id %></span>
+                        <%= f.text_field :voter_id, autofocus: true, :class => 'form-control input_field' %>
+                      </div>
+
+                      <div class="field form-group col-sm-6">
+                        <%= f.label :mobile %><br/>
+                        <span class="input_text"><%= f.object.mobile %></span>
+                        <%= f.text_field :mobile, autofocus: true, :class => 'form-control input_field' %>
+                      </div>
+                    </div>
+
+                    <div class="clear"></div>
+                    <fieldset class="input_field clearfix field-set">
+                      <legend> Password Zone
+                        <i class="reset-password-info">(leave blank if you don't want to change your password)</i>
+                      </legend>
+                      <div>
+                        <div class="field form-group">
+                          <%= f.label :password %>
+                          <% if @minimum_password_length %>
+                              <em>(<%= @minimum_password_length %> characters minimum)</em>
+                          <% end %><br/>
+                          <%= f.password_field :password, autocomplete: "off", :class => 'form-control' %>
+                        </div>
+
+                        <div class="field form-group input_field">
+                          <%= f.label :password_confirmation %><br/>
+                          <%= f.password_field :password_confirmation, autocomplete: "off", :class => 'form-control' %>
+                        </div>
+                      </div>
+                    </fieldset>
+
+                    <div class="actions form-group clearfix input_field">
+                      <%= f.submit :class => 'btn btn-default pull-right' %>
+                      <span class="btn btn-default pull-right cancel_profil_update" style='margin-right: 20px;'>Cancel</span>
+                    </div>
+                <% end %>
+              </div>
+            </div>
+
+          </div>
+          <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<script type="text/javascript">
+    $(".edit-profile").click(function () {
+        $(".input_field").show();
+        $(".input_text").hide();
+    });
+
+    $(".cancel_profil_update").click(function () {
+        $(".input_field").hide();
+        $(".input_text").show();
+    });
+
+    $(function () {
+        $('#user_date_of_birth').datepicker();
+    })
+
+</script>

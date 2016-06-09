@@ -39,7 +39,7 @@ module ApplicationHelper
 
   def format_number(number)
     response = ''
-    return number if session[:locale] == 'bn'
+    return number unless session[:locale] == 'bn'
     number.to_s.split(//).each do |ch|
       ch = ch.to_s
       case ch
@@ -84,5 +84,9 @@ module ApplicationHelper
 
   def popular_product(product_type)
     @popular_products = Product.where(product_type: product_type).select("products.*, SUM(sales.quantity) sales_quantity").joins(:sales).group("products.id").order("sales_quantity DESC")
+  end
+
+  def slider_images
+    Slider.all
   end
 end

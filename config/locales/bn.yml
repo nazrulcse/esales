@@ -24,6 +24,17 @@ bn:
   signup: "নিবন্ধন করুন"
   signin: "প্রবেশ কর"
   logout: " প্রস্থান"
+  name: "নাম"
+  father_name: 'বাবার নাম'
+  mother_name: "মায়ের নাম"
+  date_of_birth: "জন্ম তারিখ"
+  permanent_address: "স্থায়ী ঠিকানা"
+  present_address: "বর্তমান ঠিকানা"
+  voter_id: "ভোটার আইডি"
+  image: "ছবি"
+  password_hint: "অক্ষর সর্বনিম্ন"
+  password_confirmation: 'পাসওয়ার্ড নিশ্চিতকরণ'
+  forget_password: 'আপনি কি পাসওয়ার্ড ভুলে গেছেন?'
   my_account: " আমার অ্যাকাউন্ট"
   req_subscription: "সাবস্ক্রিপশনের জন্য অনুরোধ"
   bangla: "বাংলা"
@@ -36,11 +47,13 @@ bn:
   services: 'সেবা সমূহ'
   about_us: 'আমাদের সম্পর্কে'
   select_category: 'শ্রেণী নির্বাচন করুন'
+  service_price_filter: 'সেবার দাম ফিল্টার'
   product_price_filter: 'পণ্যের দাম ফিল্টার'
   filter: 'ফিল্টার'
   category_filter: 'শ্রেণী ফিল্টার'
   color_filter: 'রঙ ফিল্টার'
   popular_product: 'জনপ্রিয় পণ্য'
+  popular_service: 'জনপ্রিয় সেবা'
   tag_filter: 'ট্যাগ ফিল্টার'
   add_to_cart: 'ট্রলিতে  যোগ করুন'
   price: 'মূল্য'
@@ -71,4 +84,17 @@ bn:
   bank_account: 'ব্যাংক অ্যাকাউন্ট'
   mobile: 'মোবাইল'
   bank_address: 'ব্যাংক ঠিকানা'
+  setting: 'সেটিংস'
+  setting_subtitle: 'পাসওয়ার্ড পরিবর্তন করুন প্রোফাইলের ছবি পরিবর্তন ইত্যাদি'
   my_account_sub_title: 'সকল অর্ডারে বিবরণ, রোজগার ইতিহাস, টাকা উত্তোলন ইত্যাদি'
+  address: ' Romotiq রোড # ৩১, বাসা # ৪৬৮
+                            নিউ ডিওএইচএস, মহাখালী, ঢাকা ১২০৯.'
+  description: 'বিবরণ'
+  related_product: 'সংশ্লিষ্ট পণ্য'
+  related_servive: 'সংশ্লিষ্ট সেবা'
+  detail: 'বিস্তারিত'
+  email: 'ই-মেইল'
+  password: 'পাসওয়ার্ড'
+  remember_me: 'আমাকে মনে কর'
+  phone: 'ফোন'
+  terms: "আমি প্রত্যয়ন করছি যে সমস্ত তথ্য এবং সংবাদ উপরে দেওয়া সঠিক আছে, আর আমি কোম্পানির সকল বিধি সম্পর্কে সচেতন. "

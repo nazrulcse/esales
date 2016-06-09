@@ -24,6 +24,17 @@ en:
   signup: "Signup"
   signin: "SignIn"
   logout: " Logout"
+  name: "Name"
+  father_name: "Father's Name"
+  mother_name: "Mother's Name"
+  date_of_birth: 'Date of birth'
+  permanent_address: 'Permanent Address'
+  present_address: 'Present Address'
+  image: "Image"
+  password_hint: 'characters minimum'
+  password_confirmation: 'Password confirmation'
+  forget_password: 'Forgot your password? '
+  voter: 'Voter Id'
   my_account: "My Account"
   req_subscription: "Request For Subscription"
   english: "English"
@@ -38,10 +49,12 @@ en:
   about_us: 'About Us'
   select_category: 'Select Category'
   product_price_filter: 'Product price filter'
+  service_price_filter: 'Service price filter'
   filter: 'Filter'
   category_filter: 'Category Filter'
   color_filter: 'Color Filter'
   popular_product: 'Popular Product'
+  popular_service: 'Popular Service'
   tag_filter: 'Tag Filter'
   add_to_cart: 'Add to Cart'
   price: 'Price'
@@ -72,4 +85,18 @@ en:
   bank_account: 'Bank Account'
   mobile: 'Mobile'
   bank_address: 'Bank Address'
+  setting: 'Settings'
+  setting_subtitle: 'Change Password, Profile picture etc'
   my_account_sub_title: 'All order details, earning history, withdraw money etc.'
+  address: ' Romotiq Road # 31, House # 468
+                          New DOHS, Mohakhali, Dhaka 1209.'
+  description: 'Description'
+  related_product: 'Product Related'
+  related_servive: 'Service Related'
+  detail: 'Detail'
+  email: 'Email'
+  password: 'Password'
+  remember_me: 'Remember me'
+  phone: 'Phone'
+  terms: "I'm certify that all the information and news are given above is  accurate,
+                        and I became aware about of the company's  all rules to be applied for sale."

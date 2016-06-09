@@ -2,9 +2,9 @@
   <aside>
     <div class="row b-col-default-indent">
       <div class="col-md-12">
-        <h4 class="f-primary-b b-h4-special f-h4-special c-primary"><%= t(:product_price_filter) %></h4>
+        <h4 class="f-primary-b b-h4-special f-h4-special c-primary"><%= product_type == 'service' ? t(:service_price_filter) : t(:product_price_filter) %></h4>
 
-        <form action="<%= products_path %>">
+        <form action="<%= product_type == 'service' ? services_path : products_path %>">
           <div class="b-slider-range j-slider-range f-slider-range">
             <span class="b-slider-range_min">0</span>
             <span class="b-slider-range_max">$999</span>
@@ -55,7 +55,7 @@
         </div>
       </div>
       <div class="col-md-12">
-        <h4 class="f-primary-b b-h4-special f-h4-special c-primary"><%= t(:popular_product) %></h4>
+        <h4 class="f-primary-b b-h4-special f-h4-special c-primary"><%= product_type == 'service' ? t(:popular_service) : t(:popular_product) %></h4>
 
         <% popular_product(product_type).each do  |product| %>
             <div class="b-blog-short-post b-blog-short-post--popular b-blog-short-post--w-img b-blog-short-post--img-hover-bordered f-blog-short-post--w-img row f-blog-short-post--popular">

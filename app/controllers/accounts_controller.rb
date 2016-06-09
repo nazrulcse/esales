@@ -5,6 +5,7 @@ class AccountsController < ApplicationController
     @orders = current_user.orders
     @earnings = current_user.sales
     @transactions = current_user.subscriber_transactions
+    @pending = current_user.orders.where("status_id != ?", SubscriberTransaction::TRANSACTION_STATE[:delivered])
     @pending = current_user.orders.where('status_id != ?', Order::ORDER_STATE[:delivered])
     @transaction = SubscriberTransaction.new
     last_transaction = @transactions.where(status: SubscriberTransaction::TRANSACTION_STATE[:complete]).last

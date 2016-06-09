@@ -1,0 +1,13 @@
+.product-off {
+    background-color: white;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    color: #e26228;
+    font-size: 13px;
+    font-weight: bold;
+    left: 10px;
+    position: absolute;
+    top: 17px;
+}

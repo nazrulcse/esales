@@ -74,11 +74,11 @@ module ApplicationHelper
     response
   end
 
-  def get_tag_path(tagging)
-    if tagging.taggable_type == 'Product'
-      return raw "<a href='products?tag=#{tagging.tag.name}' class='f-tag b-tag'</i>#{tagging.tag.name} </a>"
+  def get_tag_path(tag,product_type)
+    if product_type == 'product'
+      return raw "<a href='/products?tag=#{tag.name}' class='f-tag b-tag'</i>#{tag.name} </a>"
     else
-      return raw "<a href='services?tag=#{tagging.tag.name}' class='f-tag b-tag'</i>#{tagging.tag.name} </a>"
+      return raw "<a href='/services?tag=#{tag.name}' class='f-tag b-tag'</i>#{tag.name} </a>"
     end
   end
 

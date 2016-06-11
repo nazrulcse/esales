@@ -46,9 +46,8 @@
         <% end %>
       <div class="col-md-12">
         <h4 class="f-primary-b b-h4-special f-h4-special c-primary"><%= t(:tag_filter) %></h4>
-            <% all_tags.each do |tagging|  %>
-            <%= get_tag_path(tagging) %>
-            <%#= link_to tagging.tag.name, , class: 'f-tag b-tag' %>
+            <% all_tags(product_type).each do |tag|  %>
+            <%= get_tag_path(tag,product_type) %>
             <% end %>
         <div>
 

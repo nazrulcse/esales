@@ -20,4 +20,19 @@ ActiveAdmin.register Slider do
   end
 
 
+  form html: { multipart: true } do |f|
+    f.semantic_errors
+
+    f.inputs  do
+      f.input :image
+      f.input :header,:label => 'Title'
+      f.input :header_bold,:label => 'Announcement'
+      f.input :header_small,:label => 'Sort Details'
+      f.input :off,:label => 'Off %'
+      f.input :link,:label => 'More Information Link'
+    actions
+  end
+  end
+
+
 end

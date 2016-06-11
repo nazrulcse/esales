@@ -70,6 +70,7 @@ en:
   pending_earning: 'Pending Earning'
   transaction: 'Transaction'
   item: 'Item'
+  total: 'Total'
   quantity: 'Quantity'
   order_id: 'Order Id'
   status: 'Status'
@@ -90,7 +91,11 @@ en:
   my_account_sub_title: 'All order details, earning history, withdraw money etc.'
   address: ' Romotiq Road # 31, House # 468
                           New DOHS, Mohakhali, Dhaka 1209.'
+
+  address_1: ' Romotiq Road # 31, House # 468
+                           New DOHS, Mohakhali, Dhaka 1209.'
   description: 'Description'
+  store: 'Online store'
   related_product: 'Product Related'
   related_servive: 'Service Related'
   detail: 'Detail'
@@ -98,5 +103,17 @@ en:
   password: 'Password'
   remember_me: 'Remember me'
   phone: 'Phone'
+  place_order: 'Place Order'
+  empty_cart: 'Empty Cart'
+  location: 'Location'
+  contact_text: 'Drop Us A Line'
+  subject: 'Subject'
+  message: 'Message Here'
+  send_message: 'SEND MESSAGE'
+  office_address: 'Office Address'
+  continue_shopping: 'Continue Shopping'
+  shopping_cart: 'Shopping Cart'
+  cart_amount: 'Total cart amount'
+  cart_instraction: 'What would you like to do next? '
   terms: "I'm certify that all the information and news are given above is  accurate,
                         and I became aware about of the company's  all rules to be applied for sale."

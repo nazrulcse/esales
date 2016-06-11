@@ -29,6 +29,16 @@ class WelcomeController < ApplicationController
 
   end
 
+  def save_contact
+    contact =  Contact.new(name: params[:name], email: params[:email], subject: params[:subject], message: params[:message])
+    if contact.save
+      flash[:notice] = "Your Message has been send to Admin"
+    else
+      flash[:notice] = "Something worng please try again"
+    end
+    redirect_to contact_path
+  end
+
 
   def user_authentication
     @status = 'Success'

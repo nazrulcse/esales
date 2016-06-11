@@ -1,19 +1,19 @@
 <ol class="breadcrumb">
   <li>
-    <%= link_to 'Products', products_path %>
+    <%= link_to t(:products), products_path %>
   </li>
-  <li class="active">Shopping Cart</li>
+  <li class="active"><%= t(:shopping_cart) %></li>
 </ol>
 <% if @cart.present? %>
       <div class="col-lg-12">
         <table class="table cart-table">
           <thead>
           <tr class="cart-menu">
-            <th>Item</th>
+            <th><%= t(:item) %></th>
             <th></th>
-            <th>Price</th>
-            <th>Quantity</th>
-            <th class='text-center'>Total</th>
+            <th><%= t(:price) %></th>
+            <th><%= t(:quantity) %></th>
+            <th class='text-center'><%= t(:total) %></th>
             <th></th>
           </tr>
           </thead>
@@ -27,17 +27,17 @@
     <div class="col-lg-12 clear">
       <div class="panel panel-default">
         <div class="panel-heading">
-          What would you like to do next?
+          <%= t(:cart_instraction) %>
         </div>
         <div class="panel-body">
           <h3 class="text-center">
-            Total cart amount <span class="cart-total-price"> <%= number_to_currency(@cart.total_price) %> </span>
+            <%= t(:cart_amount) %> <span class="cart-total-price"> <%= number_to_currency(format_number(@cart.total_price)) %> </span>
           </h3>
 
           <div class="pull-right">
-            <%= link_to 'Continue Shopping', products_path, :class => 'btn btn-primary' %>
-            <%= link_to 'Place Order', new_order_path(), :class => 'btn btn-warning' %>
-            <%= link_to 'Empty Cart', empty_cart_shopping_cart_path(@cart), :class => 'btn btn-danger', :data => {:confirm => 'Are you sure?'} %>
+            <%= link_to t(:continue_shopping), products_path, :class => 'btn btn-primary' %>
+            <%= link_to  t(:place_order),new_order_path(), :class => 'btn btn-warning' %>
+            <%= link_to t(:empty_cart), empty_cart_shopping_cart_path(@cart), :class => 'btn btn-danger', :data => {:confirm => 'Are you sure?'} %>
           </div>
         </div>
       </div>

@@ -57,6 +57,7 @@ bn:
   tag_filter: 'ট্যাগ ফিল্টার'
   add_to_cart: 'ট্রলিতে  যোগ করুন'
   price: 'মূল্য'
+  total: 'সর্ব মোট'
   review: 'পর্যালোচনা'
   category: 'শ্রেণী'
   tags: 'ট্যাগ'
@@ -89,6 +90,9 @@ bn:
   my_account_sub_title: 'সকল অর্ডারে বিবরণ, রোজগার ইতিহাস, টাকা উত্তোলন ইত্যাদি'
   address: ' Romotiq রোড # ৩১, বাসা # ৪৬৮
                             নিউ ডিওএইচএস, মহাখালী, ঢাকা ১২০৯.'
+
+  address_1: 'রোড # ৩১, বাসা # ৪৬৮
+                               নিউ ডিওএইচএস, মহাখালী, ঢাকা ১২০৯.'
   description: 'বিবরণ'
   related_product: 'সংশ্লিষ্ট পণ্য'
   related_servive: 'সংশ্লিষ্ট সেবা'
@@ -97,4 +101,16 @@ bn:
   password: 'পাসওয়ার্ড'
   remember_me: 'আমাকে মনে কর'
   phone: 'ফোন'
+  place_order: 'অর্ডার দিন'
+  shopping_cart: 'বাজারের ট্রলি'
+  continue_shopping: 'কেনাকাটা অবিরত'
+  empty_cart: 'কার্ট খালিকরুন'
+  location: 'অবস্থান'
+  subject: 'বিষয়'
+  message: 'আপনার মতামত'
+  send_message: 'বার্তা পাঠান'
+  office_address: 'অফিসের ঠিকানা'
+  contact_text: 'আমাদের সাথে যোগাযোগ  করুন'
+  cart_amount: 'মোট কার্ট পরিমাণ'
+  cart_instraction: 'পরবর্তীতে তুমি কি করতে চাও?'
   terms: "আমি প্রত্যয়ন করছি যে সমস্ত তথ্য এবং সংবাদ উপরে দেওয়া সঠিক আছে, আর আমি কোম্পানির সকল বিধি সম্পর্কে সচেতন. "

@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-md-12">
         <div class="title">
-          <h1>Contact Us</h1>
+          <h1><%= t(:contact) %></h1>
           <span class="title-border"></span>
         </div>
 
@@ -13,20 +13,19 @@
       <div class="col-md-6">
         <div class="contact-about">
           <div class="map-area">
-            <h4>Location</h4>
+            <h4><%= t(:location) %></h4>
 
             <div id="map_canvas" style="width: 100%;height: 345px"></div>
           </div>
           <div class="contact-address">
             <br>
-            <h5>Office Address</h5>
+            <h5><%= t(:office_address) %></h5>
             <ul>
               <li>
-                <i class="fa fa-map-marker" style="font-size:23px"></i>Road # 31, House # 468
-                New DOHS, Mohakhali, Dhaka 1209.
+                <i class="fa fa-map-marker" style="font-size:23px"></i><%= t(:address_1) %>
               </li>
               <li>
-                <i class="fa fa-phone"></i> 880 1711 538 899, 880 0197 - ROMOTIQ
+                <i class="fa fa-phone"></i> <%= format_number("880 1711 538 899, 880 0197") %> - ROMOTIQ
               </li>
               <li><i class="fa fa-envelope"></i>info@romotiq.com</li>
             </ul>
@@ -36,26 +35,26 @@
 
       <div class="col-md-6">
         <div class="drop-line">
-          <h4>Drop Us A Line</h4>
+          <h4><%=t(:contact_text) %></h4>
 
           <div class="row">
-            <form method="post" action="">
+            <%= form_tag save_contact_path do %>
               <div style="padding-right:15px;" class="col-md-6 no-padding">
-                <input type="text" required="" value="" name="name" placeholder="Name" class="form-control">
+                <input type="text" required="" value="" name="name" required placeholder="<%= t(:name) %>" class="form-control">
               </div>
               <div style="padding-left:15px;" class="col-md-6 no-padding form-group">
-                <input type="email" required="" value="" name="email" placeholder="Email" class="form-control">
+                <input type="email" required="" value="" name="email" required placeholder="<%= t(:email) %>" class="form-control">
               </div>
               <div class="col-md-12 no-padding form-group">
-                <input type="text" required="" value="" name="subject" placeholder="Subject" class="form-control">
+                <input type="text" required="" value="" name="subject" placeholder="<%= t(:subject) %>" class="form-control">
               </div>
               <div class="col-md-12 no-padding form-group">
-                <textarea required name="message" placeholder="Message Here" rows="6" class="form-control"></textarea>
+                <textarea required name="message" placeholder="<%= t(:message) %>" rows="6" class="form-control"></textarea>
               </div>
               <div class="col-md-12 no-padding clearfix">
-                <input type="submit" value="SEND MESSAGE" name="submit" class="btn btn-success pull-right">
+                <input type="submit" value="<%= t(:send_message)%>" name="submit" class="btn btn-success pull-right">
               </div>
-            </form>
+            <% end %>
           </div>
         </div>
       </div>

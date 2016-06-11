@@ -92,11 +92,8 @@ bn:
   setting: 'সেটিংস'
   setting_subtitle: 'পাসওয়ার্ড পরিবর্তন করুন প্রোফাইলের ছবি পরিবর্তন ইত্যাদি'
   my_account_sub_title: 'সকল অর্ডারে বিবরণ, রোজগার ইতিহাস, টাকা উত্তোলন ইত্যাদি'
-  address: ' Romotiq রোড # ৩১, বাসা # ৪৬৮
-                            নিউ ডিওএইচএস, মহাখালী, ঢাকা ১২০৯.'
-
-  address_1: 'রোড # ৩১, বাসা # ৪৬৮
-                               নিউ ডিওএইচএস, মহাখালী, ঢাকা ১২০৯.'
+  address: ' Romotiq রোড # ৩১, বাসা # ৪৬৮ নিউ ডিওএইচএস, মহাখালী, ঢাকা ১২০৯.'
+  address_1: 'রোড # ৩১, বাসা # ৪৬৮ নিউ ডিওএইচএস, মহাখালী, ঢাকা ১২০৯.'
   description: 'বিবরণ'
   related_product: 'সংশ্লিষ্ট পণ্য'
   related_servive: 'সংশ্লিষ্ট সেবা'
@@ -111,7 +108,8 @@ bn:
   all_total: 'সব মোট'
   account: 'অ্যাকাউন্ট'
   subscriber_login: 'গ্রাহক লগইন'
-  order_details: 'অর্ডার বিবরণী'  place_order: 'অর্ডার দিন'
+  order_details: 'অর্ডার বিবরণী'
+  place_order: 'অর্ডার দিন'
   shopping_cart: 'বাজারের ট্রলি'
   continue_shopping: 'কেনাকাটা অবিরত'
   empty_cart: 'কার্ট খালিকরুন'

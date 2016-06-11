@@ -1,5 +1,5 @@
 <div class="panel panel-default">
-  <div class="checkout-title"> Account</div>
+  <div class="checkout-title"> <%= t(:account) %></div>
   <div class="panel-body">
     <% if current_user.present? %>
         Hi <%= current_user.email %>
@@ -20,7 +20,7 @@
 
         <div class="user-login">
           <h4 class="checkout-label">
-            <i class="fa fa-user"> </i> Regular user Log in
+            <i class="fa fa-user"> </i> <%= t(:subscriber_login) %>
           </h4>
 
           <div class="form-group">

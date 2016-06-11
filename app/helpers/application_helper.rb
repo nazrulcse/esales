@@ -37,6 +37,10 @@ module ApplicationHelper
     Category.find_by_id(category).name
   end
 
+  def number_with_currency(number)
+    number_to_currency(format_number(number))
+  end
+
   def format_number(number)
     response = ''
     return number unless session[:locale] == 'bn'

@@ -2,12 +2,12 @@
   <td class="cart-item-image">
     <%= link_to product_path(line_item.product) do
       image_tag line_item.product.product_images.first.image_url(:thumb).to_s
-    end%>
+    end %>
   </td>
   <td class="text-center order-item-total-price">
-    <%= number_to_currency(line_item.product.price) %> x <%= line_item.quantity %>
+    <%= number_with_currency(line_item.product.price) %> x <%= format_number(line_item.quantity) %>
   </td>
   <td class='cart-item-price text-center cart-item-total-price'>
-    <%= number_to_currency(line_item.total_price) %>
+    <%= number_with_currency(line_item.total_price) %>
   </td>
 </tr>

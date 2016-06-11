@@ -1,0 +1,12 @@
+<% if line_items_count.present? && line_items_count > 0 %>
+    <div class="b-option-cart__items">
+      <div class="b-option-cart__items__title f-option-cart__items__title f-default-l">Recently added
+        item(s)
+      </div>
+      <%= render 'shared/line_items' %>
+      <div class="b-option-cart__btn">
+        <%= link_to 'Cancel', empty_cart_shopping_cart_path(current_cart), :class => 'button-xs button-gray-light', :data => {:confirm => 'Are you sure?'} %>
+        <%= link_to 'Check out', shopping_carts_path, :class => 'button-xs' %>
+      </div>
+    </div>
+<% end %>

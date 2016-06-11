@@ -13,6 +13,12 @@ ActiveAdmin.register SubscriberTransaction do
 #   permitted
 # end
 
+  controller do
+    def permitted_params
+      params.permit!
+    end
+  end
+
   index do
     selectable_column
     column :chanel
@@ -23,11 +29,11 @@ ActiveAdmin.register SubscriberTransaction do
     column :mobile
     column :bank
     column :address
-    column 'Status'  do |t|
-      span 'Complete'  if t.status == SubscriberTransaction::TRANSACTION_STATE[:complete]
-      span 'Reject'  if t.status == SubscriberTransaction::TRANSACTION_STATE[:reject]
-      span link_to 'Accept',   accept_admin_subscriber_transaction_path(t) , class: 'status-button'  if t.status ==SubscriberTransaction::TRANSACTION_STATE[:placed]
-      span link_to 'Reject',   reject_admin_subscriber_transaction_path(t), class: 'status-button' if t.status == SubscriberTransaction::TRANSACTION_STATE[:placed]
+    column 'Status' do |t|
+      span 'Complete' if t.status == SubscriberTransaction::TRANSACTION_STATE[:complete]
+      span 'Reject' if t.status == SubscriberTransaction::TRANSACTION_STATE[:reject]
+      span link_to 'Accept', accept_admin_subscriber_transaction_path(t), class: 'status-button' if t.status ==SubscriberTransaction::TRANSACTION_STATE[:placed]
+      span link_to 'Reject', reject_admin_subscriber_transaction_path(t), class: 'status-button' if t.status == SubscriberTransaction::TRANSACTION_STATE[:placed]
     end
     actions
   end

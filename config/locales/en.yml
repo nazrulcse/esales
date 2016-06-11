@@ -100,3 +100,9 @@ en:
   phone: 'Phone'
   terms: "I'm certify that all the information and news are given above is  accurate,
                         and I became aware about of the company's  all rules to be applied for sale."
+  cart: 'Cart'
+  checkout: 'Checkout'
+  all_total: 'Total'
+  account: 'Account'
+  subscriber_login: 'Subscriber login'
+  order_details: 'Order details'

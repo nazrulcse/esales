@@ -1,9 +1,8 @@
 var element = $('.cart-item-count');
-if(element.length > 0) {
+if (element.length > 0) {
     element.text(<%= @cart.total_cart_item %>);
     $('.b-option-cart__items ul').html("<%= escape_javascript (render 'shared/line_items' )%>")
 }
 else {
-    $('.b-header-ico-cart-parent a').append("<span class='cart-item-count'> <%= @cart.total_cart_item %> </span>");
-   $('.b-option-cart__items ul').html("<%= escape_javascript (render 'shared/line_items' )%>")
+    $('.my-cart a').append("<span class='cart-item-count'> <%= @cart.total_cart_item %> </span>").after("<%= escape_javascript(render 'shared/my_cart_items').html_safe %>");
 }

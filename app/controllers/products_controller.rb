@@ -2,13 +2,13 @@ class ProductsController < ApplicationController
 
   def index
     if params[:category].present?
-      items = Product.where('product_type = ?', params[:category])
+      items = Product.where('product_type = ?', params[:category]).joins(:category).joins(:brand)
     else
-      items = Product.all
+      items = Product.all.joins(:category).joins(:brand)
     end
 
     if params[:search].present?
-      items = items.where("name like '%#{params[:search]}%'")
+      items = items.where("products.name like '%#{params[:search]}%' or categories.name like '%#{params[:search]}%' or brands.name like '%#{params[:search]}%'")
     end
 
     if params[:category_id].present?

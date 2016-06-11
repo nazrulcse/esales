@@ -1,38 +1,39 @@
-<ol class="breadcrumb">
-  <li>
-    <%= link_to 'Home', products_path %>
-  </li>
-  <li>
-    <%= link_to 'Cart', shopping_carts_path %>
-  </li>
-  <li class="active"> Checkout</li>
-</ol>
-<div class="col-lg-12 no-padding clear">
+<div class="container">
+  <ol class="breadcrumb">
+    <li>
+      <%= link_to t(:home), products_path %>
+    </li>
+    <li>
+      <%= link_to t(:cart), shopping_carts_path %>
+    </li>
+    <li class="active"> <%= t(:checkout) %></li>
+  </ol>
   <%= form_for(@order) do |f| %>
       <%= form_validation_message(@order) %>
-      <div class="col-lg-12 reset-left-padding checkout-information">
-        <div class="col-lg-6 reset-left-padding">
-          <%= render 'shopping_carts/account', :f => f %>
-          <%= render 'shopping_carts/delivery_address', :f => f %>
-        </div>
+      <div class="row">
+        <div class="col-lg-12 reset-padding checkout-information">
+          <div class="col-lg-6 reset-left-padding">
+            <%= render 'shopping_carts/account', :f => f %>
+            <%= render 'shopping_carts/delivery_address', :f => f %>
+          </div>
 
-        <div class="col-lg-6 reset-left-padding">
-          <%#= render 'shopping_carts/coupon_item', :f => f %>
-          <div class="checkout-title reset-bottom-margin"> Order Details</div>
-          <table class="table cart-table">
-            <tbody>
-            <% current_cart.line_items.each do |line_item| %>
-                <%= render 'shopping_carts/checkout_item', :line_item => line_item, :checkout => true %>
-            <% end %>
-            <tr class="order-total-item">
-              <td></td>
-              <td class="order-total-text"> Total =</td>
-              <td class="checkout-total-price">
-                <%= number_to_currency(current_cart.total_price) %> </td>
-            </tr>
-            </tbody>
-          </table>
-          <%= render 'shopping_carts/place_order', :f => f %>
+          <div class="col-lg-6 reset-left-padding">
+            <div class="checkout-title reset-bottom-margin"> <%= t(:order_details) %></div>
+            <table class="table cart-table">
+              <tbody>
+              <% current_cart.line_items.each do |line_item| %>
+                  <%= render 'shopping_carts/checkout_item', :line_item => line_item, :checkout => true %>
+              <% end %>
+              <tr class="order-total-item">
+                <td></td>
+                <td class="order-total-text"> <%= t(:all_total) %> =</td>
+                <td class="checkout-total-price">
+                  <%= format_number(number_to_currency(current_cart.total_price)) %> </td>
+              </tr>
+              </tbody>
+            </table>
+            <%= render 'shopping_carts/place_order', :f => f %>
+          </div>
         </div>
       </div>
   <% end %>

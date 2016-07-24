@@ -3,19 +3,19 @@ class ProductsController < ApplicationController
   def index
     if params[:category].present?
       if params[:category] == 'product'
-        items = Product.where('product_type = ?', params[:category]).joins(:category).joins(:brand)
+        items = Product.where('product_type = ?', params[:category]).joins(:category).joins(:brand).limit(2)
       else
-        items = Product.where('product_type = ?', params[:category]).joins(:category)
+        items = Product.where('product_type = ?', params[:category]).joins(:category).limit(2)
       end
     else
-      items = Product.all.joins(:category).joins(:brand)
+      items = Product.all.joins(:category).joins(:brand).limit(2)
     end
 
     if params[:search].present?
       if params[:category] == 'product'
-        items = items.where("products.name like '%#{params[:search]}%' or categories.name like '%#{params[:search]}%' or brands.name like '%#{params[:search]}%'")
+        items = items.where("products.name like '%#{params[:search]}%' or categories.name like '%#{params[:search]}%' or brands.name like '%#{params[:search]}%'").limit(2)
       else
-        items = items.where("products.name like '%#{params[:search]}%' or categories.name like '%#{params[:search]}%'")
+        items = items.where("products.name like '%#{params[:search]}%' or categories.name like '%#{params[:search]}%'").limit(2)
       end
     end
 
@@ -66,12 +66,12 @@ class ProductsController < ApplicationController
   def more
     if params[:category].present?
       if params[:category] == 'product'
-        items = Product.where('product_type = ?', params[:category]).joins(:category).joins(:brand)
+        items = Product.where('product_type = ?', params[:category]).joins(:category).joins(:brand).limit(5).offset(params[:ofset])
       else
-        items = Product.where('product_type = ?', params[:category]).joins(:category)
+        items = Product.where('product_type = ?', params[:category]).joins(:category).limit(5).offset(params[:ofset])
       end
     else
-      items = Product.all.joins(:category).joins(:brand)
+      items = Product.all.joins(:category).joins(:brand).limit(5).offset(params[:ofset])
     end
 
     if params[:search].present?
@@ -101,7 +101,6 @@ class ProductsController < ApplicationController
 
     @categories = items.group('category_id').count
     @products = items
-    @products = Product
     respond_to do |format|
       format.js { render :layout => false }
     end

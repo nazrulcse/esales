@@ -28,8 +28,8 @@
           <h2> <%= line_item.product.category.name %> </h2>
           <%= link_to line_item.product.name, product_path(line_item.product) %>
         </td>
-        <td class="item"> <%= line_item.quantity %> x <%= number_to_currency(line_item.product.price) %> </td>
-        <td class="item price"> <%= number_to_currency(line_item.total_price) %> </td>
+        <td class="item"> <%= format_number(line_item.quantity) %> x <%= number_with_currency(line_item.product.price) %> </td>
+        <td class="item price"> <%= number_with_currency(line_item.total_price) %> </td>
         <td class="item"> <%= line_item.order_id %> </td>
         <td class="item"> <%= Order.earning(line_item) %> </td>
         <td class="item"> <%= Order::ORDER_STATE.index(line_item.order.status_id) %> </td>

@@ -6,12 +6,19 @@ class SubscriberTransaction < ActiveRecord::Base
       :complete => 2
   }
 
+  TRANSACTION_STATE_BN = {
+      "প্রত্যাখ্যাত" => 0,
+      "স্থাপিত" => 1,
+      "সম্পূর্ণ" => 2
+  }
+
   CHANEL = {
       :bank => 'Bank',
       :bkash => 'Bkash'
   }
 
   belongs_to :user
+  mount_uploader :payslip, SliderUploader
 
   def self.available_money(user_id)
     user = User.find_by_id(user_id)

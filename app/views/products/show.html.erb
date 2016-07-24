@@ -58,7 +58,7 @@
 
                 <div class="b-product-card__info_row">
                   <div class="b-product-card__info_title f-primary-b f-title-smallest"><%= t(:price) %></div>
-                  <span class="f-product-card__info_price c-default f-primary-b">$<%= @product.price %> </span>
+                  <span class="f-product-card__info_price c-default f-primary-b"><%= number_with_currency(@product.price) %> </span>
                 </div>
                 <div class="b-product-card__info_row">
                   <div class="b-product-card__info_title f-primary-b f-title-smallest"><%= t(:review) %></div>

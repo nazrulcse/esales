@@ -20,6 +20,11 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  number:
+    currency:
+      format:
+        unit: 'Tk '
+        format: "%n %u"
   contact: "Contact"
   signup: "Signup"
   signin: "SignIn"

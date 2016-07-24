@@ -67,3 +67,23 @@ form {
 .centered {
   text-align: center;
 }
+
+.top-header-bg {
+  background: image-url('header_bg.jpg');
+  background-attachment: fixed;
+}
+
+.public_bg_image {
+  background: image-url('body.png');
+  background-attachment: fixed;
+}
+
+.container_bg {
+  background: image-url('container_bg.jpg');
+  background-attachment: fixed;
+  background-size: 100% 100%;
+}
+
+.adjust-breadcrumbs-position {
+  margin-top: -22px;
+}

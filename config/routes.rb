@@ -21,7 +21,9 @@ Rails.application.routes.draw do
   resources :orders
   resources :shopping_carts
   resources :line_items
-  resources :services
+  resources :services do
+    get 'more', on: :collection
+  end
   resources :subscriber_transactions
   resources :products do
     get 'review_product', on: :collection

@@ -1,0 +1,3 @@
+<% @services.each do |service| %>
+$('.service_items').append("<%= escape_javascript(render 'item', :service => service ).html_safe %>");
+<%end%>

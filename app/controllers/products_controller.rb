@@ -3,12 +3,12 @@ class ProductsController < ApplicationController
   def index
     if params[:category].present?
       if params[:category] == 'product'
-        items = Product.where('product_type = ?', params[:category]).joins(:category).joins(:brand).limit(2)
+        items = Product.where('product_type = ?', params[:category]).joins(:category).joins(:brand).limit(8)
       else
-        items = Product.where('product_type = ?', params[:category]).joins(:category).limit(2)
+        items = Product.where('product_type = ?', params[:category]).joins(:category).limit(8)
       end
     else
-      items = Product.all.joins(:category).joins(:brand).limit(2)
+      items = Product.all.joins(:category).joins(:brand).limit(8)
     end
 
     if params[:search].present?

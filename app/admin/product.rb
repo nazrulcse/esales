@@ -90,17 +90,22 @@ ActiveAdmin.register Product do
           f.input :subscriber_discount, :hint => '%'
           f.input :price
           f.input :tag_list, :hint => 'Comma separated'
-          f.has_many :product_images do |ff|
-            ff.input :image
+          f.has_many :product_images,  heading: 'Images'do |ff|
+            ff.input :image ,label: false
           end
-          f.input :related_product
+
       end
 
       f.inputs :class => 'service-input' do
+        f.input :related_product, label: 'Related Services', collection: Product.all.where(product_type: 'service')
         render 'unit_field', f: f
       end
 
       f.inputs :class => 'products-input' do
+        f.has_many :product_images do |ff|
+          ff.input :image
+        end
+        f.input :related_product,label: 'Related Services', collection: Product.all.where(product_type: 'product')
         f.input :brand
         f.input :color
       end

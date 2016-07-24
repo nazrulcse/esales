@@ -2,13 +2,21 @@ class ProductsController < ApplicationController
 
   def index
     if params[:category].present?
-      items = Product.where('product_type = ?', params[:category]).joins(:category).joins(:brand)
+      if params[:category] == 'product'
+        items = Product.where('product_type = ?', params[:category]).joins(:category).joins(:brand)
+      else
+        items = Product.where('product_type = ?', params[:category]).joins(:category)
+      end
     else
       items = Product.all.joins(:category).joins(:brand)
     end
 
     if params[:search].present?
-      items = items.where("products.name like '%#{params[:search]}%' or categories.name like '%#{params[:search]}%' or brands.name like '%#{params[:search]}%'")
+      if params[:category] == 'product'
+        items = items.where("products.name like '%#{params[:search]}%' or categories.name like '%#{params[:search]}%' or brands.name like '%#{params[:search]}%'")
+      else
+        items = items.where("products.name like '%#{params[:search]}%' or categories.name like '%#{params[:search]}%'")
+      end
     end
 
     if params[:category_id].present?
@@ -30,9 +38,9 @@ class ProductsController < ApplicationController
 
     @categories = items.group('category_id').count
     @products = items
-    if params[:category] == 'service'
-      render 'services'
-    end
+    # if params[:category] == 'service'
+    #   render 'services'
+    # end
   end
 
   def show
@@ -56,7 +64,44 @@ class ProductsController < ApplicationController
   end
 
   def more
-    @products = Product.limit(5).offset(params[:offset])
+    if params[:category].present?
+      if params[:category] == 'product'
+        items = Product.where('product_type = ?', params[:category]).joins(:category).joins(:brand)
+      else
+        items = Product.where('product_type = ?', params[:category]).joins(:category)
+      end
+    else
+      items = Product.all.joins(:category).joins(:brand)
+    end
+
+    if params[:search].present?
+      if params[:category] == 'product'
+        items = items.where("products.name like '%#{params[:search]}%' or categories.name like '%#{params[:search]}%' or brands.name like '%#{params[:search]}%'")
+      else
+        items = items.where("products.name like '%#{params[:search]}%' or categories.name like '%#{params[:search]}%'")
+      end
+    end
+
+    if params[:category_id].present?
+      items = items.where(category_id: params[:category_id])
+    end
+
+    if params[:max_price].present?
+      items = items.where('price BETWEEN ? AND ?', params[:min_price], params[:max_price])
+    end
+
+    if params[:color].present?
+      color = params[:color].insert(0, '#')
+      items = items.where(color: color)
+    end
+
+    if params[:tag].present?
+      items = Product.tagged_with(params[:tag])
+    end
+
+    @categories = items.group('category_id').count
+    @products = items
+    @products = Product
     respond_to do |format|
       format.js { render :layout => false }
     end

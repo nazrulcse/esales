@@ -30,9 +30,9 @@
         </td>
         <td class="item">
           <%= format_number(line_item.quantity) %>
-          x <%= format_number(number_to_currency(line_item.product.price)) %>
+          x <%= number_with_currency(line_item.product.price) %>
         </td>
-        <td class="item price"> <%= format_number(number_to_currency(line_item.total_price)) %> </td>
+        <td class="item price"> <%= number_with_currency(line_item.total_price) %> </td>
         <td class="item"> <%= format_number(line_item.order_id) %> </td>
         <td class="item"> <%= Order::ORDER_STATE.index(line_item.order.status_id) %> </td>
       </tr>

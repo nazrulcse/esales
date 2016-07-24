@@ -27,11 +27,11 @@
       <% @transactions.each do |tr| %>
           <tr>
             <td><%= tr.chanel %></td>
-            <td><%= tr.amount %></td>
-            <td><%= tr.mobile %></td>
-            <td><%= tr.bank %></td>
+            <td><%= number_with_currency(tr.amount) %></td>
+            <td><%= format_number(tr.mobile) %></td>
+            <td><%= format_number(tr.bank) %></td>
             <td><%= tr.address %></td>
-            <td class="item"><%= SubscriberTransaction::TRANSACTION_STATE.index(tr.status) %> </td>
+            <td class="item"><%= session[:locale] == 'bn'?  SubscriberTransaction::TRANSACTION_STATE_BN.index(tr.status) : SubscriberTransaction::TRANSACTION_STATE.index(tr.status) %> </td>
           </tr>
       <% end %>
       </tbody>

@@ -29,13 +29,19 @@ ActiveAdmin.register SubscriberTransaction do
     column :mobile
     column :bank
     column :address
-    column 'Status' do |t|
+    column :sender_number
+    column :payslip do |p|
+      image_tag(p.payslip.url,size: "40") if p.payslip.present?
+    end
+    column  'Status', colspan: 6 do |t|
       span 'Complete' if t.status == SubscriberTransaction::TRANSACTION_STATE[:complete]
       span 'Reject' if t.status == SubscriberTransaction::TRANSACTION_STATE[:reject]
-      span link_to 'Accept', accept_admin_subscriber_transaction_path(t), class: 'status-button' if t.status ==SubscriberTransaction::TRANSACTION_STATE[:placed]
-      span link_to 'Reject', reject_admin_subscriber_transaction_path(t), class: 'status-button' if t.status == SubscriberTransaction::TRANSACTION_STATE[:placed]
+      span link_to 'Accept', '#', class: 'status-button accept-transaction', :data => { :url => accept_admin_subscriber_transaction_path(t), chanel: t.chanel} if t.status ==SubscriberTransaction::TRANSACTION_STATE[:placed]
+      span link_to 'Reject', reject_admin_subscriber_transaction_path(t), class: 'status-button reject-transaction' if t.status == SubscriberTransaction::TRANSACTION_STATE[:placed]
     end
     actions
+
+    render partial: 'accept_transaction_modal'
   end
 
 
@@ -46,8 +52,11 @@ ActiveAdmin.register SubscriberTransaction do
     redirect_to admin_subscriber_transactions_path, notice: "Transaction successfully Rejected"
   end
 
-  member_action :accept, method: :get do
+  member_action :accept, method: :post do
     transaction = SubscriberTransaction.find_by_id(params[:id])
+    if params[:payslip].present?
+      transaction.payslip = params[:payslip]
+    end
     transaction.status = SubscriberTransaction::TRANSACTION_STATE[:complete]
     transaction.save
     redirect_to admin_subscriber_transactions_path, notice: "Transaction successfully Accepted"

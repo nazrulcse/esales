@@ -66,12 +66,12 @@ class ProductsController < ApplicationController
   def more
     if params[:category].present?
       if params[:category] == 'product'
-        items = Product.where('product_type = ?', params[:category]).joins(:category).joins(:brand).limit(5).offset(params[:ofset])
+        items = Product.where('product_type = ?', params[:category]).joins(:category).joins(:brand).limit(5).offset(params[:offset])
       else
-        items = Product.where('product_type = ?', params[:category]).joins(:category).limit(5).offset(params[:ofset])
+        items = Product.where('product_type = ?', params[:category]).joins(:category).limit(5).offset(params[:offset])
       end
     else
-      items = Product.all.joins(:category).joins(:brand).limit(5).offset(params[:ofset])
+      items = Product.all.joins(:category).joins(:brand).limit(5).offset(params[:offset])
     end
 
     if params[:search].present?

@@ -1,6 +1,6 @@
 class ServicesController < ApplicationController
   def index
-    @services = Product.where(product_type: 'service')
+    @services = Product.where(product_type: 'service').limit(1)
     if params[:category_id].present?
       @services = @services.where(category_id: params[:category_id])
     end

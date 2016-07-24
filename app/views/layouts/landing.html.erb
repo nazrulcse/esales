@@ -6,62 +6,64 @@
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
-<body style="background: url(<%= asset_path 'body.png' %>);">
-<%= render 'shared/nav' %>
+<body class="public_bg_image">
 
-<div class="container">
-  <div class="row">
-    <div class="col-sm-8">
-      <div class="b-slidercontainer">
-        <div class="b-slider j-fullscreenslider ">
-          <ul>
-            <% slider_images.each do |slider| %>
-                <li data-transition="" data-slotamount="7">
-                  <div class="tp-bannertimer"></div>
-                  <%= image_tag('slider_shop_1.jpg') %>
-                  <div class="caption sfb" data-x="30" data-y="bottom" data-speed="700" data-start="1700" data-easing="Power4.easeOut"><%= image_tag(slider.image.url) %></div>
-                  <% if slider.off.present? and slider.off > 0 %>
-                      <div class="caption" data-x="180" data-y="bottom" data-voffset="-1" data-speed="2100" data-start="3300" data-easing="easeOutBack">
-                        <%= image_tag('slider_shop_1-2.png') %>
-                        <div class="product-off">
-                          <%= slider.off.to_i %>%
+<div class="top-header-bg">
+  <%= render 'shared/nav' %>
+  <div class="container public_bg_image">
+    <div class="row">
+      <div class="col-sm-8">
+        <div class="b-slidercontainer">
+          <div class="b-slider j-fullscreenslider ">
+            <ul>
+              <% slider_images.each do |slider| %>
+                  <li data-transition="" data-slotamount="7">
+                    <div class="tp-bannertimer"></div>
+                    <%= image_tag('slider_shop_1.jpg') %>
+                    <div class="caption sfb" data-x="30" data-y="bottom" data-speed="700" data-start="1700" data-easing="Power4.easeOut"><%= image_tag(slider.image.url) %></div>
+                    <% if slider.off.present? and slider.off > 0 %>
+                        <div class="caption" data-x="180" data-y="bottom" data-voffset="-1" data-speed="2100" data-start="3300" data-easing="easeOutBack">
+                          <%= image_tag('slider_shop_1-2.png') %>
+                          <div class="product-off">
+                            <%= slider.off.to_i %>%
+                          </div>
                         </div>
-                      </div>
-                  <% end %>
-                  <div class="caption lfr" data-x="400" data-y="100" data-speed="300" data-start="2000">
-                    <div class="b-header-group f-header-group f-header-group--light">
-                      <h2 class="f-legacy-h2 f-primary-l"><%= slider.header %></h2>
+                    <% end %>
+                    <div class="caption lfr" data-x="400" data-y="100" data-speed="300" data-start="2000">
+                      <div class="b-header-group f-header-group f-header-group--light">
+                        <h2 class="f-legacy-h2 f-primary-l"><%= slider.header %></h2>
 
-                      <h1 class="f-legacy-h1 f-primary-sb"><%= slider.header_bold %></h1>
-                    </div>
-                  </div>
-                  <div class="caption lfb" data-x="400" data-y="270" data-speed="300" data-start="2300" style="white-space: pre-wrap !important;">
-                    <p class="f-primary-b f-uppercase f-slider-lg_text-medium c-white"><%= slider.header_small %></p>
-                  </div>
-                  <% if slider.link.present? %>
-                      <div class="caption" data-x="400" data-y="340" data-speed="600" data-start="3000">
-                        <p><a class="b-link f-link f-primary-b f-uppercase" href="<%= slider.link %>">more
-                          <span><i class="fa fa-chevron-right"></i></span></a></p>
+                        <h1 class="f-legacy-h1 f-primary-sb"><%= slider.header_bold %></h1>
                       </div>
-                  <% end %>
-                </li>
-            <% end %>
-          </ul>
+                    </div>
+                    <div class="caption lfb" data-x="400" data-y="270" data-speed="300" data-start="2300" style="white-space: pre-wrap !important;">
+                      <p class="f-primary-b f-uppercase f-slider-lg_text-medium c-white"><%= slider.header_small %></p>
+                    </div>
+                    <% if slider.link.present? %>
+                        <div class="caption" data-x="400" data-y="340" data-speed="600" data-start="3000">
+                          <p><a class="b-link f-link f-primary-b f-uppercase" href="<%= slider.link %>">more
+                            <span><i class="fa fa-chevron-right"></i></span></a></p>
+                        </div>
+                    <% end %>
+                  </li>
+              <% end %>
+            </ul>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="col-sm-4">
-      <div class="col-sm-12 right-content-first"></div>
-      <div class="col-sm-12 right-content-second"></div>
+      <div class="col-sm-4">
+        <div class="col-sm-12 right-content-first"></div>
+        <div class="col-sm-12 right-content-second"></div>
+      </div>
     </div>
   </div>
 
-</div>
-<div class="container">
-  <div class="b-breadcrumbs f-breadcrumbs how-it-work-wrapper">
-    <a href="/how-it-works" class="how-it-work-link">
-      <%= image_tag('how_it_work.png') %>
-    </a>
+  <div class="container public_bg_image">
+    <div class="f-breadcrumbs how-it-work-wrapper">
+      <a href="/how-it-works" class="how-it-work-link">
+        <%= image_tag('how_it_work.png') %>
+      </a>
+    </div>
   </div>
 </div>
 <%= yield %>

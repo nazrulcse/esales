@@ -1,30 +1,30 @@
 <div class="j-menu-container"></div>
 
-<div class="b-inner-page-header f-inner-page-header b-bg-header-inner-page">
-  <div class="b-inner-page-header__content">
-    <div class="container">
-      <h1 class="f-primary-l c-default"><%= t(:store) %></h1>
+<div class="top-header-bg">
+  <div class="container public_bg_image">
+    <div class="b-inner-page-header f-inner-page-header b-bg-header-inner-pagexx">
+      <div class="b-inner-page-header__content">
+        <h1 class="f-primary-l c-default"><%= t(:store) %></h1>
 
-      <div class="f-primary-l f-inner-page-header_title-add c-senary">This is online store listing products sample
-        page
+        <div class="f-primary-l f-inner-page-header_title-add c-senary">This is online store listing products sample
+          page
+        </div>
       </div>
     </div>
   </div>
 </div>
- <div class="l-main-container">
 
-  <div class="b-breadcrumbs f-breadcrumbs">
-    <div class="container">
-      <ul>
-        <li><a href="#"><i class="fa fa-home"></i><%= t(:home) %></a></li>
-        <li><i class="fa fa-angle-right"></i><a href="#"><%= t(:products) %></a></li>
-        <li><i class="fa fa-angle-right"></i><span><%= t(:detail) %></span></li>
-      </ul>
-    </div>
-  </div>
+<div class="b-breadcrumbs f-breadcrumbs container adjust-breadcrumbs-position">
+  <ul>
+    <li><a href="#"><i class="fa fa-home"></i><%= t(:home) %></a></li>
+    <li><i class="fa fa-angle-right"></i><a href="#"><%= t(:products) %></a></li>
+    <li><i class="fa fa-angle-right"></i><span><%= t(:detail) %></span></li>
+  </ul>
+</div>
 
+<div class="l-main-container">
   <section class="b-infoblock">
-    <div class="container">
+    <div class="container public_bg_image">
       <div class="row">
         <div class="col-md-9 ">
           <div class="b-shortcode-example">
@@ -63,18 +63,18 @@
                 <div class="b-product-card__info_row">
                   <div class="b-product-card__info_title f-primary-b f-title-smallest"><%= t(:review) %></div>
                   <!--<div class="b-stars-group f-stars-group b-margin-right-standard">-->
-                    <!--&lt;!&ndash;<i class="fa fa-star is-active-stars"></i>&ndash;&gt;-->
-                    <!--&lt;!&ndash;<i class="fa fa-star is-active-stars"></i>&ndash;&gt;-->
-                    <!--&lt;!&ndash;<i class="fa fa-star is-active-stars"></i>&ndash;&gt;-->
-                    <!--&lt;!&ndash;<i class="fa fa-star is-active-stars"></i>&ndash;&gt;-->
-                    <!--&lt;!&ndash;<i class="fa fa-star"></i>&ndash;&gt;-->
+                  <!--&lt;!&ndash;<i class="fa fa-star is-active-stars"></i>&ndash;&gt;-->
+                  <!--&lt;!&ndash;<i class="fa fa-star is-active-stars"></i>&ndash;&gt;-->
+                  <!--&lt;!&ndash;<i class="fa fa-star is-active-stars"></i>&ndash;&gt;-->
+                  <!--&lt;!&ndash;<i class="fa fa-star is-active-stars"></i>&ndash;&gt;-->
+                  <!--&lt;!&ndash;<i class="fa fa-star"></i>&ndash;&gt;-->
                   <!--</div>-->
                   <span class="f-primary-b c-tertiary f-title-smallest">
                     <a href="#review" class="review-show">(<%= @product.reviews.count %>
                       <%= t(:review) %>)
                     </a>
                   </span>
-                    <% if current_user.present? %>
+                  <% if current_user.present? %>
                       <div class="b-product-card__info_like popup_link  b-btn f-btn b-btn-sm-md f-btn-sm-md b-btn--icon-only">
                         <i class="fa fa-star-o"></i>
                       </div>
@@ -148,10 +148,10 @@
                   <%= @product.description %>
                 </div>
                 <div id="review" class="tab-pane fade">
-                 <% @reviews.each do |review| %>
-                  <p>
-                    <%= review.comment %>
-                  </p>
+                  <% @reviews.each do |review| %>
+                      <p>
+                        <%= review.comment %>
+                      </p>
                       - <%= review.user.name %>
                   <% end %>
                 </div>
@@ -164,7 +164,7 @@
 
             <div class="row">
               <div class="b-col-default-indent">
-                <% if  @product.related_product.present? %>
+                <% if @product.related_product.present? %>
                     <% @product.related_product.each do |product| %>
                         <div class="col-md-4 col-sm-4 col-xs-6 col-mini-12">
                           <div class="b-product-preview">
@@ -187,7 +187,8 @@
                               <div class="b-product-preview__content_col">
                                 <a href="shop_detail.html" class="f-product-preview__content_title"><%= product.name %></a>
 
-                                <div class="f-product-preview__content_category f-primary-b"><a href="#"><%= product.category.name %></a> /
+                                <div class="f-product-preview__content_category f-primary-b">
+                                  <a href="#"><%= product.category.name %></a> /
                                 </div>
                               </div>
                             </div>
@@ -256,12 +257,12 @@
         });
     });
     $(document).ready(function () {
-        $( ".review-show" ).click(function() {
+        $(".review-show").click(function () {
             activaTab('review');
-            $( "#review" ).focus();
+            $("#review").focus();
         });
 
-        function activaTab(tab){
+        function activaTab(tab) {
             $('.nav-tabs a[href="#' + tab + '"]').tab('show');
         };
         $('.b-slider-range').slider({

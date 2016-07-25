@@ -27,6 +27,9 @@ bn:
   contact: "আমাদের সাথে যোগাযোগ করুন"
   signup: "নিবন্ধন করুন"
   signin: "প্রবেশ কর"
+  no_subscription: "কোন সাবস্ক্রিপশন?"
+  please_subscribe: "অনুগ্রহপূর্বক নিবন্ধন করুন"
+  already_subscribed: "ইতিমধ্যে সাবস্ক্রাইব করা? যদি করা থাকে তাহলে "
   logout: " প্রস্থান"
   name: "নাম"
   father_name: 'বাবার নাম'
@@ -48,8 +51,15 @@ bn:
   search_text: 'অনুসন্ধান'
   home: 'হোম'
   products: 'পণ্য সমূহ'
+  products_sub_title: 'বিভিন্ন বিভাগ ও ব্রান্ডের থেকে সব পণ্য'
+  product_details: 'পণ্যের বিবরণ'
+  product_detail_sub_title: 'পণ্যের বিস্তারিত বিবরণ'
   services: 'সেবা সমূহ'
+  service_sub_title: 'বিভিন্ন বিভাগ থেকে সব সেবা'
+  service_detail: 'সেবার বিবরণ'
+  service_detail_sub_title: 'সেবার বিস্তারিত বিবরণ'
   about_us: 'আমাদের সম্পর্কে'
+  more_about_us: "আমাদের সম্পর্কে বিস্তারিত জানুন"
   select_category: 'শ্রেণী নির্বাচন করুন'
   service_price_filter: 'সেবার দাম ফিল্টার'
   product_price_filter: 'পণ্যের দাম ফিল্টার'
@@ -105,12 +115,15 @@ bn:
   terms: "আমি প্রত্যয়ন করছি যে সমস্ত তথ্য এবং সংবাদ উপরে দেওয়া সঠিক আছে, আর আমি কোম্পানির সকল বিধি সম্পর্কে সচেতন. "
   cart: 'ট্রলি'
   checkout: 'চেকআউট'
+  checkout_sub_title: 'আপনি আপনার অর্ডার চেক আউট করুন'
   all_total: 'সব মোট'
   account: 'অ্যাকাউন্ট'
   subscriber_login: 'গ্রাহক লগইন'
   order_details: 'অর্ডার বিবরণী'
+  order_details_sub_title: 'আপনার অর্ডার গুলোর বিস্তারিত বিবরণ'
   place_order: 'অর্ডার দিন'
   shopping_cart: 'বাজারের ট্রলি'
+  shopping_cart_sub_title: 'বাজারের ট্রলিতে যা যা যোগ করেছেন'
   continue_shopping: 'কেনাকাটা অবিরত'
   empty_cart: 'কার্ট খালিকরুন'
   location: 'অবস্থান'

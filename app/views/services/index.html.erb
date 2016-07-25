@@ -1,4 +1,16 @@
 <div class="j-menu-container"></div>
+<div class="top-header-bg">
+  <div class="container public_bg_image">
+    <div class="b-inner-page-header f-inner-page-header">
+      <div class="b-inner-page-header__content">
+        <h1 class="f-primary-l c-default"><%= t(:services) %></h1>
+        <div class="f-primary-l f-inner-page-header_title-add c-senary"><%= t(:service_sub_title) %>
+        </div>
+      </div>
+    </div>
+    <hr class="hr-line">
+  </div>
+</div>
 <div class="l-main-container">
   <section class="b-infoblock">
     <div class="container public_bg_image">
@@ -9,7 +21,6 @@
               <% @services.each do |service| %>
                   <%= render 'item', service: service %>
               <% end %>
-              <div class="clearfix hidden-xs"></div>
             </div>
           </div>
         </div>
@@ -18,7 +29,6 @@
     </div>
   </section>
 </div>
-
 
 <script type="text/javascript">
     $(function() {

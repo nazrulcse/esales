@@ -4,13 +4,8 @@
   <div class="container public_bg_image">
     <div class="b-inner-page-header f-inner-page-header">
       <div class="b-inner-page-header__content">
-        <div class="container">
-          <h1 class="f-primary-l c-default"><%= t(:store) %></h1>
-
-          <div class="f-primary-l f-inner-page-header_title-add c-senary">This is online store listing products sample
-            page
-          </div>
-        </div>
+        <h1 class="f-primary-l c-default"><%= t(:product_details) %></h1>
+        <div class="f-primary-l f-inner-page-header_title-add c-senary"><%= t(:product_detail_sub_title) %> </div>
       </div>
     </div>
   </div>
@@ -18,8 +13,8 @@
 
 <div class="b-breadcrumbs f-breadcrumbs container adjust-breadcrumbs-position">
   <ul>
-    <li><a href="#"><i class="fa fa-home"></i><%= t(:home) %></a></li>
-    <li><i class="fa fa-angle-right"></i><a href="#"><%= t(:products) %></a></li>
+    <li><i class="fa fa-home"></i><%= link_to t(:home), root_path %></li>
+    <li><i class="fa fa-angle-right"></i><%= link_to t(:products), products_path %></li>
     <li><i class="fa fa-angle-right"></i><span><%= t(:detail) %></span></li>
   </ul>
 </div>
@@ -107,8 +102,10 @@
                   <a class="f-more f-title-smallest" href="<%= products_path(category_id: @product.category_id) %>"><%= @product.category.name %></a>
                 </div>
                 <div class="b-product-card__info_row">
-                  <div class="b-product-card__info_title f-primary-b f-title-smallest"><%= t(:tags) %></div>
-                  <div class="b-tag-container">
+                  <div class="b-product-card__info_title f-primary-b f-title-smallest">
+                    <%= t(:tags) %>
+                  </div>
+                  <div class="b-tag-container" style="margin-top: 6px !important;">
                     <% @product.tags.each do |tag| %>
                         <%= link_to tag.name, products_path(:tag => tag.name), class: 'f-tag b-tag' %>
                         <!--<a class="f-tag b-tag" href="#"><%#= tag.name %></a>-->

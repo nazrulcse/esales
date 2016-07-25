@@ -30,7 +30,7 @@ class ServicesController < ApplicationController
         items = Product.where('product_type = ?', params[:category]).joins(:category).limit(5).offset(params[:offset])
       end
     else
-      items = Product.all.joins(:category).where('').limit(5).offset(params[:offset])
+      items = Product.all.joins(:category).where('product_type = ?', 'service').limit(5).offset(params[:offset])
     end
 
     if params[:search].present?

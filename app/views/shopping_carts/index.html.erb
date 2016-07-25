@@ -1,66 +1,88 @@
-<div class="l-main-container">
-  <div class="b-breadcrumbs f-breadcrumbs">
-    <div class="container">
-      <ul>
-        <li>
-          <%= link_to t(:products), products_path %>
-        </li>
-        <li class="active">
-          <i class="fa fa-angle-right"></i>
-          <%= t(:shopping_cart) %>
-        </li>
-      </ul>
+
+<div class="j-menu-container"></div>
+
+<div class="top-header-bg">
+  <div class="container public_bg_image">
+    <div class="b-inner-page-header f-inner-page-header">
+      <div class="b-inner-page-header__content">
+        <h1 class="f-primary-l c-default"><%= t(:shopping_cart) %></h1>
+        <div class="f-primary-l f-inner-page-header_title-add c-senary"><%= t(:shopping_cart_sub_title) %>
+        </div>
+      </div>
     </div>
+    <hr class="hr-line">
   </div>
 </div>
-<div class="container" style="margin-top: 5px;">
-  <div class="row">
-    <% if @cart.present? %>
-        <div class="col-lg-12">
-          <table class="table cart-table">
-            <thead>
-            <tr class="cart-menu">
-              <th><%= t(:item) %></th>
-              <th></th>
-              <th><%= t(:price) %></th>
-              <th><%= t(:quantity) %></th>
-              <th class='text-center'><%= t(:total) %></th>
-              <th></th>
-            </tr>
-            </thead>
-            <tbody>
-            <% @cart.line_items.each do |line_item| %>
-                <%= render 'shopping_carts/checkout_line_item', :line_item => line_item %>
-            <% end %>
-            </tbody>
-          </table>
-        </div>
-        <div class="col-lg-12 clear">
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <%= t(:cart_instraction) %>
-            </div>
-            <div class="panel-body">
-              <h3 class="text-center">
-                <%= t(:cart_amount) %>
-                <span class="cart-total-price"> <%= number_to_currency(format_number(@cart.total_price)) %> </span>
-              </h3>
 
-              <div class="pull-right">
-                <%= link_to t(:continue_shopping), products_path, :class => 'btn btn-primary' %>
-                <%= link_to t(:place_order), new_order_path(), :class => 'btn btn-warning' %>
-                <%= link_to t(:empty_cart), empty_cart_shopping_cart_path(@cart), :class => 'btn btn-danger', :data => {:confirm => 'Are you sure?'} %>
+<div class="b-breadcrumbs f-breadcrumbs container adjust-breadcrumbs-position">
+  <ul>
+    <li>
+      <i class="fa fa-home"></i>
+      <%= link_to t(:home), root_path %>
+    </li>
+    <li>
+      <i class="fa fa-angle-right"></i>
+      <%= link_to t(:products), products_path %>
+    </li>
+    <li class="active">
+      <i class="fa fa-angle-right"></i>
+      <%= t(:shopping_cart) %>
+    </li>
+  </ul>
+</div>
+<div class="l-main-container">
+  <section class="b-infoblock">
+    <div class="container public_bg_image">
+      <div class="row">
+        <% if @cart.present? %>
+            <div class="col-lg-12">
+              <table class="table cart-table">
+                <thead>
+                <tr class="cart-menu">
+                  <th><%= t(:item) %></th>
+                  <th></th>
+                  <th><%= t(:price) %></th>
+                  <th><%= t(:quantity) %></th>
+                  <th class='text-center'><%= t(:total) %></th>
+                  <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <% @cart.line_items.each do |line_item| %>
+                    <%= render 'shopping_carts/checkout_line_item', :line_item => line_item %>
+                <% end %>
+                </tbody>
+              </table>
+            </div>
+            <div class="col-lg-12 clear">
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <%= t(:cart_instraction) %>
+                </div>
+                <div class="panel-body">
+                  <h3 class="text-center">
+                    <%= t(:cart_amount) %>
+                    <span class="cart-total-price"> <%= number_to_currency(format_number(@cart.total_price)) %> </span>
+                  </h3>
+
+                  <div class="pull-right">
+                    <%= link_to t(:continue_shopping), products_path, :class => 'btn btn-primary' %>
+                    <%= link_to t(:place_order), new_order_path(), :class => 'btn btn-warning' %>
+                    <%= link_to t(:empty_cart), empty_cart_shopping_cart_path(@cart), :class => 'btn btn-danger', :data => {:confirm => 'Are you sure?'} %>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-        </div>
-    <% else %>
-        <div class='alert alert-warning'>
-          Empty Shopping Cart
-        </div>
-    <% end %>
-  </div>
+        <% else %>
+            <div class='alert alert-warning'>
+              Empty Shopping Cart
+            </div>
+        <% end %>
+      </div>
+    </div>
+  </section>
 </div>
+
 
 <script type="text/javascript">
     $(function () {

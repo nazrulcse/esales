@@ -4,22 +4,19 @@
   <div class="container public_bg_image">
     <div class="b-inner-page-header f-inner-page-header">
       <div class="b-inner-page-header__content">
-        <div class="container">
-          <h1 class="f-primary-l c-default"> <%= t(:my_account) %> </h1>
-
-          <div class="f-primary-l f-inner-page-header_title-add c-senary"> <%= t(:my_account_sub_title) %> </div>
-        </div>
+        <h1 class="f-primary-l c-default"> <%= t(:my_account) %> </h1>
+        <div class="f-primary-l f-inner-page-header_title-add c-senary"> <%= t(:my_account_sub_title) %> </div>
       </div>
     </div>
   </div>
 </div>
 
-  <div class="b-breadcrumbs f-breadcrumbs container adjust-breadcrumbs-position">
-      <ul>
-        <li><a href="#"><i class="fa fa-home"></i><%= t(:home) %></a></li>
-        <li><i class="fa fa-angle-right"></i><span><%= t(:my_account) %></span></li>
-      </ul>
-  </div>
+<div class="b-breadcrumbs f-breadcrumbs container adjust-breadcrumbs-position">
+  <ul>
+    <li><i class="fa fa-home"></i><%= link_to t(:home), root_path %></li>
+    <li><i class="fa fa-angle-right"></i><span><%= t(:my_account) %></span></li>
+  </ul>
+</div>
 
 <div class="l-main-container">
   <section class="b-infoblock">

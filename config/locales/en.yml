@@ -28,6 +28,9 @@ en:
   contact: "Contact"
   signup: "Signup"
   signin: "SignIn"
+  no_subscription: "no subscription?"
+  please_subscribe: "Please Subscribe"
+  already_subscribed: "Already Subscribed? If you are then "
   logout: " Logout"
   name: "Name"
   father_name: "Father's Name"
@@ -50,8 +53,15 @@ en:
   search_text: 'Search'
   home: 'Home'
   products: 'Products'
+  products_sub_title: 'All products from different categories and brands'
+  product_details: 'Product Details'
+  product_detail_sub_title: 'Full description of a product'
   services: 'Services'
+  service_sub_title: 'All services from different categories'
+  service_detail: 'Service Detail'
+  service_detail_sub_title: 'Full description of a service'
   about_us: 'About Us'
+  more_about_us: "Learn more about us"
   select_category: 'Select Category'
   product_price_filter: 'Product price filter'
   service_price_filter: 'Service price filter'
@@ -118,13 +128,16 @@ en:
   office_address: 'Office Address'
   continue_shopping: 'Continue Shopping'
   shopping_cart: 'Shopping Cart'
+  shopping_cart_sub_title: 'Items added to your shopping cart'
   cart_amount: 'Total cart amount'
   cart_instraction: 'What would you like to do next? '
   terms: "I'm certify that all the information and news are given above is  accurate,
                         and I became aware about of the company's  all rules to be applied for sale."
   cart: 'Cart'
   checkout: 'Checkout'
+  checkout_sub_title: 'Checkout your order'
   all_total: 'Total'
   account: 'Account'
   subscriber_login: 'Subscriber login'
   order_details: 'Order details'
+  order_details_sub_title: 'Full detail of your orders'

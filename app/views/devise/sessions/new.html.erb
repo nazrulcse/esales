@@ -1,3 +1,18 @@
+<div class="j-menu-container"></div>
+
+<div class="top-header-bg">
+  <div class="container public_bg_image">
+    <div class="b-inner-page-header f-inner-page-header">
+      <div class="b-inner-page-header__content">
+        <h1 class="f-primary-l c-default"><%= t(:signin) %></h1>
+        <div class="f-primary-l f-inner-page-header_title-add c-senary"><%= t(:no_subscription) + ' '%> <%= link_to t(:req_subscription), new_user_registration_path(user_type: 'subscriber') %>
+        </div>
+      </div>
+    </div>
+    <hr class="hr-line">
+  </div>
+</div>
+
 <div class="container public_bg_image fix-body-padding-bottom">
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="signin-form">

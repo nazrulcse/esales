@@ -1,32 +1,39 @@
 <div class="j-menu-container"></div>
 
-<div class="b-inner-page-header f-inner-page-header b-bg-header-inner-page">
-  <div class="b-inner-page-header__content">
-    <div class="container">
-      <h1 class="f-primary-l c-default">Online store</h1>
-
-      <div class="f-primary-l f-inner-page-header_title-add c-senary">This is online store listing products sample
-        page
+<div class="top-header-bg">
+  <div class="container public_bg_image">
+    <div class="b-inner-page-header f-inner-page-header">
+      <div class="b-inner-page-header__content">
+        <h1 class="f-primary-l c-default"><%= t(:order_details) %></h1>
+        <div class="f-primary-l f-inner-page-header_title-add c-senary"><%= t(:order_details_sub_title) %>
+        </div>
       </div>
     </div>
   </div>
 </div>
+
+<div class="b-breadcrumbs f-breadcrumbs container adjust-breadcrumbs-position">
+  <ul>
+    <li>
+      <i class="fa fa-home"></i>
+      <%= link_to t(:home), root_path %>
+    </li>
+    <li>
+      <i class="fa fa-angle-right"></i>
+      <%= link_to t(:products), products_path %>
+    </li>
+    <li>
+      <i class="fa fa-angle-right"></i>
+      <span><%= t(:order_details) %></span>
+    </li>
+  </ul>
+</div>
+
+
 <div class="l-main-container">
-
-  <div class="b-breadcrumbs f-breadcrumbs">
-    <div class="container">
-      <ul>
-        <li><a href="#"><i class="fa fa-home"></i>Home</a></li>
-        <li><i class="fa fa-angle-right"></i><a href="#">Order</a></li>
-        <li><i class="fa fa-angle-right"></i><span> Detail</span></li>
-      </ul>
-    </div>
-  </div>
-
   <section class="b-infoblock">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-9 ">
+    <div class="container public_bg_image">
+      <div class="row" style="padding: 16px">
           <div id="order-details" class="modal fade" role="dialog">
             <div class="modal-dialog modal-lg">
               <!-- Modal content-->
@@ -52,7 +59,6 @@
                   <% end %>
               <% end %>
           <% end %>
-        </div>
         <%#= render 'shared/filter', product_type: 'product' %>
       </div>
     </div>

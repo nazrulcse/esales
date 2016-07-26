@@ -98,6 +98,7 @@ bn:
   amount: 'পরিমাণ'
   bank_account: 'ব্যাংক অ্যাকাউন্ট'
   mobile: 'মোবাইল'
+  sender_number: 'প্রেরকের মোবাইল'
   bank_address: 'ব্যাংক ঠিকানা'
   setting: 'সেটিংস'
   setting_subtitle: 'পাসওয়ার্ড পরিবর্তন করুন প্রোফাইলের ছবি পরিবর্তন ইত্যাদি'

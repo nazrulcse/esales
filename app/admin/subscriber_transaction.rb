@@ -58,6 +58,7 @@ ActiveAdmin.register SubscriberTransaction do
       transaction.payslip = params[:payslip]
     end
     transaction.status = SubscriberTransaction::TRANSACTION_STATE[:complete]
+    transaction.sender_number = params[:sender]
     transaction.save
     redirect_to admin_subscriber_transactions_path, notice: "Transaction successfully Accepted"
   end

@@ -20,7 +20,7 @@
                   <li data-transition="" data-slotamount="7">
                     <div class="tp-bannertimer"></div>
                     <%= image_tag('slider_shop_1.jpg') %>
-                    <div class="caption sfb" data-x="30" data-y="bottom" data-speed="700" data-start="1700" data-easing="Power4.easeOut"><%= image_tag(slider.image.url) %></div>
+                    <div class="caption sfb" data-x="30" data-y="bottom" data-speed="700" data-start="1700" data-easing="Power4.easeOut"><%= image_tag(slider.image.url(:slide)) %></div>
                     <% if slider.off.present? and slider.off > 0 %>
                         <div class="caption" data-x="180" data-y="bottom" data-voffset="-1" data-speed="2100" data-start="3300" data-easing="easeOutBack">
                           <%= image_tag('slider_shop_1-2.png') %>

@@ -43,7 +43,10 @@ module ApplicationHelper
 
   def format_number(number)
     response = ''
-    return number unless session[:locale] == 'bn'
+    #return number unless session[:locale] == 'bn'
+    if session[:locale].present? && session[:locale] == 'en'
+      return number
+    end
     number.to_s.split(//).each do |ch|
       ch = ch.to_s
       case ch
@@ -92,5 +95,9 @@ module ApplicationHelper
 
   def slider_images
     Slider.all
+  end
+
+  def maximum_price
+    Product.maximum("price")
   end
 end

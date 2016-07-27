@@ -57,7 +57,7 @@
 
                 <div class="b-product-card__info_row">
                   <div class="b-product-card__info_title f-primary-b f-title-smallest"><%= t(:price) %></div>
-                  <span class="f-product-card__info_price c-default f-primary-b">$<%= @product.price %> </span>
+                  <span class="f-product-card__info_price c-default f-primary-b"><%= number_with_currency(@product.price) %> </span>
                 </div>
                 <div class="b-product-card__info_row">
                   <div class="b-product-card__info_title f-primary-b f-title-smallest"><%= t(:review) %></div>
@@ -183,7 +183,7 @@
                             </div>
                             <div class="b-product-preview__content">
                               <div class="b-product-preview__content_col">
-                                <span class="f-news-item__price f-primary-b b-left">$<%= product.price %></span>
+                                <span class="f-news-item__price f-primary-b b-left"><%= number_with_currency(product.price) %></span>
                               </div>
                               <div class="b-product-preview__content_col">
                                 <a href="shop_detail.html" class="f-product-preview__content_title"><%= product.name %></a>

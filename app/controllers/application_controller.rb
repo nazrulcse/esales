@@ -37,9 +37,9 @@ class ApplicationController < ActionController::Base
   def all_tags(product_type)
     products = Product.where(product_type: product_type)
     tags = products.collect { |product| product.tags }
-    tags.flatten
+    tags.flatten!
+    tags.uniq
   end
-
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up) do |u|

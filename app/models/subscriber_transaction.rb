@@ -29,6 +29,6 @@ class SubscriberTransaction < ActiveRecord::Base
     else
       @complete_amount = 0
     end
-    @available_money = @earnings.sum(:earning) - @complete_amount
+    @available_money = (@earnings.sum(:earning) - @complete_amount).round(2)
   end
 end

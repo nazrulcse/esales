@@ -200,7 +200,7 @@
             </div>
           </div>
           <div class="col-md-9">
-            <%= f.submit t(:signup), class: 'btn btn-default  pull-right' %>
+            <%= f.submit t(:signup), class: 'btn btn-default pull-right submit-btn', disabled: 'disabled' %>
           </div>
         </div>
         <div style="clear: both"></div>
@@ -212,6 +212,13 @@
 <script>
     $(function () {
         $('.datepicker').datepicker();
-    })
-
+        $('#agree').click(function () {
+            if ($(this).is(':checked')) {
+                $('.submit-btn').removeAttr('disabled');
+            }
+            else {
+                $('.submit-btn').attr('disabled', 'disabled');
+            }
+        });
+    });
 </script>

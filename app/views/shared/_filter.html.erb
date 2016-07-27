@@ -7,7 +7,7 @@
         <form action="<%= product_type == 'service' ? services_path : products_path %>">
           <div class="b-slider-range j-slider-range f-slider-range">
             <span class="b-slider-range_min">0</span>
-            <span class="b-slider-range_max">$999</span>
+            <span class="b-slider-range_max"><%= maximum_price.round %></span>
             <%= hidden_field_tag 'min_price', 200 %>
             <%= hidden_field_tag 'max_price', 700 %>
           </div>
@@ -69,7 +69,7 @@
                     <a href="<%=  product_path(product.slug) %>"><%= product.name %></a>
                   </div>
                   <div class="f-news-item__price f-primary-b b-left">
-                    $<%= product.price %>
+                    <%= number_with_currency(product.price) %>
                   </div>
                 </div>
               </div>
@@ -91,8 +91,8 @@
                                 $('#max_price').val(ui.values[1]);
                             }
                         });
-        $('.b-slider-range').find('.max').text("$" + max);
-        $('.b-slider-range').find('.min').text("$" + min);
+        $('.b-slider-range').find('.max').text(max);//"৳" +
+        $('.b-slider-range').find('.min').text(min);//"৳" +
 
     });
 </script>

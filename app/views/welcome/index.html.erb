@@ -31,7 +31,7 @@
                     <%= truncate(product.description, length: 100, omission: '... ') %>
                   </div>
                   <div class="b-news-item__article">
-                    <span class="f-news-item__price f-primary-b b-left">$<%= product.price %></span>
+                    <span class="f-news-item__price f-primary-b b-left"><%= number_with_currency(product.price) %></span>
                     <%= link_to line_items_path(:product_id => product.id), :method => :post, :remote => true, :class => "b-btn f-btn b-right b-btn-sm-md f-btn-sm-md f-primary-b" do %>
                         <i class="fa fa-shopping-cart"></i> <%= t(:add_to_cart) %>
                     <% end %>

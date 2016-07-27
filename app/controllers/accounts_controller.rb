@@ -9,6 +9,6 @@ class AccountsController < ApplicationController
     @pending = current_user.orders.where('status_id != ?', Order::ORDER_STATE[:delivered])
     @transaction = SubscriberTransaction.new
     last_transaction = @transactions.where(status: SubscriberTransaction::TRANSACTION_STATE[:complete]).last
-    @last_transaction_amount = last_transaction.amount if last_transaction.present?
+    @last_transaction_amount = last_transaction.amount.round(2) if last_transaction.present?
   end
 end

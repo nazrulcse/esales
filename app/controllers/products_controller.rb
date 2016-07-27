@@ -13,9 +13,9 @@ class ProductsController < ApplicationController
 
     if params[:search].present?
       if params[:category] == 'product'
-        items = items.where("products.name like '%#{params[:search]}%' or categories.name like '%#{params[:search]}%' or brands.name like '%#{params[:search]}%'").limit(2)
+        items = items.where("products.name like '%#{params[:search]}%' or categories.name like '%#{params[:search]}%' or brands.name like '%#{params[:search]}%'")
       else
-        items = items.where("products.name like '%#{params[:search]}%' or categories.name like '%#{params[:search]}%'").limit(2)
+        items = items.where("products.name like '%#{params[:search]}%' or categories.name like '%#{params[:search]}%'")
       end
     end
 

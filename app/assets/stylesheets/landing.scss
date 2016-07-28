@@ -283,9 +283,29 @@
   }
 }
 
-.how-it-works__image {
-  background: rgba(0, 0, 0, 0) url("https://a0.muscache.com/airbnb/static/landing_pages/pretzel/how_it_works-6f1c02e84d49e801d12a5ff57565098a.png") no-repeat scroll center 0 / cover;
-  height: 310px;
+.how-it-works__step-1-image {
+  //background: rgba(0, 0, 0, 0) url("https://a0.muscache.com/airbnb/static/landing_pages/pretzel/how_it_works-6f1c02e84d49e801d12a5ff57565098a.png") no-repeat scroll center 0 / cover;
+  background: rgba(0, 0, 0, 0) image-url('community.png') no-repeat scroll center 0 / cover;
+  background-size: 100% 100%;
+  height: 230px;
+  margin: 0 auto;
+  max-width: 283px;
+}
+
+.how-it-works__step-2-image {
+  //background: rgba(0, 0, 0, 0) url("https://a0.muscache.com/airbnb/static/landing_pages/pretzel/how_it_works-6f1c02e84d49e801d12a5ff57565098a.png") no-repeat scroll center 0 / cover;
+  background: rgba(0, 0, 0, 0) image-url('sell.png') no-repeat scroll center 0 / cover;
+  background-size: 100% 100%;
+  height: 230px;
+  margin: 0 auto;
+  max-width: 283px;
+}
+
+.how-it-works__step-3-image {
+  //background: rgba(0, 0, 0, 0) url("https://a0.muscache.com/airbnb/static/landing_pages/pretzel/how_it_works-6f1c02e84d49e801d12a5ff57565098a.png") no-repeat scroll center 0 / cover;
+  background: rgba(0, 0, 0, 0) image-url('get_paid') no-repeat scroll center 0 / cover;
+  background-size: 100% 100%;
+  height: 230px;
   margin: 0 auto;
   max-width: 283px;
 }
@@ -299,9 +319,9 @@
 }
 
 .how-it-works__step-three {
-  padding-right: 0;
+  padding-right: 0 !important;
   .panel-body {
-    padding-right: 0;
+    padding-right: 0 !important;
   }
 }
 
@@ -310,4 +330,10 @@
     width: 200px;
     max-height: 300px;
   }
+}
+
+.reset-p {
+  padding-top: 20px;
+  font-size: 20px;
+  line-height: 120%;
 }

@@ -24,6 +24,9 @@ Rails.application.routes.draw do
   resources :services do
     get 'more', on: :collection
   end
+  resources :travels, only: [:index, :show] do
+    get 'more'
+  end
   resources :subscriber_transactions
   resources :products do
     get 'review_product', on: :collection

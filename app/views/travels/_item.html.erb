@@ -1,0 +1,28 @@
+<div class="col-md-4 col-sm-4 col-xs-6 col-mini-12 single_item">
+  <div class="b-product-preview">
+    <div class="b-product-preview__img view view-sixth">
+      <%= image_tag (travel.images.present? ? travel.images.first.img_url : 'NoPhotoDefault.png') %>
+      <div class="b-item-hover-action f-center mask">
+        <div class="b-item-hover-action__inner">
+          <div class="b-item-hover-action__inner-btn_group">
+            <a href="<%= travel_path(travel) %>" class="b-btn f-btn b-btn-light f-btn-light info"><i class="fa fa-link"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="b-product-preview__content">
+      <div class="b-product-preview__content_col">
+          <span class="f-news-item__price f-primary-b b-left">
+            <%= number_with_currency(travel.price) %>
+          </span>
+      </div>
+      <div class="b-product-preview__content_col">
+        <a href="<%= travel_path(travel) %>" class="f-product-preview__content_title"><%= travel.title %></a>
+
+        <div class="f-product-preview__content_category f-primary-b">
+          <a href="#"><%= travel.vehicle.title if travel.vehicle.present? %></a> -
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

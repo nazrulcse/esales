@@ -3,21 +3,22 @@
   <div class="container public_bg_image">
     <div class="b-inner-page-header f-inner-page-header">
       <div class="b-inner-page-header__content">
-        <% if params[:category].present? && params[:category] == 'service' %>
-            <h1 class="f-primary-l c-default"><%= t(:services) %></h1>
+        <h1 class="f-primary-l c-default"><%= t(:products) %></h1>
 
-            <div class="f-primary-l f-inner-page-header_title-add c-senary"><%= t(:service_sub_title) %>
-            </div>
-        <% else %>
-            <h1 class="f-primary-l c-default"><%= t(:products) %></h1>
-
-            <div class="f-primary-l f-inner-page-header_title-add c-senary"><%= t(:products_sub_title) %>
-            </div>
-        <% end %>
+        <div class="f-primary-l f-inner-page-header_title-add c-senary"><%= t(:products_sub_title) %>
+        </div>
       </div>
     </div>
+
     <hr class="hr-line">
   </div>
+</div>
+<div class="b-breadcrumbs f-breadcrumbs container adjust-breadcrumbs-position">
+  <ul>
+    <li><i class="fa fa-home"></i><%= link_to t(:home), root_path %></li>
+    <li><i class="fa fa-angle-right"></i><%= link_to t(:products), products_path %></li>
+    <li><i class="fa fa-angle-right"></i><span><%= t(:detail) %></span></li>
+  </ul>
 </div>
 <div class="l-main-container">
   <section class="b-infoblock">

@@ -1,0 +1,233 @@
+<div class="j-menu-container"></div>
+
+<div class="top-header-bg">
+  <div class="container public_bg_image">
+    <div class="b-inner-page-header f-inner-page-header">
+      <div class="b-inner-page-header__content">
+        <h1 class="f-primary-l c-default"><%= t(:product_details) %></h1>
+
+        <div class="f-primary-l f-inner-page-header_title-add c-senary"><%= t(:product_detail_sub_title) %> </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="b-breadcrumbs f-breadcrumbs container adjust-breadcrumbs-position">
+  <ul>
+    <li><i class="fa fa-home"></i><%= link_to t(:home), root_path %></li>
+    <li><i class="fa fa-angle-right"></i><%= link_to t(:products), travels_path %></li>
+    <li><i class="fa fa-angle-right"></i><span><%= t(:detail) %></span></li>
+  </ul>
+</div>
+
+<div class="l-main-container">
+  <section class="b-infoblock">
+    <div class="container public_bg_image">
+      <div class="row">
+        <div class="col-md-9 ">
+          <div class="b-shortcode-example">
+            <div class=" f-primary-b b-title-b-hr f-title-b-hr b-null-top-indent"><%= @travel.title %></div>
+            <div class="b-product-card b-default-top-indent">
+              <div class="b-product-card__visual-wrap">
+                <div class="flexslider b-product-card__visual flexslider-zoom">
+                  <ul class="slides">
+                    <% @travel.images.each do |image| %>
+                        <li>
+                          <%= link_to image_tag(image.img.url(:big)), asset_path(image.img.url(:big)), class: 'fancybox', rel: 'product' %>
+                        </li>
+                    <% end %>
+                  </ul>
+                </div>
+                <div class="flexslider flexslider-thumbnail b-product-card__visual-thumb carousel-sm">
+                  <ul class="slides">
+
+                    <% @travel.images.each do |image| %>
+                        <li>
+                          <%= image_tag(image.img.url(:thumb)) %>
+                        </li>
+                    <% end %>
+                  </ul>
+                </div>
+              </div>
+              <div class="b-product-card__info">
+                <h4 class="f-primary-b b-h4-special f-h4-special"><%= t(:information) %></h4>
+
+                <div class="b-product-card__info_row">
+                  <div class="b-product-card__info_title f-primary-b f-title-smallest"><%= t(:price) %></div>
+                  <span class="f-product-card__info_price c-default f-primary-b"><%= number_with_currency(@travel.price) %> </span>
+                </div>
+                <div class="b-product-card__info_row">
+                  <div class="b-product-card__info_title f-primary-b f-title-smallest"><%= t(:review) %></div>
+                  <span class="f-primary-b c-tertiary f-title-smallest">
+                    <a href="#review" class="review-show">(<%#= @travel.reviews.count %>
+                      <%#= t(:review) %>)
+                    </a>
+                  </span>
+                  <% if current_user.present? %>
+                      <div class="b-product-card__info_like popup_link  b-btn f-btn b-btn-sm-md f-btn-sm-md b-btn--icon-only">
+                        <i class="fa fa-star-o"></i>
+                      </div>
+                  <% end %>
+                </div>
+                <div class="b-product-card__info_row">
+                  <div class="b-product-card__info_description f-product-card__info_description">
+                    <%= @travel.description %>
+                  </div>
+                </div>
+
+                <div class="b-product-card__info_row">
+                  <div class="b-product-card__info_title f-primary-b f-title-smallest"><%= t(:category) %></div>
+                  <!--<a class="f-more f-title-smallest" href="<%#= products_path(category_id: @travel.category_id) %>"><%#= @travel.category.name %></a>-->
+                </div>
+                <div class="b-product-card__info_row">
+                  <div class="b-product-card__info_title f-primary-b f-title-smallest">
+                    <%= t(:tags) %>
+                  </div>
+                  <div class="b-tag-container" style="margin-top: 6px !important;">
+                    <% @travel.tags.each do |tag| %>
+                        <%= link_to tag.name, travels_path(:tag => tag.name), class: 'f-tag b-tag' %>
+                    <% end %>
+                  </div>
+                </div>
+                <div class="b-product-card__info_row">
+                  <div class="b-btn-group-hor f-btn-group-hor">
+                    <a href="#" class="b-btn-group-hor__item f-btn-group-hor__item">
+                      <i class="fa fa-twitter"></i>
+                    </a>
+                    <a href="#" class="b-btn-group-hor__item f-btn-group-hor__item">
+                      <i class="fa fa-facebook"></i>
+                    </a>
+                    <a href="#" class="b-btn-group-hor__item f-btn-group-hor__item">
+                      <i class="fa fa-dribbble"></i>
+                    </a>
+                    <a href="#" class="b-btn-group-hor__item f-btn-group-hor__item">
+                      <i class="fa fa-behance"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <div class="clearfix"></div>
+
+
+          <div class="b-shortcode-example product-tab">
+            <div class="b-tabs f-tabs j-tabs b-tabs-reset">
+              <ul class="nav nav-tabs">
+                <li class="active"><a data-toggle="tab" href="#home"><%= t(:description) %></a></li>
+                <li><a data-toggle="tab" href="#review"><%= t(:review) %></a></li>
+              </ul>
+
+              <div class="tab-content b-tabs__content">
+                <div id="home" class="tab-pane fade in active">
+                  <%= @travel.description %>
+                </div>
+                <div id="review" class="tab-pane fade">
+                  <%# @reviews.each do |review| %>
+                  <p>
+                    <%#= review.comment %>
+                  </p>
+                  - <%#= review.user.name %>
+                  <%# end %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <%#= render 'shared/filter', product_type: 'product' %>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<div class="modal fade" id="myModal" role="dialog">
+  <div class="modal-dialog modal-md">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Review The product</h4>
+      </div>
+      <div class="modal-body" style="text-align: center">
+        <%= form_tag review_product_products_path, method: 'get', remote: true do %>
+            <div class="modal-body">
+              <div class="form-group">
+                <%= label_tag :comment %>
+                <%= text_area_tag :comment, '', class: 'form-control' %>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <%= submit_tag 'Submit', class: 'btn btn-success' %>
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript" charset="utf-8">
+    $(window).load(function () {
+        // The slider being synced must be initialized first
+        $('.carousel-sm').flexslider({
+            animation: "slide",
+            controlNav: false,
+            animationLoop: false,
+            slideshow: true,
+            itemWidth: 78,
+            itemMargin: 5,
+            asNavFor: '.flexslider'
+        });
+
+        $('.flexslider').flexslider({
+            animation: "slide",
+            controlNav: false,
+            animationLoop: false,
+            slideshow: true,
+            sync: ".carousel-sm"
+        });
+    });
+    $(document).ready(function () {
+        $(".review-show").click(function () {
+            activaTab('review');
+            $("#review").focus();
+        });
+
+        function activaTab(tab) {
+            $('.nav-tabs a[href="#' + tab + '"]').tab('show');
+        };
+        $('.b-slider-range').slider({
+            change: function (event, ui) {
+//                alert(ui.values[0]);
+//                alert(ui.values[1]);
+//                $('input#project_min_v').val(ui.values[0]);
+//                $('input#project_max_v').val(ui.value[1]);
+            }
+
+        });
+
+        $('.raty-level-input5').raty({
+            scoreName: function () {
+                return $(this).attr('data-name');
+            },
+            starHalf: '<%= asset_path('star-half.png') %>',
+            starOff: '<%= asset_path('star-off.png') %>',
+            starOn: '<%= asset_path('star-on.png') %>',
+            number: 5
+        });
+
+        $('.b-stars-group').raty({
+            scoreName: function () {
+                return $(this).attr('data-name');
+            },
+            starHalf: '<%= asset_path('star-half.png') %>',
+            starOff: '<%= asset_path('star-off.png') %>',
+            starOn: '<%= asset_path('star-on.png') %>',
+            number: 5
+        });
+        $(".popup_link").click(function (e) {
+            $('#myModal').modal('show');
+        });
+    });
+</script>

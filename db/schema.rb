@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160807153735) do
+ActiveRecord::Schema.define(version: 20160807194426) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -152,13 +152,22 @@ ActiveRecord::Schema.define(version: 20160807153735) do
     t.string   "product_type",        limit: 255
   end
 
+  create_table "relateds", force: :cascade do |t|
+    t.string   "relatable_type", limit: 255
+    t.integer  "relatable_id",   limit: 4
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
+
   create_table "reviews", force: :cascade do |t|
-    t.integer  "user_id",    limit: 4
-    t.integer  "product_id", limit: 4
-    t.text     "comment",    limit: 65535
-    t.integer  "rating",     limit: 4
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.integer  "user_id",         limit: 4
+    t.integer  "product_id",      limit: 4
+    t.text     "comment",         limit: 65535
+    t.integer  "rating",          limit: 4
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.string   "reviewable_type", limit: 255
+    t.integer  "reviewable_id",   limit: 4
   end
 
   create_table "sales", force: :cascade do |t|
@@ -176,11 +185,13 @@ ActiveRecord::Schema.define(version: 20160807153735) do
   create_table "services", force: :cascade do |t|
     t.string   "name",        limit: 255
     t.text     "description", limit: 65535
-    t.text     "image",       limit: 65535
     t.float    "price",       limit: 24
     t.string   "unit",        limit: 255
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
+    t.boolean  "is_featured", limit: 1
+    t.integer  "category_id", limit: 4
+    t.string   "slug",        limit: 255
   end
 
   create_table "shopping_carts", force: :cascade do |t|

@@ -1,9 +1,15 @@
 ActiveAdmin.register Product do
-  controller do
-    defaults :finder => :find_by_slug
-  end
+  filter :name
+  filter :category
+  filter :brand
+  filter :color
+  filter :price
+  filter :subscriber_discount
+  filter :is_feature, label: 'Featured?'
 
   controller do
+    defaults finder: :find_by_slug
+
     def permitted_params
       params.permit!
     end
@@ -37,9 +43,9 @@ ActiveAdmin.register Product do
       end
       row :images do
         ul do
-          product.product_images.each do |image|
+          product.images.each do |image|
             li do
-              image_tag(image.image.url(:thumb))
+              image_tag(image.img.url(:thumb))
             end
           end
         end
@@ -51,35 +57,20 @@ ActiveAdmin.register Product do
 
   form html: {multipart: true} do |f|
     f.semantic_errors
-
     f.inputs do
       f.input :name
       f.input :description
-      f.input :product_type, :as => :select, :collection => [["Product", 'product'], ["Service", 'service']]
       f.input :category
       f.input :subscriber_discount, :hint => '%'
       f.input :price
       f.input :tag_list, :hint => 'Comma separated'
-      f.has_many :product_images, heading: 'Images' do |ff|
-        ff.input :image, label: false
-      end
-
-    end
-
-    f.inputs :class => 'service-input' do
-      f.input :related_product, label: 'Related Services', collection: Product.all.where(product_type: 'service')
-      render 'unit_field', f: f
-    end
-
-    f.inputs :class => 'products-input' do
-      f.has_many :product_images do |ff|
-        ff.input :image
-      end
       f.input :related_product, label: 'Related Services', collection: Product.all.where(product_type: 'product')
       f.input :brand
       f.input :color
+      f.has_many :images, heading: 'Images' do |ff|
+        ff.input :img, label: false
+      end
     end
-
     actions
   end
 

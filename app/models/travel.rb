@@ -6,4 +6,5 @@ class Travel < ActiveRecord::Base
   friendly_id :title, use: :slugged
   accepts_nested_attributes_for :images, :allow_destroy => true
   acts_as_taggable_on :tags
+  has_many :reviews, as: :reviewable
 end

@@ -5,6 +5,7 @@
     <div class="b-inner-page-header f-inner-page-header">
       <div class="b-inner-page-header__content">
         <h1 class="f-primary-l c-default"><%= t(:product_details) %></h1>
+
         <div class="f-primary-l f-inner-page-header_title-add c-senary"><%= t(:product_detail_sub_title) %> </div>
       </div>
     </div>
@@ -30,10 +31,9 @@
               <div class="b-product-card__visual-wrap">
                 <div class="flexslider b-product-card__visual flexslider-zoom">
                   <ul class="slides">
-                    <% @product.product_images.each do |image| %>
+                    <% @product.images.each do |image| %>
                         <li>
-                          <%= link_to image_tag(image.image.url(:big)), asset_path(image.image.url(:big)), class: 'fancybox', rel: 'product' %>
-                          <!--<a class="fancybox" rel="product" href="<%#= image_tag('shop_1.png') %>" <%#= image_tag('shop_1.png') %> </a>-->
+                          <%= link_to image_tag(image.img.url(:big)), asset_path(image.img.url(:big)), class: 'fancybox', rel: 'product' %>
                         </li>
                     <% end %>
                   </ul>
@@ -41,10 +41,9 @@
                 <div class="flexslider flexslider-thumbnail b-product-card__visual-thumb carousel-sm">
                   <ul class="slides">
 
-                    <% @product.product_images.each do |image| %>
+                    <% @product.images.each do |image| %>
                         <li>
-                          <%= image_tag(image.image.url(:thumb)) %>
-                          <!--<a class="fancybox" rel="product" href="<%#= image_tag('shop_1.png') %>" <%#= image_tag('shop_1.png') %> </a>-->
+                          <%= image_tag(image.img.url(:thumb)) %>
                         </li>
                     <% end %>
                   </ul>
@@ -59,13 +58,6 @@
                 </div>
                 <div class="b-product-card__info_row">
                   <div class="b-product-card__info_title f-primary-b f-title-smallest"><%= t(:review) %></div>
-                  <!--<div class="b-stars-group f-stars-group b-margin-right-standard">-->
-                  <!--&lt;!&ndash;<i class="fa fa-star is-active-stars"></i>&ndash;&gt;-->
-                  <!--&lt;!&ndash;<i class="fa fa-star is-active-stars"></i>&ndash;&gt;-->
-                  <!--&lt;!&ndash;<i class="fa fa-star is-active-stars"></i>&ndash;&gt;-->
-                  <!--&lt;!&ndash;<i class="fa fa-star is-active-stars"></i>&ndash;&gt;-->
-                  <!--&lt;!&ndash;<i class="fa fa-star"></i>&ndash;&gt;-->
-                  <!--</div>-->
                   <span class="f-primary-b c-tertiary f-title-smallest">
                     <a href="#review" class="review-show">(<%= @product.reviews.count %>
                       <%= t(:review) %>)

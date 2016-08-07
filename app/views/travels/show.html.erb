@@ -59,8 +59,8 @@
                 <div class="b-product-card__info_row">
                   <div class="b-product-card__info_title f-primary-b f-title-smallest"><%= t(:review) %></div>
                   <span class="f-primary-b c-tertiary f-title-smallest">
-                    <a href="#review" class="review-show">(<%#= @travel.reviews.count %>
-                      <%#= t(:review) %>)
+                    <a href="#review" class="review-show">(<%= @travel.reviews.count %>
+                      <%= t(:review) %>)
                     </a>
                   </span>
                   <% if current_user.present? %>
@@ -124,12 +124,12 @@
                   <%= @travel.description %>
                 </div>
                 <div id="review" class="tab-pane fade">
-                  <%# @reviews.each do |review| %>
-                  <p>
-                    <%#= review.comment %>
-                  </p>
-                  - <%#= review.user.name %>
-                  <%# end %>
+                  <% @reviews.each do |review| %>
+                      <p>
+                        <%= review.comment %>
+                      </p>
+                      - <%= review.user.name %>
+                  <% end %>
                 </div>
               </div>
             </div>

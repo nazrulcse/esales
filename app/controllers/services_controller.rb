@@ -1,6 +1,6 @@
 class ServicesController < ApplicationController
   def index
-    @services = Product.where(product_type: 'service').limit(8)
+    @services = Service.all.limit(8)
     if params[:category_id].present?
       @services = @services.where(category_id: params[:category_id])
     end
@@ -10,16 +10,16 @@ class ServicesController < ApplicationController
     end
 
     if params[:tag].present?
-      @services = Product.tagged_with(params[:tag],product_type: 'service')
+      @services = Service.tagged_with(params[:tag])
     end
-    @categories = Product.where("product_type = ?", "service").group("category_id").count
+    @categories = Service.group('category_id').count
   end
 
 
   def show
-    @product = Product.find_by_slug(params[:id])
-    @categories = Product.where("product_type = ?", "service").group("category_id").count
-    @reviews = @product.reviews
+    @service = Service.find_by_slug(params[:id])
+    @categories = Service.group('category_id').count
+    @reviews = @service.reviews
   end
 
   def more

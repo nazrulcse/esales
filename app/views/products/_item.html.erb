@@ -1,7 +1,7 @@
 <div class="col-md-4 col-sm-4 col-xs-6 col-mini-12 single_item">
   <div class="b-product-preview">
     <div class="b-product-preview__img view view-sixth">
-      <%= image_tag (product.product_images.present?  ? product.product_images.first.image.url(:big) : 'NoPhotoDefault.png')  %>
+      <%= image_tag (product.images.present? ? product.images.first.img.url(:big) : 'NoPhotoDefault.png') %>
       <div class="b-item-hover-action f-center mask">
         <div class="b-item-hover-action__inner">
           <div class="b-item-hover-action__inner-btn_group">
@@ -13,15 +13,16 @@
     </div>
     <div class="b-product-preview__content">
       <div class="b-product-preview__content_col">
-                          <span class="f-news-item__price f-primary-b b-left">
-                            <%= number_with_currency(product.price) %>
-                          </span>
+          <span class="f-news-item__price f-primary-b b-left">
+            <%= number_with_currency(product.price) %>
+          </span>
       </div>
       <div class="b-product-preview__content_col">
         <a href="<%= product_path(product) %>" class="f-product-preview__content_title"><%= product.name %></a>
 
         <div class="f-product-preview__content_category f-primary-b">
-          <a href="#"><%= product.category.name if product.category.present? %></a> - <a href="#"><%= product.brand.name if product.brand.present? %></a>
+          <a href="#"><%= product.category.name if product.category.present? %></a> -
+          <a href="#"><%= product.brand.name if product.brand.present? %></a>
         </div>
       </div>
     </div>

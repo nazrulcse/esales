@@ -9,8 +9,8 @@
             <div class="col-md-6">
               <div class="b-news-item b-news-item--medium-size f-news-item">
                 <div class="b-news-item__img view view-sixth">
-                  <% if product.product_images.present? %>
-                      <%= image_tag(product.product_images.first.image.url(:big)) %>
+                  <% if product.images.present? %>
+                      <%= image_tag(product.images.first.img.url(:big)) %>
                   <% end %>
 
                   <div class="b-item-hover-action f-center mask">

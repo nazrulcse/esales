@@ -4,14 +4,13 @@
   <div class="container public_bg_image">
     <div class="b-inner-page-header f-inner-page-header">
       <div class="b-inner-page-header__content">
-          <h1 class="f-primary-l c-default"><%= t(:service_detail) %></h1>
+        <h1 class="f-primary-l c-default"><%= t(:service_detail) %></h1>
+
         <div class="f-primary-l f-inner-page-header_title-add c-senary"><%= t(:service_detail_sub_title) %></div>
       </div>
     </div>
   </div>
 </div>
-
-
 
 <div class="b-breadcrumbs f-breadcrumbs container adjust-breadcrumbs-position">
   <ul>
@@ -27,15 +26,14 @@
       <div class="row">
         <div class="col-md-9 ">
           <div class="b-shortcode-example">
-            <div class=" f-primary-b b-title-b-hr f-title-b-hr b-null-top-indent"><%= @product.name %></div>
+            <div class=" f-primary-b b-title-b-hr f-title-b-hr b-null-top-indent"><%= @service.name %></div>
             <div class="b-product-card b-default-top-indent">
               <div class="b-product-card__visual-wrap">
                 <div class="flexslider b-product-card__visual flexslider-zoom">
                   <ul class="slides">
-                    <% @product.product_images.each do |image| %>
+                    <% @service.images.each do |image| %>
                         <li>
-                          <%= link_to image_tag(image.image.url(:big)), asset_path(image.image.url(:big)), class: 'fancybox', rel: 'product' %>
-                          <!--<a class="fancybox" rel="product" href="<%#= image_tag('shop_1.png') %>" <%#= image_tag('shop_1.png') %> </a>-->
+                          <%= link_to image_tag(image.img.url(:big)), asset_path(image.img.url(:big)), class: 'fancybox', rel: 'product' %>
                         </li>
                     <% end %>
                   </ul>
@@ -43,10 +41,9 @@
                 <div class="flexslider flexslider-thumbnail b-product-card__visual-thumb carousel-sm">
                   <ul class="slides">
 
-                    <% @product.product_images.each do |image| %>
+                    <% @service.images.each do |image| %>
                         <li>
-                          <%= image_tag(image.image.url(:thumb)) %>
-                          <!--<a class="fancybox" rel="product" href="<%#= image_tag('shop_1.png') %>" <%#= image_tag('shop_1.png') %> </a>-->
+                          <%= image_tag(image.img.url(:thumb)) %>
                         </li>
                     <% end %>
                   </ul>
@@ -57,19 +54,12 @@
 
                 <div class="b-product-card__info_row">
                   <div class="b-product-card__info_title f-primary-b f-title-smallest"><%= t(:price) %></div>
-                  <span class="f-product-card__info_price c-default f-primary-b"><%= number_with_currency(@product.price) %> </span>
+                  <span class="f-product-card__info_price c-default f-primary-b"><%= number_with_currency(@service.price) %> </span>
                 </div>
                 <div class="b-product-card__info_row">
                   <div class="b-product-card__info_title f-primary-b f-title-smallest"><%= t(:review) %></div>
-                  <!--<div class="b-stars-group f-stars-group b-margin-right-standard">-->
-                  <!--&lt;!&ndash;<i class="fa fa-star is-active-stars"></i>&ndash;&gt;-->
-                  <!--&lt;!&ndash;<i class="fa fa-star is-active-stars"></i>&ndash;&gt;-->
-                  <!--&lt;!&ndash;<i class="fa fa-star is-active-stars"></i>&ndash;&gt;-->
-                  <!--&lt;!&ndash;<i class="fa fa-star is-active-stars"></i>&ndash;&gt;-->
-                  <!--&lt;!&ndash;<i class="fa fa-star"></i>&ndash;&gt;-->
-                  <!--</div>-->
                   <span class="f-primary-b c-tertiary f-title-smallest">
-                    <a href="#review" class="review-show">(<%= @product.reviews.count %>
+                    <a href="#review" class="review-show">(<%= @service.reviews.count %>
                       <%= t(:review) %>)
                     </a>
                   </span>
@@ -82,12 +72,12 @@
                 </div>
                 <div class="b-product-card__info_row">
                   <div class="b-product-card__info_description f-product-card__info_description">
-                    <%= @product.description %>
+                    <%= @service.description %>
                   </div>
                 </div>
                 <div class="b-product-card__info_row">
                   <%= form_for LineItem.new, html: {style: 'width: 100%'} do |f| %>
-                      <%= hidden_field_tag(:product_id, @product.id) %>
+                      <%= hidden_field_tag(:product_id, @service.id) %>
                       <div class="b-product-card__info_count">
                         <%= f.number_field :quantity, :class => 'form-control form-control--secondary', value: 1, :min => 1 %>
                       </div>
@@ -95,21 +85,19 @@
                         <button type="submit" class="b-btn f-btn b-btn-sm-md f-btn-sm-md" value="Add to cart" name="commit">
                           <%= t(:add_to_cart) %>
                         </button>
-                        <%#= f.submit :class => 'b-btn f-btn b-btn-sm-md f-btn-sm-md', :value => ' Add to cart' %>
                       </div>
                   <% end %>
                 </div>
 
                 <div class="b-product-card__info_row">
                   <div class="b-product-card__info_title f-primary-b f-title-smallest"><%= t(:category) %></div>
-                  <a class="f-more f-title-smallest" href="<%= products_path(category_id: @product.category_id) %>"><%= @product.category.name %></a>
+                  <a class="f-more f-title-smallest" href="<%= products_path(category_id: @service.category_id) %>"><%= @service.category.name %></a>
                 </div>
                 <div class="b-product-card__info_row">
                   <div class="b-product-card__info_title f-primary-b f-title-smallest"><%= t(:tags) %></div>
-                  <div class="b-tag-container" style="margin-top: 6px !important;" >
-                    <% @product.tags.each do |tag| %>
+                  <div class="b-tag-container" style="margin-top: 6px !important;">
+                    <% @service.tags.each do |tag| %>
                         <%= link_to tag.name, products_path(:tag => tag.name), class: 'f-tag b-tag' %>
-                        <!--<a class="f-tag b-tag" href="#"><%#= tag.name %></a>-->
                     <% end %>
                   </div>
                 </div>
@@ -145,7 +133,7 @@
 
               <div class="tab-content b-tabs__content">
                 <div id="home" class="tab-pane fade in active">
-                  <%= @product.description %>
+                  <%= @service.description %>
                 </div>
                 <div id="review" class="tab-pane fade">
                   <% @reviews.each do |review| %>
@@ -164,12 +152,12 @@
 
             <div class="row">
               <div class="b-col-default-indent">
-                <% if  @product.related_product.present? %>
-                    <% @product.related_product.each do |product| %>
+                <% if @service.relateds.present? %>
+                    <% @service.relateds.each do |product| %>
                         <div class="col-md-4 col-sm-4 col-xs-6 col-mini-12">
                           <div class="b-product-preview">
                             <div class="b-product-preview__img view view-sixth">
-                              <%= image_tag(product.product_images.first.image.url(:thumb)) %>
+                              <%= image_tag(product.img.first.img.url(:thumb)) %>
 
                               <div class="b-item-hover-action f-center mask">
                                 <div class="b-item-hover-action__inner">
@@ -188,7 +176,8 @@
                               <div class="b-product-preview__content_col">
                                 <a href="shop_detail.html" class="f-product-preview__content_title"><%= product.name %></a>
 
-                                <div class="f-product-preview__content_category f-primary-b"><a href="#"><%= product.category.name %></a> /
+                                <div class="f-product-preview__content_category f-primary-b">
+                                  <a href="#"><%= product.category.name %></a> /
                                   <a href="#">Clothe</a></div>
                               </div>
                             </div>
@@ -238,12 +227,12 @@
 <script type="text/javascript" charset="utf-8">
     $(window).load(function () {
 
-        $( ".review-show" ).click(function() {
+        $(".review-show").click(function () {
             activaTab('review');
-            $( "#review" ).focus();
+            $("#review").focus();
         });
 
-        function activaTab(tab){
+        function activaTab(tab) {
             $('.nav-tabs a[href="#' + tab + '"]').tab('show');
         };
         // The slider being synced must be initialized first

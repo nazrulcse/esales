@@ -1,4 +1,4 @@
-<div class="col-md-3">
+<div class="col-md-3" style="border-left: solid 1px #dddddd;">
   <aside>
     <div class="row b-col-default-indent">
       <div class="col-md-12">
@@ -31,9 +31,10 @@
         </div>
       </div>
 
-        <% if product_type == 'product' %>
+      <% if product_type == 'product' %>
           <div class="col-md-12">
             <h4 class="f-primary-b b-h4-special f-h4-special c-primary"><%= t(:color_filter) %></h4>
+
             <div class="b-color-picker b-color-picker--alt">
               <div class="b-color-picker__box">
                 <% color_list.each do |color| %>
@@ -42,13 +43,13 @@
                 <% end %>
               </div>
             </div>
-            </div>
-        <% end %>
+          </div>
+      <% end %>
       <div class="col-md-12">
         <h4 class="f-primary-b b-h4-special f-h4-special c-primary"><%= t(:tag_filter) %></h4>
-            <% all_tags(product_type).each do |tag|  %>
-            <%= get_tag_path(tag,product_type) %>
-            <% end %>
+        <% all_tags(product_type).each do |tag| %>
+            <%= get_tag_path(tag, product_type) %>
+        <% end %>
         <div>
 
         </div>
@@ -56,17 +57,17 @@
       <div class="col-md-12">
         <h4 class="f-primary-b b-h4-special f-h4-special c-primary"><%= product_type == 'service' ? t(:popular_service) : t(:popular_product) %></h4>
 
-        <% popular_product(product_type).each do  |product| %>
+        <% popular_product(product_type).each do |product| %>
             <div class="b-blog-short-post b-blog-short-post--popular b-blog-short-post--w-img b-blog-short-post--img-hover-bordered f-blog-short-post--w-img row f-blog-short-post--popular">
               <div class="b-blog-short-post__item col-md-12 col-sm-6 col-xs-12">
                 <div class="b-blog-short-post__item_img">
                   <a href="#">
-                    <%= image_tag(product.product_images.first.image.url(:thumb)) %>
+                    <%= image_tag(product.images.first.img.url(:thumb)) if product.images.present? %>
                   </a>
                 </div>
                 <div class="b-remaining">
                   <div class="b-blog-short-post__item_text f-blog-short-post__item_text">
-                    <a href="<%=  product_path(product.slug) %>"><%= product.name %></a>
+                    <a href="<%= product_path(product.slug) %>"><%= product.name %></a>
                   </div>
                   <div class="f-news-item__price f-primary-b b-left">
                     <%= number_with_currency(product.price) %>

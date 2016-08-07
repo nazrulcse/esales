@@ -3,10 +3,17 @@ class TravelsController < ApplicationController
 
   def index
     @travels = Travel.all
+    if params[:max_price].present?
+      @travels = @travels.where('price BETWEEN ? AND ?', params[:min_price], params[:max_price])
+    end
+
+    if params[:tag].present?
+      @travels = Travel.tagged_with(params[:tag])
+    end
   end
 
   def show
-
+    @reviews = @travel.reviews
   end
 
   private

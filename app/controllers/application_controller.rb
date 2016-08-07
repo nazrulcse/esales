@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
-  helper_method :current_cart, :color_list, :all_tags
+  helper_method :current_cart, :color_list, :all_tags, :travels_tags
   protect_from_forgery with: :exception
   before_filter :configure_permitted_parameters, if: :devise_controller?
   helper_method :resource, :resource_name, :devise_mapping
@@ -37,6 +37,13 @@ class ApplicationController < ActionController::Base
   def all_tags(product_type)
     products = Product.where(product_type: product_type)
     tags = products.collect { |product| product.tags }
+    tags.flatten!
+    tags.uniq
+  end
+
+  def travels_tags
+    travels = Travel.all
+    tags = travels.collect {|travel| travel.tags}
     tags.flatten!
     tags.uniq
   end

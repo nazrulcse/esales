@@ -1,0 +1,44 @@
+<script type="text/javascript">
+    var autocomplete;
+    function init_autocomplete() {
+
+        var input = (document.getElementById('travel_location'));
+        var location = {
+            lat: <%= f.object.lat.present? ? f.object.lat : 0 %>,
+            lng: <%= f.object.lng.present? ? f.object.lng : 0 %>
+        };
+        var options = {
+            location: location
+        };
+        autocomplete = new google.maps.places.Autocomplete(input, options);
+        autocomplete.addListener('place_changed', get_place);
+    }
+
+    function get_place() {
+        var place = autocomplete.getPlace();
+        console.log(place);
+        var lat = place.geometry.location.lat();
+        var lng = place.geometry.location.lng();
+        $("#travel_lat").val(lat);
+        $("#travel_lng").val(lng);
+//        var components = place.address_components;
+//        for (i = 0; i < components.length; i++) {
+//            types = components[i].types;
+//            if (types[0] == 'locality') {
+//                $('#site_event_state').val(components[i].long_name);
+//            }
+//            else if (types[0] == 'country') {
+//                $('#site_event_country').val(components[i].short_name);
+//            }
+//        }
+    }
+
+    function noSubmitOnReturn(e) {
+        if (e.keyCode == 13) {
+            return false;
+        }
+    }
+
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD-m1XVD7c3PfBX_oxxKijOqeyNNqOSUW0&libraries=places&callback=init_autocomplete" async defer></script>

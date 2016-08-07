@@ -1,0 +1,47 @@
+<div class="col-md-3">
+  <aside>
+    <div class="row b-col-default-indent">
+      <div class="col-md-12">
+        <h4 class="f-primary-b b-h4-special f-h4-special c-primary">Travel</h4>
+
+        <form action="<%= travels_path %>">
+          <div class="b-slider-range j-slider-range f-slider-range">
+            <span class="b-slider-range_min">0</span>
+            <span class="b-slider-range_max"><%= maximum_price.round %></span>
+            <%= hidden_field_tag 'min_price', 200 %>
+            <%= hidden_field_tag 'max_price', 700 %>
+          </div>
+          <%= submit_tag t(:filter), class: 'b-btn f-btn b-btn-sm f-btn-sm b-btn-default f-primary-b' %>
+          <!--<a href="#" class="b-btn f-btn b-btn-sm f-btn-sm b-btn-default f-primary-b">Filter</a>-->
+        </form>
+      </div>
+
+      <div class="col-md-12">
+        <h4 class="f-primary-b b-h4-special f-h4-special c-primary"><%= t(:tag_filter) %></h4>
+        <% travels_tags.each do |tag|  %>
+            <%= get_tag_path(tag,'') %>
+        <% end %>
+        <div>
+
+        </div>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        min = <%= params[:min_price].present? ? params[:min_price] : '200'  %>
+                max = <%= params[:min_price].present? ? params[:max_price] : '700'  %>
+                        $('.b-slider-range').slider({
+                            values: [min, max],
+                            change: function (event, ui) {
+                                $('#min_price').val(ui.values[0]);
+                                $('#max_price').val(ui.values[1]);
+                            }
+                        });
+        $('.b-slider-range').find('.max').text(max);//"৳" +
+        $('.b-slider-range').find('.min').text(min);//"৳" +
+
+    });
+</script>

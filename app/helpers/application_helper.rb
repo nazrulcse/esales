@@ -80,8 +80,10 @@ module ApplicationHelper
   def get_tag_path(tag,product_type)
     if product_type == 'product'
       return raw "<a href='/products?tag=#{tag.name}' class='f-tag b-tag'</i>#{tag.name} </a>"
-    else
+    elsif product_type == 'service'
       return raw "<a href='/services?tag=#{tag.name}' class='f-tag b-tag'</i>#{tag.name} </a>"
+    else
+      return raw "<a href='/travels?tag=#{tag.name}' class='f-tag b-tag'</i>#{tag.name} </a>"
     end
   end
 

@@ -25,6 +25,7 @@ ActiveAdmin.register Travel do
 
   form html: {multipart: true} do |f|
     f.semantic_errors
+    render 'location', f: f
     f.inputs do
       f.input :title
       f.input :description
@@ -34,6 +35,9 @@ ActiveAdmin.register Travel do
       f.input :vehicle, collection: Vehicle.all
       f.input :price
       f.input :offer
+      f.input :location
+      f.hidden_field :lat
+      f.hidden_field :lng
       f.input :tag_list, :hint => 'Comma separated'
       f.has_many :images do |ff|
         ff.input :img, as: :file

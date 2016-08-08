@@ -45,7 +45,7 @@
         $(window).scroll(function () {
             if ($(window).scrollTop() == $(document).height() - $(window).height()) {
                 $.ajax({
-                    url: "<%= more_products_path(params: params) %>",
+                    url: "<%= more_travels_path(params: params) %>",
                     type: 'get',
                     dataType: 'script',
                     data: {offset: $('.product_items .single_item').length},

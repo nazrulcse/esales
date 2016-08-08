@@ -9,7 +9,7 @@ class TravelsController < ApplicationController
 
     if params[:key_words].present?
       arr_range = params['key_words'].split('To')
-      @travels = @travels.where("from_date >= ? AND to_date <= ?",arr_range.first.to_date,arr_range.last.to_date)
+      @travels = @travels.where('from_date >= ? AND to_date <= ?', arr_range.first.to_date, arr_range.last.to_date)
     end
 
     if params[:vehicle_id].present?
@@ -30,6 +30,10 @@ class TravelsController < ApplicationController
     travel_review = travel.reviews.build(user_id: current_user.id)
     travel_review.comment = params["comment"]
     travel_review.save
+  end
+
+  def more
+
   end
 
   private

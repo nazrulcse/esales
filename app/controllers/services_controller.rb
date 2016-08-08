@@ -22,6 +22,13 @@ class ServicesController < ApplicationController
     @reviews = @service.reviews
   end
 
+  def review
+    service = Service.find_by_slug(params["id"])
+    service_review = service.reviews.build(user_id: current_user.id)
+    service_review.comment = params["comment"]
+    service_review.save
+  end
+
   def more
     if params[:category].present?
       if params[:category] == 'product'

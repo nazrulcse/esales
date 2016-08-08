@@ -14,5 +14,7 @@
 //= require jquery_ujs
 //= require jquery-1.11.1.min
 //= require bootstrap.min
+//= require moment.min
+//= require daterangepicker
 //= require_tree
 //= require_self

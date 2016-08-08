@@ -11,7 +11,7 @@ class Product < ActiveRecord::Base
   has_many :images, as: :imageable
   has_many :favorites
   has_many :sales
-  has_many :reviews
+  has_many :reviews, as: :reviewable
   has_many :product_relations
   has_many :related_product, through: :product_relations, foreign_key: 'related_product_id'
 

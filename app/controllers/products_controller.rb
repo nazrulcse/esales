@@ -56,9 +56,9 @@ class ProductsController < ApplicationController
     end
   end
 
-  def review_product
-    product_review = current_user.reviews.find_or_initialize_by(product_id: params["product_id"])
-    product_review.rating = params["rating"]
+  def review
+    product = Product.find_by_slug(params["id"])
+    product_review = product.reviews.build(user_id: current_user.id)
     product_review.comment = params["comment"]
     product_review.save
   end

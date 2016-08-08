@@ -64,7 +64,7 @@ ActiveAdmin.register Product do
       f.input :subscriber_discount, :hint => '%'
       f.input :price
       f.input :tag_list, :hint => 'Comma separated'
-      f.input :related_product, label: 'Related Services', collection: Product.all.where(product_type: 'product')
+      f.input :related_product, label: 'Related Product', collection: Product.all.where(product_type: 'product')
       f.input :brand
       f.input :color
       f.has_many :images, heading: 'Images' do |ff|

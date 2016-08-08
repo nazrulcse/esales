@@ -76,17 +76,7 @@
                   </div>
                 </div>
                 <div class="b-product-card__info_row">
-                  <%= form_for LineItem.new, html: {style: 'width: 100%'} do |f| %>
-                      <%= hidden_field_tag(:product_id, @service.id) %>
-                      <div class="b-product-card__info_count">
-                        <%= f.number_field :quantity, :class => 'form-control form-control--secondary', value: 1, :min => 1 %>
-                      </div>
-                      <div class="b-product-card__info_add b-margin-right-standard">
-                        <button type="submit" class="b-btn f-btn b-btn-sm-md f-btn-sm-md" value="Add to cart" name="commit">
-                          <%= t(:add_to_cart) %>
-                        </button>
-                      </div>
-                  <% end %>
+
                 </div>
 
                 <div class="b-product-card__info_row">
@@ -207,7 +197,7 @@
         <h4 class="modal-title">Review The Service</h4>
       </div>
       <div class="modal-body" style="text-align: center">
-        <%= form_tag review_product_products_path, method: 'get', remote: true do %>
+        <%= form_tag review_service_path(@service), method: 'get', remote: true do %>
             <div class="modal-body">
               <div class="form-group">
                 <%= label_tag :comment %>

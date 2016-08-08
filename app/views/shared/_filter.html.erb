@@ -22,7 +22,7 @@
             <% @categories.each do |category, count| %>
 
                 <li>
-                  <a class="f-categories-filter_name" href="<%= product_type == 'service' ? services_path(category_id: category) : products_path(category_id: category) %>"><i class="fa fa-plus"></i> <%= get_category_name(category) %>
+                  <a class="f-categories-filter_name" href="<%= services_path(category_id: category) %>"><i class="fa fa-plus"></i> <%= get_category_name(category) %>
                   </a>
                   <span class="b-categories-filter_count f-categories-filter_count"><%= count %></span>
                 </li>

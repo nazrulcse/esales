@@ -76,6 +76,12 @@
                 </div>
 
                 <div class="b-product-card__info_row">
+                  <% if current_user.present? %>
+                      <%= link_to 'Book This Trips', "#", 'data-toggle' => "modal", 'data-target' => "#bookingtrip" %>
+                  <% end %>
+                </div>
+
+                <div class="b-product-card__info_row">
                   <div class="b-product-card__info_title f-primary-b f-title-smallest"><%= t(:category) %></div>
                   <!--<a class="f-more f-title-smallest" href="<%#= products_path(category_id: @travel.category_id) %>"><%#= @travel.category.name %></a>-->
                 </div>
@@ -147,10 +153,10 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Review The product</h4>
+        <h4 class="modal-title">Review Travels</h4>
       </div>
       <div class="modal-body" style="text-align: center">
-        <%= form_tag review_product_products_path, method: 'get', remote: true do %>
+        <%= form_tag review_travel_path(@travel), method: 'get', remote: true do %>
             <div class="modal-body">
               <div class="form-group">
                 <%= label_tag :comment %>
@@ -163,6 +169,22 @@
             </div>
         <% end %>
       </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="bookingtrip" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Trip Booking</h4>
+      </div>
+      <div class="modal-body">
+      </div>
+
     </div>
   </div>
 </div>

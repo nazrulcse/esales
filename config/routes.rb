@@ -23,13 +23,15 @@ Rails.application.routes.draw do
   resources :line_items
   resources :services do
     get 'more', on: :collection
+    get 'review', on: :member
   end
   resources :travels, only: [:index, :show] do
     get 'more'
+    get 'review', on: :member
   end
   resources :subscriber_transactions
   resources :products do
-    get 'review_product', on: :collection
+    get 'review', on: :member
     get 'set_language', on: :collection
     get 'more', on: :collection
   end

@@ -160,7 +160,7 @@
                         <div class="col-md-4 col-sm-4 col-xs-6 col-mini-12">
                           <div class="b-product-preview">
                             <div class="b-product-preview__img view view-sixth">
-                              <%= image_tag(product.product_images.first.image.url(:thumb)) %>
+                              <%= image_tag(product.images.first.image.url(:thumb)) if product.images.present? %>
 
                               <div class="b-item-hover-action f-center mask">
                                 <div class="b-item-hover-action__inner">
@@ -209,7 +209,7 @@
         <h4 class="modal-title">Review The product</h4>
       </div>
       <div class="modal-body" style="text-align: center">
-        <%= form_tag review_product_products_path, method: 'get', remote: true do %>
+        <%= form_tag review_product_path(@product), method: 'get', remote: true do %>
             <div class="modal-body">
               <div class="form-group">
                 <%= label_tag :comment %>

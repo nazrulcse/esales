@@ -1,0 +1,7 @@
+if (<%= @booking.errors.any? %>) {
+    alert('Something wrong, Please try again');
+}
+else {
+    alert('Your booking ha been placed');
+    $('#bookingtrip').modal('hide');
+}

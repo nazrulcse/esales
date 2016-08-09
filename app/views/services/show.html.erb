@@ -50,7 +50,10 @@
                 </div>
               </div>
               <div class="b-product-card__info">
-                <h4 class="f-primary-b b-h4-special f-h4-special"><%= t(:information) %></h4>
+                <h4 class="f-primary-b b-h4-special f-h4-special">
+                  <%= t(:information) %>
+                  <%= link_to (:book_this_trip), "#", 'data-toggle' => "modal", 'data-target' => "#bookingtrip", class: 'pull-right' %>
+                </h4>
 
                 <div class="b-product-card__info_row">
                   <div class="b-product-card__info_title f-primary-b f-title-smallest"><%= t(:price) %></div>
@@ -213,6 +216,8 @@
     </div>
   </div>
 </div>
+
+<%= render 'bookings/form', obj: @service %>
 
 <script type="text/javascript" charset="utf-8">
     $(window).load(function () {

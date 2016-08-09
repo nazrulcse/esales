@@ -5,6 +5,7 @@
     <div class="b-inner-page-header f-inner-page-header">
       <div class="b-inner-page-header__content">
         <h1 class="f-primary-l c-default"> <%= t(:my_account) %> </h1>
+
         <div class="f-primary-l f-inner-page-header_title-add c-senary"> <%= t(:my_account_sub_title) %> </div>
       </div>
     </div>
@@ -27,6 +28,7 @@
           <li><a data-toggle="tab" href="#earning"><%= t(:my_earning) %></a></li>
           <li><a data-toggle="tab" href="#pending"><%= t(:pending_earning) %></a></li>
           <li><a data-toggle="tab" href="#transaction"><%= t(:transaction) %></a></li>
+          <li><a data-toggle="tab" href="#booking"><%= t(:booking) %></a></li>
         </ul>
 
         <div class="tab-content">
@@ -66,6 +68,11 @@
           <div id="transaction" class="tab-pane fade">
             <div class="rowx">
               <%= render 'transaction_list' %>
+            </div>
+          </div>
+          <div id="booking" class="tab-pane fade">
+            <div class="rowx">
+              <%= render 'bookings/booking_list' %>
             </div>
           </div>
         </div>

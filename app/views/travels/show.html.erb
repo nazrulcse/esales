@@ -4,9 +4,9 @@
   <div class="container public_bg_image">
     <div class="b-inner-page-header f-inner-page-header">
       <div class="b-inner-page-header__content">
-        <h1 class="f-primary-l c-default"><%= t(:product_details) %></h1>
+        <h1 class="f-primary-l c-default"><%= t(:ticket_and_travels) %></h1>
 
-        <div class="f-primary-l f-inner-page-header_title-add c-senary"><%= t(:product_detail_sub_title) %> </div>
+        <div class="f-primary-l f-inner-page-header_title-add c-senary"><%= t(:ticket_and_travel_title) %> </div>
       </div>
     </div>
   </div>
@@ -15,7 +15,7 @@
 <div class="b-breadcrumbs f-breadcrumbs container adjust-breadcrumbs-position">
   <ul>
     <li><i class="fa fa-home"></i><%= link_to t(:home), root_path %></li>
-    <li><i class="fa fa-angle-right"></i><%= link_to t(:products), travels_path %></li>
+    <li><i class="fa fa-angle-right"></i><%= link_to t(:ticket_and_travels), travels_path %></li>
     <li><i class="fa fa-angle-right"></i><span><%= t(:detail) %></span></li>
   </ul>
 </div>
@@ -40,7 +40,6 @@
                 </div>
                 <div class="flexslider flexslider-thumbnail b-product-card__visual-thumb carousel-sm">
                   <ul class="slides">
-
                     <% @travel.images.each do |image| %>
                         <li>
                           <%= image_tag(image.img.url(:thumb)) %>
@@ -50,7 +49,10 @@
                 </div>
               </div>
               <div class="b-product-card__info">
-                <h4 class="f-primary-b b-h4-special f-h4-special"><%= t(:information) %></h4>
+                <h4 class="f-primary-b b-h4-special f-h4-special">
+                  <%= t(:information) %>
+                  <%= link_to (@travel.is_ticket ? t(:book_this_ticket) : t(:book_this_trip)), "#", 'data-toggle' => "modal", 'data-target' => "#bookingtrip", class: 'pull-right' %>
+                </h4>
 
                 <div class="b-product-card__info_row">
                   <div class="b-product-card__info_title f-primary-b f-title-smallest"><%= t(:price) %></div>
@@ -69,22 +71,31 @@
                       </div>
                   <% end %>
                 </div>
+
+                <div class="b-product-card__info_row">
+                  <div class="b-product-card__info_title f-primary-b f-title-smallest">
+                    <%= t(:vehicle) %>
+                  </div>
+                  <div class="b-tag-container">
+                    <%= @travel.vehicle.title %>
+                  </div>
+                </div>
+
+                <div class="b-product-card__info_row">
+                  <div class="b-product-card__info_title f-primary-b f-title-smallest">
+                    <%= t(:date) %>
+                  </div>
+                  <div class="b-tag-container">
+                    <%= @travel.trip_date %>
+                  </div>
+                </div>
+
                 <div class="b-product-card__info_row">
                   <div class="b-product-card__info_description f-product-card__info_description">
                     <%= @travel.description %>
                   </div>
                 </div>
 
-                <div class="b-product-card__info_row">
-                  <% if current_user.present? %>
-                      <%= link_to 'Book This Trips', "#", 'data-toggle' => "modal", 'data-target' => "#bookingtrip" %>
-                  <% end %>
-                </div>
-
-                <div class="b-product-card__info_row">
-                  <div class="b-product-card__info_title f-primary-b f-title-smallest"><%= t(:category) %></div>
-                  <!--<a class="f-more f-title-smallest" href="<%#= products_path(category_id: @travel.category_id) %>"><%#= @travel.category.name %></a>-->
-                </div>
                 <div class="b-product-card__info_row">
                   <div class="b-product-card__info_title f-primary-b f-title-smallest">
                     <%= t(:tags) %>
@@ -174,20 +185,7 @@
 </div>
 
 
-<div class="modal fade" id="bookingtrip" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Trip Booking</h4>
-      </div>
-      <div class="modal-body">
-      </div>
-
-    </div>
-  </div>
-</div>
+<%= render 'bookings/form', obj: @travel %>
 
 <script type="text/javascript" charset="utf-8">
     $(window).load(function () {
@@ -221,10 +219,6 @@
         };
         $('.b-slider-range').slider({
             change: function (event, ui) {
-//                alert(ui.values[0]);
-//                alert(ui.values[1]);
-//                $('input#project_min_v').val(ui.values[0]);
-//                $('input#project_max_v').val(ui.value[1]);
             }
 
         });

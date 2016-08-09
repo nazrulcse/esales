@@ -1,4 +1,11 @@
 ActiveAdmin.register Travel do
+  filter :vehicle
+  filter :title
+  filter :from_date
+  filter :to_date
+  filter :price
+  filter :offer
+  filter :location
 
   controller do
     defaults :finder => :find_by_slug
@@ -14,8 +21,12 @@ ActiveAdmin.register Travel do
     selectable_column
     column :title
     column :description
-    column :from_date
-    column :to_date
+    column :from_date do |travel|
+      travel.from_date.strftime('%b %d, %Y') if travel.from_date.present?
+    end
+    column :to_date do |travel|
+      travel.to_date.strftime('%b %d, %Y') if travel.to_date.present?
+    end
     column :location
     column :price do |product|
       number_to_currency product.price
@@ -28,9 +39,10 @@ ActiveAdmin.register Travel do
     render 'location', f: f
     f.inputs do
       f.input :title
-      f.input :description
-      f.input :from_date
-      f.input :to_date
+      f.input :is_ticket, label: 'This is ticker?'
+      f.input :description, input_html: {rows: 6}
+      f.input :from_date, :as => :datepicker, hint: 'Only put from or to date for ticket'
+      f.input :to_date, :as => :datepicker, hint: 'Only put from or to date for ticket'
       f.input :time
       f.input :vehicle, collection: Vehicle.all
       f.input :price

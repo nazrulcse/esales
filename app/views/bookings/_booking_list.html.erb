@@ -1,0 +1,22 @@
+<table class="table order-table">
+  <thead class="order-title">
+  <tr>
+    <th><%= t(:booking) %></th>
+    <th> <%= t(:quantity) %></th>
+    <th> <%= t(:price) %></th>
+    <th> <%= t(:total) %></th>
+    <th> <%= t(:status) %></th>
+  </tr>
+  </thead>
+  <tbody>
+  <% current_user.bookings.each do |booking| %>
+      <tr>
+        <td><%= link_to booking.bookable.title, booking.bookable %></td>
+        <td><%= format_number(booking.quantity) %></td>
+        <td><%= number_with_currency(booking.bookable.price) %></td>
+        <td><%= number_with_currency(booking.bookable.price * booking.quantity) %></td>
+        <td>Placed</td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>

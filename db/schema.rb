@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160807194426) do
+ActiveRecord::Schema.define(version: 20160809095833) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -46,6 +46,19 @@ ActiveRecord::Schema.define(version: 20160807194426) do
 
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
+
+  create_table "bookings", force: :cascade do |t|
+    t.string   "bookable_type", limit: 255
+    t.integer  "bookable_id",   limit: 4
+    t.string   "name",          limit: 255
+    t.string   "email",         limit: 255
+    t.string   "mobile",        limit: 255
+    t.text     "address",       limit: 65535
+    t.integer  "quantity",      limit: 4,     default: 1
+    t.integer  "user_id",       limit: 4
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
+  end
 
   create_table "brands", force: :cascade do |t|
     t.string   "name",        limit: 255
@@ -259,6 +272,7 @@ ActiveRecord::Schema.define(version: 20160807194426) do
     t.string   "location",    limit: 255
     t.float    "lat",         limit: 24
     t.float    "lng",         limit: 24
+    t.boolean  "is_ticket",   limit: 1
   end
 
   create_table "users", force: :cascade do |t|

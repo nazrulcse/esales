@@ -47,6 +47,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :bookings, only: [:create]
+
   post 'user_authentication', to: 'welcome#user_authentication', as: :user_authentication
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)

@@ -2,7 +2,7 @@
   <aside>
     <div class="row b-col-default-indent">
       <div class="col-md-12">
-        <h4 class="f-primary-b b-h4-special f-h4-special c-primary">Travel</h4>
+        <h4 class="f-primary-b b-h4-special f-h4-special c-primary"><%= t(:travel) %></h4>
 
         <form action="<%= travels_path %>">
           <h4 class="f-primary-b b-h4-special f-h4-special c-primary"> <%= t(:product_price_filter) %> </h4>
@@ -14,13 +14,13 @@
             <%= hidden_field_tag 'max_price', 700 %>
           </div>
 
-          <h4 class="f-primary-b b-h4-special f-h4-special c-primary"> <%= t(:from_to_date) %> </h4>
+          <h4 class="f-primary-b b-h4-special f-h4-special c-primary"> <%= t(:travel_date_filter) %> </h4>
 
           <div class="form-group">
             <input type="text" name="key_words" value="<%= params[:key_words] %>" class="form-control" placeholder="Put the date Here yyyy/mm/dd "/>
           </div>
 
-          <h4 class="f-primary-b b-h4-special f-h4-special c-primary"> <%= t(:vehicle) %> </h4>
+          <h4 class="f-primary-b b-h4-special f-h4-special c-primary"> <%= t(:vehicle_filter) %> </h4>
 
           <div class="form-group">
             <%= select_tag :vehicle_id, options_for_select(Vehicle.all.map { |c| [c.title, c.id] }, params[:vehicle_id]), name: "vehicle_id", :class => "form-control full-width", prompt: "Select Vehicle" %>

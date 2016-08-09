@@ -25,6 +25,9 @@ en:
       format:
         unit: 'Tk '
         format: "%n %u"
+  date:
+    formats:
+      long: '%b %d, %Y'
   contact: "Contact"
   signup: "Signup"
   signin: "SignIn"
@@ -143,3 +146,12 @@ en:
   order_details: 'Order details'
   order_details_sub_title: 'Full detail of your orders'
   ticket_and_travels: 'Ticket and Travels'
+  travel_date_filter: 'Travel Date'
+  vehicle_filter: 'Vehicle Filter'
+  travel: 'Travel'
+  vehicle: 'Vehicle'
+  date: 'Date'
+  book_this_trip: 'Book This Trip'
+  book_this_ticket: 'Book This Ticket'
+  ticket_and_travel_title: 'Best tour travels and ticket booking'
+  booking: 'Bookings'

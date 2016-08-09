@@ -137,3 +137,12 @@ bn:
   cart_instraction: 'পরবর্তীতে তুমি কি করতে চাও?'
   terms: "আমি প্রত্যয়ন করছি যে সমস্ত তথ্য এবং সংবাদ উপরে দেওয়া সঠিক আছে, আর আমি কোম্পানির সকল বিধি সম্পর্কে সচেতন. "
   ticket_and_travels: 'টিকেট ও ভ্রমণ'
+  travel_date_filter: 'ভ্রমণ তারিখ ফিল্টার'
+  vehicle_filter: 'বাহন ফিল্টার'
+  travel: 'ভ্রমণ'
+  vehicle: 'বাহন'
+  date: 'তারিখ'
+  book_this_trip: 'এই যাত্রা বুকিং করুন'
+  book_this_ticket: 'এই টিকেট বুকিং করুন'
+  ticket_and_travel_title: 'শ্রেষ্ঠ সফর ভ্রমনের এবং টিকেট বুকিং'
+  booking: 'বুকিং'

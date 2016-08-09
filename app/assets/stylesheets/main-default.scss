@@ -12716,6 +12716,12 @@ h3.f-tabs-vertical__title {
 
 .b-product-preview__img {
   position: relative;
+  background: #fdfdfd;
+  padding: 4px;
+  max-height: 250px;
+  img {
+    max-height: 250px;
+  }
 }
 
 .b-product-preview__content {

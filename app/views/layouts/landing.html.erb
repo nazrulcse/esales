@@ -52,8 +52,14 @@
         </div>
       </div>
       <div class="col-sm-4">
-        <div class="col-sm-12 right-content-first"></div>
-        <div class="col-sm-12 right-content-second"></div>
+        <div class="right-content-first">
+          <%= render "login_form" %>
+        </div>
+        <div class="right-content-second">
+          <%= link_to new_user_registration_path do %>
+              <%= image_tag('join_now.png') %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>

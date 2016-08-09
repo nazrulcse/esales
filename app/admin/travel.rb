@@ -34,6 +34,38 @@ ActiveAdmin.register Travel do
     actions
   end
 
+  show do
+    attributes_table do
+      row :title
+      row :description
+      row :vehicle
+      row :from_date do |travel|
+        travel.from_date.strftime('%b %d, %Y') if travel.from_date.present?
+      end
+      row :to_date do |travel|
+        travel.to_date.strftime('%b %d, %Y') if travel.to_date.present?
+      end
+      row :location
+      row :price do |product|
+        number_to_currency product.price
+      end
+      row :is_ticket
+      row :offer
+      row :lat
+      row :lng
+      row :images do |travel|
+        ul do
+          travel.images.each do |image|
+            li do
+              image_tag image.img_url(:thumb)
+            end
+          end
+        end
+      end
+      row :created_at
+    end
+  end
+
   form html: {multipart: true} do |f|
     f.semantic_errors
     render 'location', f: f

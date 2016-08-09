@@ -120,7 +120,7 @@ ActiveAdmin.setup do |config|
   # This allows your users to comment on any resource registered with Active Admin.
   #
   # You can completely disable comments:
-   config.comments = false
+  config.comments = false
 
   #
   # You can change the name under which comments are registered:
@@ -189,7 +189,7 @@ ActiveAdmin.setup do |config|
   #
   # To load a stylesheet:
   #   config.register_stylesheet 'my_stylesheet.css'
-    config.register_stylesheet 'product_admin.css'
+  config.register_stylesheet 'product_admin.css'
   #
   # You can provide an options hash for more control, which is passed along to stylesheet_link_tag():
   #   config.register_stylesheet 'my_print_stylesheet.css', media: :print

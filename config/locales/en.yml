@@ -27,7 +27,10 @@ en:
         format: "%n %u"
   date:
     formats:
-      long: '%b %d, %Y'
+      long: "%Y-%m-%d"
+  time:
+    formats:
+      long: "%Y-%m-%d %H:%M:%S"
   contact: "Contact"
   signup: "Signup"
   signin: "SignIn"

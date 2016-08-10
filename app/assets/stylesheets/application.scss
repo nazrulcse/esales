@@ -25,6 +25,9 @@ body {
   white-space: pre-wrap;
 }
 
-.flash-box {
-  max-width: 50%;
+#flash-box {
+  left: 40%;
+  margin: auto;
+  position: fixed;
+  top: 20%;
 }

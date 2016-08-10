@@ -30,23 +30,12 @@ class ServicesController < ApplicationController
   end
 
   def more
-    if params[:category].present?
-      if params[:category] == 'product'
-        items = Product.where('product_type = ?', params[:category]).joins(:category).joins(:brand).limit(5).offset(params[:offset])
-      else
-        items = Product.where('product_type = ?', params[:category]).joins(:category).limit(5).offset(params[:offset])
-      end
-    else
-      items = Product.all.joins(:category).where('product_type = ?', 'service').limit(5).offset(params[:offset])
-    end
+
+    items = Service.all.joins(:category).limit(5).offset(params[:offset])
 
     if params[:search].present?
-      if params[:category] == 'product'
-        items = items.where("products.name like '%#{params[:search]}%' or categories.name like '%#{params[:search]}%' or brands.name like '%#{params[:search]}%'")
-      else
-        items = items.where("products.name like '%#{params[:search]}%' or categories.name like '%#{params[:search]}%'")
+        items = items.where("services.name like '%#{params[:search]}%' or categories.name like '%#{params[:search]}%'")
       end
-    end
 
     if params[:category_id].present?
       items = items.where(category_id: params[:category_id])

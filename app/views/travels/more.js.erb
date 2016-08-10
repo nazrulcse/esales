@@ -1,0 +1,3 @@
+<% @travels.each do |travel| %>
+$('.travels_items').append("<%= escape_javascript(render 'item', :travel => travel ).html_safe %>");
+<%end%>

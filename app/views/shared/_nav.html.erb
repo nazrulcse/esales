@@ -1,3 +1,17 @@
+<script type="text/javascript">
+  $(function(){
+     $('.custom-dropdown').hover(function(){
+         var customDropdown = $(this).children('.custom-dropdown-content').css("display", "block");
+         customDropdown.parent().addClass('custom-show');
+
+     }, function(){
+         var customDropdown = $(this).children('.custom-dropdown-content').css("display", "none");
+         customDropdown.parent().removeClass('custom-show');
+     })
+  });
+
+</script>
+
 <div id="gh-gb" class="menu-1 clearfix" style="background: #F8F8F8;">
   <div class="container">
     <div class="top-nav">
@@ -97,20 +111,131 @@
 
 <div class="container public_bg_image">
   <div class="menu-3">
-    <hr class="hr-line">
-    <ul class="clearfix site-menu-last">
-      <li>
+    <!--<hr class="hr-line">-->
+
+
+    <ul class="clearfix common-ul-style" id="site-menu-last"> <!-- Working to Create Dropdown Menu -->
+
+
+
+
+      <li class="custom-dropdown">
         <%= link_to t(:home), root_path %>
+
+        <ul class="custom-dropdown-content common-ul-style">
+
+          <div class="custom-dropdown-content-leftsidebar">
+            <div class="custom-dropdown-content-leftsidebar-container">
+              <div class="hover-submenu-wrap">
+
+
+                <div class="hover-submenu-1">
+                  <ul class="common-ul-style">
+                    <li>
+                      <b>
+                        Top Categories
+                      </b>
+                    </li>
+
+                    <li>
+                      <a href="#">
+                        <i class="fa fa-male top-categories-icon-style"></i>
+                        Men's
+                      </a>
+                    </li>
+
+                    <li>
+                      <a href="#">
+                        <i class="fa  fa-female top-categories-icon-style"></i>
+                        Women's
+                      </a>
+                    </li>
+
+                    <li>
+                      <a href="#">
+                        <i class="fa  fa-child top-categories-icon-style"></i>
+                        Kids
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="hover-submenu-2">
+                  <ul class="common-ul-style">
+                    <li>
+                      <b>
+                        Shop for
+                      </b>
+                    </li>
+
+                    <li>
+                      <a href="#">
+                        Jewelry & Watches
+                      </a>
+                    </li>
+
+                    <li>
+                      <a href="#">
+                        Handbags & Accessories
+                      </a>
+                    </li>
+
+                    <li>
+                      <a href="#">
+                        Health & Beauty Shoes
+                      </a>
+                    </li>
+
+                    <li>
+                      <a href="#">
+                        Shoes
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <div class="custom-dropdown-content-rightsidebar"></div>
+
+        </ul>
+
       </li>
+
+
+
+
       <li>
         <%= link_to t(:products), products_path %>
       </li>
+
       <li>
         <%= link_to t(:services), services_path %>
+      </li>
+
       <li>
         <%= link_to t(:about_us), about_path %>
       </li>
+
     </ul>
-    <hr class="hr-line">
+
+
+    <!--<ul class="clearfix site-menu-last">-->
+      <!--<li>-->
+        <!--<%#= link_to t(:home), root_path %>-->
+      <!--</li>-->
+      <!--<li>-->
+        <!--<%#= link_to t(:products), products_path %>-->
+      <!--</li>-->
+      <!--<li>-->
+        <!--<%#= link_to t(:services), services_path %>-->
+      <!--<li>-->
+        <!--<%#= link_to t(:about_us), about_path %>-->
+      <!--</li>-->
+    <!--</ul>-->
+
+
+    <!--<hr class="hr-line">-->
   </div>
 </div>

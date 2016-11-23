@@ -1,3 +1,4 @@
+
 <div id="gh-gb" class="menu-1 clearfix" style="background: #F8F8F8;">
   <div class="container">
     <div class="top-nav">
@@ -97,24 +98,271 @@
 
 <div class="container public_bg_image">
   <div class="menu-3">
-    <hr class="hr-line">
-    <ul class="clearfix site-menu-last">
-      <li>
+    <!--<hr class="hr-line">-->
+    <ul class="clearfix common-ul-style" id="site-menu-last"> <!-- Working to Create Dropdown Menu -->
+
+      <li class="custom-dropdown">
         <%= link_to t(:home), root_path %>
+        <ul class="custom-dropdown-content common-ul-style">
+          <div class="custom-dropdown-content-leftsidebar">
+            <div class="custom-dropdown-content-leftsidebar-container">
+              <div class="hover-submenu-wrap clearfix">
+
+                <div class="hover-submenu-1 clearfix">
+                  <ul class="common-ul-style">
+                    <li>
+                      <b>
+                        Top Categories
+                      </b>
+                    </li>
+
+                    <li>
+                      <%= link_to() do %>
+                          <i class="fa fa-male top-categories-icon-style"></i>
+                          Men's
+                      <% end %>
+
+                    </li>
+
+                    <li>
+                      <%= link_to() do %>
+                          <i class="fa fa-female top-categories-icon-style"></i>
+                          Women's
+                      <% end %>
+
+                    </li>
+
+                    <li>
+                      <%= link_to() do %>
+                          <i class="fa fa-child top-categories-icon-style"></i>
+                          Kids
+                      <% end %>
+
+                    </li>
+                  </ul>
+                </div>
+                <div class="hover-submenu-2 clearfix">
+                  <ul class="common-ul-style">
+                    <li>
+                      <b>
+                        Shop for
+                      </b>
+                    </li>
+
+                    <li>
+                      <%= link_to "Jewelry & Watches" %>
+
+                    </li>
+
+                    <li>
+                      <%= link_to "Handbags & Accessories" %>
+
+                    </li>
+
+                    <li>
+                      <%= link_to "Health & Beauty" %>
+
+                    </li>
+
+                    <li>
+                      <%= link_to "Shoes" %>
+
+                    </li>
+                  </ul>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+          <div class="custom-dropdown-content-rightsidebar"></div>
+
+        </ul>
+
       </li>
-      <li>
+
+      <li class="custom-dropdown">
         <%= link_to t(:products), products_path %>
+        <ul class="custom-dropdown-content common-ul-style">
+          <div class="custom-dropdown-content-leftsidebar">
+            <div class="custom-dropdown-content-leftsidebar-container">
+              <div class="hover-submenu-wrap clearfix">
+
+                <div class="hover-submenu-1 clearfix">
+                  <ul class="common-ul-style">
+                    <li>
+                      <b>
+                        Top Categories
+                      </b>
+                    </li>
+
+                    <li>
+                      <%= link_to() do %>
+                          <i class="fa fa-male top-categories-icon-style"></i>
+                          Men's
+                      <% end %>
+
+                    </li>
+
+                    <li>
+                      <%= link_to() do %>
+                          <i class="fa fa-female top-categories-icon-style"></i>
+                          Women's
+                      <% end %>
+
+                    </li>
+
+                    <li>
+                      <%= link_to() do %>
+                          <i class="fa fa-child top-categories-icon-style"></i>
+                          Kids
+                      <% end %>
+
+                    </li>
+                  </ul>
+                </div>
+                <div class="hover-submenu-2 clearfix">
+                  <ul class="common-ul-style">
+                    <li>
+                      <b>
+                        Shop for
+                      </b>
+                    </li>
+
+                    <li>
+                      <%= link_to "Jewelry & Watches" %>
+
+                    </li>
+
+                    <li>
+                      <%= link_to "Handbags & Accessories" %>
+
+                    </li>
+
+                    <li>
+                      <%= link_to "Health & Beauty" %>
+
+                    </li>
+
+                    <li>
+                      <%= link_to "Shoes" %>
+
+                    </li>
+                  </ul>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+          <div class="custom-dropdown-content-rightsidebar"></div>
+
+        </ul>
       </li>
+
       <li>
         <%= link_to t(:services), services_path %>
       </li>
-      <li>
+
+      <li class="custom-dropdown">
         <%= link_to t(:ticket_and_travels), travels_path %>
+        <ul class="custom-dropdown-content common-ul-style">
+          <div class="custom-dropdown-content-leftsidebar">
+            <div class="custom-dropdown-content-leftsidebar-container">
+              <div class="hover-submenu-wrap clearfix">
+
+                <div class="hover-submenu-1 clearfix">
+                  <ul class="common-ul-style">
+                    <li>
+                      <b>
+                        Top Categories
+                      </b>
+                    </li>
+
+                    <li>
+                      <%= link_to() do %>
+                          <i class="fa fa-male top-categories-icon-style"></i>
+                          Men's
+                      <% end %>
+
+                    </li>
+
+                    <li>
+                      <%= link_to() do %>
+                          <i class="fa fa-female top-categories-icon-style"></i>
+                          Women's
+                      <% end %>
+
+                    </li>
+
+                    <li>
+                      <%= link_to() do %>
+                          <i class="fa fa-child top-categories-icon-style"></i>
+                          Kids
+                      <% end %>
+
+                    </li>
+                  </ul>
+                </div>
+                <div class="hover-submenu-2 clearfix">
+                  <ul class="common-ul-style">
+                    <li>
+                      <b>
+                        Shop for
+                      </b>
+                    </li>
+
+                    <li>
+                      <%= link_to "Jewelry & Watches" %>
+
+                    </li>
+
+                    <li>
+                      <%= link_to "Handbags & Accessories" %>
+
+                    </li>
+
+                    <li>
+                      <%= link_to "Health & Beauty" %>
+
+                    </li>
+
+                    <li>
+                      <%= link_to "Shoes" %>
+
+                    </li>
+                  </ul>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+          <div class="custom-dropdown-content-rightsidebar"></div>
+
+        </ul>
       </li>
+
       <li>
         <%= link_to t(:about_us), about_path %>
       </li>
+
+
     </ul>
-    <hr class="hr-line">
+
   </div>
 </div>
+
+<script type="text/javascript">
+    $(function(){
+        $('.custom-dropdown').hover(function(){
+            var customDropdown = $(this).children('.custom-dropdown-content').css("display", "block");
+            customDropdown.parent().addClass('custom-show');
+
+        }, function(){
+            var customDropdown = $(this).children('.custom-dropdown-content').css("display", "none");
+            customDropdown.parent().removeClass('custom-show');
+        })
+    });
+
+</script>

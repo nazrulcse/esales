@@ -24,6 +24,7 @@
   <section class="b-infoblock">
     <div class="container public_bg_image">
       <div class="row">
+        <%= render 'shared/filter', product_type: 'service' %>
         <div class="col-md-9 ">
           <div class="b-shortcode-example">
             <div class=" f-primary-b b-title-b-hr f-title-b-hr b-null-top-indent"><%= @service.name %></div>
@@ -185,7 +186,6 @@
           </div>
 
         </div>
-        <%= render 'shared/filter', product_type: 'service' %>
       </div>
     </div>
   </section>

@@ -242,13 +242,13 @@ $display-show-hide: none;
 
   .custom-dropdown-content-rightsidebar {
     &.nav-product-category-image {
-      background: url("custom-sub-menu.jpg");
+      background: image-url("custom-sub-menu.jpg");
     }
     &.nav-service-category-image {
-      background: url("service.jpg");
+      background: image-url("service.jpg");
     }
     &.nav-ticket-category-image {
-      background: url("tour_travel.jpg");
+      background: image-url("tour_travel.jpg");
     }
     background-size: 100% 100%;
     background-repeat: no-repeat;

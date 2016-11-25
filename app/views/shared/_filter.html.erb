@@ -1,4 +1,4 @@
-<div class="col-md-3" style="border-left: solid 1px #dddddd;">
+<div class="col-md-3" style="border-right: solid 1px #dddddd;">
   <aside>
     <div class="row b-col-default-indent">
       <div class="col-md-12">
@@ -12,7 +12,6 @@
             <%= hidden_field_tag 'max_price', 700 %>
           </div>
           <%= submit_tag t(:filter), class: 'b-btn f-btn b-btn-sm f-btn-sm b-btn-default f-primary-b' %>
-          <!--<a href="#" class="b-btn f-btn b-btn-sm f-btn-sm b-btn-default f-primary-b">Filter</a>-->
         </form>
       </div>
       <div class="col-md-12">
@@ -22,7 +21,9 @@
             <% @categories.each do |category, count| %>
 
                 <li>
-                  <a class="f-categories-filter_name" href="<%= services_path(category_id: category) %>"><i class="fa fa-plus"></i> <%= get_category_name(category) %>
+                  <a class="f-categories-filter_name" href="<%= product_type == 'service' ? services_path(category_id: category) : products_path(category_id: category) %>">
+                    <i class="fa fa-<%= category.to_s == params[:category_id] ? 'check' : 'plus' %>"></i>
+                    <%= get_category_name(category) %>
                   </a>
                   <span class="b-categories-filter_count f-categories-filter_count"><%= count %></span>
                 </li>

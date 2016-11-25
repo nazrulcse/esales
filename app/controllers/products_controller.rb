@@ -36,7 +36,7 @@ class ProductsController < ApplicationController
       items = Product.tagged_with(params[:tag])
     end
 
-    @categories = items.group('category_id').count
+    @categories = Product.group('category_id').count
     @products = items
     # if params[:category] == 'service'
     #   render 'services'

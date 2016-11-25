@@ -23,6 +23,7 @@
   <section class="b-infoblock">
     <div class="container public_bg_image">
       <div class="row">
+        <%= render 'shared/filter', product_type: 'product' %>
         <div class="col-md-9 ">
           <div class="row">
             <div class="b-col-default-indent product_items">
@@ -32,7 +33,6 @@
             </div>
           </div>
         </div>
-        <%= render 'shared/filter', product_type: 'product' %>
       </div>
     </div>
   </section>

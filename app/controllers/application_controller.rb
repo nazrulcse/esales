@@ -35,7 +35,11 @@ class ApplicationController < ActionController::Base
   end
 
   def all_tags(product_type)
-    products = Product.where(product_type: product_type)
+    if product_type == 'product'
+      products = Product.all
+    else
+      products = Service.all
+    end
     tags = products.collect { |product| product.tags }
     tags.flatten!
     tags.uniq
@@ -43,7 +47,7 @@ class ApplicationController < ActionController::Base
 
   def travels_tags
     travels = Travel.all
-    tags = travels.collect {|travel| travel.tags}
+    tags = travels.collect { |travel| travel.tags }
     tags.flatten!
     tags.uniq
   end

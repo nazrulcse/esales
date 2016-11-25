@@ -199,8 +199,8 @@ $display-show-hide: none;
   left: 0;
   position: absolute;
   right: 0;
-  z-index: 1;
-  //box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 10;
+  box-shadow: 0 3px 5px rgba(0,0,0,0.2);
   .custom-dropdown-content-leftsidebar {
     float: left;
     height: auto;
@@ -241,7 +241,15 @@ $display-show-hide: none;
   }
 
   .custom-dropdown-content-rightsidebar {
-    background: url("custom-sub-menu.jpg");
+    &.nav-product-category-image {
+      background: url("custom-sub-menu.jpg");
+    }
+    &.nav-service-category-image {
+      background: url("service.jpg");
+    }
+    &.nav-ticket-category-image {
+      background: url("tour_travel.jpg");
+    }
     background-size: 100% 100%;
     background-repeat: no-repeat;
     float: left;

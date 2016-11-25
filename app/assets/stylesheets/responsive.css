@@ -5,9 +5,9 @@
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
     color: #e26228;
-    font-size: 13px;
     font-weight: bold;
-    left: 10px;
     position: absolute;
-    top: 17px;
+    font-size: 18px !important;
+    left: 18px;
+    top: 30px;
 }

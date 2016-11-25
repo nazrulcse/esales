@@ -8,7 +8,6 @@
 # server 'db.example.com', user: 'deploy', roles: %w{db}
 
 
-
 # role-based syntax
 # ==================
 
@@ -22,7 +21,6 @@
 # role :db,  %w{deploy@example.com}
 
 
-
 # Configuration
 # =============
 # You can set any configuration variable like in config/deploy.rb
@@ -30,7 +28,6 @@
 # For available Capistrano configuration variables see the documentation page.
 # http://capistranorb.com/documentation/getting-started/configuration/
 # Feel free to add new variables to customise your setup.
-
 
 
 # Custom SSH Options
@@ -62,4 +59,4 @@
 
 set :deploy_to, "/home/root/apps/esales"
 set :rails_env, "production"
-set :branch, 'master'
+set :branch, 'refactor'

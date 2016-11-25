@@ -56,16 +56,12 @@
     $(document).ready(function () {
         min = <%= params[:min_price].present? ? params[:min_price] : '200'  %>;
         max = <%= params[:min_price].present? ? params[:max_price] : '700'  %>;
-        $('.b-slider-range').slider({
-            values: [min, max],
-            change: function (event, ui) {
-                $('#min_price').val(ui.values[0]);
-                $('#max_price').val(ui.values[1]);
-            }
+        $('.b-slider-range').ionRangeSlider({
+            type: "double",
+            min: min,
+            max: max,
+            grid: true
         });
-        $('.b-slider-range').find('.max').text(max);//"৳" +
-        $('.b-slider-range').find('.min').text(min);//"৳" +
-
     });
 
     $(function () {

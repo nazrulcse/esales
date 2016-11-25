@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  bookable_type: MyString
+  bookable_id: 1
+  name: MyString
+  email: MyString
+  mobile: MyString
+  address: MyText
+
+two:
+  bookable_type: MyString
+  bookable_id: 1
+  name: MyString
+  email: MyString
+  mobile: MyString
+  address: MyText

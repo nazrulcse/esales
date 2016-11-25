@@ -250,35 +250,7 @@
         });
     });
     $(document).ready(function () {
-        $('.b-slider-range').slider({
-            change: function (event, ui) {
-//                alert(ui.values[0]);
-//                alert(ui.values[1]);
-//                $('input#project_min_v').val(ui.values[0]);
-//                $('input#project_max_v').val(ui.value[1]);
-            }
 
-        });
-
-        $('.raty-level-input5').raty({
-            scoreName: function () {
-                return $(this).attr('data-name');
-            },
-            starHalf: '<%= asset_path('star-half.png') %>',
-            starOff: '<%= asset_path('star-off.png') %>',
-            starOn: '<%= asset_path('star-on.png') %>',
-            number: 5
-        });
-
-        $('.b-stars-group').raty({
-            scoreName: function () {
-                return $(this).attr('data-name');
-            },
-            starHalf: '<%= asset_path('star-half.png') %>',
-            starOff: '<%= asset_path('star-off.png') %>',
-            starOn: '<%= asset_path('star-on.png') %>',
-            number: 5
-        });
         $(".popup_link").click(function (e) {
             $('#myModal').modal('show');
         });

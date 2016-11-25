@@ -1,0 +1,44 @@
+.landing-slider {
+  height: 300px;
+  background: image-url('slider_shop_1.jpg');
+  background-size: 100% 100%;
+  overflow: hidden;
+  .slider-item {
+    position: relative;
+    .slider-text-section {
+      margin-left: 30%;
+      .top-header {
+        font-size: 26px;
+        color: #fdfdfd;
+        font-weight: bold;
+      }
+      .top-title {
+        font-weight: bold;
+        font-size: 22px;
+        color: #fdfdfd;
+        margin-bottom: 0;
+      }
+      .description {
+        font-size: 20px;
+        color: #ffffff;
+      }
+    }
+    .slider-image {
+      position: absolute;
+      left: 10px;
+      border: 20px;
+      img {
+        max-width: 140px;
+        max-height: 150px;
+      }
+    }
+    .price-off-wrapper {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      img {
+        width: 80px;
+      }
+    }
+  }
+}

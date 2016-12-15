@@ -161,7 +161,7 @@
                         <div class="col-md-4 col-sm-4 col-xs-6 col-mini-12">
                           <div class="b-product-preview">
                             <div class="b-product-preview__img view view-sixth">
-                              <%= image_tag(product.images.first.image.url(:thumb)) if product.images.present? %>
+                              <%= image_tag(product.images.present? ? product.images.first.img.url(:thumb) : 'NoPhotoDefault.png') %>
 
                               <div class="b-item-hover-action f-center mask">
                                 <div class="b-item-hover-action__inner">

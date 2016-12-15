@@ -48,6 +48,12 @@ en:
   password_hint: 'characters minimum'
   password_confirmation: 'Password confirmation'
   forget_password: 'Forgot your password? '
+  reset_password_instruction: 'send me reset password instructions'
+  change_password: 'Change your password'
+  new_password: 'New Password'
+  confirm_new_password: 'Confirm new password'
+  change_my_password: 'Confirm new password'
+  password_length: '8 characters minimum'
   voter: 'Voter Id'
   my_account: "My Account"
   req_subscription: "Request For Subscription"
@@ -122,6 +128,7 @@ en:
   related_servive: 'Service Related'
   detail: 'Detail'
   email: 'Email'
+  enter_email_address: 'Enter Your Email Address'
   password: 'Password'
   remember_me: 'Remember me'
   phone: 'Phone'

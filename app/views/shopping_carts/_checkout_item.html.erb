@@ -1,8 +1,8 @@
 <tr id="product-<%= line_item.id %>">
   <td class="cart-item-image">
-    <%= link_to product_path(line_item.product) do
-      image_tag line_item.product.product_images.first.image_url(:thumb).to_s
-    end %>
+    <%= link_to product_path(line_item.product) do %>
+      <%= image_tag(line_item.product.images.present? ? line_item.product.images.first.img.url(:thumb) : 'NoPhotoDefault.png') %>
+   <% end %>
   </td>
   <td class="text-center order-item-total-price">
     <%= number_with_currency(line_item.product.price) %> x <%= format_number(line_item.quantity) %>

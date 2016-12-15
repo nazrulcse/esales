@@ -1,22 +1,10 @@
 class ProductsController < ApplicationController
 
   def index
-    if params[:category].present?
-      if params[:category] == 'product'
-        items = Product.where('product_type = ?', params[:category]).joins(:category).joins(:brand).limit(8)
-      else
-        items = Product.where('product_type = ?', params[:category]).joins(:category).limit(8)
-      end
-    else
-      items = Product.all.joins(:category).joins(:brand).limit(8)
-    end
+    items = Product.all.includes(:category).includes(:brand).limit(8)
 
     if params[:search].present?
-      if params[:category] == 'product'
-        items = items.where("products.name like '%#{params[:search]}%' or categories.name like '%#{params[:search]}%' or brands.name like '%#{params[:search]}%'")
-      else
-        items = items.where("products.name like '%#{params[:search]}%' or categories.name like '%#{params[:search]}%'")
-      end
+      items = items.where("products.name like '%#{params[:search]}%' or categories.name like '%#{params[:search]}%' or brands.name like '%#{params[:search]}%'")
     end
 
     if params[:category_id].present?
@@ -38,9 +26,6 @@ class ProductsController < ApplicationController
 
     @categories = Product.group('category_id').count
     @products = items
-    # if params[:category] == 'service'
-    #   render 'services'
-    # end
   end
 
   def show
@@ -64,22 +49,10 @@ class ProductsController < ApplicationController
   end
 
   def more
-    if params[:category].present?
-      if params[:category] == 'product'
-        items = Product.where('product_type = ?', params[:category]).joins(:category).joins(:brand).limit(5).offset(params[:offset])
-      else
-        items = Product.where('product_type = ?', params[:category]).joins(:category).limit(5).offset(params[:offset])
-      end
-    else
-      items = Product.all.joins(:category).joins(:brand).limit(5).offset(params[:offset])
-    end
+    items = Product.all.includes(:category).includes(:brand).limit(5).offset(params[:offset])
 
     if params[:search].present?
-      if params[:category] == 'product'
         items = items.where("products.name like '%#{params[:search]}%' or categories.name like '%#{params[:search]}%' or brands.name like '%#{params[:search]}%'")
-      else
-        items = items.where("products.name like '%#{params[:search]}%' or categories.name like '%#{params[:search]}%'")
-      end
     end
 
     if params[:category_id].present?

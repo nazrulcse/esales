@@ -42,6 +42,12 @@ bn:
   password_hint: "অক্ষর সর্বনিম্ন"
   password_confirmation: 'পাসওয়ার্ড নিশ্চিতকরণ'
   forget_password: 'আপনি কি পাসওয়ার্ড ভুলে গেছেন?'
+  reset_password_instruction: 'আমাকে রিসেট পাসওয়ার্ড নির্দেশাবলী পাঠান'
+  change_password: 'আপনার পাসওয়ার্ড পরিবর্তন করুন'
+  new_password: 'নতুন পাসওয়ার্ড'
+  confirm_new_password: 'নতুন পাসওয়ার্ড নিশ্চিত'
+  change_my_password: 'আমার পাসওয়ার্ড পরিবর্তন'
+  password_length: 'কমপক্ষে ৮ টি অক্ষর'
   my_account: " আমার অ্যাকাউন্ট"
   req_subscription: "সাবস্ক্রিপশনের জন্য অনুরোধ"
   bangla: "বাংলা"
@@ -110,6 +116,7 @@ bn:
   related_servive: 'সংশ্লিষ্ট সেবা'
   detail: 'বিস্তারিত'
   email: 'ই-মেইল'
+  enter_email_address: 'আপনার ইমেইল ঠিকানাটি লিখুন'
   password: 'পাসওয়ার্ড'
   remember_me: 'আমাকে মনে কর'
   phone: 'ফোন'

@@ -10,7 +10,7 @@
                   <div class="col-md-4 col-sm-4 col-xs-6 col-mini-12">
                     <div class="b-product-preview">
                       <div class="b-product-preview__img view view-sixth">
-                        <%= image_tag (service.product_images.first.image.url(:big)) %>
+                        <%= image_tag (service.images.present? ? service.images.first.img.url(:big) : 'NoPhotoDefault.png') %>
                         <div class="b-item-hover-action f-center mask">
                           <div class="b-item-hover-action__inner">
                             <div class="b-item-hover-action__inner-btn_group">

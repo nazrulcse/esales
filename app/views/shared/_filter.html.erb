@@ -62,7 +62,7 @@
             <div class="b-blog-short-post b-blog-short-post--popular b-blog-short-post--w-img b-blog-short-post--img-hover-bordered f-blog-short-post--w-img row f-blog-short-post--popular">
               <div class="b-blog-short-post__item col-md-12 col-sm-6 col-xs-12">
                 <div class="b-blog-short-post__item_img">
-                  <a href="#">
+                  <a href="<%= product_details_path(product) %>">
                     <%= image_tag(product.images.first.img.url(:thumb)) if product.images.present? %>
                   </a>
                 </div>
@@ -86,11 +86,23 @@
     $(document).ready(function () {
         min = <%= params[:min_price].present? ? params[:min_price] : '100'  %>;
         max = <%= params[:min_price].present? ? params[:max_price] : '20000'  %>;
+
+        var saveResult = function (data) {
+            $('#min_price').val(data.from);
+            $('#max_price').val(data.to);
+        };
+
         $('.b-slider-range').ionRangeSlider({
             type: "double",
-            min: min,
-            max: max,
-            grid: true
+            min: 100,
+            max: 20000,
+            from: min,
+            to: max,
+            grid: true,
+            onStart: function (data) {
+                saveResult(data);
+            },
+            onFinish: saveResult
         });
 
     });

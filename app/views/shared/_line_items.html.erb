@@ -3,7 +3,7 @@
       <li>
         <div class="b-option-cart__items__img" style="padding-right: 20px;">
           <div class="view view-sixth">
-            <%= image_tag(line_item.product.product_images.first.image.url(:small)) %>
+            <%= image_tag(line_item.product.images.first.img.url(:small)) if line_item.product.images.present? %>
             <div class="b-item-hover-action f-center mask">
               <div class="b-item-hover-action__inner">
                 <div class="b-item-hover-action__inner-btn_group">

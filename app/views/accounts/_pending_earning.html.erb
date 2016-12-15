@@ -22,7 +22,7 @@
   <% order.line_items.each do |line_item| %>
       <tr>
         <td class="order-item-image">
-          <%= image_tag(line_item.product.product_images.first.image.url(:thumb)) %>
+          <%= image_tag(line_item.product.images.present? ? line_item.product.images.first.img.url(:thumb) : 'NoPhotoDefault.png') %>
         </td>
         <td>
           <h2> <%= line_item.product.category.name %> </h2>

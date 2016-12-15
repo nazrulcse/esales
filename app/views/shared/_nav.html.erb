@@ -74,7 +74,7 @@
 </div>
 <div class="container clearfix public_bg_image">
   <div class="menu-2">
-    <%= form_tag products_path, :method => :get do %>
+    <%= form_tag products_path, :method => :get, id: "nav-search-form" do %>
         <ul class="clearfix">
           <li>
             <%= link_to image_tag('logo.png', class: 'search-logo'), root_path %>
@@ -358,7 +358,12 @@
         }, function () {
             var customDropdown = $(this).children('.custom-dropdown-content').css("display", "none");
             customDropdown.parent().removeClass('custom-show');
-        })
+        });
+
+        $("#gh-cat").change(function() {
+            var action = $(this).val() == "product" ? "<%= products_path %>" : "<%= services_path %>";
+            $("#nav-search-form").attr("action", action);
+        });
     });
 
 </script>

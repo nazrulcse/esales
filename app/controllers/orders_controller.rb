@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
 
   def index
-    @orders = Order.all.where(:user_id => current_user.id)
+    @orders = Order.all.where(:user_id => current_user.id).order(id: :desc)
     @categories = Product.all.group('category_id').count
   end
 

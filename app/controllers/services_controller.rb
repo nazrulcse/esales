@@ -1,6 +1,11 @@
 class ServicesController < ApplicationController
   def index
-    @services = Service.all.limit(8)
+    @services = Service.all.includes(:category).limit(8)
+
+    if params[:search].present?
+      @services = @services.where("services.name like '%#{params[:search]}%' or categories.name like '%#{params[:search]}%'")
+    end
+
     if params[:category_id].present?
       @services = @services.where(category_id: params[:category_id])
     end
@@ -30,12 +35,11 @@ class ServicesController < ApplicationController
   end
 
   def more
-
-    items = Service.all.joins(:category).limit(5).offset(params[:offset])
+    items = Service.all.includes(:category).limit(5).offset(params[:offset])
 
     if params[:search].present?
-        items = items.where("services.name like '%#{params[:search]}%' or categories.name like '%#{params[:search]}%'")
-      end
+      items = items.where("services.name like '%#{params[:search]}%' or categories.name like '%#{params[:search]}%'")
+    end
 
     if params[:category_id].present?
       items = items.where(category_id: params[:category_id])

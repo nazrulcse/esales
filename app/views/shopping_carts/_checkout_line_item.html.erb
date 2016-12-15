@@ -1,6 +1,6 @@
 <tr id="product-<%= line_item.id %>">
   <td class="cart-item-image">
-    <%= image_tag line_item.product.product_images.first.image_url(:thumb).to_s %>
+    <%= image_tag(line_item.product.images.present? ? line_item.product.images.first.img.url(:thumb) : 'NoPhotoDefault.png') %>
   </td>
   <td>
     <h3 class='reset-top-margin'> <%= line_item.product.category.name %> </h3>

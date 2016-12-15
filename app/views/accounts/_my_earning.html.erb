@@ -13,7 +13,7 @@
   <% @earnings.each do |earn| %>
       <tr>
         <td class="order-item-image">
-          <%= image_tag(earn.product.images.first.img_url(:thumb)) %>
+          <%= image_tag(earn.product.images.present? ? earn.product.images.first.img.url(:thumb) : 'NoPhotoDefault.png') %>
         </td>
         <td>
           <h2> <%= earn.product.category.name %> </h2>

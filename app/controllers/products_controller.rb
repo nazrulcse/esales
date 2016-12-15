@@ -4,7 +4,7 @@ class ProductsController < ApplicationController
     items = Product.all.includes(:category).includes(:brand).limit(8)
 
     if params[:search].present?
-      items = items.where("products.name like '%#{params[:search]}%' or categories.name like '%#{params[:search]}%' or brands.name like '%#{params[:search]}%'")
+      items = items.where("products.name like '%#{params[:search]}%' or categories.name like '%#{params[:search]}%' or brands.name like '%#{params[:search]}%'").references(:category).references(:brand)
     end
 
     if params[:category_id].present?
@@ -52,7 +52,7 @@ class ProductsController < ApplicationController
     items = Product.all.includes(:category).includes(:brand).limit(5).offset(params[:offset])
 
     if params[:search].present?
-        items = items.where("products.name like '%#{params[:search]}%' or categories.name like '%#{params[:search]}%' or brands.name like '%#{params[:search]}%'")
+        items = items.where("products.name like '%#{params[:search]}%' or categories.name like '%#{params[:search]}%' or brands.name like '%#{params[:search]}%'").references(:category).references(:brand)
     end
 
     if params[:category_id].present?

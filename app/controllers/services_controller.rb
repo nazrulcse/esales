@@ -3,7 +3,7 @@ class ServicesController < ApplicationController
     @services = Service.all.includes(:category).limit(8)
 
     if params[:search].present?
-      @services = @services.where("services.name like '%#{params[:search]}%' or categories.name like '%#{params[:search]}%'")
+      @services = @services.where("services.name like '%#{params[:search]}%' or categories.name like '%#{params[:search]}%'").references(:category)
     end
 
     if params[:category_id].present?
@@ -38,7 +38,7 @@ class ServicesController < ApplicationController
     items = Service.all.includes(:category).limit(5).offset(params[:offset])
 
     if params[:search].present?
-      items = items.where("services.name like '%#{params[:search]}%' or categories.name like '%#{params[:search]}%'")
+      items = items.where("services.name like '%#{params[:search]}%' or categories.name like '%#{params[:search]}%'").references(:category)
     end
 
     if params[:category_id].present?

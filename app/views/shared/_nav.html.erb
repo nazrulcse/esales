@@ -74,7 +74,16 @@
 </div>
 <div class="container clearfix public_bg_image">
   <div class="menu-2">
-    <%= form_tag products_path, :method => :get, id: "nav-search-form" do %>
+    <% if params[:category].present? %>
+        <% if params[:category] == 'product' %>
+            <% action = products_path %>
+        <% else %>
+            <% action = services_path %>
+        <% end %>
+    <% else %>
+        <% action = products_path %>
+    <% end %>
+    <%= form_tag action, :method => :get, id: "nav-search-form" do %>
         <ul class="clearfix">
           <li>
             <%= link_to image_tag('logo.png', class: 'search-logo'), root_path %>
